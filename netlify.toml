@@ -1,0 +1,12 @@
+[build]
+  # This tells Netlify where your actual project lives
+  base = "delina-esq"
+  
+  # This tells Netlify what command to run (now it will find your package.json)
+  command = "npm run build"
+  
+  # This tells Netlify where the finished Next.js files are
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
