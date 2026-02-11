@@ -100,7 +100,7 @@ export function HeroSection() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4, delay: 0.6 + i * 0.1 }}
               >
-                {i > 0 && <span className="text-hot-pink mr-3">//</span>}
+                {i > 0 && <span className="text-hot-pink mr-3">{"//"}</span>}
                 {tag}
               </motion.span>
             ))}
