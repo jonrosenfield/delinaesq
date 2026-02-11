@@ -19,7 +19,7 @@ export function ContactSection() {
     const formData = new FormData(form)
 
     try {
-      await fetch('/', {
+      await fetch('/forms.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData as any).toString(),
@@ -129,7 +129,6 @@ export function ContactSection() {
                     key="form"
                     name="contact"
                     method="POST"
-                    data-netlify="true"
                     onSubmit={handleSubmit}
                     className="space-y-8"
                     initial={{ opacity: 0 }}
