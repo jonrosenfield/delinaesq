@@ -39,8 +39,8 @@ export function GlowInput({ label, className = '', ...props }: GlowInputProps) {
         animate={{ width: focused ? '100%' : '0%' }}
         transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
         style={{
-          background: 'linear-gradient(90deg, #FF006E, #00F5FF)',
-          boxShadow: '0 0 12px rgba(255, 0, 110, 0.6)',
+          background: 'linear-gradient(90deg, #00FF41, #00F5FF)',
+          boxShadow: '0 0 12px rgba(0, 255, 65, 0.6)',
         }}
       />
     </div>
@@ -75,8 +75,8 @@ export function GlowTextarea({ label, className = '', ...props }: GlowTextareaPr
         animate={{ width: focused ? '100%' : '0%' }}
         transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
         style={{
-          background: 'linear-gradient(90deg, #FF006E, #00F5FF)',
-          boxShadow: '0 0 12px rgba(255, 0, 110, 0.6)',
+          background: 'linear-gradient(90deg, #00FF41, #00F5FF)',
+          boxShadow: '0 0 12px rgba(0, 255, 65, 0.6)',
         }}
       />
     </div>

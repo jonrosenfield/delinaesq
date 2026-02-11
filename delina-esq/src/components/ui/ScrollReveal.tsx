@@ -36,9 +36,9 @@ export function ScrollReveal({
       initial={{ opacity: 0, ...offset }}
       animate={isInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, ...offset }}
       transition={{
-        duration: 0.7,
+        duration: 0.6,
         delay,
-        ease: [0.4, 0, 0.2, 1],
+        ease: [0.34, 1.56, 0.64, 1],
       }}
     >
       {children}

@@ -96,7 +96,7 @@ function Particles() {
       </bufferGeometry>
       <pointsMaterial
         size={0.02}
-        color="#FF006E"
+        color="#00FF41"
         transparent
         opacity={0.35}
         sizeAttenuation
@@ -117,7 +117,7 @@ export function ParticleField() {
         style={{ background: 'transparent' }}
       >
         <ambientLight intensity={0.3} />
-        <pointLight position={[5, 5, 5]} intensity={1} color="#FF006E" />
+        <pointLight position={[5, 5, 5]} intensity={1} color="#00FF41" />
         <pointLight position={[-5, -3, 3]} intensity={0.6} color="#00F5FF" />
 
         <Particles />
@@ -128,12 +128,12 @@ export function ParticleField() {
         <ChromeSphere position={[1, 3, -4]} scale={0.08} speed={0.35} />
 
         {/* Wireframe shapes — Y2K geometric floaters */}
-        <WireframeShape position={[-2.5, -2, -1.5]} rotation={[0.5, 0.3, 0]} scale={0.35} color="#FF006E" />
+        <WireframeShape position={[-2.5, -2, -1.5]} rotation={[0.5, 0.3, 0]} scale={0.35} color="#00FF41" />
         <WireframeShape position={[3, 2, -3]} rotation={[0.2, 0.8, 0.4]} scale={0.25} color="#00F5FF" />
         <WireframeShape position={[-1, 2.5, -2]} rotation={[0.7, 0.1, 0.5]} scale={0.2} color="#BF5AF2" />
 
         {/* Floating rings */}
-        <FloatingRing position={[2, -1.5, -1]} color="#FF006E" speed={0.5} />
+        <FloatingRing position={[2, -1.5, -1]} color="#00FF41" speed={0.5} />
         <FloatingRing position={[-3, 0.5, -2.5]} color="#00F5FF" speed={0.35} />
       </Canvas>
     </div>

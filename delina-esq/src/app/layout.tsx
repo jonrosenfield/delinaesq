@@ -3,6 +3,7 @@ import { Space_Grotesk, JetBrains_Mono, Silkscreen, Playfair_Display } from 'nex
 import './globals.css'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
+import { AccessibilityToolbar } from '@/components/accessibility/AccessibilityToolbar'
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -68,6 +69,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <AccessibilityToolbar />
       </body>
     </html>
   )

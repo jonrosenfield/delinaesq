@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { MagneticButton } from '@/components/ui/MagneticButton'
+import Link from 'next/link'
 
 const steps = [
   'We\'ll review your inquiry carefully',
@@ -11,19 +11,20 @@ const steps = [
 
 export function ThankYouContent() {
   return (
-    <section className="min-h-screen flex items-center justify-center relative dot-pattern">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/95 to-slate-950" />
+    <section className="min-h-screen flex items-center justify-center relative">
+      <div className="absolute inset-0 bg-void-950" />
 
-      <div className="section-container relative z-10 text-center py-32 max-w-2xl mx-auto">
+      <div className="max-w-2xl mx-auto px-6 md:px-12 relative z-10 text-center py-32">
         {/* Success Icon */}
         <motion.div
-          className="w-20 h-20 rounded-full bg-acid-green/10 border border-acid-green/20 mx-auto mb-8 flex items-center justify-center"
+          className="w-20 h-20 rounded-retro bg-slime/10 border-2 border-slime/30 mx-auto mb-8 flex items-center justify-center"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ type: 'spring', stiffness: 200, damping: 15, delay: 0.2 }}
+          style={{ boxShadow: '3px 3px 0px #39FF14' }}
         >
           <motion.span
-            className="text-acid-green text-3xl"
+            className="text-slime text-3xl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
@@ -34,16 +35,16 @@ export function ThankYouContent() {
 
         {/* Heading */}
         <motion.h1
-          className="font-display text-display-lg font-bold mb-4"
+          className="font-serif text-display-lg font-bold mb-4 text-cream italic"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
         >
-          Thank <span className="gradient-text">You</span>
+          Thank <span className="font-pixel not-italic text-hot-pink uppercase">You</span>
         </motion.h1>
 
         <motion.p
-          className="text-slate-300 text-lg mb-12"
+          className="text-void-300 text-lg mb-12 font-body"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
@@ -53,13 +54,13 @@ export function ThankYouContent() {
 
         {/* Next Steps */}
         <motion.div
-          className="glass-card p-8 text-left mb-12"
+          className="glass-card p-8 text-left mb-12 border-2 border-void-700 shadow-bevel"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
         >
-          <h3 className="font-display text-lg font-bold text-sage-100 mb-6">
-            What happens next?
+          <h3 className="font-pixel text-sm font-bold text-hot-pink mb-6 uppercase">
+            WHAT HAPPENS NEXT?
           </h3>
           <div className="space-y-4">
             {steps.map((step, i) => (
@@ -70,10 +71,10 @@ export function ThankYouContent() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6 + i * 0.1 }}
               >
-                <span className="text-neon-pink font-mono text-sm mt-0.5">
+                <span className="text-hot-pink font-pixel text-[10px] mt-0.5">
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <p className="text-slate-300 text-sm">{step}</p>
+                <p className="text-void-300 text-sm font-body">{step}</p>
               </motion.div>
             ))}
           </div>
@@ -86,12 +87,12 @@ export function ThankYouContent() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9 }}
         >
-          <MagneticButton href="/" variant="primary">
+          <Link href="/" className="btn-bevel btn-bevel-pink">
             Return to Home
-          </MagneticButton>
-          <MagneticButton href="/#about" variant="outline">
+          </Link>
+          <Link href="/#about" className="btn-bevel btn-bevel-white">
             Learn More About Us
-          </MagneticButton>
+          </Link>
         </motion.div>
 
         {/* Urgent Contact */}
@@ -100,10 +101,10 @@ export function ThankYouContent() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
         >
-          <p className="text-slate-500 text-sm mb-2">For urgent matters, reach us directly at:</p>
+          <p className="text-void-500 text-sm mb-2 font-body">For urgent matters, reach us directly at:</p>
           <a
             href="mailto:info@delina.esq"
-            className="text-neon-pink neon-underline font-mono text-sm tracking-wider"
+            className="text-hot-pink font-pixel text-[10px] tracking-wider uppercase hover:text-electric transition-colors"
           >
             info@delina.esq
           </a>

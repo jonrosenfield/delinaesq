@@ -10,6 +10,7 @@ interface ServiceData {
   items: string[]
   color: string
   icon: string
+  rotate: number
 }
 
 const services: ServiceData[] = [
@@ -23,8 +24,9 @@ const services: ServiceData[] = [
       'Cross-jurisdictional compliance review',
       'Strategic roadmap development',
     ],
-    color: 'neon-pink',
-    icon: '&#9670;',
+    color: 'hot-pink',
+    icon: '◆',
+    rotate: 0,
   },
   {
     title: 'Entity Structuring',
@@ -36,8 +38,9 @@ const services: ServiceData[] = [
       'State registrations and compliance',
       'Legal structure reviews and conversions',
     ],
-    color: 'neon-blue',
-    icon: '&#9632;',
+    color: 'electric',
+    icon: '■',
+    rotate: 0,
   },
   {
     title: 'Contract Drafting & Advisory',
@@ -49,8 +52,9 @@ const services: ServiceData[] = [
       'NDAs, IP assignments, and disclaimers',
       'Contract audits and revisions',
     ],
-    color: 'neon-violet',
-    icon: '&#9650;',
+    color: 'cyber-violet',
+    icon: '▲',
+    rotate: 0,
   },
   {
     title: 'Tax Strategy & Planning',
@@ -62,8 +66,9 @@ const services: ServiceData[] = [
       'Multi-entity and pass-through alignment',
       'Ongoing legal-tax advisory',
     ],
-    color: 'neon-pink',
-    icon: '&#9673;',
+    color: 'hot-pink',
+    icon: '◉',
+    rotate: 0,
   },
   {
     title: 'Transactions & M&A',
@@ -75,90 +80,95 @@ const services: ServiceData[] = [
       'Internal exits and partnership transitions',
       'Tax-aware deal structuring',
     ],
-    color: 'neon-blue',
-    icon: '&#9733;',
+    color: 'electric',
+    icon: '★',
+    rotate: 0,
   },
 ]
 
-const colorMap: Record<string, { accent: string; bg: string; border: string }> = {
-  'neon-pink': { accent: 'text-neon-pink', bg: 'bg-neon-pink/10', border: 'border-neon-pink/20' },
-  'neon-blue': { accent: 'text-electric-blue', bg: 'bg-electric-blue/10', border: 'border-electric-blue/20' },
-  'neon-violet': { accent: 'text-cyber-violet', bg: 'bg-cyber-violet/10', border: 'border-cyber-violet/20' },
+const colorMap: Record<string, { accent: string; bg: string; border: string; shadow: string }> = {
+  'hot-pink': { accent: 'text-hot-pink', bg: 'bg-hot-pink/10', border: 'border-hot-pink/30', shadow: '#00FF41' },
+  'electric': { accent: 'text-electric', bg: 'bg-electric/10', border: 'border-electric/30', shadow: '#00F5FF' },
+  'cyber-violet': { accent: 'text-cyber-violet', bg: 'bg-cyber-violet/10', border: 'border-cyber-violet/30', shadow: '#BF5AF2' },
 }
 
 export function FloatingPortals() {
   return (
-    <section id="services" className="section-spacing relative overflow-hidden">
-      <div className="absolute inset-0 dot-pattern opacity-30" />
-      <div className="section-container relative z-10">
+    <section id="services" className="relative py-32 md:py-40 overflow-hidden">
+      {/* Decorative rectangles */}
+      <div className="absolute top-16 left-8 w-36 h-36 border border-hot-pink/8 rounded-retro -rotate-6 pointer-events-none hidden lg:block" />
+      <div className="absolute bottom-24 right-12 w-28 h-28 border border-electric/8 rounded-retro rotate-12 pointer-events-none hidden lg:block" />
+
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+        {/* Header — editorial centered */}
         <ScrollReveal>
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <span className="tag-label mb-6 inline-block">SERVICES</span>
-            <h2 className="font-display text-display-lg font-bold mt-6 mb-4 text-sage-100">
-              Core <span className="gradient-text">Services</span>
+            <h2 className="font-serif text-display-lg font-bold mt-6 mb-3 text-cream italic">
+              Core <span className="font-pixel not-italic text-hot-pink uppercase">Services</span>
             </h2>
-            <p className="text-slate-400 text-lg max-w-lg mx-auto">
-              Four areas where we align legal and tax strategy:
+            <p className="text-void-400 text-lg max-w-lg mx-auto font-body">
+              Five areas where we align legal and tax strategy:
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Featured Card */}
+        {/* Featured Card — full width, beveled */}
         <ScrollReveal delay={0.1}>
-          <GlassCard
-            className="p-8 md:p-12 mb-8 max-w-4xl mx-auto"
-            glowColor={services[0].color}
-            depth={5}
+          <motion.div
+            className="glass-card p-8 md:p-12 mb-10 max-w-4xl mx-auto border-2 border-void-700"
+            whileHover={{ scale: 1.01 }}
+            style={{ boxShadow: `4px 4px 0px ${colorMap[services[0].color].shadow}` }}
           >
             <div className="flex items-start gap-6">
-              <div className={`w-14 h-14 rounded-glass ${colorMap[services[0].color].bg} flex items-center justify-center flex-shrink-0`}>
-                <span className={`${colorMap[services[0].color].accent} text-2xl`} dangerouslySetInnerHTML={{ __html: services[0].icon }} />
+              <div className={`w-14 h-14 rounded-retro ${colorMap[services[0].color].bg} border ${colorMap[services[0].color].border} flex items-center justify-center flex-shrink-0`}>
+                <span className={`${colorMap[services[0].color].accent} text-2xl`}>{services[0].icon}</span>
               </div>
               <div>
-                <h3 className="font-display text-xl md:text-2xl font-bold text-sage-100 mb-3">
+                <h3 className="font-pixel text-lg md:text-xl font-bold text-cream mb-3 uppercase">
                   {services[0].title}
                 </h3>
-                <p className="text-slate-400 mb-6">{services[0].description}</p>
+                <p className="text-void-400 mb-6 font-body">{services[0].description}</p>
                 <ul className="space-y-2">
                   {services[0].items.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-slate-300 text-sm">
-                      <span className={`${colorMap[services[0].color].accent} mt-1.5 text-[8px]`}>&#9632;</span>
+                    <li key={i} className="flex items-start gap-3 text-void-300 text-sm font-body">
+                      <span className={`${colorMap[services[0].color].accent} mt-1.5 text-[8px]`}>■</span>
                       {item}
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
-          </GlassCard>
+          </motion.div>
         </ScrollReveal>
 
-        {/* Grid of remaining services */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto" style={{ perspective: '1200px' }}>
+        {/* Anti-grid: 2-col with tilted cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {services.slice(1).map((service, i) => (
             <ScrollReveal key={service.title} delay={0.15 + i * 0.1}>
-              <GlassCard
-                className="p-8 h-full"
-                glowColor={service.color}
-                depth={i + 1}
+              <motion.div
+                className="glass-card p-8 h-full border-2 border-void-700"
+                whileHover={{ scale: 1.02 }}
+                style={{ boxShadow: `3px 3px 0px ${colorMap[service.color].shadow}` }}
               >
                 <div className="flex items-center gap-4 mb-5">
-                  <div className={`w-11 h-11 rounded-glass ${colorMap[service.color].bg} flex items-center justify-center flex-shrink-0`}>
-                    <span className={`${colorMap[service.color].accent} text-lg`} dangerouslySetInnerHTML={{ __html: service.icon }} />
+                  <div className={`w-11 h-11 rounded-retro ${colorMap[service.color].bg} border ${colorMap[service.color].border} flex items-center justify-center flex-shrink-0`}>
+                    <span className={`${colorMap[service.color].accent} text-lg`}>{service.icon}</span>
                   </div>
-                  <h3 className="font-display text-lg font-bold text-sage-100">
+                  <h3 className="font-pixel text-sm font-bold text-cream uppercase">
                     {service.title}
                   </h3>
                 </div>
-                <p className="text-slate-400 text-sm mb-5">{service.description}</p>
+                <p className="text-void-400 text-sm mb-5 font-body">{service.description}</p>
                 <ul className="space-y-2">
                   {service.items.map((item, j) => (
-                    <li key={j} className="flex items-start gap-2 text-slate-400 text-xs">
-                      <span className={`${colorMap[service.color].accent} mt-1 text-[6px]`}>&#9632;</span>
+                    <li key={j} className="flex items-start gap-2 text-void-400 text-xs font-body">
+                      <span className={`${colorMap[service.color].accent} mt-1 text-[6px]`}>■</span>
                       {item}
                     </li>
                   ))}
                 </ul>
-              </GlassCard>
+              </motion.div>
             </ScrollReveal>
           ))}
         </div>

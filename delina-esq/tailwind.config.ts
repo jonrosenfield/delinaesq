@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         // DOPAMINE — hyper-saturated Y2K
-        'hot-pink': '#FF006E',
+        'hot-pink': '#00FF41',
         'electric': '#00F5FF',
         'slime': '#39FF14',
         'cyber-violet': '#BF5AF2',
@@ -63,9 +63,9 @@ const config: Config = {
       boxShadow: {
         'bevel': '3px 3px 0px #000, inset 1px 1px 0px rgba(255,255,255,0.15)',
         'bevel-sm': '2px 2px 0px #000, inset 1px 1px 0px rgba(255,255,255,0.1)',
-        'bevel-pink': '3px 3px 0px #FF006E, inset 1px 1px 0px rgba(255,255,255,0.15)',
+        'bevel-pink': '3px 3px 0px #00FF41, inset 1px 1px 0px rgba(255,255,255,0.15)',
         'bevel-cyan': '3px 3px 0px #00F5FF, inset 1px 1px 0px rgba(255,255,255,0.15)',
-        'glow-pink': '0 0 15px #FF006E, 0 0 45px rgba(255,0,110,0.4), 0 0 80px rgba(255,0,110,0.15)',
+        'glow-pink': '0 0 15px #00FF41, 0 0 45px rgba(0,255,65,0.4), 0 0 80px rgba(0,255,65,0.15)',
         'glow-cyan': '0 0 15px #00F5FF, 0 0 45px rgba(0,245,255,0.4), 0 0 80px rgba(0,245,255,0.15)',
         'glow-slime': '0 0 15px #39FF14, 0 0 45px rgba(57,255,20,0.4)',
         'glow-violet': '0 0 15px #BF5AF2, 0 0 45px rgba(191,90,242,0.3)',

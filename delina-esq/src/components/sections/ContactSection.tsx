@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { SectionTag } from '@/components/ui/SectionTag'
 import { GlowInput, GlowTextarea } from '@/components/ui/GlowInput'
-import { MagneticButton } from '@/components/ui/MagneticButton'
 
 export function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -22,11 +21,10 @@ export function ContactSection() {
       await fetch('/forms.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData as any).toString(),
+        body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
       })
       setIsSubmitted(true)
     } catch {
-      // Fallback: redirect to thank-you
       window.location.href = '/thank-you'
     } finally {
       setIsSubmitting(false)
@@ -34,9 +32,12 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="section-spacing relative overflow-hidden">
-      <div className="absolute inset-0 dot-pattern opacity-30" />
-      <div className="section-container relative z-10">
+    <section id="contact" className="relative py-32 md:py-40 overflow-hidden">
+      {/* Decorative corners */}
+      <div className="absolute top-8 right-8 w-20 h-20 border-t-2 border-r-2 border-hot-pink/20 pointer-events-none" />
+      <div className="absolute bottom-8 left-8 w-20 h-20 border-b-2 border-l-2 border-electric/20 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20">
           {/* Left: Info */}
           <div>
@@ -45,14 +46,14 @@ export function ContactSection() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.1}>
-              <h2 className="font-display text-display-md font-bold mt-8 mb-6">
+              <h2 className="font-serif text-display-md font-bold mt-8 mb-6 text-cream italic">
                 Interested in{' '}
-                <span className="gradient-text">working together?</span>
+                <span className="font-pixel not-italic text-hot-pink uppercase">working together?</span>
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
-              <p className="text-slate-300 text-lg leading-relaxed mb-12">
+              <p className="text-void-300 text-lg leading-relaxed mb-12 font-body">
                 Engagements are selective and handled directly. Submit an inquiry outlining your legal and tax needs and we&apos;ll determine how we can help.
               </p>
             </ScrollReveal>
@@ -60,12 +61,12 @@ export function ContactSection() {
             <div className="space-y-8">
               <ScrollReveal delay={0.3}>
                 <div>
-                  <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-neon-pink mb-2">
-                    Email
+                  <h3 className="font-pixel text-[10px] tracking-[0.2em] uppercase text-hot-pink mb-2">
+                    EMAIL
                   </h3>
                   <a
                     href="mailto:info@delina.esq"
-                    className="text-sage-100 text-lg neon-underline hover:text-neon-pink transition-colors"
+                    className="text-cream text-lg font-body hover:text-hot-pink transition-colors"
                   >
                     info@delina.esq
                   </a>
@@ -74,12 +75,12 @@ export function ContactSection() {
 
               <ScrollReveal delay={0.35}>
                 <div>
-                  <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-neon-pink mb-2">
-                    Phone
+                  <h3 className="font-pixel text-[10px] tracking-[0.2em] uppercase text-hot-pink mb-2">
+                    PHONE
                   </h3>
                   <a
                     href="tel:818-888-6060"
-                    className="text-sage-100 text-lg neon-underline hover:text-neon-pink transition-colors"
+                    className="text-cream text-lg font-body hover:text-hot-pink transition-colors"
                   >
                     818-888-6060
                   </a>
@@ -88,18 +89,18 @@ export function ContactSection() {
 
               <ScrollReveal delay={0.4}>
                 <div>
-                  <h3 className="font-mono text-[10px] tracking-[0.2em] uppercase text-neon-pink mb-2">
-                    Schedule
+                  <h3 className="font-pixel text-[10px] tracking-[0.2em] uppercase text-hot-pink mb-2">
+                    SCHEDULE
                   </h3>
-                  <p className="text-slate-400">Submit an inquiry to get started</p>
+                  <p className="text-void-400 font-body">Submit an inquiry to get started</p>
                 </div>
               </ScrollReveal>
             </div>
           </div>
 
-          {/* Right: Form */}
+          {/* Right: Form — beveled glass card */}
           <ScrollReveal delay={0.2} direction="right">
-            <div className="glass-card p-8 md:p-10">
+            <div className="glass-card p-8 md:p-10 border-2 border-void-700 shadow-bevel">
               <AnimatePresence mode="wait">
                 {isSubmitted ? (
                   <motion.div
@@ -108,21 +109,21 @@ export function ContactSection() {
                     animate={{ opacity: 1, scale: 1 }}
                     className="text-center py-12"
                   >
-                    <div className="w-16 h-16 rounded-full bg-acid-green/10 mx-auto mb-6 flex items-center justify-center">
-                      <span className="text-acid-green text-2xl">&#10003;</span>
+                    <div className="w-16 h-16 rounded-retro bg-slime/10 border border-slime/30 mx-auto mb-6 flex items-center justify-center">
+                      <span className="text-slime text-2xl">&#10003;</span>
                     </div>
-                    <h3 className="font-display text-xl font-bold text-sage-100 mb-3">
+                    <h3 className="font-pixel text-lg font-bold text-cream mb-3 uppercase">
                       Thank You
                     </h3>
-                    <p className="text-slate-400 mb-6">
+                    <p className="text-void-400 mb-6 font-body">
                       Your message has been received. We&apos;ll respond within 24-48 hours.
                     </p>
-                    <MagneticButton
+                    <button
                       onClick={() => setIsSubmitted(false)}
-                      variant="outline"
+                      className="btn-bevel btn-bevel-white"
                     >
                       Send Another
-                    </MagneticButton>
+                    </button>
                   </motion.div>
                 ) : (
                   <motion.form
@@ -167,19 +168,23 @@ export function ContactSection() {
                       required
                     />
 
-                    <MagneticButton type="submit" variant="primary">
+                    <button
+                      type="submit"
+                      className="btn-bevel btn-bevel-pink w-full"
+                      disabled={isSubmitting}
+                    >
                       {isSubmitting ? (
                         <motion.span
                           animate={{ rotate: 360 }}
                           transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
                           className="inline-block"
                         >
-                          &#9696;
+                          ◐
                         </motion.span>
                       ) : (
-                        'Send Inquiry'
+                        'SEND INQUIRY'
                       )}
-                    </MagneticButton>
+                    </button>
                   </motion.form>
                 )}
               </AnimatePresence>

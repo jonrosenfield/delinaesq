@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import { motion, useMotionValue, useSpring } from 'framer-motion'
 import { useRef, ReactNode, MouseEvent } from 'react'
 
 interface GlassCardProps {
@@ -10,7 +10,18 @@ interface GlassCardProps {
   depth?: number
 }
 
-export function GlassCard({ children, className = '', glowColor = 'neon-pink', depth = 0 }: GlassCardProps) {
+const shadowMap: Record<string, string> = {
+  'hot-pink': 'hover:shadow-glow-pink',
+  'electric': 'hover:shadow-glow-cyan',
+  'cyber-violet': 'hover:shadow-glow-violet',
+  'slime': 'hover:shadow-glow-slime',
+  // Legacy aliases
+  'neon-pink': 'hover:shadow-glow-pink',
+  'neon-blue': 'hover:shadow-glow-cyan',
+  'neon-violet': 'hover:shadow-glow-violet',
+}
+
+export function GlassCard({ children, className = '', glowColor = 'hot-pink', depth = 0 }: GlassCardProps) {
   const ref = useRef<HTMLDivElement>(null)
   const rotateX = useMotionValue(0)
   const rotateY = useMotionValue(0)
@@ -31,12 +42,6 @@ export function GlassCard({ children, className = '', glowColor = 'neon-pink', d
   const handleMouseLeave = () => {
     rotateX.set(0)
     rotateY.set(0)
-  }
-
-  const shadowMap: Record<string, string> = {
-    'neon-pink': 'hover:shadow-neon-pink',
-    'neon-blue': 'hover:shadow-neon-blue',
-    'neon-violet': 'hover:shadow-neon-violet',
   }
 
   return (

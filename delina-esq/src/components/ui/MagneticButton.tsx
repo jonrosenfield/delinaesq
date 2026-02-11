@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import { motion, useMotionValue, useSpring } from 'framer-motion'
 import { useRef, ReactNode, MouseEvent } from 'react'
 
 interface MagneticButtonProps {
@@ -13,10 +13,10 @@ interface MagneticButtonProps {
 }
 
 const variantClasses = {
-  primary: 'bg-neon-pink text-white hover:shadow-neon-pink',
-  secondary: 'bg-electric-blue text-white hover:shadow-neon-blue',
-  outline: 'border border-sage-200/30 text-sage-100 hover:border-neon-pink hover:text-neon-pink',
-  ghost: 'text-sage-100 hover:text-neon-pink',
+  primary: 'btn-bevel btn-bevel-pink',
+  secondary: 'btn-bevel btn-bevel-cyan',
+  outline: 'btn-bevel btn-bevel-white',
+  ghost: 'text-cream hover:text-hot-pink font-pixel text-xs uppercase tracking-wider',
 }
 
 export function MagneticButton({
@@ -47,8 +47,6 @@ export function MagneticButton({
     y.set(0)
   }
 
-  const baseClass = `relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-pill font-mono text-sm tracking-wider uppercase transition-all duration-300 ${variantClasses[variant]} ${className}`
-
   const Component = href ? 'a' : 'button'
 
   return (
@@ -63,16 +61,9 @@ export function MagneticButton({
         href={href}
         onClick={onClick}
         type={href ? undefined : type}
-        className={baseClass}
+        className={`${variantClasses[variant]} ${className}`}
       >
         {children}
-        <motion.span
-          className="absolute inset-0 rounded-pill opacity-0 transition-opacity duration-300"
-          style={{
-            background: 'radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%)',
-          }}
-          whileHover={{ opacity: 1 }}
-        />
       </Component>
     </motion.div>
   )

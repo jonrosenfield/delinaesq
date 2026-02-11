@@ -19,7 +19,7 @@ const tagline = ['CONTRACT', 'TAX STRATEGY', 'ENTITY FORMATION', 'M&A']
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-end overflow-hidden dot-pattern">
+    <section className="relative min-h-[100dvh] flex items-center md:items-end overflow-hidden dot-pattern">
       {/* Three.js Background */}
       <ParticleField />
 
@@ -50,12 +50,12 @@ export function HeroSection() {
       ))}
 
       {/* Content — ASYMMETRIC: pushed left */}
-      <div className="relative z-10 section-container pb-32 pt-40 lg:pb-40 lg:pt-48">
+      <div className="relative z-10 section-container pb-20 pt-24 md:pb-32 md:pt-40 lg:pb-40 lg:pt-48">
         <div className="max-w-4xl">
           {/* Badge */}
           <motion.a
             href="#contact"
-            className="tag-label inline-block mb-8 cursor-pointer hover:shadow-glow-pink transition-shadow duration-300"
+            className="tag-label inline-block mb-4 md:mb-8 cursor-pointer hover:shadow-glow-pink transition-shadow duration-300"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2, ease: [0.34, 1.56, 0.64, 1] }}
@@ -70,16 +70,16 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <h1 className="mb-2">
-              <span className="block font-serif text-hero text-void-100 italic">
+              <span className="block font-serif text-display-xl md:text-hero text-void-100 italic">
                 Tax Attorney
               </span>
-              <span className="block font-serif text-hero text-void-100 italic -mt-2 md:-mt-4">
+              <span className="block font-serif text-display-xl md:text-hero text-void-100 italic -mt-1 md:-mt-4">
                 for{' '}
-                <span className="font-pixel not-italic text-hot-pink inline-block" style={{ textShadow: '0 0 30px rgba(255,0,110,0.5), 0 0 60px rgba(255,0,110,0.2)' }}>
+                <span className="font-pixel not-italic text-hot-pink inline-block text-display-lg md:text-hero" style={{ textShadow: '0 0 30px rgba(0,255,65,0.5), 0 0 60px rgba(0,255,65,0.2)' }}>
                   Businesses
                 </span>
               </span>
-              <span className="block font-serif text-display-lg text-void-300 italic mt-1 md:ml-2">
+              <span className="block font-serif text-display-md md:text-display-lg text-void-300 italic mt-1 md:ml-2">
                 and Individuals
               </span>
             </h1>
@@ -108,7 +108,7 @@ export function HeroSection() {
 
           {/* Subline — editorial serif */}
           <motion.p
-            className="font-serif text-xl md:text-2xl text-void-400 italic max-w-lg mb-12 leading-relaxed"
+            className="font-serif text-lg md:text-2xl text-void-400 italic max-w-lg mb-8 md:mb-12 leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.7 }}
@@ -119,7 +119,7 @@ export function HeroSection() {
 
           {/* CTA Buttons — Y2K beveled, chunky */}
           <motion.div
-            className="flex flex-wrap items-center gap-4"
+            className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.9 }}
