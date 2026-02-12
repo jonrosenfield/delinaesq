@@ -26,7 +26,7 @@ export function ServiceCTA({ serviceTitle, color }: ServiceCTAProps) {
     const formData = new FormData(form)
 
     try {
-      const response = await fetch('/', {
+      const response = await fetch('/forms.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
