@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
+import { services } from '@/lib/services'
 
 const navLinks = [
   { href: '#philosophy', label: 'Philosophy' },
@@ -20,7 +21,7 @@ export function Footer() {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-20">
         <ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-10">
             {/* Brand */}
             <div>
               <h3 className="font-pixel text-lg tracking-wider text-cream mb-4">
@@ -35,7 +36,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="font-pixel text-[10px] tracking-[0.15em] uppercase text-void-500 hover:text-hot-pink transition-colors py-1 border-b border-void-700 hover:border-hot-pink"
               >
-                LINKEDIN →
+                LINKEDIN &#8594;
               </a>
             </div>
 
@@ -62,6 +63,25 @@ export function Footer() {
                         {link.label}
                       </a>
                     )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Services */}
+            <div>
+              <h4 className="font-pixel text-[10px] tracking-[0.2em] uppercase text-hot-pink mb-6">
+                SERVICES
+              </h4>
+              <ul className="space-y-3">
+                {services.map((service) => (
+                  <li key={service.slug}>
+                    <Link
+                      href={`/${service.slug}`}
+                      className="text-void-400 text-sm font-body hover:text-cream transition-colors duration-300"
+                    >
+                      {service.shortTitle}
+                    </Link>
                   </li>
                 ))}
               </ul>
