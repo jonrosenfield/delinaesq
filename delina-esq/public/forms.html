@@ -1,1 +1,27 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <title>Netlify Form Detection</title> </head> <body> <form name="contact" data-netlify="true" netlify-honeypot="bot-field" method="POST" hidden> <input type="hidden" name="form-name" value="contact" /> <input type="text" name="name" /> <input type="email" name="email" /> <input type="text" name="company" /> <textarea name="message"></textarea> </form> </body> </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Netlify Form Detection</title>
+</head>
+<body>
+  <!-- Homepage contact form -->
+  <form name="contact" data-netlify="true" netlify-honeypot="bot-field" method="POST" hidden>
+    <input type="hidden" name="form-name" value="contact" />
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="text" name="company" />
+    <textarea name="message"></textarea>
+  </form>
+
+  <!-- Service page contact form -->
+  <form name="service-contact" data-netlify="true" netlify-honeypot="bot-field" method="POST" hidden>
+    <input type="hidden" name="form-name" value="service-contact" />
+    <input type="text" name="service" />
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="text" name="company" />
+    <textarea name="message"></textarea>
+  </form>
+</body>
+</html>

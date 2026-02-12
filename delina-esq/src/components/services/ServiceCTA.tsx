@@ -26,12 +26,16 @@ export function ServiceCTA({ serviceTitle, color }: ServiceCTAProps) {
     const formData = new FormData(form)
 
     try {
-      await fetch('/forms.html', {
+      const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
       })
-      setIsSubmitted(true)
+      if (response.ok) {
+        setIsSubmitted(true)
+      } else {
+        window.location.href = '/thank-you'
+      }
     } catch {
       window.location.href = '/thank-you'
     } finally {
