@@ -5,7 +5,7 @@ import { SectionTag } from '@/components/ui/SectionTag'
 import { motion } from 'framer-motion'
 
 const targets = [
-  'Business owners earning $250K+',
+  'Business owners and entrepreneurs',
   'Creators and service providers scaling to multi-entity structures',
   'Founders preparing for investment, acquisition, or partnership',
   'Clients who need tax and legal aligned — not fragmented',
