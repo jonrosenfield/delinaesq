@@ -1,0 +1,1879 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WACA | Investor Presentation · February 2026</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&family=Alfa+Slab+One&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+
+  <style>
+    :root {
+      --deep: #1B3A30;
+      --gold: #C9A84C;
+      --golddk: #9A7A2A;
+      --sage: #8FA860;
+      --cream: #F8F5EE;
+      --white: #FFFFFF;
+      --muted: #64748B;
+      --lgray: #E8E4DA;
+      --pf: 'Playfair Display', Georgia, serif;
+      --in: 'Inter', system-ui, sans-serif;
+      --bb: 'Bebas Neue', Impact, sans-serif;
+      --title: 'Alfa Slab One', serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .reveal {
+      font-family: var(--in);
+    }
+
+    .reveal .slides {
+      text-align: left;
+    }
+
+    .reveal .slides section {
+      padding: 0;
+      height: 100%;
+    }
+
+    .reveal .slides section.present {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .reveal .progress span {
+      background: var(--gold);
+    }
+
+    .reveal .controls {
+      color: var(--gold);
+    }
+
+    .reveal .slide-number {
+      background: var(--deep);
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      padding: 5px 12px;
+      border-radius: 3px;
+      bottom: 36px;
+      left: 14px;
+    }
+
+    .s {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 40px;
+    }
+
+    .gs {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 10px;
+      background: linear-gradient(var(--gold), var(--golddk));
+      z-index: 10;
+    }
+
+    .dk {
+      background: var(--deep);
+      color: var(--white);
+    }
+
+    .lt {
+      background: var(--cream);
+      color: #111;
+    }
+
+    /* Header */
+    .hd {
+      height: 70px;
+      display: flex;
+      background: var(--deep);
+      color: var(--white);
+    }
+
+    .hd-stripe {
+      width: 12px;
+      background: var(--gold);
+    }
+
+    .hd-title {
+      flex: 1;
+      padding: 0 30px;
+      font-family: var(--title);
+      font-size: 21px;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+    }
+
+    .hd-pg {
+      padding: 0 24px;
+      font-family: var(--bb);
+      font-size: 28px;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      min-width: 56px;
+      justify-content: center;
+    }
+
+    /* Footer */
+    .ft,
+    .dk-foot {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 90px;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .lt .ft {
+      color: rgba(27, 58, 48, 0.5);
+      border-top-color: rgba(27, 58, 48, 0.2);
+    }
+
+    /* Cover */
+    .cov-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 90px 60px 90px;
+    }
+
+    .cov-eye {
+      font-size: 12px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .cov-eye::before {
+      content: '';
+      width: 32px;
+      height: 3px;
+      background: var(--gold);
+    }
+
+    .cov-t1 {
+      font-family: var(--title);
+      font-size: 78px;
+      color: var(--gold);
+      line-height: 0.95;
+    }
+
+    .cov-t2 {
+      font-family: var(--pf);
+      font-size: 58px;
+      font-style: italic;
+      color: var(--white);
+      margin: 12px 0 32px;
+    }
+
+    .cov-rule {
+      width: 140px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin-bottom: 32px;
+    }
+
+    .cov-sub {
+      font-size: 17px;
+      color: rgba(201, 168, 76, 0.95);
+      line-height: 1.55;
+      max-width: 680px;
+    }
+
+    .cov-meta {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 48px;
+    }
+
+    /* Section divider */
+    .sec-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 90px;
+    }
+
+    .sec-num-bg {
+      position: absolute;
+      font-family: var(--bb);
+      font-size: 340px;
+      color: rgba(255, 255, 255, 0.06);
+      top: 50%;
+      right: 50px;
+      transform: translateY(-50%);
+      letter-spacing: -18px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Subtle backgrounds */
+    .subtle-bg {
+      position: relative;
+    }
+
+    .subtle-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.12;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .bg1::before {
+      background-image: url('avacadotree1.jpg');
+    }
+
+    .bg2::before {
+      background-image: url('avacadotree2.jpg');
+    }
+
+    .bg3::before {
+      background-image: url('avacadotree3.jpg');
+    }
+
+    .bg4::before {
+      background-image: url('avacadotree4.jpg');
+    }
+
+    .subtle-bg>div {
+      position: relative;
+      z-index: 2;
+    }
+
+    .gs {
+      z-index: 10 !important;
+    }
+
+    .sec-label {
+      font-size: 12px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .sec-label::before {
+      content: '';
+      width: 28px;
+      height: 3px;
+      background: var(--gold);
+    }
+
+    .sec-title {
+      font-family: var(--title);
+      font-size: 68px;
+      font-weight: 400;
+      line-height: 1.05;
+      margin-top: 8px;
+    }
+
+    /* Content */
+    .cb {
+      flex: 1;
+      padding: 30px 90px;
+      overflow: auto;
+    }
+
+    /* Table */
+    .tbl {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+
+    .tbl th {
+      background: var(--deep);
+      color: var(--white);
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .tbl th:first-child {
+      border-left: 5px solid var(--gold);
+    }
+
+    .tbl td {
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .tbl .go {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .tbl .ctr {
+      text-align: center;
+    }
+
+    .tbl .chk {
+      color: #15803d;
+      font-weight: 700;
+    }
+
+    .tbl .crs {
+      color: #dc2626;
+    }
+
+    .tbl .prt {
+      color: #d97706;
+    }
+
+    .tbl .sg {
+      color: var(--sage);
+      font-weight: 700;
+    }
+
+    /* Feature grid */
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .feat {
+      background: var(--white);
+      border-radius: 6px;
+    }
+
+    .feat-h {
+      background: var(--deep);
+      border-left: 6px solid var(--gold);
+      padding: 12px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .feat-b {
+      padding: 14px;
+      line-height: 1.55;
+      font-size: 13px;
+    }
+
+    /* Pull quote */
+    .pq {
+      border-top: 3px solid rgba(201, 168, 76, 0.35);
+      border-bottom: 3px solid rgba(201, 168, 76, 0.35);
+      padding: 20px;
+      font-family: var(--pf);
+      font-style: italic;
+      font-size: 16px;
+      color: var(--deep);
+      text-align: center;
+      margin: 16px 0;
+    }
+
+    /* Metric strip */
+    .metric-strip {
+      display: flex;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .ms-card {
+      flex: 1;
+      background: var(--deep);
+      color: var(--white);
+      border-radius: 8px;
+      padding: 16px 12px;
+      text-align: center;
+      border-top: 4px solid var(--gold);
+    }
+
+    .ms-num {
+      font-family: var(--bb);
+      font-size: 40px;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .ms-lbl {
+      font-size: 10px;
+      opacity: 0.7;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-top: 6px;
+    }
+
+    /* Risk band */
+    .risk-band {
+      display: flex;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .risk-card {
+      flex: 1;
+      background: var(--white);
+      border-radius: 6px;
+      padding: 16px;
+      border-top: 4px solid var(--gold);
+    }
+
+    .risk-card.risk-hi {
+      border-top-color: #dc2626;
+    }
+
+    .risk-card.risk-md {
+      border-top-color: #d97706;
+    }
+
+    .risk-card.risk-lo {
+      border-top-color: var(--sage);
+    }
+
+    .rc-hd {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .rc-bd {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* Stat bar */
+    .stat-bar {
+      background: var(--deep);
+      border-radius: 8px;
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .stat-cell {
+      text-align: center;
+      color: var(--white);
+      padding: 0 20px;
+    }
+
+    .stat-cell+.stat-cell {
+      border-left: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .stat-num {
+      font-family: var(--bb);
+      font-size: 52px;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .stat-lbl {
+      font-size: 10px;
+      opacity: 0.6;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    @media print {
+      @page {
+        size: 11in 8.5in;
+        margin: 0;
+      }
+
+      body {
+        overflow: visible !important;
+        background: white !important;
+      }
+
+      .reveal-viewport {
+        overflow: visible !important;
+        position: static !important;
+        display: block !important;
+      }
+
+      .reveal {
+        display: block !important;
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        overflow: visible !important;
+        transform: none !important;
+      }
+
+      .reveal .slides {
+        display: block !important;
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        transform: none !important;
+        inset: auto !important;
+        left: 0 !important;
+        top: 0 !important;
+        margin: 0 !important;
+      }
+
+      .reveal .slides section {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        width: 11in !important;
+        height: 8.5in !important;
+        page-break-after: always !important;
+        page-break-inside: avoid !important;
+        overflow: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+      }
+
+      .s {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 11in !important;
+        height: 8.5in !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      .reveal .controls,
+      .reveal .progress,
+      .reveal .slide-number,
+      .reveal .pause-overlay {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- SLIDE 1: COVER -->
+      <section>
+        <div class="s dk subtle-bg bg1">
+          <div class="gs"></div>
+          <div class="cov-body">
+            <img src="avacdomanlogo.png" alt="WACA Logo"
+              style="width: 140px; position: absolute; bottom: 80px; right: 80px;">
+            <div class="cov-eye">Investor Presentation · February 2026</div>
+            <div class="cov-t1">WESTERN AVOCADO &</div>
+            <div class="cov-t2">Citrus Association</div>
+            <div class="cov-rule"></div>
+            <div class="cov-sub">
+              Ventura and Santa Barbara Counties, California<br>
+              A grower-owned regional agricultural cooperative
+            </div>
+            <div class="cov-meta">Member Equity Offering · $490,000 · 490,000 Units at $1/Unit</div>
+          </div>
+          <div class="dk-foot">Prepared by the Law Office of Delina Yasmeh · Attorney Work Product · Confidential</div>
+        </div>
+      </section>
+
+      <!-- SLIDE 2: THE PROBLEM -->
+      <section>
+        <div class="s lt subtle-bg bg2" style="flex-direction:row;">
+          <div class="gs"></div>
+          <div
+            style="width:280px; background:var(--deep); padding:40px 24px; color:var(--white); display:flex; flex-direction:column; justify-content:center; gap:24px;">
+            <div style="font-size:13px; color:var(--gold); text-transform:uppercase; letter-spacing:0.2em;">The Numbers
+            </div>
+            <div>
+              <div style="font-size:88px; line-height:0.9; letter-spacing:-3px;">50×</div>
+              <div style="font-size:13px; opacity:0.75; margin-top:8px;">Mexico import growth<br>2001 to 2023</div>
+            </div>
+            <div style="background:#354a34; border-left:4px solid var(--gold); border-radius:4px; padding:14px;">
+              <div style="font-size:40px; line-height:1;">89%</div>
+              <div style="font-size:11px; opacity:0.7; margin-top:4px;">Mexico's U.S. share today</div>
+            </div>
+            <div style="background:#243f34; border-left:4px solid var(--gold); border-radius:4px; padding:14px;">
+              <div style="font-size:40px; opacity:0.8; line-height:1;">40% → 8%</div>
+              <div style="font-size:11px; opacity:0.65; margin-top:4px;">California's market share decline</div>
+            </div>
+          </div>
+          <div style="flex:1; display:flex; flex-direction:column;">
+            <div class="hd">
+              <div class="hd-stripe"></div>
+              <div class="hd-title">Three Structural Forces Compressing Independent Growers</div>
+              <div class="hd-pg">2</div>
+            </div>
+            <div class="cb">
+              <div class="feat-grid">
+                <div class="feat">
+                  <div class="feat-h">Import Domination</div>
+                  <div class="feat-b">Mexican avocado imports grew from 55 million pounds in 2001 to 2.78 billion pounds
+                    in 2023. California's share of the U.S. market fell from 40% to 8%. Individual growers cannot fight
+                    this with individual marketing. Collective positioning is the only lever.</div>
+                </div>
+                <div class="feat">
+                  <div class="feat-h">Water Cost Escalation</div>
+                  <div class="feat-b">Basin adjudications drove Las Posas groundwater costs to
+                    <strong>$64.58/AF</strong>. Supplemental supply runs $800 to $1,200/AF. A 100-acre operation facing
+                    worst-case rates absorbs $200,000 to $360,000 in annual water expense. These costs do not reverse.
+                  </div>
+                </div>
+                <div class="feat">
+                  <div class="feat-h">Handler Consolidation</div>
+                  <div class="feat-b">Calavo Growers: $529 million in net sales. Mission Produce: $1.23 billion in
+                    revenue. A single grower bringing 50,000 pounds to negotiate against half-billion-dollar operations
+                    has no leverage. Pooled volume changes that equation.</div>
+                </div>
+              </div>
+              <div
+                style="margin-top:20px; background:var(--deep); border-radius:8px; padding:20px 28px; font-size:15px; line-height:1.65; color:var(--white);">
+                These forces are compounding simultaneously. The growers producing this region's premium fruit hold the
+                least power in the system that depends on them. WACA was built to correct that imbalance through
+                collective governance, pooled volume, and shared advocacy.
+              </div>
+            </div>
+            <div class="ft">WESTERN AVOCADO & CITRUS ASSOCIATION · CONFIDENTIAL</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 3: THE OPPORTUNITY -->
+      <section>
+        <div class="s lt">
+          <div class="gs"></div>
+          <div class="hd">
+            <div class="hd-stripe"></div>
+            <div class="hd-title">Market Opportunity: 46,606 Acres. One Coordination Platform.</div>
+            <div class="hd-pg">3</div>
+          </div>
+          <div class="cb">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:20px;">
+              <div>
+                <div
+                  style="font-size:13px; font-weight:700; color:var(--deep); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.08em;">
+                  Regional Acreage (Ventura + Santa Barbara)</div>
+                <table class="tbl">
+                  <thead>
+                    <tr>
+                      <th>Crop</th>
+                      <th>County</th>
+                      <th>Acres</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Avocado</td>
+                      <td>Ventura</td>
+                      <td class="go">17,000</td>
+                    </tr>
+                    <tr>
+                      <td>Avocado</td>
+                      <td>Santa Barbara</td>
+                      <td class="go">5,614</td>
+                    </tr>
+                    <tr>
+                      <td>Citrus (all)</td>
+                      <td>Ventura</td>
+                      <td class="go">22,439</td>
+                    </tr>
+                    <tr>
+                      <td>Lemon</td>
+                      <td>Santa Barbara</td>
+                      <td class="go">1,553</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Combined TAM</strong></td>
+                      <td></td>
+                      <td class="go"><strong>46,606</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <div
+                  style="font-size:13px; font-weight:700; color:var(--deep); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.08em;">
+                  Market Sizing</div>
+                <table class="tbl">
+                  <thead>
+                    <tr>
+                      <th>Market</th>
+                      <th>Acres</th>
+                      <th>Base Fee Revenue</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>TAM (Total Addressable)</td>
+                      <td>46,606</td>
+                      <td class="go">$8.4M</td>
+                    </tr>
+                    <tr>
+                      <td>SAM (Independent Growers ~65%)</td>
+                      <td>~30,000</td>
+                      <td class="go">$5.4M</td>
+                    </tr>
+                    <tr>
+                      <td>Year 1 Target</td>
+                      <td>2,000</td>
+                      <td class="go">$360K</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Year 5 Target (SOM)</strong></td>
+                      <td><strong>5,000</strong></td>
+                      <td class="go"><strong>$900K</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="pq">
+              5,000 acres by Year 5 represents roughly one in six independent growers in the region. Sunkist reached the
+              majority of California citrus. Blue Diamond represents 80% of California almonds. WACA's five-year target
+              is a starting position, not a ceiling.
+            </div>
+            <div class="stat-bar" style="grid-template-columns:repeat(4,1fr); margin-top:16px;">
+              <div class="stat-cell">
+                <div class="stat-num">46,606</div>
+                <div class="stat-lbl">Total Addressable<br>Acres (TAM)</div>
+              </div>
+              <div class="stat-cell">
+                <div class="stat-num">2,000</div>
+                <div class="stat-lbl">Committed<br>Year 1</div>
+              </div>
+              <div class="stat-cell">
+                <div class="stat-num">$8.4M</div>
+                <div class="stat-lbl">TAM Base<br>Fee Revenue</div>
+              </div>
+              <div class="stat-cell">
+                <div class="stat-num" style="color:var(--sage);">10.7%</div>
+                <div class="stat-lbl">Year 5 Target<br>as % of TAM</div>
+              </div>
+            </div>
+          </div>
+          <div class="ft">WESTERN AVOCADO & CITRUS ASSOCIATION · CONFIDENTIAL</div>
+        </div>
+      </section>
+
+      <!-- SLIDE 4: THE SOLUTION -->
+      <section>
+        <div class="s lt">
+          <div class="gs"></div>
+          <div class="hd">
+            <div class="hd-stripe"></div>
+            <div class="hd-title">WACA: What We Do for Independent Growers</div>
+            <div class="hd-pg">4</div>
+          </div>
+          <div class="cb">
+            <div class="feat-grid">
+              <div class="feat">
+                <div class="feat-h">Pooled Packinghouse Negotiation</div>
+                <div class="feat-b">Millions of pounds at the table instead of thousands. WACA's founding packinghouse
+                  arrangement is with Del Rey Avocado. Terms reflect collective volume, not individual exposure.</div>
+              </div>
+              <div class="feat">
+                <div class="feat-h">Coordinated Harvest Timing</div>
+                <div class="feat-b">Staggered delivery scheduling prevents market gluts during peak harvest windows.
+                  Coordinated timing captures premium pricing that uncoordinated growers systematically miss.</div>
+              </div>
+              <div class="feat">
+                <div class="feat-h">Transparent Settlements</div>
+                <div class="feat-b">Every deduction, every grade distribution, every dollar accounted for in monthly
+                  member reports. No opacity on packinghouse deductions or settlement timing.</div>
+              </div>
+              <div class="feat">
+                <div class="feat-h">Water Advocacy with Legal Standing</div>
+                <div class="feat-b">Individual growers cannot participate meaningfully in basin adjudications. WACA
+                  provides coordinated legal representation, compliance support, and legislative engagement as a shared
+                  service.</div>
+              </div>
+              <div class="feat">
+                <div class="feat-h">Group Procurement</div>
+                <div class="feat-b">Consolidated hauling contracts, bulk packaging, coordinated labor scheduling.
+                  Per-unit costs fall when volume is aggregated. Savings flow directly to member operations.</div>
+              </div>
+              <div class="feat">
+                <div class="feat-h">Compliance Infrastructure</div>
+                <div class="feat-b">Centralized food safety reporting, nitrogen management, water monitoring, and
+                  regulatory filings. Shared cost, shared infrastructure, individual benefit.</div>
+              </div>
+            </div>
+            <div class="pq">Sunkist (1893), Blue Diamond (1910), Ocean Spray (1930): the cooperative structure is the
+              most battle-tested model in American agriculture for delivering exactly this outcome. WACA is the only
+              entity coordinating avocado, citrus, and water advocacy under a single grower-governed platform in this
+              geography.</div>
+          </div>
+          <div class="ft">WESTERN AVOCADO & CITRUS ASSOCIATION · CONFIDENTIAL</div>
+        </div>
+      </section>
+
+      <!-- SLIDE 5: COMPETITIVE POSITION -->
+      <section>
+        <div class="s lt">
+          <div class="gs"></div>
+          <div class="hd">
+            <div class="hd-stripe"></div>
+            <div class="hd-title">The Only Multi-Crop Coordination Platform in the Region</div>
+            <div class="hd-pg">5</div>
+          </div>
+          <div class="cb">
+            <table class="tbl" style="margin-bottom:20px;">
+              <thead>
+                <tr>
+                  <th>Capability</th>
+                  <th class="ctr">WACA</th>
+                  <th class="ctr">Large Handlers</th>
+                  <th class="ctr">Legacy Co-ops</th>
+                  <th class="ctr">Informal Networks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Avocado coordination</td>
+                  <td class="ctr chk">✓</td>
+                  <td class="ctr chk">✓</td>
+                  <td class="ctr crs">✗</td>
+                  <td class="ctr crs">✗</td>
+                </tr>
+                <tr>
+                  <td>Citrus coordination</td>
+                  <td class="ctr chk">✓</td>
+                  <td class="ctr chk">✓</td>
+                  <td class="ctr chk">✓</td>
+                  <td class="ctr crs">✗</td>
+                </tr>
+                <tr>
+                  <td>Water advocacy + legal standing</td>
+                  <td class="ctr chk">✓</td>
+                  <td class="ctr crs">✗</td>
+                  <td class="ctr crs">✗</td>
+                  <td class="ctr crs">✗</td>
+                </tr>
+                <tr>
+                  <td>Grower governance</td>
+                  <td class="ctr chk">✓</td>
+                  <td class="ctr crs">✗</td>
+                  <td class="ctr chk">✓</td>
+                  <td class="ctr crs">✗</td>
+                </tr>
+                <tr>
+                  <td>Transparent settlements</td>
+                  <td class="ctr chk">✓</td>
+                  <td class="ctr crs">✗</td>
+                  <td class="ctr prt">◐</td>
+                  <td class="ctr crs">✗</td>
+                </tr>
+                <tr>
+                  <td>Multi-crop single platform</td>
+                  <td class="ctr chk">✓</td>
+                  <td class="ctr crs">✗</td>
+                  <td class="ctr crs">✗</td>
+                  <td class="ctr crs">✗</td>
+                </tr>
+                <tr>
+                  <td>Compliance infrastructure</td>
+                  <td class="ctr chk">✓</td>
+                  <td class="ctr crs">✗</td>
+                  <td class="ctr crs">✗</td>
+                  <td class="ctr crs">✗</td>
+                </tr>
+                <tr>
+                  <td>Capper-Volstead protection</td>
+                  <td class="ctr chk">✓</td>
+                  <td class="ctr crs">✗</td>
+                  <td class="ctr chk">✓</td>
+                  <td class="ctr crs">✗</td>
+                </tr>
+                <tr>
+                  <td>Patronage dividends</td>
+                  <td class="ctr chk">✓</td>
+                  <td class="ctr crs">✗</td>
+                  <td class="ctr chk">✓</td>
+                  <td class="ctr crs">✗</td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+              <div
+                style="background:var(--deep); color:var(--white); border-radius:6px; padding:18px; border-left:5px solid var(--gold);">
+                <div style="font-size:13px; font-weight:700; color:var(--gold); margin-bottom:8px;">Why No One Has Done
+                  This Yet</div>
+                <div style="font-size:13px; line-height:1.6;">Import competition, water adjudications, and accelerated
+                  grower consolidation have only converged to crisis level in the last three to five years. The urgency
+                  that makes WACA necessary did not exist at full scale a decade ago. First-mover advantage is real and
+                  time-limited.</div>
+              </div>
+              <div style="background:#fdf7e8; border:1px solid #d4b86e; border-radius:6px; padding:18px;">
+                <div style="font-size:13px; font-weight:700; color:var(--deep); margin-bottom:8px;">Fillmore-Piru:
+                  Partner, Not Competitor</div>
+                <div style="font-size:13px; line-height:1.6;">Founded 1897, the Fillmore-Piru Citrus Association is
+                  Ventura County's oldest cooperative. It is a single-crop packing operation with no water advocacy, no
+                  avocado coordination, and no integrated service model. WACA views it as a potential packinghouse
+                  partner, not a competitive threat.</div>
+              </div>
+            </div>
+          </div>
+          <div class="ft">WESTERN AVOCADO & CITRUS ASSOCIATION · CONFIDENTIAL</div>
+        </div>
+      </section>
+
+      <!-- SLIDE 6: LEGAL STRUCTURE -->
+      <section>
+        <div class="s lt">
+          <div class="gs"></div>
+          <div class="hd">
+            <div class="hd-stripe"></div>
+            <div class="hd-title">Structure Built for Institutional Credibility and Grower Trust</div>
+            <div class="hd-pg">6</div>
+          </div>
+          <div class="cb" style="display:flex; gap:24px;">
+            <div style="flex:1;">
+              <table class="tbl" style="margin-bottom:16px;">
+                <thead>
+                  <tr>
+                    <th>Element</th>
+                    <th>Detail</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Entity</td>
+                    <td>California cooperative corporation (Corp. Code §12200)</td>
+                  </tr>
+                  <tr>
+                    <td>Federal antitrust</td>
+                    <td class="go">Capper-Volstead Act: collective marketing protection for ag producers</td>
+                  </tr>
+                  <tr>
+                    <td>Tax treatment</td>
+                    <td>Subchapter T: patronage dividends, no double taxation on distributions</td>
+                  </tr>
+                  <tr>
+                    <td>Ownership</td>
+                    <td>Member-owned. Producer-only membership. No outside investor control.</td>
+                  </tr>
+                  <tr>
+                    <td>Board</td>
+                    <td>5 seats: 1 permanent (founder) + 4 elected by the membership</td>
+                  </tr>
+                  <tr>
+                    <td>Structural changes</td>
+                    <td>Supermajority + founder consent required</td>
+                  </tr>
+                  <tr>
+                    <td>Ownership cap</td>
+                    <td>5% maximum per member or affiliated group (50,000 units)</td>
+                  </tr>
+                  <tr>
+                    <td>Import flexibility</td>
+                    <td>Founder's LLC retained as separate subsidiary for import supplementation</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div style="font-size:12px; color:var(--muted); line-height:1.5;">
+                WACA's Capper-Volstead compliance is designed by counsel to avoid the producer-dilution issue that cost
+                Sunkist antitrust protection in Swayne v. Sunkist (1967). Membership is limited to active agricultural
+                producers.
+              </div>
+            </div>
+            <div style="flex:0 0 36%; display:flex; flex-direction:column; gap:14px;">
+              <div style="background:var(--deep); color:var(--white); border-radius:6px; padding:20px;">
+                <div style="font-size:13px; color:var(--gold); font-weight:700; margin-bottom:8px;">Ownership Structure
+                </div>
+                <div style="display:flex; height:44px; border-radius:4px; overflow:hidden; margin:12px 0;">
+                  <div
+                    style="flex:51; background:#3e5548; display:flex; align-items:center; padding:0 14px; color:var(--white); font-weight:700; font-size:14px;">
+                    Founder 51%</div>
+                  <div
+                    style="flex:49; background:var(--gold); display:flex; align-items:center; padding:0 14px; color:var(--deep); font-weight:700; font-size:14px;">
+                    Members 49%</div>
+                </div>
+                <div style="font-size:12px; opacity:0.7; line-height:1.5;">510,000 units retained by founder. 490,000
+                  units available at $1/unit. No single member may exceed 50,000 units (5% cap).</div>
+              </div>
+              <div style="background:#fdf7e8; border:1px solid #d4b86e; border-radius:6px; padding:16px;">
+                <div style="font-size:13px; font-weight:700; color:var(--deep); margin-bottom:8px;">Patronage Mechanics
+                </div>
+                <div style="font-size:13px; line-height:1.6;">Net margins distribute to members in proportion to
+                  business volume. By Year 5, estimated patronage of roughly $96/acre reduces effective membership cost
+                  from $180 to approximately $84/acre net of distributions.</div>
+              </div>
+              <div style="background:var(--white); border:1px solid var(--lgray); border-radius:6px; padding:14px;">
+                <div style="font-size:12px; line-height:1.6;"><strong>Governance safeguards:</strong> Quarterly Board
+                  meetings · Written conflict-of-interest policy · Annual leadership review from Year 2 · Succession
+                  framework by Year 3</div>
+              </div>
+            </div>
+          </div>
+          <div class="ft">WESTERN AVOCADO & CITRUS ASSOCIATION · CONFIDENTIAL</div>
+        </div>
+      </section>
+
+      <!-- SLIDE 7: BUSINESS MODEL + MEMBER VALUE -->
+      <section>
+        <div class="s lt subtle-bg bg3">
+          <div class="gs"></div>
+          <div class="hd">
+            <div class="hd-stripe"></div>
+            <div class="hd-title">$15/Acre/Month: What Members Pay and What They Receive</div>
+            <div class="hd-pg">7</div>
+          </div>
+          <div class="cb" style="display:flex; gap:24px;">
+            <div style="flex:0 0 52%;">
+              <div
+                style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--muted); margin-bottom:8px;">
+                Revenue Architecture</div>
+              <table class="tbl" style="margin-bottom:16px;">
+                <thead>
+                  <tr>
+                    <th>Stream</th>
+                    <th>Rate</th>
+                    <th>Year 5 (5,000 ac)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Base membership fee</td>
+                    <td>$15/ac/mo</td>
+                    <td class="go">$900,000</td>
+                  </tr>
+                  <tr>
+                    <td>Coordination fee</td>
+                    <td>$0.005/lb</td>
+                    <td class="go">$143,750</td>
+                  </tr>
+                  <tr>
+                    <td>Program assessments</td>
+                    <td>$0.003/lb</td>
+                    <td class="go">$86,250</td>
+                  </tr>
+                  <tr>
+                    <td>Tiered service packages</td>
+                    <td>$50/ac (20% opt-in)</td>
+                    <td class="go">$50,000</td>
+                  </tr>
+                  <tr>
+                    <td>Procurement margin</td>
+                    <td>3% group purchasing</td>
+                    <td class="go">$44,550</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Total Operating Revenue</strong></td>
+                    <td></td>
+                    <td class="go"><strong>$1,224,550</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div
+                style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--muted); margin-bottom:8px;">
+                Member Value (100-Acre Operation)</div>
+              <table class="tbl">
+                <thead>
+                  <tr>
+                    <th>Value Category</th>
+                    <th>Conservative</th>
+                    <th>Base Case</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Packinghouse deduction savings</td>
+                    <td class="go">$6,800</td>
+                    <td class="go">$13,600</td>
+                  </tr>
+                  <tr>
+                    <td>Pricing improvement (timing)</td>
+                    <td class="go">$17,000</td>
+                    <td class="go">$34,000</td>
+                  </tr>
+                  <tr>
+                    <td>Procurement savings</td>
+                    <td class="go">$15,000</td>
+                    <td class="go">$24,000</td>
+                  </tr>
+                  <tr>
+                    <td>Water advocacy value</td>
+                    <td class="go">$5,000</td>
+                    <td class="go">$10,000</td>
+                  </tr>
+                  <tr>
+                    <td>Admin overhead reduction</td>
+                    <td class="go">$3,000</td>
+                    <td class="go">$5,000</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Total Annual Value</strong></td>
+                    <td class="go"><strong>$46,800</strong></td>
+                    <td class="go"><strong>$86,600</strong></td>
+                  </tr>
+                  <tr>
+                    <td>Total Annual Cost</td>
+                    <td>($23,440)</td>
+                    <td>($23,440)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Net Benefit</strong></td>
+                    <td class="go"><strong>+$23,360</strong></td>
+                    <td class="go"><strong>+$63,160</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div style="flex:1; display:flex; flex-direction:column; gap:16px; justify-content:center;">
+              <div
+                style="background:var(--deep); color:var(--white); border-radius:8px; padding:24px; text-align:center;">
+                <div
+                  style="font-size:11px; text-transform:uppercase; letter-spacing:0.2em; color:var(--sage); margin-bottom:8px;">
+                  Member ROI (100 Acres)</div>
+                <div style="font-family:var(--bb); font-size:96px; color:var(--gold); line-height:0.9;">2.0×</div>
+                <div style="font-size:13px; opacity:0.7; margin-top:10px;">Conservative: $46,800 on $23,440</div>
+              </div>
+              <div
+                style="background:var(--gold); color:var(--deep); border-radius:8px; padding:24px; text-align:center;">
+                <div
+                  style="font-size:11px; text-transform:uppercase; letter-spacing:0.2em; opacity:0.75; margin-bottom:8px;">
+                  Base Case ROI</div>
+                <div style="font-family:var(--bb); font-size:96px; line-height:0.9;">3.7×</div>
+                <div style="font-size:13px; opacity:0.8; margin-top:10px;">$86,600 on $23,440</div>
+              </div>
+            </div>
+          </div>
+          <div class="ft">WESTERN AVOCADO & CITRUS ASSOCIATION · CONFIDENTIAL</div>
+        </div>
+      </section>
+
+      <!-- SLIDE 8: FINANCIALS -->
+      <section>
+        <div class="s lt">
+          <div class="gs"></div>
+          <div class="hd">
+            <div class="hd-stripe"></div>
+            <div class="hd-title">Financial Projections: Profitable Year 1 and Every Year After</div>
+            <div class="hd-pg">8</div>
+          </div>
+          <div class="cb">
+            <table class="tbl" style="margin-bottom:20px;">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Year 1</th>
+                  <th>Year 2</th>
+                  <th>Year 3</th>
+                  <th>Year 4</th>
+                  <th>Year 5</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Acreage under management</td>
+                  <td>2,000</td>
+                  <td>2,500</td>
+                  <td>3,000</td>
+                  <td>4,000</td>
+                  <td class="go">5,000</td>
+                </tr>
+                <tr>
+                  <td>Total revenue</td>
+                  <td>$388,750</td>
+                  <td>$603,500</td>
+                  <td>$729,900</td>
+                  <td>$979,600</td>
+                  <td class="go">$1,224,550</td>
+                </tr>
+                <tr>
+                  <td>Total expenses</td>
+                  <td>$229,950</td>
+                  <td>$403,200</td>
+                  <td>$541,800</td>
+                  <td>$667,800</td>
+                  <td>$745,500</td>
+                </tr>
+                <tr>
+                  <td><strong>Net income</strong></td>
+                  <td class="go"><strong>$158,800</strong></td>
+                  <td class="go"><strong>$200,300</strong></td>
+                  <td class="go"><strong>$188,100</strong></td>
+                  <td class="go"><strong>$311,800</strong></td>
+                  <td class="go"><strong>$479,050</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Net margin</strong></td>
+                  <td class="sg"><strong>40.9%</strong></td>
+                  <td class="sg"><strong>33.2%</strong></td>
+                  <td class="sg"><strong>25.8%</strong></td>
+                  <td class="sg"><strong>31.8%</strong></td>
+                  <td class="sg"><strong>39.1%</strong></td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-bottom:20px;">
+              <div
+                style="background:#fdf5e0; border:1px solid #d4b86e; border-radius:6px; padding:16px; font-size:13px; line-height:1.6;">
+                <strong>Year 1:</strong> $158,800 net income at 40.9% margin. This is before a single grower beyond
+                committed acreage comes on board.
+              </div>
+              <div
+                style="background:var(--white); border:1px solid var(--lgray); border-radius:6px; padding:16px; font-size:13px; line-height:1.6;">
+                <strong>Year 3 dip:</strong> Staffing investments to support growth. Margin recovers to 39.1% by Year 5,
+                stronger than Year 1.
+              </div>
+              <div
+                style="background:var(--white); border:1px solid var(--lgray); border-radius:6px; padding:16px; font-size:13px; line-height:1.6;">
+                <strong>Scale efficiency:</strong> Expenses grow sublinearly. Serving 5,000 acres does not cost five
+                times what 2,000 acres costs.
+              </div>
+            </div>
+            <div class="stat-bar">
+              <div class="stat-cell">
+                <div class="stat-num">$158K</div>
+                <div class="stat-lbl">Year 1<br>net income</div>
+              </div>
+              <div class="stat-cell">
+                <div class="stat-num">40.9%</div>
+                <div class="stat-lbl">Year 1<br>net margin</div>
+              </div>
+              <div class="stat-cell">
+                <div class="stat-num">$479K</div>
+                <div class="stat-lbl">Year 5<br>net income</div>
+              </div>
+              <div class="stat-cell">
+                <div class="stat-num" style="color:var(--sage);">$1.34M</div>
+                <div class="stat-lbl">5-year<br>cumulative net</div>
+              </div>
+            </div>
+          </div>
+          <div class="ft">WESTERN AVOCADO & CITRUS ASSOCIATION · CONFIDENTIAL</div>
+        </div>
+      </section>
+
+      <!-- SLIDE 9: SAFETY MARGIN -->
+      <section>
+        <div class="s lt" style="flex-direction:row;">
+          <div class="gs"></div>
+          <div
+            style="width:320px; background:var(--deep); color:var(--white); padding:50px 30px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:16px;">
+            <div
+              style="font-size:12px; text-transform:uppercase; letter-spacing:0.2em; color:rgba(255,255,255,0.6); font-weight:700; text-align:center;">
+              Margin of Safety</div>
+            <div style="font-size:140px; line-height:0.85; letter-spacing:-6px; color:var(--gold);">69%</div>
+            <div style="font-size:15px; opacity:0.8; text-align:center; line-height:1.4;">above break-even<br>before
+              operations begin</div>
+            <div style="width:60px; height:3px; background:rgba(201,168,76,0.5); margin:12px 0;"></div>
+            <div style="text-align:center;">
+              <div style="font-size:32px; color:rgba(255,255,255,0.9);">~2,000</div>
+              <div style="font-size:11px; opacity:0.6; text-transform:uppercase; letter-spacing:0.1em; margin-top:4px;">
+                Committed Acres</div>
+            </div>
+            <div style="font-size:12px; opacity:0.7; text-align:center;">vs. 1,185 acres needed to reach profitability
+            </div>
+          </div>
+          <div
+            style="flex:1; padding:50px 60px 40px; display:flex; flex-direction:column; justify-content:center; gap:24px;">
+            <div style="font-size:26px; font-weight:700; color:var(--deep);">Every Scenario Remains Profitable</div>
+            <table class="tbl">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Conservative</th>
+                  <th>Base Case</th>
+                  <th>Optimistic</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Year 1 acreage</td>
+                  <td>1,500</td>
+                  <td>2,000</td>
+                  <td>2,500</td>
+                </tr>
+                <tr>
+                  <td>Year 5 acreage</td>
+                  <td>4,500</td>
+                  <td>5,000</td>
+                  <td>7,000</td>
+                </tr>
+                <tr>
+                  <td>Year 1 revenue</td>
+                  <td>$291,600</td>
+                  <td>$388,750</td>
+                  <td>$486,000</td>
+                </tr>
+                <tr>
+                  <td>Year 1 net income</td>
+                  <td class="go">$68,650</td>
+                  <td class="go">$158,800</td>
+                  <td class="go">$248,050</td>
+                </tr>
+                <tr>
+                  <td><strong>Year 1 net margin</strong></td>
+                  <td class="sg"><strong>23.5%</strong></td>
+                  <td class="sg"><strong>40.9%</strong></td>
+                  <td class="sg"><strong>51.0%</strong></td>
+                </tr>
+              </tbody>
+            </table>
+            <div
+              style="background:#faf0d0; border:1px solid #c9a84c; border-radius:6px; padding:16px; font-size:14px; line-height:1.6;">
+              WACA needs to lose more than 40% of committed acreage before it reaches a loss position. No scenario in
+              this matrix requires additional capitalization. Cash position starts at $490,000 and grows every year
+              under all three cases.
+            </div>
+            <div style="font-size:13px; color:var(--muted);">Break-even: 1,185 acres. Conservative case: 1,500. Buffer:
+              27% above worst-case. Base case buffer: 69% above break-even.</div>
+          </div>
+          <div class="ft">WESTERN AVOCADO & CITRUS ASSOCIATION · CONFIDENTIAL</div>
+        </div>
+      </section>
+
+      <!-- SLIDE 10: CAPITAL STRUCTURE & USE OF PROCEEDS -->
+      <section>
+        <div class="s lt">
+          <div class="gs"></div>
+          <div class="hd">
+            <div class="hd-stripe"></div>
+            <div class="hd-title">$490,000 Member Equity Offering: Structure and Deployment</div>
+            <div class="hd-pg">10</div>
+          </div>
+          <div class="cb" style="display:flex; gap:24px;">
+            <div style="flex:0 0 55%;">
+              <table class="tbl" style="margin-bottom:16px;">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Units</th>
+                    <th>Ownership</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Founder (Bailey Diioia)</td>
+                    <td>510,000</td>
+                    <td class="go">51%</td>
+                  </tr>
+                  <tr>
+                    <td>Member offering</td>
+                    <td>490,000 at $1/unit</td>
+                    <td class="go">49%</td>
+                  </tr>
+                  <tr>
+                    <td>Per-member cap</td>
+                    <td>50,000 maximum</td>
+                    <td>5% maximum</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div style="margin-bottom:16px; font-size:13px; font-weight:700;">Use of Proceeds</div>
+              <table class="tbl">
+                <thead>
+                  <tr>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Timing</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Formation + legal (Articles, Bylaws, agreements)</td>
+                    <td class="go">$5,000</td>
+                    <td>Phase 0</td>
+                  </tr>
+                  <tr>
+                    <td>Technology + infrastructure</td>
+                    <td class="go">$15,000</td>
+                    <td>Phase 1</td>
+                  </tr>
+                  <tr>
+                    <td>Insurance (D&amp;O, E&amp;O, GL)</td>
+                    <td class="go">$8,000</td>
+                    <td>Phase 1</td>
+                  </tr>
+                  <tr>
+                    <td>CEO compensation (Year 1)</td>
+                    <td class="go">$72,000</td>
+                    <td>Phases 1-4</td>
+                  </tr>
+                  <tr>
+                    <td>Operations + admin staffing</td>
+                    <td class="go">$42,000</td>
+                    <td>Phases 3-4</td>
+                  </tr>
+                  <tr>
+                    <td>Marketing, travel, field operations</td>
+                    <td class="go">$27,000</td>
+                    <td>Phases 1-4</td>
+                  </tr>
+                  <tr>
+                    <td>Equipment + office</td>
+                    <td class="go">$24,000</td>
+                    <td>Phase 2</td>
+                  </tr>
+                  <tr>
+                    <td>Ongoing legal + CPA</td>
+                    <td class="go">$20,000</td>
+                    <td>Phases 2-4</td>
+                  </tr>
+                  <tr>
+                    <td>Water advocacy activation</td>
+                    <td class="go">$8,000</td>
+                    <td>Phase 2</td>
+                  </tr>
+                  <tr>
+                    <td>Contingency</td>
+                    <td class="go">$16,000</td>
+                    <td>As needed</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Reserve capital (Year 2 runway)</strong></td>
+                    <td class="go"><strong>$183,000</strong></td>
+                    <td>Undeployed Y1</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Total Offering</strong></td>
+                    <td class="go"><strong>$490,000 (includes reserve)</strong></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div style="flex:1; display:flex; flex-direction:column; gap:14px; justify-content:center;">
+              <div
+                style="background:var(--deep); color:var(--white); border-radius:6px; padding:20px; text-align:center;">
+                <div
+                  style="font-size:13px; color:var(--sage); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:8px;">
+                  Available to Grower Members</div>
+                <div style="font-family:var(--bb); font-size:80px; color:var(--gold); line-height:0.9;">49%</div>
+                <div style="font-size:13px; opacity:0.7; margin-top:8px;">490,000 units at $1.00/unit</div>
+              </div>
+              <div style="background:#fdf7e8; border:1px solid #d4b86e; border-radius:6px; padding:16px;">
+                <div style="font-size:13px; font-weight:700; color:var(--deep); margin-bottom:8px;">Reserve Runway</div>
+                <div style="font-size:13px; line-height:1.6;">$183,000 of proceeds remain undeployed in Year 1: six to
+                  eight additional months of full operational runway into Year 2 even if acreage growth slows. No
+                  additional raise required under any modeled scenario.</div>
+              </div>
+              <div
+                style="background:var(--white); border:1px solid var(--lgray); border-radius:6px; padding:14px; font-size:12px; line-height:1.6; color:var(--muted);">
+                <strong>Critical:</strong> No funds collected until all offering documents, membership agreements, and
+                governance instruments are finalized by counsel. No exceptions.
+              </div>
+            </div>
+          </div>
+          <div class="ft">WESTERN AVOCADO & CITRUS ASSOCIATION · CONFIDENTIAL</div>
+        </div>
+      </section>
+
+      <!-- SLIDE 11: LEADERSHIP -->
+      <section>
+        <div class="s lt">
+          <div class="gs"></div>
+          <div class="hd">
+            <div class="hd-stripe"></div>
+            <div class="hd-title">Bailey Diioia: Founder and CEO</div>
+            <div class="hd-pg">11</div>
+          </div>
+          <div class="cb" style="display:flex; flex-direction:column; gap:18px;">
+            <div style="display:flex; gap:30px;">
+              <div style="flex:0 0 26%; display:flex; flex-direction:column; gap:14px;">
+                <div
+                  style="background:var(--deep); color:var(--white); border-radius:8px; padding:22px; text-align:center;">
+                  <div style="font-family:var(--bb); font-size:44px; color:var(--gold); margin-bottom:8px;">BD</div>
+                  <div style="font-size:17px; font-weight:700;">Bailey Diioia</div>
+                  <div style="font-size:12px; color:var(--sage); margin-top:4px;">Founder and CEO</div>
+                </div>
+                <div
+                  style="background:#fdf5e0; border:1px solid #d4b86e; border-radius:6px; padding:14px; text-align:center;">
+                  <div style="font-size:28px; color:var(--gold);">$12M+</div>
+                  <div
+                    style="font-size:11px; color:var(--muted); margin-top:6px; text-transform:uppercase; letter-spacing:0.1em;">
+                    Revenue Coordinated</div>
+                </div>
+                <div style="display:flex; gap:10px;">
+                  <div
+                    style="flex:1; background:var(--white); border:1px solid var(--lgray); border-radius:6px; padding:12px; text-align:center;">
+                    <div style="font-size:22px; font-weight:700; color:var(--gold);">15 yrs</div>
+                    <div style="font-size:10px; color:var(--muted); margin-top:4px; text-transform:uppercase;">In Region
+                    </div>
+                  </div>
+                  <div
+                    style="flex:1; background:var(--white); border:1px solid var(--lgray); border-radius:6px; padding:12px; text-align:center;">
+                    <div style="font-size:17px; font-weight:700; color:var(--deep);">Class 43</div>
+                    <div style="font-size:10px; color:var(--muted); margin-top:4px; text-transform:uppercase;">CA Ag
+                      Leader</div>
+                  </div>
+                </div>
+              </div>
+              <div style="flex:1; display:grid; grid-template-columns:1fr 1fr; gap:18px; align-content:start;">
+                <div>
+                  <div style="font-size:13px; color:var(--gold); font-weight:700; margin-bottom:6px;">Early Career</div>
+                  <div style="font-size:13px; line-height:1.6;">Started at 14 in family orchards in Carpinteria. Eight
+                    years in grove operations covering irrigation, pruning, harvest timing, and pest management. Seven
+                    years in farm management across Ventura and Santa Barbara Counties.</div>
+                </div>
+                <div>
+                  <div style="font-size:13px; color:var(--gold); font-weight:700; margin-bottom:6px;">Industry Scale
+                  </div>
+                  <div style="font-size:13px; line-height:1.6;">Generated and managed over $12 million in new packing
+                    revenue at Index Fresh, one of California's largest avocado handlers. Millions of pounds coordinated
+                    through the supply chain.</div>
+                </div>
+                <div>
+                  <div style="font-size:13px; color:var(--gold); font-weight:700; margin-bottom:6px;">Leadership Program
+                  </div>
+                  <div style="font-size:13px; line-height:1.6;">California Agricultural Leadership Program, Class 43.
+                    Fewer than 30 admitted per class statewide. Two-year intensive covering agricultural policy, global
+                    trade, economic analysis, and organizational leadership.</div>
+                </div>
+                <div>
+                  <div style="font-size:13px; color:var(--gold); font-weight:700; margin-bottom:6px;">Professional
+                    Advisory Team</div>
+                  <div style="font-size:13px; line-height:1.6;"><strong>Legal:</strong> Law Office of Delina Yasmeh
+                    (formation, governance, compliance)<br><strong>CPA:</strong> Agricultural Subchapter T specialist
+                    (Phase 1)<br><strong>Water Counsel:</strong> Retained as needed for adjudication
+                    advocacy<br><strong>Industry:</strong> UC Cooperative Extension, CAC</div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="background:var(--deep); color:var(--white); border-radius:8px; padding:18px 28px; border-left:5px solid var(--gold); display:flex; align-items:center; gap:20px;">
+              <div
+                style="font-family:var(--bb); font-size:56px; color:var(--gold); opacity:0.35; flex-shrink:0; line-height:0.8; margin-top:-6px;">
+                "</div>
+              <div>
+                <div
+                  style="font-family:var(--pf); font-style:italic; font-size:15px; line-height:1.55; color:rgba(255,255,255,0.92);">
+                  He spent 15 years watching independent growers leave: not because they failed at farming, but because
+                  the economics of farming alone became untenable. WACA is the cooperative he wished had existed when he
+                  started.</div>
+                <div
+                  style="font-size:10px; color:var(--sage); text-transform:uppercase; letter-spacing:0.18em; margin-top:8px;">
+                  California Agricultural Leadership Program · Class 43 · Index Fresh · $12M+ Revenue Coordinated</div>
+              </div>
+            </div>
+          </div>
+          <div class="ft">WESTERN AVOCADO & CITRUS ASSOCIATION · CONFIDENTIAL</div>
+        </div>
+      </section>
+
+      <!-- SLIDE 12: EXECUTION ROADMAP -->
+      <section>
+        <div class="s lt">
+          <div class="gs"></div>
+          <div class="hd">
+            <div class="hd-stripe"></div>
+            <div class="hd-title">Execution Roadmap: Phased with Hard Decision Gates</div>
+            <div class="hd-pg">12</div>
+          </div>
+          <div class="cb" style="display:flex; flex-direction:column; gap:18px;">
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px;">
+              <div
+                style="background:var(--white); border-radius:6px; overflow:hidden; display:flex; flex-direction:column; border:1px solid var(--lgray);">
+                <div style="background:var(--deep); border-left:6px solid var(--gold); padding:14px;">
+                  <div style="font-weight:700; color:var(--white); font-size:15px;">Phase 1</div>
+                  <div style="font-size:12px; color:var(--sage); margin-top:2px;">Foundation · Mo. 1-3</div>
+                </div>
+                <div
+                  style="padding:14px; font-size:13px; line-height:1.6; flex:1; display:flex; flex-direction:column; gap:10px;">
+                  <div>Articles, Bylaws, Board formation. Technology infrastructure, insurance, member recruitment.
+                    Packinghouse agreement executed with Del Rey.</div>
+                  <div
+                    style="padding:10px; background:#eef3e6; border-left:4px solid var(--sage); border-radius:4px; margin-top:auto;">
+                    <div
+                      style="font-size:11px; color:var(--sage); font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">
+                      Gate</div>
+                    <div style="font-weight:700; font-size:13px;">80% acreage signed</div>
+                  </div>
+                  <div style="font-size:12px; color:var(--muted);">Budget: <strong>$60,000</strong></div>
+                </div>
+              </div>
+              <div
+                style="background:var(--white); border-radius:6px; overflow:hidden; display:flex; flex-direction:column; border:1px solid var(--lgray);">
+                <div style="background:var(--deep); border-left:6px solid var(--gold); padding:14px;">
+                  <div style="font-weight:700; color:var(--white); font-size:15px;">Phase 2</div>
+                  <div style="font-size:12px; color:var(--sage); margin-top:2px;">Launch · Mo. 4-6</div>
+                </div>
+                <div
+                  style="padding:14px; font-size:13px; line-height:1.6; flex:1; display:flex; flex-direction:column; gap:10px;">
+                  <div>Member onboarding, billing live, weekly volume coordination, water advocacy activated. First
+                    monthly member reports issued.</div>
+                  <div
+                    style="padding:10px; background:#eef3e6; border-left:4px solid var(--sage); border-radius:4px; margin-top:auto;">
+                    <div
+                      style="font-size:11px; color:var(--sage); font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">
+                      Gate</div>
+                    <div style="font-weight:700; font-size:13px;">30 days stable ops</div>
+                  </div>
+                  <div style="font-size:12px; color:var(--muted);">Budget: <strong>+$52,000</strong></div>
+                </div>
+              </div>
+              <div
+                style="background:var(--white); border-radius:6px; overflow:hidden; display:flex; flex-direction:column; border:1px solid var(--lgray);">
+                <div style="background:var(--deep); border-left:6px solid var(--gold); padding:14px;">
+                  <div style="font-weight:700; color:var(--white); font-size:15px;">Phase 3</div>
+                  <div style="font-size:12px; color:var(--sage); margin-top:2px;">Revenue · Mo. 7-12</div>
+                </div>
+                <div
+                  style="padding:14px; font-size:13px; line-height:1.6; flex:1; display:flex; flex-direction:column; gap:10px;">
+                  <div>Full fee billing, coordination fees activated, tiered packages launched, second member
+                    recruitment wave, operations coordinator hired.</div>
+                  <div
+                    style="padding:10px; background:#eef3e6; border-left:4px solid var(--sage); border-radius:4px; margin-top:auto;">
+                    <div
+                      style="font-size:11px; color:var(--sage); font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">
+                      Gate</div>
+                    <div style="font-weight:700; font-size:13px;">90%+ fee collection</div>
+                  </div>
+                  <div style="font-size:12px; color:var(--muted);">Budget: <strong>+$195,000</strong></div>
+                </div>
+              </div>
+              <div
+                style="background:var(--deep); border-radius:6px; overflow:hidden; display:flex; flex-direction:column;">
+                <div style="background:#3e553a; border-left:6px solid var(--gold); padding:14px;">
+                  <div style="font-weight:700; color:var(--white); font-size:15px;">Year 2-3</div>
+                  <div style="font-size:12px; color:var(--sage); margin-top:2px;">Scale and Expand</div>
+                </div>
+                <div
+                  style="padding:14px; font-size:13px; line-height:1.6; flex:1; display:flex; flex-direction:column; gap:10px; color:rgba(255,255,255,0.85);">
+                  <div>Second packer agreement, group procurement active, geographic expansion, strategic review at Year
+                    3, succession framework adopted.</div>
+                  <div
+                    style="padding:10px; background:#2c4734; border-left:4px solid var(--sage); border-radius:4px; margin-top:auto;">
+                    <div
+                      style="font-size:11px; color:var(--sage); font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">
+                      Gate</div>
+                    <div style="font-weight:700; font-size:13px; color:var(--white);">2 profitable quarters</div>
+                  </div>
+                  <div style="font-size:12px; color:rgba(255,255,255,0.5);">Self-funded from operations</div>
+                </div>
+              </div>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr 1fr; gap:12px;">
+              <div
+                style="background:var(--deep); color:var(--white); border-radius:6px; padding:14px; text-align:center; border-top:3px solid var(--gold);">
+                <div style="font-size:14px; color:var(--gold); font-weight:700;">Year 1</div>
+                <div style="font-size:12px; opacity:0.7; margin-top:4px;">Co-op formed, Del Rey signed, 2,000 acres
+                  onboarded, Board seated</div>
+              </div>
+              <div
+                style="background:var(--deep); color:var(--white); border-radius:6px; padding:14px; text-align:center; border-top:3px solid var(--gold);">
+                <div style="font-size:14px; color:var(--gold); font-weight:700;">Year 2</div>
+                <div style="font-size:12px; opacity:0.7; margin-top:4px;">2,500 acres, second packer, tiered services,
+                  procurement program live</div>
+              </div>
+              <div
+                style="background:var(--deep); color:var(--white); border-radius:6px; padding:14px; text-align:center; border-top:3px solid var(--gold);">
+                <div style="font-size:14px; color:var(--gold); font-weight:700;">Year 3</div>
+                <div style="font-size:12px; opacity:0.7; margin-top:4px;">3,000 acres, strategic review, community
+                  benefit fund, Santa Barbara expansion</div>
+              </div>
+              <div
+                style="background:var(--deep); color:var(--white); border-radius:6px; padding:14px; text-align:center; border-top:3px solid var(--gold);">
+                <div style="font-size:14px; color:var(--gold); font-weight:700;">Year 4</div>
+                <div style="font-size:12px; opacity:0.7; margin-top:4px;">4,000 acres, third packer, infrastructure
+                  investment, compliance scaling</div>
+              </div>
+              <div
+                style="background:#3e553a; color:var(--white); border-radius:6px; padding:14px; text-align:center; border-top:3px solid var(--gold);">
+                <div style="font-size:14px; color:var(--gold); font-weight:700;">Year 5</div>
+                <div style="font-size:12px; opacity:0.7; margin-top:4px;">5,000 acres, $900K base revenue, recognized
+                  regional platform</div>
+              </div>
+            </div>
+          </div>
+          <div class="ft">WESTERN AVOCADO & CITRUS ASSOCIATION · CONFIDENTIAL</div>
+        </div>
+      </section>
+
+      <!-- SLIDE 13: RISK FACTORS -->
+      <section>
+        <div class="s lt">
+          <div class="gs"></div>
+          <div class="hd">
+            <div class="hd-stripe"></div>
+            <div class="hd-title">Risk Architecture: Pre-Built Responses, Not Reactive Plans</div>
+            <div class="hd-pg">13</div>
+          </div>
+          <div class="cb">
+            <table class="tbl" style="margin-bottom:16px;">
+              <thead>
+                <tr>
+                  <th>Risk</th>
+                  <th>Probability</th>
+                  <th>Impact</th>
+                  <th>Mitigation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Import expansion</strong></td>
+                  <td><span style="color:var(--gold); font-weight:700;">High</span></td>
+                  <td><span style="color:#d97706;">Moderate</span></td>
+                  <td>Revenue is acreage-based, not price-based. Pooled marketing. Dual-crop diversification.</td>
+                </tr>
+                <tr>
+                  <td><strong>Water allocation cuts</strong></td>
+                  <td><span style="color:var(--gold); font-weight:700;">High</span></td>
+                  <td><span style="color:#dc2626; font-weight:700;">Severe</span></td>
+                  <td>Institutional advocacy with retained counsel. Multi-basin diversification. AB 1466 coalition.</td>
+                </tr>
+                <tr>
+                  <td><strong>Del Rey relationship fails</strong></td>
+                  <td><span style="color:#d97706;">Moderate</span></td>
+                  <td><span style="color:#d97706;">Moderate</span></td>
+                  <td>Backup packer targets identified. Core services deliver standalone value independent of any single
+                    handler.</td>
+                </tr>
+                <tr>
+                  <td><strong>Key person dependency</strong></td>
+                  <td><span style="color:#d97706;">Moderate</span></td>
+                  <td><span style="color:#dc2626; font-weight:700;">Severe</span></td>
+                  <td>Succession framework by Year 3. Board governance insulates operations. Documentation from Day 1.
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Acreage growth lags</strong></td>
+                  <td><span style="color:#d97706;">Moderate</span></td>
+                  <td><span style="color:#d97706;">Moderate</span></td>
+                  <td>$183K reserve covers 6-8 months additional runway. Lean budget triggers at 50% shortfall. No
+                    solvency risk.</td>
+                </tr>
+                <tr>
+                  <td><strong>Capital shortfall</strong></td>
+                  <td><span style="color:var(--sage);">Low</span></td>
+                  <td><span style="color:#d97706;">Moderate</span></td>
+                  <td>Staged deployment. $183K reserve. USDA RCDG (up to $200K) and VAPG (up to $200K) grants available.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="risk-band">
+              <div class="risk-card risk-hi">
+                <div class="rc-hd" style="color:#dc2626;">Water Cuts: Highest Severity</div>
+                <div class="rc-bd">Legal counsel retained for adjudication advocacy. Multi-basin member diversification
+                  limits concentration. Legislative coalition building on AB 1466 is already underway. This risk is the
+                  reason WACA's water advocacy function exists.</div>
+              </div>
+              <div class="risk-card risk-md">
+                <div class="rc-hd" style="color:#d97706;">Actively Managed Risks</div>
+                <div class="rc-bd">Key person risk is mitigated by governance design: 5-seat Board, founder's permanent
+                  seat, and documented institutional knowledge. Packinghouse risk is managed by non-exclusive strategy:
+                  no single handler controls WACA's volume.</div>
+              </div>
+              <div class="risk-card risk-lo">
+                <div class="rc-hd" style="color:var(--sage);">Structural Protections</div>
+                <div class="rc-bd">Break-even at 1,185 acres with 2,000 committed provides a structural buffer no other
+                  comparable cooperative has entered with. $183K reserve gives management time to respond. Competitive
+                  entry is blocked by Capper-Volstead status and first-mover grower relationships.</div>
+              </div>
+            </div>
+          </div>
+          <div class="ft">WESTERN AVOCADO & CITRUS ASSOCIATION · CONFIDENTIAL</div>
+        </div>
+      </section>
+
+      <!-- SLIDE 14: CLOSING / THE ASK -->
+      <section>
+        <div class="s dk subtle-bg bg4">
+          <div class="gs"></div>
+          <div class="cov-body">
+            <img src="avacdomanlogo.png" alt="WACA Logo"
+              style="width: 140px; position: absolute; bottom: 80px; right: 80px;">
+            <div class="sec-label">The Offering</div>
+            <div class="sec-title" style="font-size:54px;">$490,000 Member<br>Equity Offering</div>
+            <div style="font-size:16px; color:rgba(201,168,76,0.9); margin-top:28px; max-width:700px; line-height:1.7;">
+              490,000 membership units at $1.00/unit. Founder retains 51%. No single member may hold more than 5%.
+              First-year operations are profitable before a single additional grower converts beyond committed acreage.
+              The $490,000 raise is preserved and grows under every modeled scenario.
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:40px; max-width:760px;">
+              <div
+                style="background:rgba(201,168,76,0.12); border:1px solid rgba(201,168,76,0.3); border-radius:6px; padding:20px; text-align:center;">
+                <div style="font-family:var(--bb); font-size:44px; color:var(--gold); line-height:1;">2,000</div>
+                <div
+                  style="font-size:11px; opacity:0.65; text-transform:uppercase; letter-spacing:0.1em; margin-top:8px;">
+                  Acres committed<br>at launch</div>
+              </div>
+              <div
+                style="background:rgba(201,168,76,0.12); border:1px solid rgba(201,168,76,0.3); border-radius:6px; padding:20px; text-align:center;">
+                <div style="font-family:var(--bb); font-size:44px; color:var(--gold); line-height:1;">69%</div>
+                <div
+                  style="font-size:11px; opacity:0.65; text-transform:uppercase; letter-spacing:0.1em; margin-top:8px;">
+                  Margin of safety<br>above break-even</div>
+              </div>
+              <div
+                style="background:rgba(201,168,76,0.12); border:1px solid rgba(201,168,76,0.3); border-radius:6px; padding:20px; text-align:center;">
+                <div style="font-family:var(--bb); font-size:44px; color:var(--gold); line-height:1;">$1.6M</div>
+                <div
+                  style="font-size:11px; opacity:0.65; text-transform:uppercase; letter-spacing:0.1em; margin-top:8px;">
+                  Cash position<br>by Year 5</div>
+              </div>
+            </div>
+            <div
+              style="margin-top:36px; font-size:14px; color:rgba(255,255,255,0.5); line-height:1.6; max-width:680px;">
+              WACA is not a speculative vehicle. It is a working cooperative built for growers, governed by growers, and
+              designed to restore leverage to the independent producers who grow this region's most valuable crops.
+              Sunkist started this way. Blue Diamond started this way. The model works.
+            </div>
+          </div>
+          <div class="dk-foot">Prepared by the Law Office of Delina Yasmeh · Attorney Work Product · Confidential ·
+            February 2026</div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: 'c/t',
+      transition: 'fade',
+      transitionSpeed: 'fast',
+      progress: true,
+      controls: true,
+      center: false,
+      width: 1200,
+      height: 700,
+      margin: 0,
+      minScale: 0.2,
+      maxScale: 2.0
+    });
+  </script>
+</body>
+
+</html>
