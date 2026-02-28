@@ -589,6 +589,110 @@
 </head>
 
 <body>
+  <style>
+    #pw-overlay {
+      position: fixed;
+      inset: 0;
+      background: #1B3A30;
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #C9A84C;
+      font-family: 'Inter', system-ui, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #pw-overlay img {
+      width: 120px;
+      margin-bottom: 30px;
+    }
+
+    #pw-overlay h2 {
+      font-family: 'Alfa Slab One', serif;
+      font-weight: 400;
+      margin-bottom: 10px;
+      font-size: 24px;
+      color: #C9A84C;
+    }
+
+    #pw-overlay p {
+      font-size: 16px;
+      opacity: 0.8;
+      margin-bottom: 25px;
+      color: #FFFFFF;
+    }
+
+    #pw-overlay input {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #C9A84C;
+      padding: 15px 25px;
+      border-radius: 12px;
+      color: white;
+      font-size: 20px;
+      width: 100%;
+      max-width: 300px;
+      outline: none;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    #pw-overlay input:focus {
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 20px rgba(201, 168, 76, 0.2);
+    }
+
+    #pw-overlay .error {
+      color: #ff4d4d;
+      font-size: 14px;
+      margin-top: 15px;
+      font-weight: 600;
+      display: none;
+    }
+  </style>
+  <div id="pw-overlay">
+    <img src="avacdomanlogo.png" alt="WACA Logo">
+    <h2>Protected Presentation</h2>
+    <p>Please enter the password to view this document.</p>
+    <input type="password" id="pw-input" placeholder="Password" autofocus>
+    <div class="error" id="pw-error">Incorrect password. Please try again.</div>
+  </div>
+  <script>
+    (function () {
+      const overlay = document.getElementById('pw-overlay');
+      const input = document.getElementById('pw-input');
+      const error = document.getElementById('pw-error');
+      const pass = 'avacado';
+
+      if (sessionStorage.getItem('waca_auth') === pass) {
+        overlay.style.display = 'none';
+        return;
+      }
+
+      input.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+          if (input.value.toLowerCase() === pass) {
+            sessionStorage.setItem('waca_auth', pass);
+            overlay.style.display = 'none';
+          } else {
+            error.style.display = 'block';
+            input.value = '';
+            input.style.borderColor = '#ff4d4d';
+            setTimeout(() => input.style.borderColor = '#C9A84C', 500);
+          }
+        }
+      });
+
+      window.addEventListener('pageshow', function (event) {
+        if (sessionStorage.getItem('waca_auth') === pass) {
+          overlay.style.display = 'none';
+        }
+      });
+    })();
+  </script>
+
   <div class="reveal">
     <div class="slides">
 
