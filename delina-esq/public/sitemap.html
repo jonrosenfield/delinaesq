@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delina.ESQ — Site Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:      #f4f3ef;
+  --white:   #ffffff;
+  --ink:     #1a1a1a;
+  --mid:     #666;
+  --light:   #999;
+  --faint:   #ccc;
+  --rule:    #e2e0da;
+  --max:     1560px;
+  --prenup:    #b8706a;
+  --postnup:   #9a4f4f;
+  --nonprofit: #5e9472;
+  --contract:  #b08858;
+  --tax:       #7a60a0;
+  --llc:       #5a8a64;
+  --trademark: #c08840;
+  --scorp:     #888040;
+  --newbiz:    #449090;
+  --startup:   #9a8838;
+  --creator:   #4a6898;
+  --ecomm:     #3a7098;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); font-size: 13px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+/* ─ NAV ─ */
+.site-nav { position: sticky; top: 0; z-index: 100; background: rgba(244,243,239,0.97); border-bottom: 1px solid var(--rule); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 48px; display: flex; align-items: stretch; gap: 0; overflow-x: auto; scrollbar-width: none; }
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-link { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--light); text-decoration: none; padding: 14px 15px; white-space: nowrap; border-bottom: 2px solid transparent; transition: color 0.15s, border-color 0.15s; display: flex; align-items: center; }
+.nav-link:hover { color: var(--ink); border-bottom-color: var(--ink); }
+.nav-link.section-break { border-left: 1px solid var(--rule); margin-left: 6px; padding-left: 21px; }
+.nav-spacer { flex: 1; }
+.nav-download { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; padding: 0 16px; border-left: 1px solid var(--rule); display: flex; align-items: center; gap: 6px; flex-shrink: 0; transition: background 0.15s; white-space: nowrap; }
+.nav-download:hover { background: var(--ink); color: var(--bg); }
+.nav-download svg { flex-shrink: 0; }
+[id] { scroll-margin-top: 52px; }
+.nav-hamburger { display: none; background: none; border: none; padding: 0; cursor: pointer; flex-direction: column; justify-content: center; gap: 5px; height: 44px; margin-left: auto; flex-shrink: 0; }
+.hb-line { display: block; width: 20px; height: 1.5px; background: var(--ink); transition: transform 0.22s ease, opacity 0.22s ease; }
+.nav-hamburger.open .hb-line:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open .hb-line:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open .hb-line:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.nav-mobile { display: none; border-top: 1px solid var(--rule); background: var(--bg); }
+.nav-mobile.open { display: block; }
+.nav-mobile-inner { max-width: var(--max); margin: 0 auto; padding: 8px 0 4px; }
+.nav-mobile-link { display: block; padding: 13px 20px; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid); text-decoration: none; border-bottom: 1px solid var(--rule); transition: color 0.12s, background 0.12s; }
+.nav-mobile-link:last-of-type { border-bottom: none; }
+.nav-mobile-link:active { background: var(--white); color: var(--ink); }
+.nav-mobile-divider { height: 1px; background: var(--rule); margin: 4px 20px; }
+.nav-mobile-download { display: flex; align-items: center; gap: 8px; padding: 14px 20px; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bg); background: var(--ink); text-decoration: none; margin: 12px 20px 16px; transition: background 0.12s; }
+.nav-mobile-download:active { background: #333; }
+
+/* ─ MASTHEAD ─ */
+.masthead { background: var(--ink); padding: 60px 60px 52px; text-align: center; }
+.masthead-eyebrow { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: #555; font-weight: 400; margin-bottom: 18px; }
+.masthead-title { font-family: 'Cormorant Garamond', serif; font-size: 54px; font-weight: 300; letter-spacing: 0.06em; color: #fff; line-height: 1; }
+.masthead-title em { font-style: italic; }
+.masthead-meta { margin-top: 20px; display: flex; justify-content: center; gap: 36px; flex-wrap: wrap; }
+.masthead-meta span { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: #555; }
+.masthead-meta strong { color: #bbb; font-weight: 400; }
+
+/* ─ SECTION LABEL ─ */
+.section-label { max-width: var(--max); margin: 0 auto; padding: 40px 48px 16px; font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--light); font-weight: 500; display: flex; align-items: center; gap: 16px; }
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+/* ─ HOMEPAGE CARD ─ */
+.homepage-block { max-width: var(--max); margin: 0 auto; padding: 0 48px; }
+.homepage-card { background: var(--white); border: 1px solid var(--rule); border-top: 3px solid var(--ink); padding: 32px 40px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+.hp-label { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--light); font-weight: 500; margin-bottom: 6px; }
+.hp-value { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--ink); line-height: 1.2; }
+.hp-sub { font-size: 11px; color: var(--mid); margin-top: 5px; line-height: 1.5; }
+
+/* ─ CONNECTOR ─ */
+.connector { max-width: var(--max); margin: 0 auto; padding: 0 48px; display: flex; flex-direction: column; align-items: center; }
+.v-line { width: 1px; height: 32px; background: var(--rule); }
+.h-line { width: 100%; height: 1px; background: var(--rule); }
+.tick-row { max-width: var(--max); margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.tick { display: flex; justify-content: center; }
+.tick-line { width: 1px; height: 22px; background: var(--rule); }
+
+/* ─ GRID ─ */
+.lp-grid { max-width: var(--max); margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+
+/* ─ CARD ─ */
+.lp-card { background: var(--white); border: 1px solid var(--rule); border-top: 3px solid var(--accent, #888); cursor: pointer; transition: box-shadow 0.15s; }
+.lp-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+.lp-card.open { box-shadow: 0 4px 28px rgba(0,0,0,0.09); }
+
+.lp-head { padding: 18px 18px 14px; position: relative; }
+.lp-land { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent, #888); font-weight: 500; margin-bottom: 7px; }
+.lp-name { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 400; color: var(--ink); line-height: 1.25; margin-bottom: 5px; }
+.lp-slug { font-size: 10px; color: var(--light); font-family: monospace; margin-bottom: 12px; }
+.lp-stats { display: flex; gap: 5px; flex-wrap: wrap; }
+.stat { font-size: 10px; color: var(--mid); background: var(--bg); padding: 2px 7px; border: 1px solid var(--rule); }
+.stat.kd-easy  { color: #3a7a50; border-color: #bcd8c8; background: #f0f8f3; }
+.stat.kd-med   { color: #906010; border-color: #e8d498; background: #fdf9ee; }
+.stat.kd-hard  { color: #903030; border-color: #e8bcbc; background: #fef2f2; }
+.stat.kd-none  { color: var(--light); border-color: var(--rule); }
+.stat.tp       { color: #3a5a8a; border-color: #b8c8e0; background: #f0f4f9; }
+.tier { position: absolute; top: 16px; right: 16px; font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; }
+.tier.a { color: var(--ink); }
+.tier.b { color: var(--mid); }
+
+/* ─ EXPANDED BODY ─ */
+.lp-body { display: none; border-top: 1px solid var(--rule); }
+.lp-card.open .lp-body { display: block; }
+
+.body-block { padding: 12px 18px; border-bottom: 1px solid #ebebeb; }
+.body-block:last-child { border-bottom: none; }
+.block-title { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--light); font-weight: 500; margin-bottom: 9px; }
+
+/* intelligence grid */
+.intel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.intel-cell {}
+.intel-label { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); font-weight: 500; margin-bottom: 3px; }
+.intel-value { font-size: 11px; color: var(--ink); line-height: 1.4; }
+.intel-value.muted { color: var(--mid); }
+
+/* serp feature tags */
+.serp-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px; }
+.serp-tag { font-size: 9px; padding: 1px 6px; border: 1px solid var(--rule); color: var(--mid); letter-spacing: 0.05em; background: var(--bg); }
+.serp-tag.local  { border-color: #b8d0e8; color: #3a5a80; background: #f0f5fb; }
+.serp-tag.ai     { border-color: #c8b8e0; color: #604880; background: #f5f0fb; }
+.serp-tag.paa    { border-color: #b8d8c8; color: #306848; background: #f0f8f4; }
+.serp-tag.news   { border-color: #e8d0b0; color: #784810; background: #fdf7ee; }
+
+/* format tag */
+.format-tag { display: inline-block; font-size: 9px; padding: 1px 6px; border: 1px solid #d8c8b0; color: #6a4820; background: #fdf6ec; letter-spacing: 0.05em; }
+
+/* competitor row */
+.comp-row { display: flex; justify-content: space-between; align-items: baseline; padding: 4px 0; border-bottom: 1px solid #f2f1ed; gap: 8px; }
+.comp-row:last-child { border-bottom: none; }
+.comp-name { font-size: 11px; color: var(--mid); font-family: monospace; }
+.comp-dr { font-size: 10px; color: var(--light); }
+.comp-dr.low  { color: #3a7a50; font-weight: 500; }
+.comp-dr.mid  { color: #906010; }
+.comp-dr.high { color: #903030; }
+.comp-pos { font-size: 9px; color: var(--faint); margin-left: 4px; }
+
+/* keyword / post rows */
+.data-row { display: flex; justify-content: space-between; align-items: baseline; padding: 4px 0; border-bottom: 1px solid #f2f1ed; gap: 8px; }
+.data-row:last-child { border-bottom: none; }
+.row-title { font-size: 11px; color: var(--mid); flex: 1; line-height: 1.4; }
+.row-title.primary { color: var(--ink); font-weight: 500; }
+.row-meta { font-size: 10px; color: var(--light); white-space: nowrap; flex-shrink: 0; }
+.row-tag { font-size: 9px; padding: 1px 5px; margin-left: 4px; border: 1px solid var(--rule); color: var(--light); background: var(--bg); vertical-align: middle; }
+.row-tag.paa     { border-color: #b8d8c8; color: #306848; background: #f0f8f4; }
+.row-tag.kd0     { border-color: #bcd8c8; color: #3a7a50; background: #f0f8f3; }
+.row-tag.pillar  { border-color: #d0c0e0; color: #604880; background: #f5f0fb; }
+.row-tag.geo     { border-color: #e8d0b0; color: #784810; background: #fdf7ee; }
+
+/* sub-page rows */
+.subpage-row { display: flex; align-items: center; gap: 12px; padding: 5px 0; border-bottom: 1px solid #f2f1ed; }
+.subpage-row:last-child { border-bottom: none; }
+.subpage-url { font-size: 10px; color: var(--ink); font-family: monospace; font-weight: 500; }
+.subpage-stat { font-size: 10px; color: var(--light); }
+
+/* hint */
+.hint-row { max-width: var(--max); margin: 18px auto 14px; padding: 0 48px; text-align: center; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--faint); }
+
+/* ─ CROSS-LAND MAP ─ */
+.crosslink-grid { max-width: var(--max); margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.cl-card { background: var(--white); border: 1px solid var(--rule); border-left: 3px solid var(--accent, #888); padding: 16px 18px; }
+.cl-from { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent, #888); font-weight: 500; margin-bottom: 8px; }
+.cl-link { display: flex; align-items: baseline; gap: 8px; padding: 3px 0; border-bottom: 1px solid #f2f1ed; }
+.cl-link:last-child { border-bottom: none; }
+.cl-to { font-size: 10px; font-weight: 500; color: var(--ink); white-space: nowrap; }
+.cl-reason { font-size: 10px; color: var(--mid); }
+
+/* ─ LEGEND ─ */
+.legend-wrap { max-width: var(--max); margin: 0 auto; padding: 0 48px 80px; }
+.legend-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.legend-card { background: var(--white); border: 1px solid var(--rule); padding: 20px 22px; }
+.legend-title { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 400; color: var(--ink); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
+.legend-row { display: flex; gap: 10px; padding: 5px 0; border-bottom: 1px solid #f2f1ed; align-items: baseline; }
+.legend-row:last-child { border-bottom: none; }
+.legend-term { font-size: 10px; font-weight: 500; color: var(--ink); white-space: nowrap; min-width: 90px; flex-shrink: 0; }
+.legend-def { font-size: 11px; color: var(--mid); line-height: 1.4; }
+.legend-scale { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+.scale-item { font-size: 10px; padding: 2px 8px; border: 1px solid var(--rule); }
+.scale-item.e { border-color: #bcd8c8; color: #3a7a50; background: #f0f8f3; }
+.scale-item.m { border-color: #e8d498; color: #906010; background: #fdf9ee; }
+.scale-item.h { border-color: #e8bcbc; color: #903030; background: #fef2f2; }
+.scale-item.x { border-color: var(--rule); color: var(--light); background: var(--bg); }
+
+/* ─ COMPETITIVE INTELLIGENCE ─ */
+.comp-intel-grid { max-width: var(--max); margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.ci-card { background: var(--white); border: 1px solid var(--rule); border-top: 3px solid var(--accent, #888); padding: 20px 20px 16px; }
+.ci-land { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent, #888); font-weight: 500; margin-bottom: 3px; }
+.ci-env { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 400; color: var(--ink); font-style: italic; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); line-height: 1.3; }
+.ci-comp-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 5px 0; border-bottom: 1px solid #f2f1ed; flex-wrap: wrap; }
+.ci-comp-name { font-size: 11px; color: var(--mid); font-family: monospace; flex: 1; min-width: 100px; }
+.ci-badges { display: flex; gap: 4px; align-items: center; flex-shrink: 0; flex-wrap: wrap; }
+.ci-badge { font-size: 9px; padding: 1px 5px; border: 1px solid var(--rule); color: var(--light); letter-spacing: 0.04em; white-space: nowrap; }
+.ci-badge.platform    { border-color: #b8c8e8; color: #3a5888; background: #f0f4fb; }
+.ci-badge.boutique    { border-color: #b8d8c8; color: #306840; background: #f0f8f4; }
+.ci-badge.biglaw      { border-color: #e8bcbc; color: #883030; background: #fef2f2; }
+.ci-badge.template    { border-color: #e8d498; color: #806010; background: #fdf9ee; }
+.ci-badge.marketplace { border-color: #d0c0e0; color: #604878; background: #f5f0fb; }
+.ci-badge.brand       { border-color: #e8d0b0; color: #784810; background: #fdf7ee; }
+.ci-badge.advisory    { border-color: #d0d8b0; color: #506030; background: #f7fbee; }
+.ci-price { font-size: 10px; color: var(--light); white-space: nowrap; flex-shrink: 0; }
+.ci-gap { margin-top: 12px; padding: 9px 10px; background: #f5faf6; border: 1px solid #c0d8c8; border-left: 3px solid var(--accent, #888); }
+.ci-gap-label { font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: #4a7858; font-weight: 500; margin-bottom: 4px; }
+.ci-gap-text { font-size: 11px; color: #4a5a50; line-height: 1.5; }
+.ci-intro { max-width: var(--max); margin: 0 auto; padding: 0 48px 20px; font-size: 12px; color: var(--mid); line-height: 1.6; }
+
+/* ─ THREAT + CONTENT GAP TABLE ─ */
+.analysis-table-wrap { max-width: var(--max); margin: 0 auto; padding: 0 48px; overflow-x: auto; }
+.analysis-table { width: 100%; border-collapse: collapse; font-size: 11px; background: var(--white); border: 1px solid var(--rule); }
+.analysis-table th { padding: 9px 14px; text-align: left; font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: #bbb; font-weight: 400; background: var(--ink); white-space: nowrap; }
+.analysis-table td { padding: 8px 14px; border-bottom: 1px solid var(--rule); color: var(--mid); line-height: 1.4; vertical-align: middle; }
+.analysis-table tr:nth-child(even) td { background: #fafaf8; }
+.analysis-table tr:last-child td { border-bottom: none; }
+.threat-badge { display: inline-block; font-size: 9px; padding: 2px 8px; border: 1px solid; letter-spacing: 0.04em; white-space: nowrap; }
+.threat-badge.low  { border-color: #bcd8c8; color: #3a7a50; background: #f0f8f3; }
+.threat-badge.med  { border-color: #e8d498; color: #806010; background: #fdf9ee; }
+.threat-badge.high { border-color: #e8bcbc; color: #903030; background: #fef2f2; }
+.content-badge { display: inline-block; font-size: 9px; padding: 2px 8px; border: 1px solid var(--rule); color: var(--light); background: var(--bg); letter-spacing: 0.04em; white-space: nowrap; }
+.content-badge.none     { }
+.content-badge.minimal  { border-color: #b8d8c8; color: #306840; background: #f0f8f4; }
+.content-badge.moderate { border-color: #e8d498; color: #806010; background: #fdf9ee; }
+.content-badge.active   { border-color: #e8bcbc; color: #903030; background: #fef2f2; }
+.speed-badge { display: inline-block; font-size: 9px; padding: 2px 8px; border: 1px solid; letter-spacing: 0.04em; white-space: nowrap; }
+.speed-badge.vfast { border-color: #bcd8c8; color: #3a7a50; background: #f0f8f3; font-weight: 500; }
+.speed-badge.fast  { border-color: #b8c8e8; color: #3a5888; background: #f0f4fb; }
+.speed-badge.med   { border-color: #e8d498; color: #806010; background: #fdf9ee; }
+.speed-badge.slow  { border-color: #e8bcbc; color: #903030; background: #fef2f2; }
+.land-cell { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; white-space: nowrap; }
+.td-insight { font-size: 10px; color: var(--mid); line-height: 1.45; }
+
+/* ─ PRICING ARCHITECTURE ─ */
+.pricing-wrap { max-width: var(--max); margin: 0 auto; padding: 0 48px; }
+.pricing-tier { display: grid; grid-template-columns: 170px 120px 1fr; border-bottom: 1px solid var(--rule); background: var(--white); border-left: 1px solid var(--rule); border-right: 1px solid var(--rule); }
+.pricing-tier:first-child { border-top: 1px solid var(--rule); }
+.pricing-tier.delina-row { background: #f5faf6; border-left: 4px solid #5a8a64; }
+.pt-label { padding: 11px 16px; font-size: 10px; font-weight: 500; color: var(--ink); border-right: 1px solid var(--rule); display: flex; align-items: center; }
+.pt-range { padding: 11px 14px; font-size: 10px; color: var(--mid); font-family: monospace; border-right: 1px solid var(--rule); display: flex; align-items: center; white-space: nowrap; }
+.pt-players { padding: 11px 16px; font-size: 10px; color: var(--mid); display: flex; align-items: center; flex-wrap: wrap; gap: 5px; }
+.pt-player { font-size: 9px; padding: 2px 6px; border: 1px solid var(--rule); color: var(--mid); background: var(--bg); font-family: monospace; white-space: nowrap; }
+.pt-player.delina { border-color: #5a8a64; color: #3a6a44; background: #f0f8f3; font-family: inherit; font-weight: 500; font-size: 10px; letter-spacing: 0.02em; }
+.pricing-insight { margin-top: 12px; font-size: 11px; color: var(--mid); line-height: 1.65; padding: 12px 16px; background: var(--white); border: 1px solid var(--rule); border-left: 4px solid #5a8a64; }
+.pricing-insight strong { color: var(--ink); font-weight: 500; }
+
+/* ─ STRUCTURAL WEAKNESSES ─ */
+.weakness-grid { max-width: var(--max); margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.weakness-card { background: var(--white); border: 1px solid var(--rule); border-top: 3px solid #b0b0a8; padding: 20px 18px 16px; }
+.w-number { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--rule); line-height: 1; margin-bottom: 8px; }
+.w-title { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 400; color: var(--ink); margin-bottom: 10px; line-height: 1.2; }
+.w-who { font-size: 10px; color: var(--light); margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); line-height: 1.55; }
+.w-who strong { color: var(--mid); font-weight: 500; }
+.w-exploit-label { font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: #4a7858; font-weight: 500; margin-bottom: 5px; }
+.w-exploit { font-size: 11px; color: var(--mid); line-height: 1.55; }
+
+/* ─ FIRST MOVER ─ */
+.fm-grid { max-width: var(--max); margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.fm-card { background: var(--white); border: 1px solid var(--rule); border-left: 3px solid var(--accent, #888); padding: 16px 18px; }
+.fm-land { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent, #888); font-weight: 500; margin-bottom: 4px; }
+.fm-kw { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 10px; line-height: 1.3; font-style: italic; }
+.fm-pills { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 10px; }
+.fm-badge { font-size: 9px; padding: 2px 7px; border: 1px solid; letter-spacing: 0.04em; white-space: nowrap; }
+.fm-badge.kd0  { border-color: #bcd8c8; color: #3a7a50; background: #f0f8f3; font-weight: 500; }
+.fm-badge.open { border-color: #b8c8e8; color: #3a5888; background: #f0f4fb; }
+.fm-badge.fast { border-color: #e8d498; color: #806010; background: #fdf9ee; }
+.fm-why { font-size: 11px; color: var(--mid); line-height: 1.5; padding-top: 9px; border-top: 1px solid var(--rule); }
+.fm-intro { max-width: var(--max); margin: 0 auto; padding: 0 48px 20px; font-size: 12px; color: var(--mid); line-height: 1.6; }
+
+/* ─ PASSWORD OVERLAY ─ */
+.pw-overlay { position: fixed; inset: 0; background: var(--bg); z-index: 10000; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; }
+.pw-logo { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 300; color: var(--ink); letter-spacing: 0.06em; line-height: 1; margin-bottom: 6px; }
+.pw-logo em { font-style: italic; }
+.pw-sub { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--light); margin-bottom: 48px; }
+.pw-rule { width: 40px; height: 1px; background: var(--rule); margin: 0 auto 40px; }
+.pw-input { font-family: 'Inter', sans-serif; font-size: 13px; padding: 12px 20px; border: 1px solid var(--rule); background: var(--white); color: var(--ink); width: 220px; outline: none; text-align: center; letter-spacing: 0.15em; display: block; margin-bottom: 12px; transition: border-color 0.15s; }
+.pw-input:focus { border-color: var(--ink); }
+.pw-input::placeholder { color: var(--faint); letter-spacing: 0.1em; }
+.pw-btn { font-family: 'Inter', sans-serif; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; background: var(--ink); color: var(--bg); border: none; padding: 11px 0; cursor: pointer; width: 220px; display: block; transition: background 0.15s; }
+.pw-btn:hover { background: #333; }
+.pw-error { font-size: 10px; color: #903030; letter-spacing: 0.05em; margin-top: 12px; min-height: 16px; text-align: center; }
+
+/* ─ RESPONSIVE ─ */
+@media (max-width: 1100px) {
+  .lp-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 880px) {
+  :root { --max: 100%; }
+  .masthead { padding: 40px 28px 34px; }
+  .masthead-title { font-size: 44px; }
+  .section-label { padding: 32px 28px 14px; }
+  .homepage-block, .lp-grid, .connector, .tick-row, .hint-row, .crosslink-grid, .legend-wrap, .comp-intel-grid, .analysis-table-wrap, .pricing-wrap, .weakness-grid, .fm-grid, .foot, .ci-intro, .fm-intro { padding-left: 28px; padding-right: 28px; }
+  .legend-wrap { padding-bottom: 48px; }
+  .nav-inner { padding: 0 28px; }
+  .lp-grid { grid-template-columns: repeat(2, 1fr); }
+  .homepage-card { grid-template-columns: 1fr 1fr; gap: 20px; padding: 24px 28px; }
+  .crosslink-grid { grid-template-columns: repeat(2, 1fr); }
+  .legend-grid { grid-template-columns: repeat(2, 1fr); }
+  .comp-intel-grid { grid-template-columns: repeat(2, 1fr); }
+  .weakness-grid { grid-template-columns: repeat(2, 1fr); }
+  .fm-grid { grid-template-columns: repeat(2, 1fr); }
+  .pricing-tier { grid-template-columns: 130px 100px 1fr; }
+  .summary-table-wrap { padding-left: 28px; padding-right: 28px; overflow-x: auto; }
+}
+@media (max-width: 560px) {
+  .masthead { padding: 28px 16px 24px; }
+  .masthead-title { font-size: 34px; letter-spacing: 0.03em; }
+  .masthead-eyebrow { font-size: 8px; letter-spacing: 0.2em; }
+  .masthead-meta { gap: 12px 18px; }
+  .masthead-meta span { font-size: 9px; }
+  .nav-link { font-size: 8px; padding: 12px 10px; letter-spacing: 0.12em; }
+  .nav-download { font-size: 8px; padding: 0 12px; letter-spacing: 0.12em; }
+  .section-label { padding: 28px 16px 12px; font-size: 8px; letter-spacing: 0.2em; }
+  .homepage-block, .lp-grid, .connector, .tick-row, .hint-row, .crosslink-grid, .legend-wrap, .comp-intel-grid, .analysis-table-wrap, .pricing-wrap, .weakness-grid, .fm-grid, .foot, .ci-intro, .fm-intro { padding-left: 16px; padding-right: 16px; }
+  .legend-wrap { padding-bottom: 40px; }
+  .nav-inner { padding: 0 16px; }
+  .tick-row { display: none; }
+  .lp-grid { grid-template-columns: 1fr; }
+  .homepage-card { grid-template-columns: 1fr; gap: 18px; padding: 20px 16px; }
+  .hp-value { font-size: 18px; }
+  .crosslink-grid { grid-template-columns: 1fr; }
+  .legend-grid { grid-template-columns: 1fr; }
+  .comp-intel-grid { grid-template-columns: 1fr; }
+  .weakness-grid { grid-template-columns: 1fr; }
+  .fm-grid { grid-template-columns: 1fr; }
+  .intel-grid { grid-template-columns: 1fr; }
+  .pricing-tier { grid-template-columns: 1fr; border-left: 1px solid var(--rule); border-right: 1px solid var(--rule); }
+  .pricing-tier.delina-row { border-left: 4px solid #5a8a64; }
+  .pt-label { border-right: none; border-bottom: 1px solid var(--rule); font-weight: 600; }
+  .pt-range { border-right: none; border-bottom: 1px solid var(--rule); color: var(--ink); font-weight: 500; }
+  .summary-table-wrap { padding-left: 16px; padding-right: 16px; overflow-x: auto; }
+  [id] { scroll-margin-top: 44px; }
+  .w-number { font-size: 22px; }
+  .foot { flex-direction: column; gap: 6px; padding: 16px; }
+  /* Hamburger replaces nav links */
+  .nav-link { display: none !important; }
+  .nav-spacer { display: none; }
+  .nav-download { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-inner { padding: 0 16px; overflow-x: hidden; }
+}
+
+/* ─ FOOTER ─ */
+.foot { max-width: var(--max); margin: 0 auto; padding: 20px 48px 32px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.foot-note { font-size: 10px; color: var(--light); letter-spacing: 0.05em; }
+</style>
+</head>
+<body>
+
+<!-- PASSWORD OVERLAY -->
+<div id="pw-overlay" class="pw-overlay">
+  <div class="pw-logo">Delina<em>.esq</em></div>
+  <div class="pw-sub">Site Strategy — Private Document</div>
+  <div class="pw-rule"></div>
+  <input id="pw-input" class="pw-input" type="password" placeholder="Password" autocomplete="off" />
+  <button class="pw-btn" onclick="checkPw()">Enter</button>
+  <div id="pw-error" class="pw-error"></div>
+</div>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-eyebrow">Site Architecture &amp; Keyword Strategy</div>
+  <div class="masthead-title">Delina<em>.esq</em></div>
+  <div class="masthead-meta">
+    <span><strong>117</strong> Keywords Mapped</span>
+    <span><strong>12</strong> Content Lands</span>
+    <span><strong>14</strong> Landing Pages</span>
+    <span><strong>80+</strong> Blog Posts Planned</span>
+    <span>California Business &amp; Tax Attorney · $250K+ Audience</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-link" href="#homepage">Homepage</a>
+    <a class="nav-link" href="#landing-pages">Landing Pages</a>
+    <a class="nav-link" href="#cross-land">Cross-Land Links</a>
+    <a class="nav-link" href="#legend">Legend</a>
+    <a class="nav-link section-break" href="#competitive-landscape">Competition</a>
+    <a class="nav-link" href="#strategic-summary">Summary</a>
+    <a class="nav-link" href="#threat-matrix">Threat Matrix</a>
+    <a class="nav-link" href="#pricing">Pricing Map</a>
+    <a class="nav-link" href="#weaknesses">Weaknesses</a>
+    <a class="nav-link" href="#first-mover">First Movers</a>
+    <div class="nav-spacer"></div>
+    <a class="nav-download" href="desq-seo-bible.xlsx" download>
+      <svg width="11" height="11" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1v7M3.5 5.5L6 8l2.5-2.5M2 10h8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Download SEO Bible
+    </a>
+    <button class="nav-hamburger" id="nav-hamburger" onclick="toggleNav()" aria-label="Menu">
+      <span class="hb-line"></span>
+      <span class="hb-line"></span>
+      <span class="hb-line"></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <div class="nav-mobile-inner">
+      <a class="nav-mobile-link" href="#homepage" onclick="closeNav()">Homepage</a>
+      <a class="nav-mobile-link" href="#landing-pages" onclick="closeNav()">Landing Pages</a>
+      <a class="nav-mobile-link" href="#cross-land" onclick="closeNav()">Cross-Land Links</a>
+      <a class="nav-mobile-link" href="#legend" onclick="closeNav()">Legend</a>
+      <div class="nav-mobile-divider"></div>
+      <a class="nav-mobile-link" href="#competitive-landscape" onclick="closeNav()">Competition</a>
+      <a class="nav-mobile-link" href="#strategic-summary" onclick="closeNav()">Strategic Summary</a>
+      <a class="nav-mobile-link" href="#threat-matrix" onclick="closeNav()">Threat Matrix</a>
+      <a class="nav-mobile-link" href="#pricing" onclick="closeNav()">Pricing Map</a>
+      <a class="nav-mobile-link" href="#weaknesses" onclick="closeNav()">Weaknesses</a>
+      <a class="nav-mobile-link" href="#first-mover" onclick="closeNav()">First Movers</a>
+      <a class="nav-mobile-download" href="desq-seo-bible.xlsx" download onclick="closeNav()">
+        <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M6 1v7M3.5 5.5L6 8l2.5-2.5M2 10h8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Download SEO Bible
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HOMEPAGE -->
+<div id="homepage" class="section-label">Homepage</div>
+<div class="homepage-block">
+  <div class="homepage-card">
+    <div>
+      <div class="hp-label">URL</div>
+      <div class="hp-value">delina.esq/</div>
+      <div class="hp-sub">Root domain · Primary authority hub · Links to all 12 service lands</div>
+    </div>
+    <div>
+      <div class="hp-label">Primary Keyword Target</div>
+      <div class="hp-value">"business attorney"</div>
+      <div class="hp-sub">Also target: tax and business attorney · online business attorney · business lawyer california</div>
+    </div>
+    <div>
+      <div class="hp-label">Headline Positioning</div>
+      <div class="hp-value" style="font-style:italic;font-size:16px;">"California Business Attorney for Founders, Creators &amp; Entrepreneurs"</div>
+      <div class="hp-sub">Audience signal: $250K+ earners. No free consults. Paid intake only.</div>
+    </div>
+  </div>
+</div>
+
+<div class="connector"><div class="v-line"></div><div class="h-line"></div></div>
+<div class="tick-row">
+  <div class="tick"><div class="tick-line"></div></div><div class="tick"><div class="tick-line"></div></div>
+  <div class="tick"><div class="tick-line"></div></div><div class="tick"><div class="tick-line"></div></div>
+  <div class="tick"><div class="tick-line"></div></div><div class="tick"><div class="tick-line"></div></div>
+  <div class="tick"><div class="tick-line"></div></div><div class="tick"><div class="tick-line"></div></div>
+  <div class="tick"><div class="tick-line"></div></div><div class="tick"><div class="tick-line"></div></div>
+  <div class="tick"><div class="tick-line"></div></div><div class="tick"><div class="tick-line"></div></div>
+</div>
+<div class="hint-row">Select any landing page to expand keyword intelligence, SERP data &amp; content plan</div>
+
+<!-- LANDING PAGES -->
+<div id="landing-pages" class="section-label">Landing Pages — Service Areas</div>
+<div class="lp-grid">
+
+  <!-- 1. PRENUP -->
+  <div class="lp-card" style="--accent:#b8706a" onclick="toggle(this)">
+    <div class="lp-head">
+      <div class="tier a">Tier A</div>
+      <div class="lp-land">Prenup Land</div>
+      <div class="lp-name">Prenuptial Agreement Attorney</div>
+      <div class="lp-slug">delina.esq/prenuptial-agreement-attorney/</div>
+      <div class="lp-stats">
+        <span class="stat kd-easy">KD 3</span>
+        <span class="stat">SV 12K</span>
+        <span class="stat tp">TP 250</span>
+        <span class="stat">CPC $0.15</span>
+      </div>
+    </div>
+    <div class="lp-body">
+      <div class="body-block">
+        <div class="block-title">Page Intelligence</div>
+        <div class="intel-grid">
+          <div class="intel-cell"><div class="intel-label">Content Format</div><div class="intel-value"><span class="format-tag">Service Page · Attorney</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Target Word Count</div><div class="intel-value">1,200 – 1,500 words</div></div>
+          <div class="intel-cell"><div class="intel-label">SERP Features</div><div class="serp-tags"><span class="serp-tag local">Local Pack #1</span><span class="serp-tag paa">PAA #2</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Parent Topic</div><div class="intel-value">"prenup attorneys" · SV 700</div></div>
+        </div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Competitive Snapshot</div>
+        <div class="comp-row"><span class="comp-name">dolanfamilylaw.com</span><span class="comp-dr low">DR 26 <span class="comp-pos">#8 — most beatable</span></span></div>
+        <div class="comp-row"><span class="comp-name">helloprenup.com</span><span class="comp-dr mid">DR 61 <span class="comp-pos">#5</span></span></div>
+        <div class="comp-row"><span class="comp-name">legalzoom.com / avvo / cnbc</span><span class="comp-dr high">DR 83–92 <span class="comp-pos">outliers — skip</span></span></div>
+        <div class="comp-row" style="margin-top:6px;border-top:1px solid #f2f1ed;padding-top:6px"><span class="comp-name" style="color:var(--mid);font-family:inherit;font-size:10px;">Avg competitor DR (excl. outliers)</span><span class="comp-dr mid">~40</span></div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Primary Keywords</div>
+        <div class="data-row"><span class="row-title primary">prenuptial agreement attorney</span><span class="row-meta">SV 12K · KD 3</span></div>
+        <div class="data-row"><span class="row-title primary">prenuptial agreement lawyer</span><span class="row-meta">SV 13K</span></div>
+        <div class="data-row"><span class="row-title">prenup attorneys</span><span class="row-meta">SV 700</span></div>
+        <div class="data-row"><span class="row-title">prenuptial agreement attorney near me</span><span class="row-meta">SV 300</span></div>
+        <div class="data-row"><span class="row-title">portland / austin prenuptial agreement attorney</span><span class="row-meta">SV 150–200 <span class="row-tag geo">geo</span></span></div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Supporting Blog Posts</div>
+        <div class="data-row"><span class="row-title">What Is a Prenup?</span><span class="row-meta">SV 48K</span></div>
+        <div class="data-row"><span class="row-title">Prenup Meaning Explained</span><span class="row-meta">SV 22K</span></div>
+        <div class="data-row"><span class="row-title">Prenuptial Agreement Lawyer: What to Know</span><span class="row-meta">SV 13K</span></div>
+        <div class="data-row"><span class="row-title">What Type of Lawyer Is Best for a Prenup?<span class="row-tag paa">PAA</span></span><span class="row-meta"></span></div>
+        <div class="data-row"><span class="row-title">5 Things That Cannot Be in a Prenuptial Agreement<span class="row-tag paa">PAA</span></span></div>
+        <div class="data-row"><span class="row-title">How Much Does a Prenup Cost in California?<span class="row-tag paa">PAA</span><span class="row-tag geo">geo</span></span></div>
+        <div class="data-row"><span class="row-title">How Much Is a Prenup in Texas?<span class="row-tag paa">PAA</span><span class="row-tag geo">geo</span></span></div>
+        <div class="data-row"><span class="row-title">Can One Attorney Represent Both Parties in a Prenup?<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 10</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. POSTNUP -->
+  <div class="lp-card" style="--accent:#9a4f4f" onclick="toggle(this)">
+    <div class="lp-head">
+      <div class="tier a">Tier A</div>
+      <div class="lp-land">Postnup Land</div>
+      <div class="lp-name">Postnuptial Agreement Lawyer</div>
+      <div class="lp-slug">delina.esq/postnuptial-agreement-lawyer/</div>
+      <div class="lp-stats">
+        <span class="stat kd-easy">KD 0</span>
+        <span class="stat">SV 8.3K</span>
+        <span class="stat tp">TP 1.2K</span>
+        <span class="stat">CPC $0.20</span>
+      </div>
+    </div>
+    <div class="lp-body">
+      <div class="body-block">
+        <div class="block-title">Page Intelligence</div>
+        <div class="intel-grid">
+          <div class="intel-cell"><div class="intel-label">Content Format</div><div class="intel-value"><span class="format-tag">Service Page · Attorney</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Target Word Count</div><div class="intel-value">1,000 – 1,500 words</div></div>
+          <div class="intel-cell"><div class="intel-label">SERP Features</div><div class="serp-tags"><span class="serp-tag local">Local Pack #1</span><span class="serp-tag paa">PAA #2</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Parent Topic</div><div class="intel-value">Owns parent topic · SV 8.3K</div></div>
+        </div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Competitive Snapshot</div>
+        <div class="comp-row"><span class="comp-name">gwhslaw.com</span><span class="comp-dr low">DR 17 <span class="comp-pos">#10 — most beatable</span></span></div>
+        <div class="comp-row"><span class="comp-name">bunderoberts.com</span><span class="comp-dr low">DR 27 <span class="comp-pos">#8</span></span></div>
+        <div class="comp-row"><span class="comp-name">legalteamforlife.com</span><span class="comp-dr low">DR 25 <span class="comp-pos">#3</span></span></div>
+        <div class="comp-row"><span class="comp-name">nycbar.org</span><span class="comp-dr mid">DR 76 <span class="comp-pos">#4 — outlier</span></span></div>
+        <div class="comp-row" style="margin-top:6px;border-top:1px solid #f2f1ed;padding-top:6px"><span class="comp-name" style="color:var(--mid);font-family:inherit;font-size:10px;">Avg competitor DR · SERP dominated by East Coast geo — CA gap is wide open</span><span class="comp-dr low">~29</span></div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Primary Keywords</div>
+        <div class="data-row"><span class="row-title primary">postnuptial agreement lawyer</span><span class="row-meta">SV 8.3K · KD 0</span></div>
+        <div class="data-row"><span class="row-title primary">postnuptial agreement</span><span class="row-meta">SV 4.3K</span></div>
+        <div class="data-row"><span class="row-title">postnup</span><span class="row-meta">SV 1.8K</span></div>
+        <div class="data-row"><span class="row-title">post nup / post nuptial agreement</span><span class="row-meta">SV 1.1K–3.8K</span></div>
+        <div class="data-row"><span class="row-title">postnuptial agreement lawyer near me</span><span class="row-meta">SV 200</span></div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Supporting Blog Posts</div>
+        <div class="data-row"><span class="row-title">Prenup vs Postnup: What's the Difference?</span><span class="row-meta">SV 1K</span></div>
+        <div class="data-row"><span class="row-title">Postnup vs Prenup Explained</span><span class="row-meta">SV 350</span></div>
+        <div class="data-row"><span class="row-title">Can You Do a Postnuptial Agreement Without a Lawyer?</span><span class="row-meta">SV 250</span></div>
+        <div class="data-row"><span class="row-title">San Mateo Postnuptial Agreement Lawyer<span class="row-tag geo">geo</span></span><span class="row-meta">SV 150</span></div>
+        <div class="data-row"><span class="row-title">How Long After Marriage Can You Do a Postnup?<span class="row-tag paa">PAA</span></span></div>
+        <div class="data-row"><span class="row-title">Is a Postnup a Good Idea?<span class="row-tag paa">PAA</span></span></div>
+        <div class="data-row"><span class="row-title">Are Postnups Only for Wealthy Couples?<span class="row-tag paa">PAA</span></span></div>
+        <div class="data-row"><span class="row-title">Does Cheating Override a Prenup?<span class="row-tag paa">PAA</span></span></div>
+        <div class="data-row"><span class="row-title">What Assets Are Untouchable in Divorce?<span class="row-tag paa">PAA</span></span></div>
+        <div class="data-row"><span class="row-title">What Cannot Be Included in a Postnuptial Agreement?<span class="row-tag paa">PAA</span></span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. NONPROFIT -->
+  <div class="lp-card" style="--accent:#5e9472" onclick="toggle(this)">
+    <div class="lp-head">
+      <div class="tier b">Tier B</div>
+      <div class="lp-land">Nonprofit Land</div>
+      <div class="lp-name">Nonprofit Attorney &amp; Lawyer</div>
+      <div class="lp-slug">delina.esq/nonprofit-attorney/</div>
+      <div class="lp-stats">
+        <span class="stat kd-med">KD 14–18</span>
+        <span class="stat">SV 1.2K</span>
+        <span class="stat tp">TP 800</span>
+        <span class="stat">CPC $2.50</span>
+      </div>
+    </div>
+    <div class="lp-body">
+      <div class="body-block">
+        <div class="block-title">Page Intelligence</div>
+        <div class="intel-grid">
+          <div class="intel-cell"><div class="intel-label">Content Format</div><div class="intel-value"><span class="format-tag">Service Page</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Target Word Count</div><div class="intel-value">1,200 – 1,500 words</div></div>
+          <div class="intel-cell"><div class="intel-label">SERP Features</div><div class="serp-tags"><span class="serp-tag local">Local Pack #4</span><span class="serp-tag paa">PAA #5</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Parent Topic</div><div class="intel-value">"nonprofit lawyers" · SV 350</div></div>
+        </div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Competitive Snapshot</div>
+        <div class="comp-row"><span class="comp-name">charitableallies.org</span><span class="comp-dr low">DR 35 <span class="comp-pos">#2 — ranks with 0 words</span></span></div>
+        <div class="comp-row"><span class="comp-name">gg-law.com</span><span class="comp-dr low">DR 24 <span class="comp-pos">#6</span></span></div>
+        <div class="comp-row"><span class="comp-name">legalcorps.org</span><span class="comp-dr low">DR 35 <span class="comp-pos">#7</span></span></div>
+        <div class="comp-row"><span class="comp-name">lsc.gov / lib.law.uw.edu</span><span class="comp-dr high">DR 78–88 <span class="comp-pos">outliers — skip</span></span></div>
+        <div class="comp-row" style="margin-top:6px;border-top:1px solid #f2f1ed;padding-top:6px"><span class="comp-name" style="color:var(--mid);font-family:inherit;font-size:10px;">Avg competitor DR (excl. gov/authority outliers)</span><span class="comp-dr low">~34</span></div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Primary Keywords</div>
+        <div class="data-row"><span class="row-title primary">nonprofit attorney</span><span class="row-meta">SV 600 · KD 18</span></div>
+        <div class="data-row"><span class="row-title primary">nonprofit lawyer</span><span class="row-meta">SV 600 · KD 14</span></div>
+        <div class="data-row"><span class="row-title">nonprofit lawyer near me</span><span class="row-meta">SV 200</span></div>
+        <div class="data-row"><span class="row-title">lawyer for nonprofit organization</span><span class="row-meta">SV 150</span></div>
+        <div class="data-row"><span class="row-title">nonprofit formation lawyer</span><span class="row-meta">SV 60</span></div>
+        <div class="data-row"><span class="row-title">nonprofit tax attorney near me</span><span class="row-meta">SV 60</span></div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Supporting Blog Posts</div>
+        <div class="data-row"><span class="row-title">What Does a Nonprofit Attorney Do?<span class="row-tag paa">PAA</span></span></div>
+        <div class="data-row"><span class="row-title">Do I Need a Lawyer for a Nonprofit Organization?</span><span class="row-meta">SV 40</span></div>
+        <div class="data-row"><span class="row-title">What Is a Nonprofit Lawyer?</span><span class="row-meta">Questions</span></div>
+        <div class="data-row"><span class="row-title">How Much Do Attorneys Charge to Set Up a Nonprofit?<span class="row-tag paa">PAA</span></span></div>
+        <div class="data-row"><span class="row-title">What Is the 80/20 Rule for Nonprofits?<span class="row-tag paa">PAA</span></span></div>
+        <div class="data-row"><span class="row-title">Can Someone Sue a Non-Profit?<span class="row-tag paa">PAA</span></span></div>
+        <div class="data-row"><span class="row-title">What Are Non-Profits Not Allowed to Do?<span class="row-tag paa">PAA</span></span></div>
+        <div class="data-row"><span class="row-title">How Much Does a Nonprofit Lawyer Cost?</span><span class="row-meta">Questions</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. CONTRACT -->
+  <div class="lp-card" style="--accent:#b08858" onclick="toggle(this)">
+    <div class="lp-head">
+      <div class="tier a">Tier A</div>
+      <div class="lp-land">Contract Land</div>
+      <div class="lp-name">Business Contract Attorney</div>
+      <div class="lp-slug">delina.esq/business-contract-attorney/</div>
+      <div class="lp-stats">
+        <span class="stat kd-easy">KD 0</span>
+        <span class="stat">SV 90–200</span>
+        <span class="stat">CPC varies</span>
+      </div>
+    </div>
+    <div class="lp-body">
+      <div class="body-block">
+        <div class="block-title">Page Intelligence</div>
+        <div class="intel-grid">
+          <div class="intel-cell"><div class="intel-label">Content Format</div><div class="intel-value"><span class="format-tag">Service Page · Attorney</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Target Word Count</div><div class="intel-value">1,000 – 1,200 words</div></div>
+          <div class="intel-cell"><div class="intel-label">SERP Features</div><div class="serp-tags"><span class="serp-tag paa">PAA</span><span class="serp-tag local">Local Pack</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Avg Competitor DR</div><div class="intel-value muted">&lt;30 — very low competition (KD 0)</div></div>
+        </div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Sub-Pages (own landing pages)</div>
+        <div class="subpage-row"><span class="subpage-url">/partnership-agreement-attorney/</span><span class="subpage-stat">KD 0 · SV 200</span></div>
+        <div class="subpage-row"><span class="subpage-url">/licensing-agreement-lawyer/</span><span class="subpage-stat">KD 0 · SV 90</span></div>
+        <div class="subpage-row"><span class="subpage-url">/retainer-agreement-attorney/</span><span class="subpage-stat">KD 0 · SV 20 · CPC $1.10</span></div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Supporting Blog Posts</div>
+        <div class="data-row"><span class="row-title">What Is a Partnership Agreement Attorney?</span><span class="row-meta">KD 0 · SV 200</span></div>
+        <div class="data-row"><span class="row-title">Do You Need a Lawyer for a Partnership Agreement?</span></div>
+        <div class="data-row"><span class="row-title">What Does a Licensing Agreement Lawyer Do?</span><span class="row-meta">KD 0 · SV 90</span></div>
+        <div class="data-row"><span class="row-title">Retainer Agreement Attorney: What to Expect</span><span class="row-meta">SV 20 · CPC $1.10</span></div>
+        <div class="data-row"><span class="row-title">Brand Deal Contract: What Creators Need to Know<span class="row-tag kd0">KD 0</span></span></div>
+        <div class="data-row"><span class="row-title">Startup Legal Documents Checklist</span><span class="row-meta">SV 20 · CPC $8</span></div>
+        <div class="data-row"><span class="row-title">Website Legal Documents for Online Businesses</span><span class="row-meta">SV 10</span></div>
+        <div class="data-row"><span class="row-title">Terms of Service Attorney: Do You Need One?</span><span class="row-meta">SV 10</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. TAX STRATEGY -->
+  <div class="lp-card" style="--accent:#7a60a0" onclick="toggle(this)">
+    <div class="lp-head">
+      <div class="tier a">Tier A</div>
+      <div class="lp-land">Tax Strategy Land</div>
+      <div class="lp-name">Tax Attorney for Small Business</div>
+      <div class="lp-slug">delina.esq/tax-attorney-small-business/</div>
+      <div class="lp-stats">
+        <span class="stat kd-easy">KD 5</span>
+        <span class="stat">SV 30</span>
+        <span class="stat tp">TP 900</span>
+        <span class="stat">CPC $7.00</span>
+      </div>
+    </div>
+    <div class="lp-body">
+      <div class="body-block">
+        <div class="block-title">Page Intelligence</div>
+        <div class="intel-grid">
+          <div class="intel-cell"><div class="intel-label">Content Format</div><div class="intel-value"><span class="format-tag">Service Page · Article / How-to</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Target Word Count</div><div class="intel-value">1,200 – 1,400 words</div></div>
+          <div class="intel-cell"><div class="intel-label">SERP Features</div><div class="serp-tags"><span class="serp-tag local">Local Pack #1</span><span class="serp-tag paa">PAA #3</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Parent Topic</div><div class="intel-value">"mark kohler" SV 1K (person brand — note: not ideal parent, own the topic)</div></div>
+        </div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Competitive Snapshot</div>
+        <div class="comp-row"><span class="comp-name">irsproblemsolve.com</span><span class="comp-dr low">DR 8 <span class="comp-pos">#8 — most beatable</span></span></div>
+        <div class="comp-row"><span class="comp-name">polstontax.com</span><span class="comp-dr low">DR 30 <span class="comp-pos">#9</span></span></div>
+        <div class="comp-row"><span class="comp-name">markjkohler.com</span><span class="comp-dr mid">DR 54 <span class="comp-pos">#2 — person brand</span></span></div>
+        <div class="comp-row"><span class="comp-name">irs.gov / legalzoom / nolo</span><span class="comp-dr high">DR 83–93 <span class="comp-pos">outliers — skip</span></span></div>
+        <div class="comp-row" style="margin-top:6px;border-top:1px solid #f2f1ed;padding-top:6px"><span class="comp-name" style="color:var(--mid);font-family:inherit;font-size:10px;">Avg competitor DR (excl. authority outliers)</span><span class="comp-dr mid">~45</span></div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Primary Keywords</div>
+        <div class="data-row"><span class="row-title primary">tax attorney for small business</span><span class="row-meta">SV 30 · KD 5 · CPC $7</span></div>
+        <div class="data-row"><span class="row-title primary">business and tax attorney</span><span class="row-meta">SV 80 · KD 0</span></div>
+        <div class="data-row"><span class="row-title">tax attorney — also rank for</span><span class="row-meta">SV 9.6K</span></div>
+        <div class="data-row"><span class="row-title">tax lawyer — also rank for</span><span class="row-meta">SV 8K</span></div>
+        <div class="data-row"><span class="row-title">tax debt attorney — also rank for</span><span class="row-meta">SV 3.4K</span></div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Supporting Blog Posts</div>
+        <div class="data-row"><span class="row-title">Content Creator Tax Write-Offs: The Complete List<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 150</span></div>
+        <div class="data-row"><span class="row-title">Tax Attorney vs CPA: Which Does Your Business Need?</span></div>
+        <div class="data-row"><span class="row-title">What Do Tax Lawyers Cost?<span class="row-tag paa">PAA</span></span></div>
+        <div class="data-row"><span class="row-title">What Kind of Lawyer Do I Need for My Small Business?<span class="row-tag paa">PAA</span></span></div>
+        <div class="data-row"><span class="row-title">Digital Asset Taxes: What Crypto Holders Must Know</span><span class="row-meta">SV 30 · CPC $4</span></div>
+        <div class="data-row"><span class="row-title">What Is the New Tax Law for Crypto in 2025?<span class="row-tag paa">PAA</span></span></div>
+        <div class="data-row"><span class="row-title">Do You Have to Report Crypto Under $600?<span class="row-tag paa">PAA</span></span></div>
+        <div class="data-row"><span class="row-title">What Is a Digital Asset for Taxes?<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 40–60</span></div>
+        <div class="data-row"><span class="row-title">Ecommerce Business Taxes: Guide for Online Sellers</span><span class="row-meta">SV 40</span></div>
+        <div class="data-row"><span class="row-title">Tax Planning Attorney for Small Business</span><span class="row-meta">Terms Match</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. LLC -->
+  <div class="lp-card" style="--accent:#5a8a64" onclick="toggle(this)">
+    <div class="lp-head">
+      <div class="tier a">Tier A</div>
+      <div class="lp-land">LLC Land</div>
+      <div class="lp-name">LLC Attorney — Formation &amp; Strategy</div>
+      <div class="lp-slug">delina.esq/llc-attorney/</div>
+      <div class="lp-stats">
+        <span class="stat kd-easy">KD 0</span>
+        <span class="stat">SV 200</span>
+        <span class="stat">CPC varies</span>
+      </div>
+    </div>
+    <div class="lp-body">
+      <div class="body-block">
+        <div class="block-title">Page Intelligence</div>
+        <div class="intel-grid">
+          <div class="intel-cell"><div class="intel-label">Content Format</div><div class="intel-value"><span class="format-tag">Service Page · Attorney</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Target Word Count</div><div class="intel-value">1,000 – 1,200 words</div></div>
+          <div class="intel-cell"><div class="intel-label">SERP Features</div><div class="serp-tags"><span class="serp-tag paa">PAA</span><span class="serp-tag local">Local Pack</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Avg Competitor DR</div><div class="intel-value muted">&lt;30 — very low competition (KD 0)</div></div>
+        </div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Sub-Pages</div>
+        <div class="subpage-row"><span class="subpage-url">/do-i-need-a-lawyer-to-form-an-llc/</span><span class="subpage-stat">KD 0 · SV 200</span></div>
+        <div class="subpage-row"><span class="subpage-url">/llc-for-online-store/</span><span class="subpage-stat">KD 0 · SV 100</span></div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Supporting Blog Posts</div>
+        <div class="data-row"><span class="row-title">Do I Need a Lawyer to Form an LLC?<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 200</span></div>
+        <div class="data-row"><span class="row-title">LLC for Online Store: Do You Really Need One?<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 100</span></div>
+        <div class="data-row"><span class="row-title">Do Influencers Need an LLC?<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 10</span></div>
+        <div class="data-row"><span class="row-title">Influencer LLC: How to Structure Your Creator Business</span><span class="row-meta">SV 10 · CPC $1.90</span></div>
+        <div class="data-row"><span class="row-title">How to Transfer Property to an LLC<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 40</span></div>
+        <div class="data-row"><span class="row-title">Wyoming LLC Formation: Attorney vs. Online Service</span><span class="row-meta">SV 10</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. TRADEMARK -->
+  <div class="lp-card" style="--accent:#c08840" onclick="toggle(this)">
+    <div class="lp-head">
+      <div class="tier a">Tier A</div>
+      <div class="lp-land">Trademark Land</div>
+      <div class="lp-name">Trademark Attorney &amp; Brand Protection</div>
+      <div class="lp-slug">delina.esq/trademark-attorney/</div>
+      <div class="lp-stats">
+        <span class="stat kd-easy">KD 0</span>
+        <span class="stat">SV 70</span>
+        <span class="stat">CPC $7.00</span>
+      </div>
+    </div>
+    <div class="lp-body">
+      <div class="body-block">
+        <div class="block-title">Page Intelligence</div>
+        <div class="intel-grid">
+          <div class="intel-cell"><div class="intel-label">Content Format</div><div class="intel-value"><span class="format-tag">Service Page · Attorney</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Target Word Count</div><div class="intel-value">1,000 – 1,200 words</div></div>
+          <div class="intel-cell"><div class="intel-label">SERP Features</div><div class="serp-tags"><span class="serp-tag kd-none" style="border:1px solid var(--rule);color:var(--light);font-size:9px;padding:1px 6px;">No SERP data — KD unknown</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Note</div><div class="intel-value muted">High CPC $7 signals strong commercial intent despite low volume</div></div>
+        </div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Primary Keywords</div>
+        <div class="data-row"><span class="row-title primary">brand protection attorney<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 70</span></div>
+        <div class="data-row"><span class="row-title primary">trademark attorney cost</span><span class="row-meta">Terms Match</span></div>
+        <div class="data-row"><span class="row-title">trademark attorney online</span><span class="row-meta">SV 20 · CPC $7</span></div>
+        <div class="data-row"><span class="row-title">online trademark attorney</span><span class="row-meta">SV 200</span></div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Supporting Blog Posts</div>
+        <div class="data-row"><span class="row-title">Brand Protection Attorney: What They Do and When You Need One<span class="row-tag kd0">KD 0</span></span></div>
+        <div class="data-row"><span class="row-title">How Much Does a Trademark Attorney Cost?</span><span class="row-meta">Terms Match</span></div>
+        <div class="data-row"><span class="row-title">Trademark Attorney Online: Can You File Remotely?</span><span class="row-meta">CPC $7</span></div>
+        <div class="data-row"><span class="row-title">Online Trademark Attorney Near Me</span><span class="row-meta">SV 200</span></div>
+        <div class="data-row"><span class="row-title">Online Trademark Attorney Charleston SC<span class="row-tag geo">geo</span></span><span class="row-meta">SV 150</span></div>
+        <div class="data-row"><span class="row-title">What Does a Trademark Attorney Do?</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. S-CORP -->
+  <div class="lp-card" style="--accent:#888040" onclick="toggle(this)">
+    <div class="lp-head">
+      <div class="tier b">Tier B</div>
+      <div class="lp-land">S-Corp Land</div>
+      <div class="lp-name">S-Corp Attorney — Election &amp; Tax Strategy</div>
+      <div class="lp-slug">delina.esq/s-corp-attorney/</div>
+      <div class="lp-stats">
+        <span class="stat kd-easy">KD 0–1</span>
+        <span class="stat">SV 50–70</span>
+        <span class="stat tp">TP 300</span>
+      </div>
+    </div>
+    <div class="lp-body">
+      <div class="body-block">
+        <div class="block-title">Page Intelligence</div>
+        <div class="intel-grid">
+          <div class="intel-cell"><div class="intel-label">Content Format</div><div class="intel-value"><span class="format-tag">Article · Comparison / How-to</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Target Word Count</div><div class="intel-value">2,000 – 2,500 words</div></div>
+          <div class="intel-cell"><div class="intel-label">SERP Features</div><div class="serp-tags"><span class="serp-tag ai">AI Overview #1</span><span class="serp-tag paa">PAA #2</span><span class="serp-tag news">Top Stories #8</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Parent Topic</div><div class="intel-value">"s corp vs sole proprietorship" (broad) · SV ~400</div></div>
+        </div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Competitive Snapshot</div>
+        <div class="comp-row"><span class="comp-name">joinhorizons.com</span><span class="comp-dr mid">DR 61 <span class="comp-pos">#9 — most beatable</span></span></div>
+        <div class="comp-row"><span class="comp-name">taxfyle.com</span><span class="comp-dr mid">DR 62 <span class="comp-pos">#11</span></span></div>
+        <div class="comp-row"><span class="comp-name">upcounsel.com</span><span class="comp-dr mid">DR 77 <span class="comp-pos">#6</span></span></div>
+        <div class="comp-row"><span class="comp-name">shopify / adp / sba.gov / irs.gov</span><span class="comp-dr high">DR 91–96 <span class="comp-pos">outliers — skip</span></span></div>
+        <div class="comp-row" style="margin-top:6px;border-top:1px solid #f2f1ed;padding-top:6px"><span class="comp-name" style="color:var(--mid);font-family:inherit;font-size:10px;">Avg competitor DR — high authority SERP; long-form content required</span><span class="comp-dr high">~75</span></div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Primary Keywords</div>
+        <div class="data-row"><span class="row-title primary">difference between s corp and sole proprietorship</span><span class="row-meta">KD 1 · SV 70</span></div>
+        <div class="data-row"><span class="row-title primary">is an s-corp a sole proprietorship<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 50</span></div>
+        <div class="data-row"><span class="row-title">s-corp formation attorney</span><span class="row-meta">SV 30</span></div>
+        <div class="data-row"><span class="row-title">s-corp tax savings</span><span class="row-meta">SV 30</span></div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Supporting Blog Posts</div>
+        <div class="data-row"><span class="row-title">Difference Between S Corp and Sole Proprietorship</span><span class="row-meta">KD 1 · SV 70</span></div>
+        <div class="data-row"><span class="row-title">Is an S-Corp a Sole Proprietorship?<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 50</span></div>
+        <div class="data-row"><span class="row-title">Is S Corp Considered Self-Employed?<span class="row-tag paa">PAA</span></span></div>
+        <div class="data-row"><span class="row-title">Is It Better to Be an S Corp or a Sole Proprietor?<span class="row-tag paa">PAA</span></span></div>
+        <div class="data-row"><span class="row-title">How Do I Know If My LLC Is an S Corp or Sole Proprietorship?<span class="row-tag paa">PAA</span></span></div>
+        <div class="data-row"><span class="row-title">Is a Sole Proprietorship the Same as an S Corporation?<span class="row-tag paa">PAA</span></span></div>
+        <div class="data-row"><span class="row-title">S-Corp Tax Savings: What Business Owners Need to Know</span><span class="row-meta">SV 30</span></div>
+        <div class="data-row"><span class="row-title">Sole Proprietorship vs S Corp vs LLC: Which Is Right?<span class="row-tag pillar">Pillar</span></span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. NEW BUSINESS OWNER -->
+  <div class="lp-card" style="--accent:#449090" onclick="toggle(this)">
+    <div class="lp-head">
+      <div class="tier a">Tier A</div>
+      <div class="lp-land">New Business Owner Land</div>
+      <div class="lp-name">Business Structure Attorney</div>
+      <div class="lp-slug">delina.esq/business-structure-attorney/</div>
+      <div class="lp-stats">
+        <span class="stat kd-easy">KD 0</span>
+        <span class="stat">SV 70</span>
+        <span class="stat">CPC $3.00</span>
+      </div>
+    </div>
+    <div class="lp-body">
+      <div class="body-block">
+        <div class="block-title">Page Intelligence</div>
+        <div class="intel-grid">
+          <div class="intel-cell"><div class="intel-label">Content Format</div><div class="intel-value"><span class="format-tag">Service Page · Attorney</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Target Word Count</div><div class="intel-value">800 – 1,200 words</div></div>
+          <div class="intel-cell"><div class="intel-label">SERP Features</div><div class="serp-tags"><span class="serp-tag paa">PAA</span><span class="serp-tag local">Local Pack</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Avg Competitor DR</div><div class="intel-value muted">&lt;30 estimated — KD 0 confirms low competition</div></div>
+        </div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Primary Keywords</div>
+        <div class="data-row"><span class="row-title primary">business structure attorney<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 70</span></div>
+        <div class="data-row"><span class="row-title">legal counsel for small business</span><span class="row-meta">SV 10 · CPC $3</span></div>
+        <div class="data-row"><span class="row-title">how to form an s-corp</span><span class="row-meta">SV 10</span></div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Supporting Blog Posts</div>
+        <div class="data-row"><span class="row-title">LLC vs S-Corp vs Sole Proprietorship: Which Is Right?<span class="row-tag pillar">Pillar</span></span></div>
+        <div class="data-row"><span class="row-title">What Does a Business Structure Attorney Do?</span></div>
+        <div class="data-row"><span class="row-title">Do You Need a Lawyer to Choose a Business Structure?</span></div>
+        <div class="data-row"><span class="row-title">Legal Counsel for Small Business: When to Hire</span><span class="row-meta">CPC $3</span></div>
+        <div class="data-row"><span class="row-title">New Business Owner Legal Checklist: Year One</span></div>
+        <div class="data-row"><span class="row-title">How to Form an S-Corp: Step-by-Step</span><span class="row-meta">SV 10</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10. STARTUP -->
+  <div class="lp-card" style="--accent:#9a8838" onclick="toggle(this)">
+    <div class="lp-head">
+      <div class="tier b">Tier B</div>
+      <div class="lp-land">Startup Founder Land</div>
+      <div class="lp-name">Startup Lawyer — California</div>
+      <div class="lp-slug">delina.esq/startup-attorney-california/</div>
+      <div class="lp-stats">
+        <span class="stat kd-med">KD 12</span>
+        <span class="stat">SV 30</span>
+        <span class="stat tp">TP 30</span>
+        <span class="stat">CPC $8.00</span>
+      </div>
+    </div>
+    <div class="lp-body">
+      <div class="body-block">
+        <div class="block-title">Page Intelligence</div>
+        <div class="intel-grid">
+          <div class="intel-cell"><div class="intel-label">Content Format</div><div class="intel-value"><span class="format-tag">Article · Listicle / Service Page</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Target Word Count</div><div class="intel-value">1,500 – 2,500 words</div></div>
+          <div class="intel-cell"><div class="intel-label">SERP Features</div><div class="serp-tags"><span class="serp-tag" style="border:1px solid var(--rule);color:var(--light);font-size:9px;padding:1px 6px;">No PAA in SERP</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Parent Topic</div><div class="intel-value">"startup documents" · SV 150 · note: only 22% US traffic</div></div>
+        </div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Competitive Snapshot</div>
+        <div class="comp-row"><span class="comp-name">dbllawyers.com</span><span class="comp-dr low">DR 42 <span class="comp-pos">#2 — ranks with 9 words only</span></span></div>
+        <div class="comp-row"><span class="comp-name">clerky.com</span><span class="comp-dr mid">DR 60 <span class="comp-pos">#3 — software product, not attorney</span></span></div>
+        <div class="comp-row"><span class="comp-name">stripe / nyu / thomsonreuters</span><span class="comp-dr high">DR 90–94 <span class="comp-pos">outliers</span></span></div>
+        <div class="comp-row" style="margin-top:6px;border-top:1px solid #f2f1ed;padding-top:6px"><span class="comp-name" style="color:var(--mid);font-family:inherit;font-size:10px;">Avg competitor DR — authority-heavy SERP; CPC $8 justifies investment</span><span class="comp-dr high">~78</span></div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Primary Keywords</div>
+        <div class="data-row"><span class="row-title primary">startup lawyer california</span><span class="row-meta">KD 12 · SV 30</span></div>
+        <div class="data-row"><span class="row-title primary">startup legal documents</span><span class="row-meta">KD 1 · SV 20 · CPC $8</span></div>
+        <div class="data-row"><span class="row-title">startup legal documents templates</span><span class="row-meta">SV 70</span></div>
+        <div class="data-row"><span class="row-title">startup legal documents ai template</span><span class="row-meta">SV 40</span></div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Supporting Blog Posts</div>
+        <div class="data-row"><span class="row-title">Startup Legal Documents Templates</span><span class="row-meta">SV 70</span></div>
+        <div class="data-row"><span class="row-title">Startup Legal Documents AI vs. Hiring an Attorney</span><span class="row-meta">SV 50</span></div>
+        <div class="data-row"><span class="row-title">Startup Legal Documents Generator: What to Know</span><span class="row-meta">SV 40</span></div>
+        <div class="data-row"><span class="row-title">What Legal Documents Do Startups Need in the US?</span></div>
+        <div class="data-row"><span class="row-title">Key Legal Document Checklist for Start-Ups<span class="row-tag pillar">Pillar</span></span></div>
+        <div class="data-row"><span class="row-title">8 Essential Legal Documents for a Startup</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11. CREATOR -->
+  <div class="lp-card" style="--accent:#4a6898" onclick="toggle(this)">
+    <div class="lp-head">
+      <div class="tier b">Tier B</div>
+      <div class="lp-land">Creator Land</div>
+      <div class="lp-name">Attorney for Creators &amp; Influencers</div>
+      <div class="lp-slug">delina.esq/creator-attorney/</div>
+      <div class="lp-stats">
+        <span class="stat kd-easy">KD 0</span>
+        <span class="stat">SV 150</span>
+        <span class="stat">CPC $1.90</span>
+      </div>
+    </div>
+    <div class="lp-body">
+      <div class="body-block">
+        <div class="block-title">Page Intelligence</div>
+        <div class="intel-grid">
+          <div class="intel-cell"><div class="intel-label">Content Format</div><div class="intel-value"><span class="format-tag">Service Page · Article / How-to</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Target Word Count</div><div class="intel-value">1,200 – 1,800 words</div></div>
+          <div class="intel-cell"><div class="intel-label">SERP Features</div><div class="serp-tags"><span class="serp-tag paa">PAA</span><span class="serp-tag ai">AI Overview</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Avg Competitor DR</div><div class="intel-value muted">&lt;30 estimated — KD 0 across all primary KWs</div></div>
+        </div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Primary Keywords</div>
+        <div class="data-row"><span class="row-title primary">content creator tax write off<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 150</span></div>
+        <div class="data-row"><span class="row-title primary">do influencers need an llc<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 10</span></div>
+        <div class="data-row"><span class="row-title">influencer llc<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 10 · CPC $1.90</span></div>
+        <div class="data-row"><span class="row-title">brand deal contract<span class="row-tag kd0">KD 0</span></span><span class="row-meta">CPC $1.80</span></div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Supporting Blog Posts</div>
+        <div class="data-row"><span class="row-title">Content Creator Tax Write-Offs: The Complete List<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 150</span></div>
+        <div class="data-row"><span class="row-title">Do Influencers Need an LLC?<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 10</span></div>
+        <div class="data-row"><span class="row-title">Influencer LLC: How to Structure Your Creator Business</span><span class="row-meta">SV 10</span></div>
+        <div class="data-row"><span class="row-title">Brand Deal Contract: What Every Creator Needs to Know<span class="row-tag kd0">KD 0</span></span></div>
+        <div class="data-row"><span class="row-title">What Legal Documents Do Content Creators Need?</span></div>
+        <div class="data-row"><span class="row-title">Creator Economy Legal Guide: LLC, Contracts &amp; Taxes<span class="row-tag pillar">Pillar</span></span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12. E-COMMERCE -->
+  <div class="lp-card" style="--accent:#3a7098" onclick="toggle(this)">
+    <div class="lp-head">
+      <div class="tier b">Tier B</div>
+      <div class="lp-land">E-Commerce Land</div>
+      <div class="lp-name">E-Commerce Business Attorney</div>
+      <div class="lp-slug">delina.esq/ecommerce-business-attorney/</div>
+      <div class="lp-stats">
+        <span class="stat kd-easy">KD 0</span>
+        <span class="stat">SV 100</span>
+        <span class="stat">CPC $2.50</span>
+      </div>
+    </div>
+    <div class="lp-body">
+      <div class="body-block">
+        <div class="block-title">Page Intelligence</div>
+        <div class="intel-grid">
+          <div class="intel-cell"><div class="intel-label">Content Format</div><div class="intel-value"><span class="format-tag">Service Page · Article / How-to</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Target Word Count</div><div class="intel-value">1,000 – 1,500 words</div></div>
+          <div class="intel-cell"><div class="intel-label">SERP Features</div><div class="serp-tags"><span class="serp-tag" style="border:1px solid var(--rule);color:var(--light);font-size:9px;padding:1px 6px;">No SERP data for main KW</span></div></div>
+          <div class="intel-cell"><div class="intel-label">Note</div><div class="intel-value muted">ecommerce business taxes: 75% UK traffic — angle toward US sellers</div></div>
+        </div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Primary Keywords</div>
+        <div class="data-row"><span class="row-title primary">llc for online store<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 100</span></div>
+        <div class="data-row"><span class="row-title">ecommerce business taxes</span><span class="row-meta">SV 40 · CPC $2.50</span></div>
+        <div class="data-row"><span class="row-title">taxes for ecommerce business</span><span class="row-meta">SV 10</span></div>
+        <div class="data-row"><span class="row-title">filing taxes for ecommerce business</span><span class="row-meta">SV 10</span></div>
+      </div>
+      <div class="body-block">
+        <div class="block-title">Supporting Blog Posts</div>
+        <div class="data-row"><span class="row-title">LLC for Online Store: Do You Need One?<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 100</span></div>
+        <div class="data-row"><span class="row-title">Ecommerce Business Taxes: What US Online Sellers Must Know</span><span class="row-meta">SV 40</span></div>
+        <div class="data-row"><span class="row-title">Filing Taxes for an Ecommerce Business</span></div>
+        <div class="data-row"><span class="row-title">Website Legal Documents for E-Commerce Stores</span><span class="row-meta">SV 10</span></div>
+        <div class="data-row"><span class="row-title">Terms of Service Attorney: Why Your Store Needs One</span><span class="row-meta">SV 10</span></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /lp-grid -->
+
+<!-- CROSS-LAND LINK MAP -->
+<div id="cross-land" class="section-label" style="margin-top:48px;">Internal Link Map — Cross-Land Connections</div>
+<div class="crosslink-grid">
+  <div class="cl-card" style="--accent:#4a6898">
+    <div class="cl-from">Creator Land links to</div>
+    <div class="cl-link"><span class="cl-to">LLC Land</span><span class="cl-reason">Influencer LLC formation</span></div>
+    <div class="cl-link"><span class="cl-to">Tax Strategy</span><span class="cl-reason">Creator tax write-offs</span></div>
+    <div class="cl-link"><span class="cl-to">Contract Land</span><span class="cl-reason">Brand deal contracts</span></div>
+    <div class="cl-link"><span class="cl-to">Trademark Land</span><span class="cl-reason">Brand &amp; IP protection</span></div>
+  </div>
+  <div class="cl-card" style="--accent:#5a8a64">
+    <div class="cl-from">LLC Land links to</div>
+    <div class="cl-link"><span class="cl-to">S-Corp Land</span><span class="cl-reason">LLC vs S-Corp comparison</span></div>
+    <div class="cl-link"><span class="cl-to">New Business Owner</span><span class="cl-reason">Business structure choice</span></div>
+    <div class="cl-link"><span class="cl-to">E-Commerce Land</span><span class="cl-reason">LLC for online store</span></div>
+    <div class="cl-link"><span class="cl-to">Startup Land</span><span class="cl-reason">LLC for startup formation</span></div>
+  </div>
+  <div class="cl-card" style="--accent:#7a60a0">
+    <div class="cl-from">Tax Strategy links to</div>
+    <div class="cl-link"><span class="cl-to">S-Corp Land</span><span class="cl-reason">S-Corp tax savings</span></div>
+    <div class="cl-link"><span class="cl-to">Creator Land</span><span class="cl-reason">Creator-specific tax content</span></div>
+    <div class="cl-link"><span class="cl-to">New Business Owner</span><span class="cl-reason">Small business tax planning</span></div>
+    <div class="cl-link"><span class="cl-to">E-Commerce Land</span><span class="cl-reason">Ecommerce tax obligations</span></div>
+  </div>
+  <div class="cl-card" style="--accent:#b8706a">
+    <div class="cl-from">Prenup Land links to</div>
+    <div class="cl-link"><span class="cl-to">Postnup Land</span><span class="cl-reason">Prenup vs postnup comparison</span></div>
+    <div class="cl-link"><span class="cl-to">Contract Land</span><span class="cl-reason">Prenup as a legal contract</span></div>
+  </div>
+  <div class="cl-card" style="--accent:#9a4f4f">
+    <div class="cl-from">Postnup Land links to</div>
+    <div class="cl-link"><span class="cl-to">Prenup Land</span><span class="cl-reason">Prenup vs postnup comparison</span></div>
+    <div class="cl-link"><span class="cl-to">Contract Land</span><span class="cl-reason">Postnup as a legal contract</span></div>
+  </div>
+  <div class="cl-card" style="--accent:#888040">
+    <div class="cl-from">S-Corp Land links to</div>
+    <div class="cl-link"><span class="cl-to">LLC Land</span><span class="cl-reason">LLC vs S-Corp comparison</span></div>
+    <div class="cl-link"><span class="cl-to">Tax Strategy</span><span class="cl-reason">S-Corp tax advantages</span></div>
+    <div class="cl-link"><span class="cl-to">New Business Owner</span><span class="cl-reason">Entity selection guidance</span></div>
+  </div>
+  <div class="cl-card" style="--accent:#5e9472">
+    <div class="cl-from">Nonprofit Land links to</div>
+    <div class="cl-link"><span class="cl-to">Tax Strategy</span><span class="cl-reason">Tax-exempt status &amp; 501(c)(3)</span></div>
+    <div class="cl-link"><span class="cl-to">Contract Land</span><span class="cl-reason">Nonprofit agreements &amp; bylaws</span></div>
+  </div>
+  <div class="cl-card" style="--accent:#9a8838">
+    <div class="cl-from">Startup Land links to</div>
+    <div class="cl-link"><span class="cl-to">Contract Land</span><span class="cl-reason">Startup legal documents</span></div>
+    <div class="cl-link"><span class="cl-to">LLC Land</span><span class="cl-reason">Startup entity formation</span></div>
+    <div class="cl-link"><span class="cl-to">Trademark Land</span><span class="cl-reason">Early-stage IP protection</span></div>
+  </div>
+  <div class="cl-card" style="--accent:#c08840">
+    <div class="cl-from">Trademark Land links to</div>
+    <div class="cl-link"><span class="cl-to">Creator Land</span><span class="cl-reason">Brand protection for creators</span></div>
+    <div class="cl-link"><span class="cl-to">E-Commerce Land</span><span class="cl-reason">Product &amp; brand trademark</span></div>
+    <div class="cl-link"><span class="cl-to">Contract Land</span><span class="cl-reason">Licensing agreements</span></div>
+  </div>
+</div>
+
+<!-- LEGEND -->
+<div id="legend" class="section-label" style="margin-top:48px;">Legend — How to Read This Document</div>
+<div class="legend-wrap">
+  <div class="legend-grid">
+
+    <div class="legend-card">
+      <div class="legend-title">Keyword Metrics</div>
+      <div class="legend-row"><span class="legend-term">KD</span><span class="legend-def">Keyword Difficulty (Ahrefs, 0–100). Measures how many referring domains you need to rank in the top 10. Lower = easier to rank.</span></div>
+      <div class="legend-row" style="flex-direction:column;align-items:flex-start;gap:6px;"><span class="legend-term">KD Scale</span><div class="legend-scale"><span class="scale-item e">0–14 Easy</span><span class="scale-item m">15–29 Medium</span><span class="scale-item h">30–49 Hard</span><span class="scale-item x">50+ Very Hard</span></div></div>
+      <div class="legend-row"><span class="legend-term">SV</span><span class="legend-def">Search Volume — estimated monthly US searches from Ahrefs. The number of times this exact keyword is searched per month.</span></div>
+      <div class="legend-row"><span class="legend-term">TP</span><span class="legend-def">Traffic Potential — estimated total monthly visits you could receive if ranked #1, accounting for the full keyword cluster (not just the exact match). Often much larger than SV.</span></div>
+      <div class="legend-row"><span class="legend-term">CPC</span><span class="legend-def">Cost Per Click — what advertisers pay per click on Google Ads. High CPC signals strong commercial intent: the visitor is ready to spend money.</span></div>
+      <div class="legend-row"><span class="legend-term">Parent Topic</span><span class="legend-def">The broader keyword cluster this term belongs to in Ahrefs. Ranking for the parent topic means you likely rank for the child keyword too.</span></div>
+    </div>
+
+    <div class="legend-card">
+      <div class="legend-title">Competitive Intelligence</div>
+      <div class="legend-row"><span class="legend-term">DR</span><span class="legend-def">Domain Rating (Ahrefs, 0–100). Measures the overall backlink authority of a website. A page at DR 25 is much easier to outrank than one at DR 85.</span></div>
+      <div class="legend-row" style="flex-direction:column;align-items:flex-start;gap:6px;"><span class="legend-term">DR Scale</span><div class="legend-scale"><span class="scale-item e">0–39 Beatable</span><span class="scale-item m">40–69 Moderate</span><span class="scale-item h">70–100 Authority</span></div></div>
+      <div class="legend-row"><span class="legend-term">Beatable Comp</span><span class="legend-def">The lowest-DR site currently ranking in the top 10. This is your first target — build a better page than theirs and earn more links.</span></div>
+      <div class="legend-row"><span class="legend-term">Avg Competitor DR</span><span class="legend-def">Mean DR of all non-outlier results in the top 10. Gives a realistic read on how competitive the SERP is overall. Outliers (gov, mega-brands) are excluded.</span></div>
+      <div class="legend-row"><span class="legend-term">Outlier</span><span class="legend-def">A result ranking due to brand authority (irs.gov, legalzoom, reddit) rather than content quality. They are essentially impossible to outrank — build around them, not against them.</span></div>
+      <div class="legend-row"><span class="legend-term">Word Count Target</span><span class="legend-def">Recommended content length based on what is currently ranking for each keyword. Match or exceed the beatable competitor's word count.</span></div>
+    </div>
+
+    <div class="legend-card">
+      <div class="legend-title">SERP Features</div>
+      <div class="legend-row"><div><div style="margin-bottom:5px;"><span class="serp-tag local">Local Pack</span></div><span class="legend-def">Google shows a map + 3 local business listings at the top. Strong signal of geo-intent. Optimize Google Business Profile alongside the page.</span></div></div>
+      <div class="legend-row"><div><div style="margin-bottom:5px;"><span class="serp-tag ai">AI Overview</span></div><span class="legend-def">Google's AI-generated summary appears above organic results. Informational keywords trigger this. Writing concise, authoritative answers increases inclusion chances.</span></div></div>
+      <div class="legend-row"><div><div style="margin-bottom:5px;"><span class="serp-tag paa">PAA</span></div><span class="legend-def">People Also Ask — expandable question boxes. Each PAA question is a standalone blog post opportunity. Answering them directly on the landing page also increases ranking signals.</span></div></div>
+      <div class="legend-row"><div><div style="margin-bottom:5px;"><span class="serp-tag news">Top Stories</span></div><span class="legend-def">Google News carousel. Signals the keyword is trending or news-adjacent. Not a primary target for evergreen pages — focus on organic rankings.</span></div></div>
+    </div>
+
+    <div class="legend-card">
+      <div class="legend-title">Content Format Signals</div>
+      <div class="legend-row"><span class="legend-term">Service Page</span><span class="legend-def">Google is currently rewarding attorney/service pages for this keyword. Write the page as a service description + credentials + CTA. Not a blog post.</span></div>
+      <div class="legend-row"><span class="legend-term">Article · How-to</span><span class="legend-def">Google wants a step-by-step guide or educational explanation. Use headers, numbered lists, clear structure. 1,200–2,500 words typically.</span></div>
+      <div class="legend-row"><span class="legend-term">Article · Comparison</span><span class="legend-def">Google is surfacing head-to-head comparison content (e.g. LLC vs S-Corp). Use a structured compare/contrast format. Tables work well here.</span></div>
+      <div class="legend-row"><span class="legend-term">Article · Listicle</span><span class="legend-def">Google is ranking list-format content (e.g. "8 legal documents every startup needs"). Numbered format, each item with a brief explanation.</span></div>
+      <div class="legend-row"><span class="legend-term">Article · Checklist</span><span class="legend-def">Google wants a downloadable or scannable checklist format. Short, action-oriented items. Great for lead magnets.</span></div>
+    </div>
+
+    <div class="legend-card">
+      <div class="legend-title">Content Tags</div>
+      <div class="legend-row"><div><div style="margin-bottom:5px;"><span class="row-tag paa">PAA</span></div><span class="legend-def">People Also Ask — this post directly answers a question Ahrefs captured in the SERP. Prioritize these; they have a clear, proven search intent.</span></div></div>
+      <div class="legend-row"><div><div style="margin-bottom:5px;"><span class="row-tag kd0">KD 0</span></div><span class="legend-def">Keyword Difficulty is zero — no backlinks required to rank. These are the fastest wins. Publish good content and you can rank within days to weeks.</span></div></div>
+      <div class="legend-row"><div><div style="margin-bottom:5px;"><span class="row-tag pillar">Pillar</span></div><span class="legend-def">Long-form cornerstone content (2,500+ words) that covers a broad topic and links out to multiple supporting posts. Builds topical authority for the entire Land.</span></div></div>
+      <div class="legend-row"><div><div style="margin-bottom:5px;"><span class="row-tag geo">geo</span></div><span class="legend-def">Geo-targeted post — targets a specific city or state. Lower competition than national terms. Signals local relevance to Google.</span></div></div>
+    </div>
+
+    <div class="legend-card">
+      <div class="legend-title">Page Tiers &amp; Priority</div>
+      <div class="legend-row"><span class="legend-term">Tier A</span><span class="legend-def">Build first. KD 0–5 with strong commercial intent. These pages should be live before any blog content is published. Low effort, high return.</span></div>
+      <div class="legend-row"><span class="legend-term">Tier B</span><span class="legend-def">Build next. KD 6–20. Strong long-term value. Will take longer to rank but worth the investment once Tier A pages are established.</span></div>
+      <div class="legend-row"><span class="legend-term">Sub-Page</span><span class="legend-def">A dedicated landing page for a single keyword — not a blog post. Gets its own URL, full service page treatment, and inbound links from the parent Land page.</span></div>
+      <div class="legend-row"><span class="legend-term">Internal Linking</span><span class="legend-def">Every blog post links back to its parent landing page. Every landing page links to its supporting blog posts. Cross-Land links follow the map on this document. All pages end with a paid intake CTA.</span></div>
+      <div class="legend-row"><span class="legend-term">CTA Rule</span><span class="legend-def">No free consults. Every page ends with an email CTA to book a paid intake. No DIY instructions — give awareness, not execution.</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- COMPETITIVE LANDSCAPE -->
+<div id="competitive-landscape" class="section-label">Competitive Landscape — by Service Land</div>
+<div class="ci-intro">Who is ranking and selling in each Land, what they charge, and the gap Delina uniquely fills. Sourced from live web research March 2026. Pricing pulled from public pages where disclosed; marked "opaque" where firms hide rates behind a free consult.</div>
+
+<div class="comp-intel-grid">
+
+  <!-- 1. PRENUP -->
+  <div class="ci-card" style="--accent:#b8706a">
+    <div class="ci-land">Prenup Land</div>
+    <div class="ci-env">Platform-dominated, but no boutique owns high-earner prenups in California</div>
+    <div class="ci-comp-row"><span class="ci-comp-name">helloprenup.com</span><span class="ci-badges"><span class="ci-badge platform">Platform</span></span><span class="ci-price">~$599/couple</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">dolanfamilylaw.com</span><span class="ci-badges"><span class="ci-badge boutique">Solo Boutique</span></span><span class="ci-price">Opaque / free consult</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">legalzoom.com / rocket lawyer</span><span class="ci-badges"><span class="ci-badge platform">Platform</span></span><span class="ci-price">$0–299 + fees</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">prenupqueen.com (NYC)</span><span class="ci-badges"><span class="ci-badge boutique">Solo Boutique</span></span><span class="ci-price">Opaque / brand-led</span></div>
+    <div class="ci-gap">
+      <div class="ci-gap-label">Delina's Opening</div>
+      <div class="ci-gap-text">HelloPrenup wins on price for average couples. Traditional family law firms have no brand. Nobody is the go-to California prenup attorney for founders, creators, and high earners with complex, unconventional assets — business interests, IP, brand equity, crypto. That positioning is wide open.</div>
+    </div>
+  </div>
+
+  <!-- 2. POSTNUP -->
+  <div class="ci-card" style="--accent:#9a4f4f">
+    <div class="ci-land">Postnup Land</div>
+    <div class="ci-env">Treated as divorce prep — no one frames it as proactive wealth strategy</div>
+    <div class="ci-comp-row"><span class="ci-comp-name">legalzoom.com</span><span class="ci-badges"><span class="ci-badge platform">Platform</span></span><span class="ci-price">$249–499</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">California family law firms</span><span class="ci-badges"><span class="ci-badge boutique">Boutique / Hourly</span></span><span class="ci-price">$350–600/hr · $2K–8K total</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">contractscounsel.com</span><span class="ci-badges"><span class="ci-badge marketplace">Marketplace</span></span><span class="ci-price">Project quotes</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">legalshield.com</span><span class="ci-badges"><span class="ci-badge platform">Subscription</span></span><span class="ci-price">$36–49/mo</span></div>
+    <div class="ci-gap">
+      <div class="ci-gap-label">Delina's Opening</div>
+      <div class="ci-gap-text">Every competitor approaches postnups from a divorce/damage-control angle. No California attorney positions the postnup as a proactive financial planning move for married founders and creators who built significant wealth after their wedding. KD 0 — the SERP is almost entirely East Coast. California is unclaimed.</div>
+    </div>
+  </div>
+
+  <!-- 3. NONPROFIT -->
+  <div class="ci-card" style="--accent:#5e9472">
+    <div class="ci-land">Nonprofit Land</div>
+    <div class="ci-env">Mission-law boutiques and compliance services — no one integrates founder tax strategy</div>
+    <div class="ci-comp-row"><span class="ci-comp-name">neolawgroup.com (SF)</span><span class="ci-badges"><span class="ci-badge boutique">Boutique</span></span><span class="ci-price">~$400–600/hr (est.)</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">charitableallies.org</span><span class="ci-badges"><span class="ci-badge boutique">Mission Boutique</span></span><span class="ci-price">Low-bono / flat rates</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">501c3.org (Foundation Group)</span><span class="ci-badges"><span class="ci-badge advisory">Compliance Service</span></span><span class="ci-price">Opaque</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">harborcompliance.com</span><span class="ci-badges"><span class="ci-badge platform">Tech Platform</span></span><span class="ci-price">Opaque</span></div>
+    <div class="ci-gap">
+      <div class="ci-gap-label">Delina's Opening</div>
+      <div class="ci-gap-text">NEO Law Group owns established/complex nonprofits for traditional organizations. Nobody serves the emerging creator-adjacent nonprofit — influencers, coaches, and entrepreneurs using nonprofits as part of a broader tax and impact strategy. Charitable Allies serves classic charities; the creator-nonprofit intersection is untouched.</div>
+    </div>
+  </div>
+
+  <!-- 4. CONTRACT -->
+  <div class="ci-card" style="--accent:#b08858">
+    <div class="ci-land">Contract Land</div>
+    <div class="ci-env">Template shops at the low end, marketplaces in the middle — no strategic boutique</div>
+    <div class="ci-comp-row"><span class="ci-comp-name">thecontractshop.com</span><span class="ci-badges"><span class="ci-badge template">Template Shop</span></span><span class="ci-price">$297–797/bundle</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">contractscounsel.com</span><span class="ci-badges"><span class="ci-badge marketplace">Marketplace</span></span><span class="ci-price">$200–600 per project</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">upcounsel.com</span><span class="ci-badges"><span class="ci-badge marketplace">Marketplace</span></span><span class="ci-price">Bidding model</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">legalshield.com (business)</span><span class="ci-badges"><span class="ci-badge platform">Subscription</span></span><span class="ci-price">$49/mo</span></div>
+    <div class="ci-gap">
+      <div class="ci-gap-label">Delina's Opening</div>
+      <div class="ci-gap-text">The Contract Shop owns the DIY/template market for creative entrepreneurs. Marketplaces commoditize attorney review. There is no California boutique who treats business contracts as strategic protection tools — especially for creators and founders with high-value brand deals, partnership agreements, and licensing arrangements.</div>
+    </div>
+  </div>
+
+  <!-- 5. TAX STRATEGY -->
+  <div class="ci-card" style="--accent:#7a60a0">
+    <div class="ci-land">Tax Strategy Land</div>
+    <div class="ci-env">National education brands and automation platforms — no CA boutique for creators</div>
+    <div class="ci-comp-row"><span class="ci-comp-name">markjkohler.com / kkoslawyers.com</span><span class="ci-badges"><span class="ci-badge brand">National Brand</span></span><span class="ci-price">~$300–500/hr (est.) + courses</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">collective.com</span><span class="ci-badges"><span class="ci-badge platform">Tech Platform</span></span><span class="ci-price">$299–499/mo subscription</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">andersonadvisors.com</span><span class="ci-badges"><span class="ci-badge advisory">Advisory Firm</span></span><span class="ci-price">Opaque</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">wilson tax law (orange county)</span><span class="ci-badges"><span class="ci-badge boutique">CA Boutique</span></span><span class="ci-price">Opaque · IRS dispute focus</span></div>
+    <div class="ci-gap">
+      <div class="ci-gap-label">Delina's Opening</div>
+      <div class="ci-gap-text">Mark Kohler owns the national education market (but targets real estate/general entrepreneurs, not creators). Collective automates S-corp/bookkeeping but has zero legal authority. No California boutique attorney owns proactive tax strategy specifically for creators and founders — especially those with unconventional income: brand deals, royalties, crypto, equity.</div>
+    </div>
+  </div>
+
+  <!-- 6. LLC -->
+  <div class="ci-card" style="--accent:#5a8a64">
+    <div class="ci-land">LLC Land</div>
+    <div class="ci-env">Completely commoditized — formation platforms charge near zero, no one adds strategy</div>
+    <div class="ci-comp-row"><span class="ci-comp-name">legalzoom.com</span><span class="ci-badges"><span class="ci-badge platform">Platform</span></span><span class="ci-price">$0–299 + state fees</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">zenbusiness.com</span><span class="ci-badges"><span class="ci-badge platform">Platform</span></span><span class="ci-price">$0–299/yr</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">bizee.com (Incfile)</span><span class="ci-badges"><span class="ci-badge platform">Platform</span></span><span class="ci-price">$0–299 + state fees</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">mollaeilaw.com (CA)</span><span class="ci-badges"><span class="ci-badge boutique">Solo Boutique</span></span><span class="ci-price">Opaque · international focus</span></div>
+    <div class="ci-gap">
+      <div class="ci-gap-label">Delina's Opening</div>
+      <div class="ci-gap-text">LegalZoom has made LLC formation feel like a $0 commodity. The platforms don't explain the California-specific costs ($800 minimum franchise tax, LLC fee schedule, FTB compliance), the right entity choice, or how formation connects to S-corp election, operating agreements, and creator income structure. Delina sells the strategy, not the filing.</div>
+    </div>
+  </div>
+
+  <!-- 7. TRADEMARK -->
+  <div class="ci-card" style="--accent:#c08840">
+    <div class="ci-land">Trademark Land</div>
+    <div class="ci-env">Filing is commoditized; brand protection strategy is unowned</div>
+    <div class="ci-comp-row"><span class="ci-comp-name">trademarkengine.com</span><span class="ci-badges"><span class="ci-badge platform">Tech Platform</span></span><span class="ci-price">$49–539 + USPTO fees</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">legalzoom.com</span><span class="ci-badges"><span class="ci-badge platform">Platform</span></span><span class="ci-price">$199–599 + USPTO fees</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">adler-law.com (IP boutique)</span><span class="ci-badges"><span class="ci-badge boutique">Boutique</span></span><span class="ci-price">Opaque</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">upcounsel / contractscounsel</span><span class="ci-badges"><span class="ci-badge marketplace">Marketplace</span></span><span class="ci-price">$500–2,000 per filing</span></div>
+    <div class="ci-gap">
+      <div class="ci-gap-label">Delina's Opening</div>
+      <div class="ci-gap-text">Trademark Engine and LegalZoom have commoditized the filing. Traditional IP boutiques are expensive and don't understand the creator business model (brand name vs. LLC name conflicts, content IP, UGC ownership). No California boutique wraps trademark into an integrated brand protection strategy for influencers and founders. "Brand protection attorney" is KD 0.</div>
+    </div>
+  </div>
+
+  <!-- 8. S-CORP -->
+  <div class="ci-card" style="--accent:#888040">
+    <div class="ci-land">S-Corp Land</div>
+    <div class="ci-env">Platforms automate the election; CPAs advise without legal authority — gap in the middle</div>
+    <div class="ci-comp-row"><span class="ci-comp-name">collective.com</span><span class="ci-badges"><span class="ci-badge platform">Tech Platform</span></span><span class="ci-price">$299–499/mo</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">markjkohler.com</span><span class="ci-badges"><span class="ci-badge brand">National Brand</span></span><span class="ci-price">~$300–500/hr + courses</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">local CA CPAs / accounting firms</span><span class="ci-badges"><span class="ci-badge advisory">CPA / Accounting</span></span><span class="ci-price">$500–1,500 for election</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">bizee.com / legalzoom</span><span class="ci-badges"><span class="ci-badge platform">Platform</span></span><span class="ci-price">Form filing add-on</span></div>
+    <div class="ci-gap">
+      <div class="ci-gap-label">Delina's Opening</div>
+      <div class="ci-gap-text">Collective automates the election but has no legal authority. CPAs advise without attorney-client privilege. Nobody explains the California-specific S-corp math — the 1.5% franchise tax plus $800 minimum that can eliminate savings at lower income levels, or when the election makes sense vs. a straight LLC. Delina as attorney can give the advice CPAs legally can't.</div>
+    </div>
+  </div>
+
+  <!-- 9. NEW BUSINESS OWNER -->
+  <div class="ci-card" style="--accent:#449090">
+    <div class="ci-land">New Business Owner Land</div>
+    <div class="ci-env">Formation platforms push founders to file before they understand the strategy</div>
+    <div class="ci-comp-row"><span class="ci-comp-name">legalzoom.com / zenbusiness.com</span><span class="ci-badges"><span class="ci-badge platform">Platform</span></span><span class="ci-price">$0–299 + state fees</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">score.org / sba.gov</span><span class="ci-badges"><span class="ci-badge advisory">Free Gov Resource</span></span><span class="ci-price">Free — not legal advice</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">rocketlawyer.com</span><span class="ci-badges"><span class="ci-badge platform">Subscription</span></span><span class="ci-price">~$39.99/mo</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">general CA business attorneys</span><span class="ci-badges"><span class="ci-badge boutique">Boutique / Hourly</span></span><span class="ci-price">$250–500/hr · free consult</span></div>
+    <div class="ci-gap">
+      <div class="ci-gap-label">Delina's Opening</div>
+      <div class="ci-gap-text">"Business structure attorney" is KD 0 — no one is targeting it. New business owners — especially creators, coaches, and freelancers graduating from side-hustle status — need someone to explain the full legal infrastructure (entity + contracts + trademark + tax) as an integrated system. Nobody positions themselves as the setup attorney for non-traditional founders.</div>
+    </div>
+  </div>
+
+  <!-- 10. STARTUP FOUNDER -->
+  <div class="ci-card" style="--accent:#9a8838">
+    <div class="ci-land">Startup Founder Land</div>
+    <div class="ci-env">BigLaw serves VC-backed; Clerky serves Delaware C-corps — bootstrapped CA founders are orphaned</div>
+    <div class="ci-comp-row"><span class="ci-comp-name">gunderson.com (Silicon Valley)</span><span class="ci-badges"><span class="ci-badge biglaw">BigLaw</span></span><span class="ci-price">$500–1,000+/hr</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">clerky.com</span><span class="ci-badges"><span class="ci-badge platform">Tech Platform</span></span><span class="ci-price">$427–819 (Delaware only)</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">cooley.com / cooleygo.com</span><span class="ci-badges"><span class="ci-badge biglaw">BigLaw</span></span><span class="ci-price">$600–1,200+/hr</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">startupcompanycounsel.com (SJ)</span><span class="ci-badges"><span class="ci-badge boutique">Boutique</span></span><span class="ci-price">Package-based · opaque</span></div>
+    <div class="ci-gap">
+      <div class="ci-gap-label">Delina's Opening</div>
+      <div class="ci-gap-text">BigLaw (Gunderson, Cooley, WSGR) only serves VC-backed tech companies. Clerky serves Delaware C-corps — not California LLCs. There is a wide gap for bootstrapped California founders doing $250K+ who built a real business without venture capital and need strategic legal counsel that isn't priced at $800/hr.</div>
+    </div>
+  </div>
+
+  <!-- 11. E-COMMERCE -->
+  <div class="ci-card" style="--accent:#3a7098">
+    <div class="ci-land">E-Commerce Land</div>
+    <div class="ci-env">Amazon-seller niche is owned; creator-led e-commerce is completely unserved</div>
+    <div class="ci-comp-row"><span class="ci-comp-name">esqgo.com (Sherman Oaks, CA)</span><span class="ci-badges"><span class="ci-badge boutique">CA Boutique</span></span><span class="ci-price">Contingency / opaque</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">mollaeilaw.com (CA)</span><span class="ci-badges"><span class="ci-badge boutique">Solo Boutique</span></span><span class="ci-price">Opaque · international focus</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">legalzoom.com / zenbusiness</span><span class="ci-badges"><span class="ci-badge platform">Platform</span></span><span class="ci-price">$0–299 formation</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">upcounsel / contractscounsel</span><span class="ci-badges"><span class="ci-badge marketplace">Marketplace</span></span><span class="ci-price">$500–2,000/project</span></div>
+    <div class="ci-gap">
+      <div class="ci-gap-label">Delina's Opening</div>
+      <div class="ci-gap-text">ESQgo owns the Amazon FBA seller niche (account reinstatements, ASIN disputes, listing hijackers). Nobody owns creator-led e-commerce — influencers launching product lines, coaches selling digital products, Shopify-based creator brands. This audience needs entity structure + contracts + California tax planning, not Amazon dispute resolution.</div>
+    </div>
+  </div>
+
+  <!-- 12. CREATOR -->
+  <div class="ci-card" style="--accent:#4a6898">
+    <div class="ci-land">Creator Land</div>
+    <div class="ci-env">Entertainment law boutiques own contracts/talent; no one owns the full legal + tax stack</div>
+    <div class="ci-comp-row"><span class="ci-comp-name">thyalaw.com (formerly contentcreatorlawyer.com)</span><span class="ci-badges"><span class="ci-badge boutique">CA Boutique</span></span><span class="ci-price">Opaque</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">thecontractshop.com</span><span class="ci-badges"><span class="ci-badge template">Template Shop</span></span><span class="ci-price">$297–797/bundle</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">adler-law.com (IP + entertainment)</span><span class="ci-badges"><span class="ci-badge boutique">Boutique</span></span><span class="ci-price">Opaque</span></div>
+    <div class="ci-comp-row"><span class="ci-comp-name">markjkohler.com (tax/entity angle)</span><span class="ci-badges"><span class="ci-badge brand">National Brand</span></span><span class="ci-price">~$300–500/hr + courses</span></div>
+    <div class="ci-gap">
+      <div class="ci-gap-label">Delina's Opening</div>
+      <div class="ci-gap-text">Thya Law owns creator contracts and talent representation (entertainment law). The Contract Shop owns the $300–800 DIY template market. Mark Kohler owns tax education. Nobody owns the intersection: creator legal + entity structuring + tax strategy as one integrated practice. A creator doing $500K/year needs all three — and no competitor offers all three with a CA boutique voice.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- COMPETITIVE SUMMARY TABLE -->
+<div id="strategic-summary" class="section-label">Strategic Summary — Competitive Positioning</div>
+<div class="summary-table-wrap" style="max-width: var(--max); margin: 0 auto; padding: 0 48px 60px;">
+  <div style="background: var(--white); border: 1px solid var(--rule); overflow: hidden;">
+    <table style="width:100%; border-collapse: collapse; font-size: 11px;">
+      <thead>
+        <tr style="background: var(--ink);">
+          <th style="padding: 10px 14px; text-align: left; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:#bbb; font-weight:400; white-space:nowrap;">Land</th>
+          <th style="padding: 10px 14px; text-align: left; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:#bbb; font-weight:400;">Dominant Competitor</th>
+          <th style="padding: 10px 14px; text-align: left; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:#bbb; font-weight:400;">Their Model</th>
+          <th style="padding: 10px 14px; text-align: left; font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:#bbb; font-weight:400; min-width:220px;">Delina's Differentiator</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--rule);">
+          <td style="padding:9px 14px; color:var(--accent);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;white-space:nowrap;" class="ci-land-cell" data-accent="#b8706a">Prenup</td>
+          <td style="padding:9px 14px; color:var(--mid); font-family:monospace;">HelloPrenup</td>
+          <td style="padding:9px 14px; color:var(--light);">Tech platform · $599/couple</td>
+          <td style="padding:9px 14px; color:var(--mid); line-height:1.4;">CA boutique for founders with complex assets — business equity, IP, crypto. Nobody owns this positioning.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule); background:#fafaf8;">
+          <td style="padding:9px 14px; font-size:9px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;white-space:nowrap;color:#9a4f4f;">Postnup</td>
+          <td style="padding:9px 14px; color:var(--mid); font-family:monospace;">CA family law firms</td>
+          <td style="padding:9px 14px; color:var(--light);">Hourly · $2K–8K</td>
+          <td style="padding:9px 14px; color:var(--mid); line-height:1.4;">Proactive wealth planning framing vs. divorce-prep framing. KD 0 — CA SERP is unclaimed.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule);">
+          <td style="padding:9px 14px; font-size:9px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;white-space:nowrap;color:#5e9472;">Nonprofit</td>
+          <td style="padding:9px 14px; color:var(--mid); font-family:monospace;">NEO Law Group (SF)</td>
+          <td style="padding:9px 14px; color:var(--light);">Boutique · ~$400–600/hr</td>
+          <td style="padding:9px 14px; color:var(--mid); line-height:1.4;">Creator-adjacent nonprofits + integrated founder tax strategy. NEO Law serves traditional orgs only.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule); background:#fafaf8;">
+          <td style="padding:9px 14px; font-size:9px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;white-space:nowrap;color:#b08858;">Contract</td>
+          <td style="padding:9px 14px; color:var(--mid); font-family:monospace;">The Contract Shop</td>
+          <td style="padding:9px 14px; color:var(--light);">Templates · $297–797</td>
+          <td style="padding:9px 14px; color:var(--mid); line-height:1.4;">Strategic counsel, not templates. No CA boutique serves creator/founder contract strategy end-to-end.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule);">
+          <td style="padding:9px 14px; font-size:9px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;white-space:nowrap;color:#7a60a0;">Tax Strategy</td>
+          <td style="padding:9px 14px; color:var(--mid); font-family:monospace;">Mark J. Kohler</td>
+          <td style="padding:9px 14px; color:var(--light);">National brand · education-first</td>
+          <td style="padding:9px 14px; color:var(--mid); line-height:1.4;">CA boutique with creator focus. Kohler targets real estate/general entrepreneurs — not the creator economy.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule); background:#fafaf8;">
+          <td style="padding:9px 14px; font-size:9px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;white-space:nowrap;color:#5a8a64;">LLC</td>
+          <td style="padding:9px 14px; color:var(--mid); font-family:monospace;">LegalZoom / ZenBusiness</td>
+          <td style="padding:9px 14px; color:var(--light);">Commodity platform · $0–299</td>
+          <td style="padding:9px 14px; color:var(--mid); line-height:1.4;">Strategic counsel — entity choice tied to CA tax math, S-corp election, and income structure. Not just filing.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule);">
+          <td style="padding:9px 14px; font-size:9px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;white-space:nowrap;color:#c08840;">Trademark</td>
+          <td style="padding:9px 14px; color:var(--mid); font-family:monospace;">Trademark Engine</td>
+          <td style="padding:9px 14px; color:var(--light);">Tech platform · $49–539</td>
+          <td style="padding:9px 14px; color:var(--mid); line-height:1.4;">Brand protection strategy as part of creator IP stack. "Brand protection attorney" KD 0 — unclaimed.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule); background:#fafaf8;">
+          <td style="padding:9px 14px; font-size:9px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;white-space:nowrap;color:#888040;">S-Corp</td>
+          <td style="padding:9px 14px; color:var(--mid); font-family:monospace;">Collective</td>
+          <td style="padding:9px 14px; color:var(--light);">Subscription platform · $299–499/mo</td>
+          <td style="padding:9px 14px; color:var(--mid); line-height:1.4;">Attorney-level guidance CPAs legally can't give. CA-specific S-corp math explained for creators.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule);">
+          <td style="padding:9px 14px; font-size:9px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;white-space:nowrap;color:#449090;">New Business</td>
+          <td style="padding:9px 14px; color:var(--mid); font-family:monospace;">LegalZoom / ZenBusiness</td>
+          <td style="padding:9px 14px; color:var(--light);">Commodity platform · $0–299</td>
+          <td style="padding:9px 14px; color:var(--mid); line-height:1.4;">"Business structure attorney" KD 0 — nobody targeting it. Full setup strategy for non-traditional founders.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule); background:#fafaf8;">
+          <td style="padding:9px 14px; font-size:9px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;white-space:nowrap;color:#9a8838;">Startup</td>
+          <td style="padding:9px 14px; color:var(--mid); font-family:monospace;">Gunderson / Clerky</td>
+          <td style="padding:9px 14px; color:var(--light);">BigLaw $500–1K+/hr · Platform $427–819</td>
+          <td style="padding:9px 14px; color:var(--mid); line-height:1.4;">CA boutique for bootstrapped $250K+ founders. BigLaw ignores them; Clerky is Delaware-only.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--rule);">
+          <td style="padding:9px 14px; font-size:9px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;white-space:nowrap;color:#3a7098;">E-Commerce</td>
+          <td style="padding:9px 14px; color:var(--mid); font-family:monospace;">ESQgo.com</td>
+          <td style="padding:9px 14px; color:var(--light);">CA boutique · Amazon niche</td>
+          <td style="padding:9px 14px; color:var(--mid); line-height:1.4;">Creator-led e-commerce (Shopify, digital products, influencer brands) — ESQgo serves Amazon FBA only.</td>
+        </tr>
+        <tr>
+          <td style="padding:9px 14px; font-size:9px;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;white-space:nowrap;color:#4a6898;">Creator</td>
+          <td style="padding:9px 14px; color:var(--mid); font-family:monospace;">Thya Law</td>
+          <td style="padding:9px 14px; color:var(--light);">CA boutique · entertainment law</td>
+          <td style="padding:9px 14px; color:var(--mid); line-height:1.4;">Full stack: contracts + entity + tax + brand protection. Thya Law owns contracts/talent; nobody owns the whole picture.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="margin-top:12px; font-size:10px; color:var(--light); line-height:1.6;">
+    <strong style="color:var(--mid);">The overarching gap:</strong> Every competitor owns one lane. No California boutique attorney integrates legal strategy across contracts, entities, tax, and brand protection for the $250K+ creator and founder economy — with a distinct, non-corporate brand voice. That intersection is Delina's.
+  </div>
+</div>
+
+<!-- THREAT + CONTENT GAP MATRIX -->
+<div id="threat-matrix" class="section-label">Competitive Threat &amp; Content Gap Matrix</div>
+<div class="ci-intro">Threat level reflects how difficult the competitive environment is to break into. Content Activity shows whether the dominant competitor is actively publishing — a vacuum means Delina can rank just by showing up with quality content. Speed to Rank is based on keyword difficulty plus content vacuum size.</div>
+<div class="analysis-table-wrap">
+  <table class="analysis-table">
+    <thead>
+      <tr>
+        <th>Land</th>
+        <th>Threat Level</th>
+        <th>Dominant Competitor</th>
+        <th>Their Content Activity</th>
+        <th>Delina's Speed to Rank</th>
+        <th style="min-width:260px;">Key Insight</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="land-cell" style="color:#b8706a;">Prenup</td>
+        <td><span class="threat-badge med">Medium</span></td>
+        <td style="font-family:monospace;font-size:10px;color:var(--mid);">helloprenup.com</td>
+        <td><span class="content-badge moderate">Moderate</span></td>
+        <td><span class="speed-badge fast">Fast — KD 3</span></td>
+        <td class="td-insight">HelloPrenup blogs about prenups but nothing California-specific or founder-focused. Family law firms on the SERP publish almost nothing. The high-earner prenup angle is content-empty.</td>
+      </tr>
+      <tr>
+        <td class="land-cell" style="color:#9a4f4f;">Postnup</td>
+        <td><span class="threat-badge low">Low</span></td>
+        <td style="font-family:monospace;font-size:10px;color:var(--mid);">CA family law firms</td>
+        <td><span class="content-badge none">None</span></td>
+        <td><span class="speed-badge vfast">Very Fast — KD 0</span></td>
+        <td class="td-insight">SERP is dominated by East Coast results. No California boutique is actively publishing postnup content. The CA postnup-for-founders angle is a complete content vacuum. Publish and own.</td>
+      </tr>
+      <tr>
+        <td class="land-cell" style="color:#5e9472;">Nonprofit</td>
+        <td><span class="threat-badge med">Medium</span></td>
+        <td style="font-family:monospace;font-size:10px;color:var(--mid);">neolawgroup.com</td>
+        <td><span class="content-badge active">Active</span></td>
+        <td><span class="speed-badge med">Medium — KD 18</span></td>
+        <td class="td-insight">NEO Law Group runs a well-read nonprofit law blog (Gene Takagi). But it serves traditional charities. Creator/influencer-adjacent nonprofits and founder tax integration are completely uncovered in their content.</td>
+      </tr>
+      <tr>
+        <td class="land-cell" style="color:#b08858;">Contract</td>
+        <td><span class="threat-badge med">Medium</span></td>
+        <td style="font-family:monospace;font-size:10px;color:var(--mid);">thecontractshop.com</td>
+        <td><span class="content-badge active">Active</span></td>
+        <td><span class="speed-badge med">Medium — KD 0–5</span></td>
+        <td class="td-insight">The Contract Shop dominates template SEO for creative entrepreneurs. But it sells documents, not strategy. Strategic contract counsel content for founders — partnership structure, licensing, brand deal negotiation — is wide open.</td>
+      </tr>
+      <tr>
+        <td class="land-cell" style="color:#7a60a0;">Tax Strategy</td>
+        <td><span class="threat-badge high">High</span></td>
+        <td style="font-family:monospace;font-size:10px;color:var(--mid);">markjkohler.com</td>
+        <td><span class="content-badge active">Very Active</span></td>
+        <td><span class="speed-badge slow">Slow — KD 5–34</span></td>
+        <td class="td-insight">Mark Kohler's content machine (podcast, YouTube, blog, books) is massive. But Kohler targets real estate investors and general entrepreneurs — not the creator economy. California-specific tax strategy for creators has no boutique owner.</td>
+      </tr>
+      <tr>
+        <td class="land-cell" style="color:#5a8a64;">LLC</td>
+        <td><span class="threat-badge high">High</span></td>
+        <td style="font-family:monospace;font-size:10px;color:var(--mid);">legalzoom.com / zenbusiness.com</td>
+        <td><span class="content-badge active">Very Active</span></td>
+        <td><span class="speed-badge slow">Slow (general) / Fast (CA creator angle)</span></td>
+        <td class="td-insight">General LLC formation content is saturated by high-DR platforms. But California-specific LLC analysis — the $800 franchise tax, the LLC fee schedule, entity choice for creators — is thin. Own the CA strategic angle, not the commodity formation terms.</td>
+      </tr>
+      <tr>
+        <td class="land-cell" style="color:#c08840;">Trademark</td>
+        <td><span class="threat-badge med">Medium</span></td>
+        <td style="font-family:monospace;font-size:10px;color:var(--mid);">trademarkengine.com</td>
+        <td><span class="content-badge moderate">Moderate</span></td>
+        <td><span class="speed-badge med">Medium — KD unknown</span></td>
+        <td class="td-insight">Trademark filing how-to content is heavy from platforms. Brand protection strategy content — especially for creators with name/brand/content IP questions — is almost nonexistent. "Brand protection attorney" is KD 0 and unclaimed.</td>
+      </tr>
+      <tr>
+        <td class="land-cell" style="color:#888040;">S-Corp</td>
+        <td><span class="threat-badge med">Medium</span></td>
+        <td style="font-family:monospace;font-size:10px;color:var(--mid);">collective.com + markjkohler.com</td>
+        <td><span class="content-badge active">Active</span></td>
+        <td><span class="speed-badge med">Medium — KD 0–5</span></td>
+        <td class="td-insight">S-corp content volume is high nationally. But California-specific S-corp math for creators — the 1.5% franchise tax, payroll requirements, break-even analysis — is almost nonexistent. Kohler's content is general; Collective's is national automation. The CA attorney angle is open.</td>
+      </tr>
+      <tr>
+        <td class="land-cell" style="color:#449090;">New Business</td>
+        <td><span class="threat-badge low">Low</span></td>
+        <td style="font-family:monospace;font-size:10px;color:var(--mid);">legalzoom.com / zenbusiness.com</td>
+        <td><span class="content-badge minimal">Minimal (strategy)</span></td>
+        <td><span class="speed-badge vfast">Very Fast — KD 0</span></td>
+        <td class="td-insight">Formation platforms post generic "how to start a business" guides with zero strategic depth. "Business structure attorney" is KD 0 — no boutique anywhere is targeting it. Publish the integrated entity-choice guide Delina would actually give a client and rank immediately.</td>
+      </tr>
+      <tr>
+        <td class="land-cell" style="color:#9a8838;">Startup</td>
+        <td><span class="threat-badge low">Low–Med</span></td>
+        <td style="font-family:monospace;font-size:10px;color:var(--mid);">gunderson.com / clerky.com</td>
+        <td><span class="content-badge minimal">Minimal (this audience)</span></td>
+        <td><span class="speed-badge fast">Fast — KD 12</span></td>
+        <td class="td-insight">BigLaw firms publish resources exclusively for VC-backed companies. Clerky's guides are Delaware C-corp only. Bootstrapped California founders doing $250K+ have no content home. Owning this angle requires minimal competition and serves exactly Delina's audience.</td>
+      </tr>
+      <tr>
+        <td class="land-cell" style="color:#3a7098;">E-Commerce</td>
+        <td><span class="threat-badge low">Low–Med</span></td>
+        <td style="font-family:monospace;font-size:10px;color:var(--mid);">esqgo.com</td>
+        <td><span class="content-badge minimal">Minimal</span></td>
+        <td><span class="speed-badge fast">Fast — KD 0</span></td>
+        <td class="td-insight">ESQgo owns Amazon FBA (account reinstatements, ASIN disputes) and publishes minimally. Creator-led e-commerce — influencer product lines, Shopify DTC brands, digital products — has zero content coverage from a California attorney. Build it and own it.</td>
+      </tr>
+      <tr>
+        <td class="land-cell" style="color:#4a6898;">Creator</td>
+        <td><span class="threat-badge low">Low</span></td>
+        <td style="font-family:monospace;font-size:10px;color:var(--mid);">thyalaw.com</td>
+        <td><span class="content-badge none">None</span></td>
+        <td><span class="speed-badge vfast">Very Fast — KD 0</span></td>
+        <td class="td-insight">Thya Law is the closest direct competitor but has virtually no content marketing. No California attorney publishes integrated creator legal + entity + tax content. This is the largest content vacuum relative to audience size in the entire bible. Enormous first-mover advantage.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- PRICING ARCHITECTURE -->
+<div id="pricing" class="section-label" style="margin-top:60px;">Market Pricing Architecture</div>
+<div class="ci-intro">The legal market for Delina's audience has five distinct pricing tiers — from free DIY resources to BigLaw hourly rates. Most clients in Delina's target audience ($250K+ earners) are either underserved by cheap platforms or overcharged by hourly boutiques. The flat-fee paid intake model creates a strategic position no competitor currently occupies.</div>
+<div class="pricing-wrap">
+  <div class="pricing-tier">
+    <div class="pt-label">01 — Free / DIY</div>
+    <div class="pt-range">$0</div>
+    <div class="pt-players">
+      <span class="pt-player">score.org</span>
+      <span class="pt-player">sba.gov</span>
+      <span class="pt-player">cooleygo.com</span>
+      <span class="pt-player">rocketlawyer.com (basic)</span>
+      <span class="pt-player">lawdepot.com</span>
+      <span style="font-size:10px;color:var(--light);margin-left:4px;">Documents without strategy. No legal advice. High enforceability risk for complex situations.</span>
+    </div>
+  </div>
+  <div class="pricing-tier">
+    <div class="pt-label">02 — Templates</div>
+    <div class="pt-range">$49 – $800</div>
+    <div class="pt-players">
+      <span class="pt-player">thecontractshop.com</span>
+      <span class="pt-player">trademarkengine.com</span>
+      <span class="pt-player">helloprenup.com ($599)</span>
+      <span class="pt-player">clerky.com ($427–819)</span>
+      <span style="font-size:10px;color:var(--light);margin-left:4px;">Attorney-drafted but not customized. No legal advice. No ongoing relationship.</span>
+    </div>
+  </div>
+  <div class="pricing-tier">
+    <div class="pt-label">03 — Platform / Subscription</div>
+    <div class="pt-range">$40 – $500/mo</div>
+    <div class="pt-players">
+      <span class="pt-player">collective.com ($299–499/mo)</span>
+      <span class="pt-player">rocket lawyer ($40/mo)</span>
+      <span class="pt-player">legalshield ($36–49/mo)</span>
+      <span class="pt-player">legalzoom ($0–299 formation)</span>
+      <span class="pt-player">zenbusiness ($0–299/yr)</span>
+      <span style="font-size:10px;color:var(--light);margin-left:4px;">Automation-first. No attorney-client relationship. No strategic guidance for complex situations.</span>
+    </div>
+  </div>
+  <div class="pricing-tier delina-row">
+    <div class="pt-label" style="color:#3a6a44;font-weight:600;">— Delina's Position —</div>
+    <div class="pt-range" style="color:#3a6a44;font-weight:500;font-family:inherit;">Flat Fee / Intake</div>
+    <div class="pt-players">
+      <span class="pt-player delina">delina.esq — Flat-fee paid intake</span>
+      <span style="font-size:11px;color:#4a5a50;margin-left:6px;line-height:1.5;">Strategy + relationship at a predictable cost. Not hourly, not subscription, not a document delivery service. The only boutique CA attorney pricing model built around a high-earner audience that knows what they want and will pay for expertise — not time.</span>
+    </div>
+  </div>
+  <div class="pricing-tier">
+    <div class="pt-label">04 — Hourly Boutique</div>
+    <div class="pt-range">$250 – $600/hr</div>
+    <div class="pt-players">
+      <span class="pt-player">thyalaw.com</span>
+      <span class="pt-player">neolawgroup.com</span>
+      <span class="pt-player">esqgo.com</span>
+      <span class="pt-player">dolanfamilylaw.com</span>
+      <span class="pt-player">mollaeilaw.com</span>
+      <span class="pt-player">wilson tax law</span>
+      <span style="font-size:10px;color:var(--light);margin-left:4px;">Personalized service but unpredictable costs. Free consult model attracts price-shoppers. Single-lane specialization.</span>
+    </div>
+  </div>
+  <div class="pricing-tier" style="border-bottom:1px solid var(--rule);">
+    <div class="pt-label">05 — BigLaw</div>
+    <div class="pt-range">$500 – $1,200+/hr</div>
+    <div class="pt-players">
+      <span class="pt-player">gunderson.com</span>
+      <span class="pt-player">cooley.com</span>
+      <span class="pt-player">wsgr.com</span>
+      <span class="pt-player">anderson advisors</span>
+      <span style="font-size:10px;color:var(--light);margin-left:4px;">Inaccessible to most of Delina's audience. Serves VC-backed companies only. Not relationship-based for small accounts.</span>
+    </div>
+  </div>
+  <div class="pricing-insight"><strong>The strategic gap:</strong> Tier 3 platforms give clients a document but not a strategy. Tier 4 boutiques give strategy but charge unpredictable hourly rates with free consults that attract the wrong clients. Delina sits between these two tiers — offering the strategic depth of a boutique at the pricing clarity of a platform. The paid intake model is the embodiment of this positioning: it signals premium value, pre-qualifies clients who respect the work, and eliminates the "free consult tire-kicker" dynamic that afflicts every hourly boutique on the SERP.</div>
+</div>
+
+<!-- STRUCTURAL WEAKNESSES -->
+<div id="weaknesses" class="section-label" style="margin-top:60px;">Recurring Competitor Weaknesses — Delina's Marketing Angles</div>
+<div class="ci-intro">Five structural patterns appeared across virtually every competitor in the research. These are not random oversights — they are the predictable consequences of how most law firms and legal platforms are built. Each one is a marketing angle Delina can directly exploit in content, positioning, and messaging.</div>
+<div class="weakness-grid">
+
+  <div class="weakness-card">
+    <div class="w-number">01</div>
+    <div class="w-title">The Free Consult Trap</div>
+    <div class="w-who"><strong>Who does this:</strong> Nearly every boutique in the competitive set — dolanfamilylaw.com, Thya Law, ESQgo, Mollaei Law, most California family law and business attorneys. It is the default model for attorney client acquisition.</div>
+    <div class="w-exploit-label">Delina's Angle</div>
+    <div class="w-exploit">The free consult signals low value before a word is spoken. It attracts price-shoppers, not serious clients. Delina's paid intake model communicates premium positioning from the first touchpoint — and every piece of content can explain why free consults are actually a red flag for the high-earner who values their own time.</div>
+  </div>
+
+  <div class="weakness-card">
+    <div class="w-number">02</div>
+    <div class="w-title">Opaque Pricing Breeds Distrust</div>
+    <div class="w-who"><strong>Who does this:</strong> BigLaw universally. Most boutiques — NEO Law Group, Thya Law, Wilson Tax Law, Charitable Allies, ESQgo. Even national brands like Mark Kohler and Anderson Advisors hide firm rates behind inquiry forms.</div>
+    <div class="w-exploit-label">Delina's Angle</div>
+    <div class="w-exploit">The $250K+ earner has a sophisticated BS detector. Opaque pricing signals the firm is either embarrassed by their rates or expects to negotiate. Transparent flat-fee positioning removes friction, builds trust before the first conversation, and attracts clients who already respect the value — not clients who will haggle.</div>
+  </div>
+
+  <div class="weakness-card">
+    <div class="w-number">03</div>
+    <div class="w-title">Generalist Positioning Attracts the Wrong Clients</div>
+    <div class="w-who"><strong>Who does this:</strong> Family law firms covering prenups alongside divorce. General business attorneys covering contracts, LLC, and "whatever you need." ContractsCounsel and UpCounsel marketplace attorneys who handle anything. LegalShield network attorneys.</div>
+    <div class="w-exploit-label">Delina's Angle</div>
+    <div class="w-exploit">Generalist positioning signals average expertise. A creator earning $800K/year who needs a prenup, an S-corp election, trademark protection, and brand deal contracts does not want to hire four different generalist attorneys. They want the specialist who already understands their world. Every piece of Delina's content reinforces the niche: this is built for you specifically.</div>
+  </div>
+
+  <div class="weakness-card">
+    <div class="w-number">04</div>
+    <div class="w-title">Single-Lane Focus Fragments the Client Relationship</div>
+    <div class="w-who"><strong>Who does this:</strong> Thya Law (contracts and talent only), Trademark Engine (filing only), ESQgo (Amazon disputes only), Wilson Tax Law (IRS disputes only), Clerky (Delaware C-corp docs only), Collective (S-corp + bookkeeping only).</div>
+    <div class="w-exploit-label">Delina's Angle</div>
+    <div class="w-exploit">Every single-lane competitor forces their client to maintain multiple attorney relationships for what is fundamentally one integrated problem: protecting wealth they built in an unconventional way. Delina's multi-land practice means one attorney, one intake, one relationship that sees the whole picture. This is both a business development advantage and a core content theme — the total cost of fragmented legal counsel.</div>
+  </div>
+
+  <div class="weakness-card">
+    <div class="w-number">05</div>
+    <div class="w-title">Platforms Sell Documents, Not Understanding</div>
+    <div class="w-who"><strong>Who does this:</strong> LegalZoom, ZenBusiness, Bizee, HelloPrenup, The Contract Shop, Rocket Lawyer, LegalShield. The entire Tier 1–3 pricing stack. Collectively responsible for millions of inadequately protected founders and creators who believe they are legally covered.</div>
+    <div class="w-exploit-label">Delina's Angle</div>
+    <div class="w-exploit">The platform client gets a document but doesn't understand what it does, what it doesn't cover, or whether it will hold up. Delina's content strategy can directly surface this gap — not to fear-monger, but to show the difference between having a contract and having a strategy. Every blog post that answers "do I need a lawyer for X" is a top-of-funnel entry point from clients who started with a platform and are starting to suspect they need more.</div>
+  </div>
+
+</div>
+
+<!-- FIRST MOVER OPPORTUNITIES -->
+<div id="first-mover" class="section-label" style="margin-top:60px;">First-Mover Content Opportunities</div>
+<div class="fm-intro">Six specific angles where competitor content marketing activity is near zero and Delina can claim SERP ownership with minimal competition. These are not just low-KD keywords — they are underserved audience needs where publishing quality, strategic content creates durable ranking advantages before anyone else moves in.</div>
+<div class="fm-grid">
+
+  <div class="fm-card" style="--accent:#9a4f4f">
+    <div class="fm-land">Postnup Land</div>
+    <div class="fm-kw">"postnuptial agreement lawyer california"</div>
+    <div class="fm-pills">
+      <span class="fm-badge kd0">KD 0</span>
+      <span class="fm-badge open">CA SERP Unclaimed</span>
+      <span class="fm-badge open">East Coast Dominated</span>
+    </div>
+    <div class="fm-why">The postnup SERP is filled with East Coast law firms. No California boutique has published a single piece of content targeting this angle. Family law firms don't blog. Publish the authoritative California postnup guide — from a wealth-planning angle, not a divorce angle — and own this SERP by default. SV 8.3K, KD 0. The rarest combination in the entire bible.</div>
+  </div>
+
+  <div class="fm-card" style="--accent:#449090">
+    <div class="fm-land">New Business Owner Land</div>
+    <div class="fm-kw">"business structure attorney"</div>
+    <div class="fm-pills">
+      <span class="fm-badge kd0">KD 0</span>
+      <span class="fm-badge open">Zero Boutique Competition</span>
+    </div>
+    <div class="fm-why">Literally no boutique attorney is targeting this keyword. Formation platforms post generic guides; none give strategic guidance. "What is a business structure attorney and do I need one?" is a perfect entry-point article for creators and founders at the formation stage. SV 70, KD 0, zero content competition — publish and rank within days.</div>
+  </div>
+
+  <div class="fm-card" style="--accent:#4a6898">
+    <div class="fm-land">Creator Land</div>
+    <div class="fm-kw">"influencer attorney" / "content creator attorney"</div>
+    <div class="fm-pills">
+      <span class="fm-badge kd0">KD 0</span>
+      <span class="fm-badge open">Thya Law: No Content</span>
+      <span class="fm-badge open">Full Stack Angle Empty</span>
+    </div>
+    <div class="fm-why">Thya Law is the only real competitor and they publish almost nothing. The integrated creator legal + entity + tax stack angle — treating a creator's legal needs as one coherent system — does not exist in the content landscape. This is the largest content vacuum relative to audience size in the entire bible. Enormous first-mover advantage for the right pillar content.</div>
+  </div>
+
+  <div class="fm-card" style="--accent:#c08840">
+    <div class="fm-land">Trademark Land</div>
+    <div class="fm-kw">"brand protection attorney"</div>
+    <div class="fm-pills">
+      <span class="fm-badge kd0">KD 0</span>
+      <span class="fm-badge open">SV 70 — Unclaimed</span>
+    </div>
+    <div class="fm-why">Trademark Engine and LegalZoom own the "how to file a trademark" content. Nobody has written the brand protection strategy content for creators — brand name vs. LLC name conflicts, UGC ownership, cease-and-desist realities, content IP. "Brand protection attorney" is KD 0 and completely unclaimed. Own the strategic framing that the platforms can't provide.</div>
+  </div>
+
+  <div class="fm-card" style="--accent:#9a8838">
+    <div class="fm-land">Startup Founder Land</div>
+    <div class="fm-kw">"startup lawyer california" — bootstrapped founders</div>
+    <div class="fm-pills">
+      <span class="fm-badge fast">KD 12</span>
+      <span class="fm-badge open">BigLaw Ignores This Audience</span>
+      <span class="fm-badge open">Clerky: Delaware Only</span>
+    </div>
+    <div class="fm-why">Gunderson, Cooley, and WSGR publish exclusively for VC-backed companies. Clerky's guides are Delaware C-corp only. The bootstrapped California founder who built a $500K service business without venture capital has no legal content home. Publishing for this specific audience — California, bootstrapped, $250K+ — has almost no competition and exactly matches Delina's client profile.</div>
+  </div>
+
+  <div class="fm-card" style="--accent:#b08858">
+    <div class="fm-land">Contract Land</div>
+    <div class="fm-kw">"partnership agreement attorney"</div>
+    <div class="fm-pills">
+      <span class="fm-badge kd0">KD 0</span>
+      <span class="fm-badge open">SV 200 — No Boutique Content</span>
+    </div>
+    <div class="fm-why">ContractsCounsel and UpCounsel own the generic "partnership agreement" search space with marketplace listings. No boutique California attorney has published strategic content about what a partnership agreement attorney actually does, when you need one, and what goes wrong without one. SV 200, KD 0. Solid volume, no boutique competition, directly feeds the Contract Land landing page.</div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="foot">
+  <div class="foot-note">Delina.ESQ · 117 Keywords · 12 Content Lands · March 2026</div>
+  <div class="foot-note">All SV, KD, CPC, DR data sourced from Ahrefs · desq-seo-bible.xlsx</div>
+</div>
+
+<script>
+// ── Password protection ──────────────────────────────────────────────────────
+(function() {
+  if (localStorage.getItem('desq_auth') === 'nosara') {
+    document.getElementById('pw-overlay').style.display = 'none';
+  }
+})();
+
+function checkPw() {
+  var val = document.getElementById('pw-input').value.trim().toLowerCase();
+  if (val === 'nosara') {
+    localStorage.setItem('desq_auth', 'nosara');
+    document.getElementById('pw-overlay').style.display = 'none';
+  } else {
+    document.getElementById('pw-error').textContent = 'Incorrect password — try again.';
+    document.getElementById('pw-input').value = '';
+    document.getElementById('pw-input').focus();
+  }
+}
+
+document.getElementById('pw-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') checkPw();
+});
+
+// ── Hamburger menu ───────────────────────────────────────────────────────────
+function toggleNav() {
+  var btn = document.getElementById('nav-hamburger');
+  var panel = document.getElementById('nav-mobile');
+  btn.classList.toggle('open');
+  panel.classList.toggle('open');
+}
+function closeNav() {
+  document.getElementById('nav-hamburger').classList.remove('open');
+  document.getElementById('nav-mobile').classList.remove('open');
+}
+
+// ── Card toggle ──────────────────────────────────────────────────────────────
+function toggle(card) { card.classList.toggle('open'); }
+</script>
+</body>
+</html>
