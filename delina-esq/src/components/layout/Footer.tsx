@@ -1,138 +1,123 @@
-'use client'
-
 import Link from 'next/link'
-import { ScrollReveal } from '@/components/ui/ScrollReveal'
-import { services } from '@/lib/services'
+import { ConciergeBar } from './ConciergeBar'
 
-const navLinks = [
-  { href: '#philosophy', label: 'Philosophy' },
-  { href: '#approach', label: 'Our Approach' },
-  { href: '#services', label: 'Services' },
-  { href: '#about', label: 'About Delina' },
-  { href: '#contact', label: 'Contact' },
-  { href: '/terms', label: 'Terms & Conditions' },
+const PRACTICE_AREAS = [
+  { label: 'Prenuptial Agreement Attorney', href: '/prenuptial-agreement-attorney' },
+  { label: 'Postnuptial Agreement Lawyer', href: '/postnuptial-agreement-lawyer' },
+  { label: 'LLC Attorney', href: '/llc-attorney' },
+  { label: 'S-Corp Attorney', href: '/s-corp-attorney' },
+  { label: 'Business Contract Attorney', href: '/business-contract-attorney' },
+  { label: 'Tax Attorney', href: '/tax-attorney-small-business' },
+  { label: 'Business Structure Attorney', href: '/business-structure-attorney' },
+  { label: 'Startup Lawyer', href: '/startup-attorney-california' },
+  { label: 'Attorney for Creators & Influencers', href: '/creator-attorney' },
+  { label: 'Trademark Attorney', href: '/trademark-attorney' },
+  { label: 'Nonprofit Attorney', href: '/nonprofit-attorney' },
+  { label: 'E-Commerce Business Attorney', href: '/ecommerce-business-attorney' },
 ]
 
 export function Footer() {
   return (
-    <footer className="relative bg-void-950 border-t-2 border-void-700">
-      {/* Retro texture strip */}
-      <div className="h-1 w-full bg-gradient-to-r from-hot-pink via-cyber-violet to-electric" />
+    <>
+      {/* Concierge strip — appears above footer on every page */}
+      <ConciergeBar />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-20">
-        <ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-10">
-            {/* Brand */}
+      <footer className="bg-ink border-t border-steel pt-20 pb-10 px-6 lg:px-12">
+        <div className="max-w-[1200px] mx-auto">
+          {/* Main grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+            {/* Column 1 */}
             <div>
-              <h3 className="font-pixel text-lg tracking-wider text-cream mb-4">
-                DELINA<span className="text-hot-pink">.</span>ESQ
-              </h3>
-              <p className="text-void-400 text-sm leading-relaxed mb-6 max-w-xs font-body">
-                Legal and tax strategy for founders, operators, and investors. Strategic, customized engagements handled directly by an experienced attorney.
+              <p className="font-display text-[20px] tracking-[0.15em] text-white font-normal">
+                DELINA.ESQ
               </p>
+              <p className="font-mono text-[10px] text-mist mt-2">
+                California Legal Strategy
+              </p>
+              <p className="font-mono text-[9px] text-mist/50 mt-6">
+                California Bar Association
+              </p>
+              <p className="font-mono text-[9px] text-mist mt-2">
+                &copy; 2026 Delina Yasmeh, Esq.
+              </p>
+              <p className="font-mono text-[8px] text-mist/40 mt-2 max-w-[200px] leading-relaxed">
+                Attorney advertising. Past results do not guarantee future outcomes.
+              </p>
+            </div>
+
+            {/* Column 2 — Practice Areas */}
+            <div>
+              <span className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-mist block mb-5">
+                PRACTICE AREAS
+              </span>
+              {PRACTICE_AREAS.map((item) => (
+                <Link
+                  key={`${item.label}-${item.href}`}
+                  href={item.href}
+                  className="font-sans text-[13px] text-silver hover:text-white transition-colors block mb-2"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+
+            {/* Column 3 — Connect */}
+            <div>
+              <span className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-mist block mb-5">
+                CONNECT
+              </span>
+              <Link
+                href="/book"
+                className="font-sans text-[13px] text-white hover:text-silver transition-colors block mb-2"
+              >
+                Book Your Intake
+              </Link>
+              <Link
+                href="/about"
+                className="font-sans text-[13px] text-silver hover:text-white transition-colors block mb-2"
+              >
+                About Delina
+              </Link>
+              <Link
+                href="/blog"
+                className="font-sans text-[13px] text-silver hover:text-white transition-colors block mb-2"
+              >
+                The Brief
+              </Link>
               <a
                 href="https://www.linkedin.com/in/delinayasmeh"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-pixel text-[10px] tracking-[0.15em] uppercase text-void-500 hover:text-hot-pink transition-colors py-1 border-b border-void-700 hover:border-hot-pink"
+                className="font-sans text-[13px] text-silver hover:text-white transition-colors block mb-2"
               >
-                LINKEDIN &#8594;
+                LinkedIn
               </a>
             </div>
-
-            {/* Navigation */}
-            <div>
-              <h4 className="font-pixel text-[10px] tracking-[0.2em] uppercase text-hot-pink mb-6">
-                NAVIGATION
-              </h4>
-              <ul className="space-y-3">
-                {navLinks.map((link) => (
-                  <li key={link.href}>
-                    {link.href.startsWith('/') ? (
-                      <Link
-                        href={link.href}
-                        className="text-void-400 text-sm font-body hover:text-cream transition-colors duration-300"
-                      >
-                        {link.label}
-                      </Link>
-                    ) : (
-                      <a
-                        href={link.href}
-                        className="text-void-400 text-sm font-body hover:text-cream transition-colors duration-300"
-                      >
-                        {link.label}
-                      </a>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Services */}
-            <div>
-              <h4 className="font-pixel text-[10px] tracking-[0.2em] uppercase text-hot-pink mb-6">
-                SERVICES
-              </h4>
-              <ul className="space-y-3">
-                {services.map((service) => (
-                  <li key={service.slug}>
-                    <Link
-                      href={`/${service.slug}`}
-                      className="text-void-400 text-sm font-body hover:text-cream transition-colors duration-300"
-                    >
-                      {service.shortTitle}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Contact */}
-            <div>
-              <h4 className="font-pixel text-[10px] tracking-[0.2em] uppercase text-hot-pink mb-6">
-                CONTACT
-              </h4>
-              <ul className="space-y-3">
-                <li>
-                  <a href="mailto:info@delina.esq" className="text-void-400 text-sm font-body hover:text-cream transition-colors duration-300">
-                    info@delina.esq
-                  </a>
-                </li>
-                <li>
-                  <a href="tel:818-888-6060" className="text-void-400 text-sm font-body hover:text-cream transition-colors duration-300">
-                    818-888-6060
-                  </a>
-                </li>
-                <li className="text-void-500 text-sm font-body">By Appointment Only</li>
-                <li className="text-void-500 text-sm font-body">California-Based Practice</li>
-                <li className="text-void-500 text-sm font-body">Selective Engagements</li>
-              </ul>
-            </div>
-          </div>
-        </ScrollReveal>
-
-        {/* Legal Notice */}
-        <div className="mt-16 pt-8 border-t border-void-700">
-          <div className="mb-6">
-            <h5 className="font-pixel text-[9px] tracking-[0.2em] uppercase text-void-600 mb-3">
-              LEGAL NOTICE
-            </h5>
-            <p className="text-void-600 text-xs leading-relaxed max-w-4xl font-body">
-              This website is for general informational purposes only and does not constitute legal or tax advice. Accessing this site or contacting the attorney does not create an attorney-client relationship. No confidential or time-sensitive information should be sent through this site. All content is the intellectual property of the attorney and may not be reproduced without written permission.
-            </p>
-            <p className="text-void-600 text-xs leading-relaxed max-w-4xl mt-2 font-body">
-              This site does not collect personal data, use cookies, or employ analytics tools. If you choose to contact the attorney via phone or email, any information you provide will be used solely to respond to your inquiry and will not be shared or sold.
-            </p>
           </div>
 
-          <p className="text-void-600 text-xs font-body">
-            &copy; {new Date().getFullYear()} Delina Yasmeh, Esq. | All rights reserved | Website by{' '}
-            <a href="https://jonrosenfield.com" target="_blank" rel="noopener noreferrer" className="hover:text-cream transition-colors">
-              JLR
-            </a>
-          </p>
+          {/* Bottom bar */}
+          <div className="border-t border-steel mt-16 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex items-center gap-4">
+              <Link
+                href="#"
+                className="font-mono text-[9px] text-mist hover:text-silver transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <span className="font-mono text-[9px] text-steel">·</span>
+              <Link
+                href="#"
+                className="font-mono text-[9px] text-mist hover:text-silver transition-colors"
+              >
+                Terms of Service
+              </Link>
+            </div>
+            <p className="font-mono text-[9px] text-mist italic">
+              Built for California. Built to last.
+            </p>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   )
 }

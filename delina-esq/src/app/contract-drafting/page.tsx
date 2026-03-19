@@ -1,14 +1,16 @@
 import type { Metadata } from 'next'
-import { getServiceBySlug } from '@/lib/services'
-import { ContractDraftingContent } from './ContractDraftingContent'
-
-const service = getServiceBySlug('contract-drafting')!
 
 export const metadata: Metadata = {
-  title: service.metaTitle,
-  description: service.metaDescription,
+  alternates: { canonical: 'https://delina.esq/business-contract-attorney/' },
 }
 
-export default function ContractDraftingPage() {
-  return <ContractDraftingContent />
+export default function ContractRedirect() {
+  return (
+    <html>
+      <head>
+        <meta httpEquiv="refresh" content="0;url=/business-contract-attorney" />
+      </head>
+      <body />
+    </html>
+  )
 }

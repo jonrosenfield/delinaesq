@@ -1,14 +1,16 @@
 import type { Metadata } from 'next'
-import { getServiceBySlug } from '@/lib/services'
-import { EntityStructuringContent } from './EntityStructuringContent'
-
-const service = getServiceBySlug('entity-structuring')!
 
 export const metadata: Metadata = {
-  title: service.metaTitle,
-  description: service.metaDescription,
+  alternates: { canonical: 'https://delina.esq/business-structure-attorney/' },
 }
 
-export default function EntityStructuringPage() {
-  return <EntityStructuringContent />
+export default function EntityRedirect() {
+  return (
+    <html>
+      <head>
+        <meta httpEquiv="refresh" content="0;url=/business-structure-attorney" />
+      </head>
+      <body />
+    </html>
+  )
 }

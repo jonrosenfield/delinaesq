@@ -1,162 +1,126 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import dynamic from 'next/dynamic'
+import Link from 'next/link'
 
-const ParticleField = dynamic(
-  () => import('@/components/three/ParticleField').then(mod => ({ default: mod.ParticleField })),
-  { ssr: false }
-)
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.14 },
+  },
+}
 
-const stickers = [
-  { text: 'TAX EXPERT', color: 'hot-pink', rotate: '-3deg', top: '12%', right: '8%' },
-  { text: 'EST. 2024', color: 'electric', rotate: '2deg', bottom: '28%', right: '5%' },
-  { text: 'BIG FOUR', color: 'cyber-violet', rotate: '-1.5deg', top: '35%', left: '3%' },
-  { text: 'JD + LL.M.', color: 'slime', rotate: '3deg', bottom: '18%', left: '6%' },
+const itemVariants = {
+  hidden: { opacity: 0, y: 22 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.75, ease: [0.25, 0.46, 0.45, 0.94] as const },
+  },
+}
+
+const STATS = [
+  { value: '127+', label: 'Clients Structured' },
+  { value: '$2M+', label: 'Tax Liability Saved' },
+  { value: '8', label: 'Practice Areas' },
 ]
-
-const tagline = ['CONTRACT', 'TAX STRATEGY', 'ENTITY FORMATION', 'M&A']
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[100dvh] flex items-center md:items-end overflow-hidden dot-pattern">
-      {/* Three.js Background */}
-      <ParticleField />
-
-      {/* Dark gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-void-950/30 via-transparent to-void-950 z-[1]" />
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-void-950 to-transparent z-[1]" />
-
-      {/* Floating Y2K stickers */}
-      {stickers.map((s, i) => (
-        <motion.div
-          key={s.text}
-          className="absolute z-10 hidden lg:block"
-          style={{
-            top: s.top, bottom: s.bottom, left: s.left, right: s.right,
-            rotate: s.rotate,
-          } as any}
-          initial={{ opacity: 0, scale: 0.7, rotate: parseInt(s.rotate) * 2 }}
-          animate={{ opacity: 1, scale: 1, rotate: parseInt(s.rotate) }}
-          transition={{ duration: 0.6, delay: 1.2 + i * 0.15, ease: [0.34, 1.56, 0.64, 1] }}
-        >
-          <span
-            className={`sticker text-${s.color} border-${s.color}/50 bg-${s.color}/[0.06]`}
-            style={{ ['--sticker-rotate' as any]: s.rotate }}
-          >
-            {s.text}
-          </span>
-        </motion.div>
-      ))}
-
-      {/* Content — ASYMMETRIC: pushed left */}
-      <div className="relative z-10 section-container pb-20 pt-24 md:pb-32 md:pt-40 lg:pb-40 lg:pt-48">
-        <div className="max-w-4xl">
-          {/* Badge */}
-          <motion.a
-            href="#contact"
-            className="tag-label inline-block mb-4 md:mb-8 cursor-pointer hover:shadow-glow-pink transition-shadow duration-300"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2, ease: [0.34, 1.56, 0.64, 1] }}
-          >
-            Make an Appointment
-          </motion.a>
-
-          {/* Headline — mixed fonts, asymmetric */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <h1 className="mb-2">
-              <span className="block font-serif text-display-xl md:text-hero text-void-100 italic">
-                Tax Attorney
-              </span>
-              <span className="block font-serif text-display-xl md:text-hero text-void-100 italic -mt-1 md:-mt-4">
-                for{' '}
-                <span className="font-pixel not-italic text-hot-pink inline-block text-display-lg md:text-hero" style={{ textShadow: '0 0 30px rgba(0,255,65,0.5), 0 0 60px rgba(0,255,65,0.2)' }}>
-                  Businesses
-                </span>
-              </span>
-              <span className="block font-serif text-display-md md:text-display-lg text-void-300 italic mt-1 md:ml-2">
-                and Individuals
-              </span>
-            </h1>
-          </motion.div>
-
-          {/* Tagline Pills — with retro separators */}
-          <motion.div
-            className="flex flex-wrap items-center gap-3 mb-6 mt-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
-            {tagline.map((tag, i) => (
-              <motion.span
-                key={tag}
-                className="font-pixel text-[9px] tracking-[0.2em] text-void-500"
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: 0.6 + i * 0.1 }}
-              >
-                {i > 0 && <span className="text-hot-pink mr-3">{"//"}</span>}
-                {tag}
-              </motion.span>
-            ))}
-          </motion.div>
-
-          {/* Subline — editorial serif */}
-          <motion.p
-            className="font-serif text-lg md:text-2xl text-void-400 italic max-w-lg mb-8 md:mb-12 leading-relaxed"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-          >
-            Lawyers don&apos;t know tax. Accountants don&apos;t know law.
-            <span className="text-void-200"> We know both.</span>
-          </motion.p>
-
-          {/* CTA Buttons — Y2K beveled, chunky */}
-          <motion.div
-            className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
-          >
-            <a href="tel:818-888-6060" className="btn-bevel btn-bevel-pink">
-              &#9743; Call Now
-            </a>
-            <a href="mailto:info@delina.esq" className="btn-bevel btn-bevel-cyan">
-              &#9993; Email Us
-            </a>
-            <a href="#contact" className="btn-bevel btn-bevel-white">
-              Schedule Consultation
-            </a>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator — retro */}
+    <section className="min-h-[calc(100vh-52px)] bg-ink flex flex-col relative overflow-hidden">
+      {/* Main hero content — vertically centered */}
       <motion.div
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
+        className="flex-1 flex flex-col items-center justify-center text-center px-6 py-20"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
       >
-        <span className="font-pixel text-[8px] tracking-[0.4em] uppercase text-void-600">
-          Scroll
-        </span>
+        {/* Eyebrow */}
+        <motion.span
+          variants={itemVariants}
+          className="font-mono text-[0.625rem] uppercase tracking-[0.25em] text-mist mb-10"
+        >
+          California Legal Strategy · Est. 2019
+        </motion.span>
+
+        {/* Headline — full editorial width */}
+        <motion.h1
+          variants={itemVariants}
+          className="font-display text-white max-w-[1000px] mx-auto"
+          style={{ fontSize: 'clamp(4.5rem, 11vw, 10.5rem)', lineHeight: 0.88, letterSpacing: '-0.04em' }}
+        >
+          <span className="block italic font-light">Protect</span>
+          <span className="block font-semibold">What You&apos;ve Built.</span>
+        </motion.h1>
+
+        {/* Subheadline */}
+        <motion.p
+          variants={itemVariants}
+          className="font-sans font-light text-[17px] text-silver max-w-[500px] mt-8 leading-relaxed"
+        >
+          Delina Yasmeh is a California attorney who works exclusively with entrepreneurs,
+          creators, and high-net-worth individuals who&apos;ve outgrown generic legal advice.
+        </motion.p>
+
+        {/* CTA Row */}
         <motion.div
-          className="w-[1px] h-8 bg-gradient-to-b from-hot-pink/60 to-transparent"
-          animate={{ scaleY: [0.5, 1, 0.5], opacity: [0.3, 0.8, 0.3] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-        />
+          variants={itemVariants}
+          className="flex items-center justify-center gap-4 mt-9 flex-wrap"
+        >
+          <Link
+            href="/book"
+            className="btn-primary text-[10px] font-mono uppercase tracking-[0.2em] py-4 px-8"
+          >
+            Book Your Intake →
+          </Link>
+          <a
+            href="#services"
+            className="btn-ghost text-[10px] font-mono uppercase tracking-[0.2em] py-4 px-8"
+          >
+            How It Works
+          </a>
+        </motion.div>
+
+        {/* Proof Chips */}
+        <motion.div
+          variants={itemVariants}
+          className="flex gap-3 mt-6 justify-center flex-wrap"
+        >
+          {['California Licensed', 'JD + LL.M. Taxation', 'S-Corp & LLC Strategy'].map((chip) => (
+            <span
+              key={chip}
+              className="text-[9px] font-mono uppercase tracking-[0.2em] text-mist border border-steel/50 px-3 py-1.5"
+            >
+              {chip}
+            </span>
+          ))}
+        </motion.div>
       </motion.div>
 
-      {/* Decorative corner borders */}
-      <div className="absolute top-24 left-6 w-20 h-20 border-l border-t border-hot-pink/10 z-[2] hidden lg:block" />
-      <div className="absolute bottom-24 right-6 w-20 h-20 border-r border-b border-electric/10 z-[2] hidden lg:block" />
+      {/* Stats strip — pinned to bottom of hero */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.0, duration: 0.8 }}
+        className="border-t border-steel/40 grid grid-cols-3"
+      >
+        {STATS.map((stat, i) => (
+          <div
+            key={stat.label}
+            className={`py-6 px-8 text-center ${i < STATS.length - 1 ? 'border-r border-steel/40' : ''}`}
+          >
+            <span
+              className="font-display text-white font-light block"
+              style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', lineHeight: 1 }}
+            >
+              {stat.value}
+            </span>
+            <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-mist block mt-1.5">
+              {stat.label}
+            </span>
+          </div>
+        ))}
+      </motion.div>
     </section>
   )
 }
