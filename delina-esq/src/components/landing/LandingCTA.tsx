@@ -26,7 +26,7 @@ export function LandingCTA({ headline, body, ctaHref = '/book' }: LandingCTAProp
           href={ctaHref}
           className="inline-flex items-center gap-2 px-10 py-4 mt-9 border border-white/50 text-white font-mono text-[13px] uppercase tracking-[0.2em] hover:bg-white hover:text-ink transition-all duration-200"
         >
-          Book Your Intake →
+          Get Started →
         </Link>
       </div>
     </section>

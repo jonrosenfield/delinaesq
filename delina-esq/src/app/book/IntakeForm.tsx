@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 const PRACTICE_AREAS = [
   'Prenuptial Agreement',
@@ -53,8 +54,9 @@ const labelClass =
   'font-mono text-[12px] uppercase tracking-[0.2em] text-ink/45 block mb-1'
 
 export function IntakeForm() {
+  const router = useRouter()
   const [form, setForm] = useState<FormState>(EMPTY)
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+  const [status, setStatus] = useState<'idle' | 'sending' | 'error'>('idle')
 
   function set(field: keyof FormState) {
     return (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
@@ -66,15 +68,17 @@ export function IntakeForm() {
     setStatus('sending')
 
     try {
-      // Wire to Formspree: replace YOUR_FORM_ID with your Formspree endpoint
-      const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      const body = new URLSearchParams({
+        'form-name': 'intake',
+        ...Object.fromEntries(Object.entries(form)),
+      })
+      const res = await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(form),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body.toString(),
       })
       if (res.ok) {
-        setStatus('success')
-        setForm(EMPTY)
+        router.push('/thank-you')
       } else {
         setStatus('error')
       }
@@ -83,33 +87,16 @@ export function IntakeForm() {
     }
   }
 
-  if (status === 'success') {
-    return (
-      <div className="py-16">
-        <span className="font-mono text-[0.625rem] uppercase tracking-[0.25em] text-mist block mb-6">
-          Received
-        </span>
-        <h2
-          className="font-display font-light text-ink leading-[1.05] tracking-[-0.03em] mb-5"
-          style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}
-        >
-          You&apos;re on the calendar.
-        </h2>
-        <p className="font-sans text-[19px] text-ink/60 leading-relaxed max-w-[440px] mb-8">
-          Delina will review your intake and confirm a time within 1–2 business days.
-          Check your inbox — confirmation details will be sent to the email you provided.
-        </p>
-        <div className="border-t border-steel/20 pt-6">
-          <p className="font-mono text-[12px] uppercase tracking-[0.2em] text-mist">
-            Questions? hello@delina.esq
-          </p>
-        </div>
-      </div>
-    )
-  }
-
   return (
-    <form onSubmit={handleSubmit} className="space-y-10">
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-10"
+      name="intake"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="form-name" value="intake" />
+      <input type="hidden" name="bot-field" className="hidden" />
 
       {/* Row 1 — Name + Email */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">

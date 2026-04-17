@@ -205,7 +205,7 @@ export default function AboutPage() {
               href="/book"
               className="inline-flex items-center gap-2 border border-ink/30 text-ink font-mono text-[13px] uppercase tracking-[0.2em] px-8 py-4 hover:bg-ink hover:text-white transition-all duration-200 self-start"
             >
-              Book Your Intake →
+              Get Started →
             </Link>
             <p className="font-mono text-[12px] text-ink/35 uppercase tracking-[0.15em]">
               By appointment · California only

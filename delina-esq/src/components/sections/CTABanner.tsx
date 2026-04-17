@@ -28,10 +28,10 @@ export function CTABanner() {
 
         {/* Button */}
         <Link
-          href="#"
+          href="/book"
           className="inline-flex items-center gap-2 border border-ink/30 text-ink font-mono text-[13px] uppercase tracking-[0.2em] px-10 py-4 mt-10 hover:bg-ink hover:text-white transition-all duration-200"
         >
-          Book Your Intake →
+          Get Started →
         </Link>
       </div>
     </section>

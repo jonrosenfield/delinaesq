@@ -70,7 +70,7 @@ export function Footer() {
                 href="/book"
                 className="font-sans text-[16px] text-white hover:text-silver transition-colors block mb-2"
               >
-                Book Your Intake
+                Get Started
               </Link>
               <Link
                 href="/about"
