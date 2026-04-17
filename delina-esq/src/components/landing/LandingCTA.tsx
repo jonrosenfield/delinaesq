@@ -11,7 +11,7 @@ export function LandingCTA({ headline, body, ctaHref = '/book' }: LandingCTAProp
     <section className="bg-ink py-24 px-6">
       <div className="max-w-[700px] mx-auto text-center">
         <span className="font-mono text-[12px] uppercase tracking-[0.2em] text-white/60 block mb-5">
-          Paid Intake · California Only · By Appointment
+          By Appointment · Boutique Practice
         </span>
         <h2
           className="font-display font-light text-white leading-[0.92] tracking-[-0.03em]"

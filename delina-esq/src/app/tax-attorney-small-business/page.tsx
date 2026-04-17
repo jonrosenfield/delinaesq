@@ -116,7 +116,7 @@ export default function TaxAttorneySmallBusinessPage() {
       <RelatedArticles tags={['tax', 'tax-strategy', 's-corp', 'llc']} />
       <LandingCTA
         headline="Ready to stop overpaying?"
-        body="Tax strategy is not about finding loopholes. It is about using the legal tools that exist for business owners and actually using them. Book a paid intake with Delina to discuss your entity structure, income level, and what a real strategy looks like."
+        body="Tax strategy is not about finding loopholes. It is about using the legal tools that exist for business owners and actually using them. Tell us your situation — your entity structure, income level, and what a real strategy looks like."
       />
       <Footer />
     </main>

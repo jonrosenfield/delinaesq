@@ -46,7 +46,7 @@ const FEATURES = [
 const PAA = [
   {
     q: 'How much does a trademark attorney cost?',
-    a: 'Federal trademark application fees start at $250 per class through TEAS Plus. Attorney fees for a comprehensive search, application preparation, and prosecution through registration typically range from $1,500–$3,500 for a straightforward mark. Office action responses and multi-class applications cost more. Delina structures engagement through a paid intake model.',
+    a: 'Federal trademark application fees start at $250 per class through TEAS Plus. Attorney fees for a comprehensive search, application preparation, and prosecution through registration typically range from $1,500–$3,500 for a straightforward mark. Office action responses and multi-class applications cost more. Delina structures engagement through a tailored engagement model.',
   },
   {
     q: 'Can I file a trademark application without an attorney?',
@@ -116,7 +116,7 @@ export default function TrademarkPage() {
       <RelatedArticles tags={['trademark']} />
       <LandingCTA
         headline="Ready to protect the brand you&apos;re building?"
-        body="Trademark registration is a one-time investment that protects a long-term asset. Book a paid intake with Delina to discuss your brand, your filing strategy, and what protection looks like for your specific situation."
+        body="Trademark registration is a one-time investment that protects a long-term asset. Tell us your situation — your brand, your filing strategy, and what protection looks like for your specific situation."
       />
       <Footer />
     </main>

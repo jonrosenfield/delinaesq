@@ -6,7 +6,7 @@ export function CTABanner() {
       <div className="max-w-[760px] mx-auto text-center">
         {/* Eyebrow */}
         <span className="font-mono text-[12px] uppercase tracking-[0.25em] text-ink/35 block mb-8">
-          Paid Intake · California Only · By Appointment
+          By Appointment · Boutique Practice
         </span>
 
         {/* Headline */}

@@ -8,6 +8,7 @@ import {
 import './globals.css'
 import { Navbar } from '@/components/layout/Navbar'
 import { GrainOverlay } from '@/components/ui/GrainOverlay'
+import { CookieBanner } from '@/components/ui/CookieBanner'
 
 const jost = Jost({
   subsets: ['latin'],
@@ -110,6 +111,7 @@ export default function RootLayout({
         <GrainOverlay />
         <Navbar />
         {children}
+        <CookieBanner />
       </body>
     </html>
   )

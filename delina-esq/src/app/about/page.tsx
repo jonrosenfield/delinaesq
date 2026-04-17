@@ -208,7 +208,7 @@ export default function AboutPage() {
               Get Started →
             </Link>
             <p className="font-mono text-[12px] text-ink/35 uppercase tracking-[0.15em]">
-              By appointment · California only
+              By appointment
             </p>
           </div>
         </div>

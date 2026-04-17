@@ -2,8 +2,12 @@
   command = "npm run build"
   publish = "out"
 
-# SPA-style fallback for client-side routing
+# Next.js static export: each page has its own HTML file.
+# The catch-all below handles direct URL access for pages that
+# don't exist as separate files (404 fallback). Netlify form
+# POST submissions are processed at the edge before these rules run.
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  conditions = {Method = ["GET", "HEAD"]}

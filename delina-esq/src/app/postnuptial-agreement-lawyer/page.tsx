@@ -116,7 +116,7 @@ export default function PostnupPage() {
       <RelatedArticles tags={['postnup', 'marital-agreements', 'family-law', 'business-assets']} />
       <LandingCTA
         headline="Ready to put structure around what you&apos;ve built together?"
-        body="A postnuptial agreement converts an uncomfortable conversation into an enforceable document. Book a paid intake with Delina to discuss your specific situation and asset structure."
+        body="A postnuptial agreement converts an uncomfortable conversation into an enforceable document. Tell us your situation — your specific situation and asset structure."
       />
       <Footer />
     </main>

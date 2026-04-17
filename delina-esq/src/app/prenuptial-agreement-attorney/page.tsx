@@ -54,7 +54,7 @@ const PAA = [
   },
   {
     q: 'How much does a prenuptial agreement cost in California?',
-    a: 'Prenuptial agreements for high-asset clients typically range from $3,500 to $8,000 or more for qualified legal counsel. The cost reflects the complexity of your financial picture, not the length of the document. Delina structures fees through a paid intake model.',
+    a: 'Prenuptial agreements for high-asset clients typically range from $3,500 to $8,000 or more for qualified legal counsel. The cost reflects the complexity of your financial picture, not the length of the document. Delina structures fees through a tailored engagement model.',
   },
 ]
 
@@ -117,7 +117,7 @@ export default function PrenuptialAgreementAttorneyPage() {
       <RelatedArticles tags={['prenup', 'marital-agreements', 'family-law', 'business-assets']} />
       <LandingCTA
         headline="Ready to protect what you&apos;re building toward?"
-        body="A prenuptial agreement is a one-time decision that removes an entire category of financial risk. Book a paid intake with Delina to discuss your situation and what an enforceable agreement looks like for your specific assets."
+        body="A prenuptial agreement is a one-time decision that removes an entire category of financial risk. Tell us your situation — your situation and what an enforceable agreement looks like for your specific assets."
       />
       <Footer />
     </main>

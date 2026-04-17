@@ -54,7 +54,7 @@ const PAA = [
   },
   {
     q: 'How much does it cost to have a contract drafted in California?',
-    a: 'Contract drafting fees vary based on complexity. A straightforward service agreement may be $500 to $1,500. A licensing agreement or partnership agreement involving IP rights, revenue sharing, or equity will cost more. Delina structures all engagements through a paid intake model.',
+    a: 'Contract drafting fees vary based on complexity. A straightforward service agreement may be $500 to $1,500. A licensing agreement or partnership agreement involving IP rights, revenue sharing, or equity will cost more. Delina structures all engagements through a tailored engagement model.',
   },
 ]
 
@@ -117,7 +117,7 @@ export default function BusinessContractAttorneyPage() {
       <RelatedArticles tags={['contract', 'business-contracts', 'partnership', 'startup']} />
       <LandingCTA
         headline="Ready to stop operating on handshakes?"
-        body="Every business relationship that involves money or intellectual property should have a written contract that reflects the actual deal. Book a paid intake with Delina to discuss what agreements your business needs and what they should say."
+        body="Every business relationship that involves money or intellectual property should have a written contract that reflects the actual deal. Tell us your situation — what agreements your business needs and what they should say."
       />
       <Footer />
     </main>

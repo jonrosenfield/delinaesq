@@ -50,7 +50,7 @@ const PAA = [
   },
   {
     q: 'How much does it cost to set up a nonprofit in California?',
-    a: 'California nonprofit formation involves a $30 filing fee for Articles of Incorporation, an $800 initial franchise tax payment, a $25 registration fee with the Attorney General, and IRS Form 1023 fees of $275 or $600 depending on which form applies. Attorney fees vary based on the complexity of the organization. Delina structures her engagement through a paid intake model.',
+    a: 'California nonprofit formation involves a $30 filing fee for Articles of Incorporation, an $800 initial franchise tax payment, a $25 registration fee with the Attorney General, and IRS Form 1023 fees of $275 or $600 depending on which form applies. Attorney fees vary based on the complexity of the organization. Delina structures her engagement through a tailored engagement model.',
   },
   {
     q: 'What are the ongoing legal requirements for a California nonprofit?',
@@ -116,7 +116,7 @@ export default function NonprofitPage() {
       <RelatedArticles tags={['nonprofit']} />
       <LandingCTA
         headline="Ready to build your nonprofit on a legal foundation that lasts?"
-        body="Delina works with nonprofit founders who want to get the governance right from the beginning — not after the first board dispute or IRS inquiry. Book a paid intake to discuss your organization and what proper formation looks like."
+        body="Delina works with nonprofit founders who want to get the governance right from the beginning — not after the first board dispute or IRS inquiry. Tell us your situation — your organization and what proper formation looks like."
       />
       <Footer />
     </main>

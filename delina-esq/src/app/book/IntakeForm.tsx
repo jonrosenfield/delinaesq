@@ -1,23 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
 
-const PRACTICE_AREAS = [
-  'Prenuptial Agreement',
-  'Postnuptial Agreement',
-  'LLC Formation & Structuring',
-  'S-Corp Election & Tax Strategy',
-  'Business Contract Drafting / Review',
-  'Tax Strategy',
-  'Business Structure',
-  'Startup & Founder Advisory',
-  'Creator & Influencer Counsel',
-  'Trademark',
-  'Nonprofit Formation',
-  'E-Commerce Business',
-  'Not sure — I need guidance',
-]
 
 const REFERRAL_SOURCES = [
   'Google search',
@@ -29,24 +13,6 @@ const REFERRAL_SOURCES = [
   'Other',
 ]
 
-interface FormState {
-  name: string
-  email: string
-  phone: string
-  practiceArea: string
-  situation: string
-  referral: string
-}
-
-const EMPTY: FormState = {
-  name: '',
-  email: '',
-  phone: '',
-  practiceArea: '',
-  situation: '',
-  referral: '',
-}
-
 const fieldClass =
   'w-full bg-transparent border-0 border-b border-ink/20 focus:border-ink outline-none font-sans text-[19px] text-ink placeholder:text-ink/25 py-3 transition-colors duration-200'
 
@@ -54,49 +20,21 @@ const labelClass =
   'font-mono text-[12px] uppercase tracking-[0.2em] text-ink/45 block mb-1'
 
 export function IntakeForm() {
-  const router = useRouter()
-  const [form, setForm] = useState<FormState>(EMPTY)
-  const [status, setStatus] = useState<'idle' | 'sending' | 'error'>('idle')
-
-  function set(field: keyof FormState) {
-    return (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
-      setForm((prev) => ({ ...prev, [field]: e.target.value }))
-  }
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    setStatus('sending')
-
-    try {
-      const body = new URLSearchParams({
-        'form-name': 'intake',
-        ...Object.fromEntries(Object.entries(form)),
-      })
-      const res = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: body.toString(),
-      })
-      if (res.ok) {
-        router.push('/thank-you')
-      } else {
-        setStatus('error')
-      }
-    } catch {
-      setStatus('error')
-    }
-  }
+  const [sending, setSending] = useState(false)
 
   return (
     <form
-      onSubmit={handleSubmit}
-      className="space-y-10"
       name="intake"
+      method="POST"
+      action="/thank-you"
       data-netlify="true"
-      netlify-honeypot="bot-field"
+      data-netlify-honeypot="bot-field"
+      className="space-y-10"
+      onSubmit={() => setSending(true)}
     >
+      {/* Netlify required hidden fields */}
       <input type="hidden" name="form-name" value="intake" />
-      <input type="hidden" name="bot-field" className="hidden" />
+      <p hidden><input name="bot-field" /></p>
 
       {/* Row 1 — Name + Email */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -104,10 +42,9 @@ export function IntakeForm() {
           <label htmlFor="name" className={labelClass}>Full Name *</label>
           <input
             id="name"
+            name="name"
             type="text"
             required
-            value={form.name}
-            onChange={set('name')}
             placeholder="Jane Smith"
             className={fieldClass}
           />
@@ -116,45 +53,25 @@ export function IntakeForm() {
           <label htmlFor="email" className={labelClass}>Email *</label>
           <input
             id="email"
+            name="email"
             type="email"
             required
-            value={form.email}
-            onChange={set('email')}
             placeholder="jane@company.com"
             className={fieldClass}
           />
         </div>
       </div>
 
-      {/* Row 2 — Phone + Practice Area */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-        <div>
-          <label htmlFor="phone" className={labelClass}>Phone</label>
-          <input
-            id="phone"
-            type="tel"
-            value={form.phone}
-            onChange={set('phone')}
-            placeholder="(310) 000-0000"
-            className={fieldClass}
-          />
-        </div>
-        <div>
-          <label htmlFor="practiceArea" className={labelClass}>Practice Area *</label>
-          <select
-            id="practiceArea"
-            required
-            value={form.practiceArea}
-            onChange={set('practiceArea')}
-            className={`${fieldClass} cursor-pointer appearance-none`}
-            style={{ backgroundImage: 'none' }}
-          >
-            <option value="" disabled>Select one</option>
-            {PRACTICE_AREAS.map((a) => (
-              <option key={a} value={a}>{a}</option>
-            ))}
-          </select>
-        </div>
+      {/* Row 2 — Phone */}
+      <div>
+        <label htmlFor="phone" className={labelClass}>Phone</label>
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          placeholder="(310) 000-0000"
+          className={fieldClass}
+        />
       </div>
 
       {/* Situation */}
@@ -164,11 +81,10 @@ export function IntakeForm() {
         </label>
         <textarea
           id="situation"
+          name="situation"
           required
           rows={5}
-          value={form.situation}
-          onChange={set('situation')}
-          placeholder="Share as much context as you are comfortable with — business structure, income level, what you are trying to protect or build. The more specific you are, the more Delina can prepare before your session."
+          placeholder="Share as much context as you are comfortable with. Business structure, income level, what you are trying to protect or build. The more specific you are, the more Delina can prepare before your session."
           className={`${fieldClass} resize-none leading-relaxed`}
         />
         <span className="font-mono text-[8px] text-ink/25 mt-1 block">
@@ -181,8 +97,8 @@ export function IntakeForm() {
         <label htmlFor="referral" className={labelClass}>How did you find Delina?</label>
         <select
           id="referral"
-          value={form.referral}
-          onChange={set('referral')}
+          name="referral"
+          defaultValue=""
           className={`${fieldClass} cursor-pointer appearance-none`}
         >
           <option value="">Select one (optional)</option>
@@ -193,25 +109,19 @@ export function IntakeForm() {
       </div>
 
       {/* Submit */}
-      <div className="pt-4 flex items-center gap-6 flex-wrap">
+      <div className="pt-4">
         <button
           type="submit"
-          disabled={status === 'sending'}
+          disabled={sending}
           className="inline-flex items-center gap-2 border border-ink/30 text-ink font-mono text-[13px] uppercase tracking-[0.2em] px-10 py-4 hover:bg-ink hover:text-white transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
         >
-          {status === 'sending' ? 'Sending…' : 'Submit Your Intake →'}
+          {sending ? 'Sending…' : 'Tell Us Your Situation →'}
         </button>
-        {status === 'error' && (
-          <span className="font-mono text-[12px] text-ink/50 uppercase tracking-[0.15em]">
-            Something went wrong — please email hello@delina.esq
-          </span>
-        )}
       </div>
 
       <p className="font-mono text-[8px] text-ink/30 leading-relaxed max-w-[480px]">
         Submitting this form does not create an attorney-client relationship.
         That relationship is formed only upon a signed engagement agreement.
-        California Bar No. pending verification.
       </p>
 
     </form>

@@ -117,7 +117,7 @@ export default function EcommerceBusinessAttorneyPage() {
       <RelatedArticles tags={['ecommerce', 'llc', 'contract']} />
       <LandingCTA
         headline="Ready to run your online store with real legal infrastructure?"
-        body="LLC formation, supplier contracts, website legal documents, and tax strategy &mdash; Delina advises e-commerce business owners who want to build something that lasts without surprise legal and tax problems. Book a paid intake to discuss your store and what you actually need."
+        body="LLC formation, supplier contracts, website legal documents, and tax strategy &mdash; Delina advises e-commerce business owners who want to build something that lasts without surprise legal and tax problems. Tell us your situation — your store and what you actually need."
       />
       <Footer />
     </main>

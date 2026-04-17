@@ -30,7 +30,8 @@
       "Bash(npx tsc:*)",
       "Bash(node -e ':*)",
       "Bash(sed -i '' 's|/blog/${params.slug}/|/business-law-library/${params.slug}/|g' \"/Users/jonathanrosenfield/Documents/Websites/DelinaESQ 2.0/delina-esq/src/app/business-law-library/[slug]/page.tsx\")",
-      "Bash(sed -i '' 's|/blog/|/business-law-library/|g' \"/Users/jonathanrosenfield/Documents/Websites/DelinaESQ 2.0/delina-esq/src/app/business-law-library/[slug]/page.tsx\")"
+      "Bash(sed -i '' 's|/blog/|/business-law-library/|g' \"/Users/jonathanrosenfield/Documents/Websites/DelinaESQ 2.0/delina-esq/src/app/business-law-library/[slug]/page.tsx\")",
+      "Bash(xargs sed:*)"
     ]
   }
 }

@@ -116,7 +116,7 @@ export default function LLCPage() {
       <RelatedArticles tags={['llc', 'entity-structure', 'tax-strategy']} />
       <LandingCTA
         headline="Ready to build your business on the right legal foundation?"
-        body="Delina works with business owners who want an LLC structure that actually does what they think it does. Book a paid intake to discuss your business model, ownership structure, and the right entity setup for your situation."
+        body="Delina works with business owners who want an LLC structure that actually does what they think it does. Tell us your situation — your business model, ownership structure, and the right entity setup for your situation."
       />
       <Footer />
     </main>

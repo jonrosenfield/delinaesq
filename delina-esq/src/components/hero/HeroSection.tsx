@@ -63,7 +63,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="h-[calc(100vh-52px)] flex flex-col relative overflow-hidden">
+    <section className="min-h-[calc(100vh-52px)] md:h-[calc(100vh-52px)] flex flex-col relative overflow-hidden">
       {/* Video background */}
       <video
         autoPlay
@@ -85,17 +85,17 @@ export function HeroSection() {
       />
 
       {/* Main hero content — vertically centered */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 py-6 overflow-hidden">
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 py-8 md:py-6">
         {/* Eyebrow */}
-        <span className="font-mono text-[0.625rem] uppercase tracking-[0.25em] text-white mb-10">
-          California Legal Strategy · Est. 2019
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.25em] text-white mb-6 md:mb-10">
+          Legal Strategy · Est. 2019
         </span>
 
         {/* Headline */}
         <h1
           className="font-display text-white max-w-[1100px] mx-auto"
           style={{
-            fontSize: 'clamp(2.6rem, 5.5vw, 5.5rem)',
+            fontSize: 'clamp(2.2rem, 5.5vw, 5.5rem)',
             lineHeight: 1.0,
             letterSpacing: '0.03em',
           }}
@@ -106,7 +106,7 @@ export function HeroSection() {
         </h1>
 
         {/* Concierge Search */}
-        <div className="w-full max-w-[560px] mt-10">
+        <div className="w-full max-w-[560px] mt-6 md:mt-10">
           <form onSubmit={handleSearchSubmit} className="relative">
             <svg
               className="absolute left-4 top-1/2 -translate-y-1/2 text-white/60"
@@ -123,7 +123,7 @@ export function HeroSection() {
               onFocus={() => setSearchFocused(true)}
               onBlur={() => setTimeout(() => setSearchFocused(false), 200)}
               placeholder="What are you building or protecting?"
-              className={`w-full bg-white/10 border text-white placeholder:text-white/50 font-sans text-[16px] pl-11 pr-12 py-4 outline-none transition-all duration-300 ${searchFocused ? '' : 'search-pulse'}`}
+              className={`w-full bg-white/10 border text-white placeholder:text-white/50 font-sans text-[15px] md:text-[16px] pl-11 pr-12 py-3.5 md:py-4 outline-none transition-all duration-300 ${searchFocused ? '' : 'search-pulse'}`}
               style={{
                 backdropFilter: 'blur(12px)',
                 borderColor: searchFocused ? 'rgba(255,255,255,0.7)' : 'rgba(255,255,255,0.4)',
@@ -148,38 +148,38 @@ export function HeroSection() {
           )}
 
           {/* Quick-route grid */}
-          <div className="grid grid-cols-3 gap-px mt-4 bg-white/10">
+          <div className="grid grid-cols-3 gap-px mt-3 md:mt-4 bg-white/10">
             {CHIPS.map((chip) => (
               <button
                 key={chip.href}
                 onClick={() => router.push(chip.href)}
-                className="bg-black/30 hover:bg-white/15 text-white/60 hover:text-white font-mono text-[10px] uppercase tracking-[0.12em] px-3 py-3 text-left transition-all duration-200 flex items-center justify-between gap-2 group"
+                className="bg-black/30 hover:bg-white/15 text-white/60 hover:text-white font-mono text-[9px] md:text-[10px] uppercase tracking-[0.10em] md:tracking-[0.12em] px-2 md:px-3 py-2.5 md:py-3 text-left transition-all duration-200 flex items-center justify-between gap-1 md:gap-2 group"
                 style={{ backdropFilter: 'blur(8px)' }}
               >
                 <span>{chip.label}</span>
-                <span className="text-white/30 group-hover:text-white/70 transition-colors">→</span>
+                <span className="text-white/30 group-hover:text-white/70 transition-colors flex-shrink-0">→</span>
               </button>
             ))}
           </div>
         </div>
 
-        {/* Subheadline */}
-        <p className="font-sans font-light text-[21px] text-white max-w-[500px] mt-8 leading-relaxed">
-          Delina Yasmeh is a California attorney who works exclusively with entrepreneurs,
+        {/* Subheadline — hidden on small screens to preserve fit */}
+        <p className="hidden sm:block font-sans font-light text-[18px] md:text-[21px] text-white max-w-[500px] mt-5 md:mt-8 leading-relaxed">
+          Delina Yasmeh is an attorney who works exclusively with entrepreneurs,
           creators, and high-net-worth individuals who&apos;ve outgrown generic legal advice.
         </p>
 
         {/* CTA Row */}
-        <div className="flex items-center justify-center gap-4 mt-9 flex-wrap">
+        <div className="flex items-center justify-center gap-3 md:gap-4 mt-5 md:mt-9 flex-wrap">
           <Link
             href="/book"
-            className="btn-primary text-[13px] font-mono uppercase tracking-[0.2em] py-4 px-8"
+            className="btn-primary text-[12px] md:text-[13px] font-mono uppercase tracking-[0.2em] py-3.5 md:py-4 px-6 md:px-8"
           >
             Get Started →
           </Link>
           <a
             href="#services"
-            className="btn-ghost text-[13px] font-mono uppercase tracking-[0.2em] py-4 px-8"
+            className="btn-ghost text-[12px] md:text-[13px] font-mono uppercase tracking-[0.2em] py-3.5 md:py-4 px-6 md:px-8"
           >
             How It Works
           </a>

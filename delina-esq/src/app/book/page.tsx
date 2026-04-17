@@ -4,31 +4,31 @@ import { Footer } from '@/components/layout/Footer'
 import { IntakeForm } from './IntakeForm'
 
 export const metadata: Metadata = {
-  title: 'Book Your Intake | Delina Yasmeh, Esq.',
-  description: 'Book a paid strategy session with Delina Yasmeh. Sixty minutes. Your situation, your structure, her specific advice. California only.',
+  title: 'Start Here | Delina Yasmeh, Esq.',
+  description: 'Every situation is different. Share the details of yours and we\'ll respond with how we can help — whether that\'s a consultation, a project scope, or guidance on next steps.',
   alternates: { canonical: 'https://delina.esq/book/' },
 }
 
 const EXPECT = [
   {
     number: '01',
-    title: 'Sixty minutes',
-    body: 'A focused session — not a sales call. Delina reads your intake before the meeting and comes with a point of view.',
+    title: 'We review your situation',
+    body: 'Delina reads what you submit before any conversation happens and comes prepared with a point of view, not a list of questions.',
   },
   {
     number: '02',
-    title: 'Specific opinions',
-    body: 'You will leave with clear guidance on your structure, your contracts, or whatever you came in with. No vague next steps.',
+    title: 'We get back to you with specifics',
+    body: 'You\'ll hear back with how we can help and what that looks like. Whether that\'s a consultation, a defined project, or a referral.',
   },
   {
     number: '03',
-    title: 'A written roadmap',
-    body: 'After the session, Delina provides a written summary of recommendations tailored to your situation.',
+    title: 'Everything is built around you',
+    body: 'No templates, no packages. Every engagement is structured around what your situation actually requires.',
   },
   {
     number: '04',
     title: 'No surprises',
-    body: 'The intake fee is disclosed upfront. If you need ongoing work, that is quoted separately after the session.',
+    body: 'Scope and fees are discussed before anything begins. If we\'re not the right fit, we\'ll tell you that too.',
   },
 ]
 
@@ -42,21 +42,22 @@ export default function BookPage() {
         <div className="max-w-[1200px] mx-auto grid lg:grid-cols-2 gap-12 items-end">
           <div>
             <span className="font-mono text-[0.625rem] uppercase tracking-[0.25em] text-mist block mb-8">
-              By Appointment · California Only
+              By Appointment
             </span>
             <h1
               className="font-display font-light text-white leading-[0.92] tracking-[-0.04em]"
               style={{ fontSize: 'clamp(3rem, 7vw, 6rem)' }}
             >
-              Book Your<br />
-              <span className="italic">Intake.</span>
+              Start<br />
+              <span className="italic">Here.</span>
             </h1>
           </div>
           <div>
             <p className="font-sans font-light text-[21px] text-silver leading-relaxed max-w-[440px]">
-              This is not a free consultation. It is a paid, focused session with
-              an attorney who has specific opinions about your situation —
-              built around the details you provide below.
+              Every situation is different. Share the details of yours and we&apos;ll
+              respond with how we can help. Whether that&apos;s a consultation,
+              a project scope, or guidance on next steps, every engagement is
+              tailored individually.
             </p>
           </div>
         </div>
@@ -69,7 +70,7 @@ export default function BookPage() {
           {/* Form */}
           <div>
             <span className="font-mono text-[0.625rem] uppercase tracking-[0.25em] text-mist block mb-10">
-              Your Information
+              Tell Us Your Situation
             </span>
             <IntakeForm />
           </div>
@@ -77,7 +78,7 @@ export default function BookPage() {
           {/* What to expect */}
           <div className="lg:sticky lg:top-24">
             <span className="font-mono text-[0.625rem] uppercase tracking-[0.25em] text-mist block mb-8">
-              What to Expect
+              How It Works
             </span>
             <div className="space-y-0 divide-y divide-steel/20">
               {EXPECT.map((item) => (
@@ -96,16 +97,15 @@ export default function BookPage() {
             {/* Not for */}
             <div className="mt-10 border border-steel/20 bg-white p-6">
               <span className="font-mono text-[12px] uppercase tracking-[0.2em] text-mist block mb-4">
-                This session is not for
+                This is not for
               </span>
               {[
                 'General questions you can Google',
-                'Clients outside California',
                 'Anyone looking for a free second opinion',
                 'Situations requiring emergency same-day counsel',
+                'Clients who need volume, not judgment',
               ].map((item) => (
-                <p key={item} className="font-sans text-[12px] text-ink/50 leading-relaxed flex items-start gap-2 mb-2">
-                  <span className="text-ink/25 mt-0.5 flex-shrink-0">—</span>
+                <p key={item} className="font-sans text-[12px] text-ink/50 leading-relaxed mb-2">
                   {item}
                 </p>
               ))}
