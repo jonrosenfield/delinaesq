@@ -84,10 +84,10 @@ export function HeroSection() {
         }}
       />
 
-      {/* Main hero content, vertically centered */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 py-8 md:py-6">
+      {/* Main hero content — pb clears the pinned ticker */}
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 pt-8 md:pt-6" style={{ paddingBottom: '72px' }}>
         {/* Eyebrow */}
-        <span className="font-mono text-[0.625rem] uppercase tracking-[0.25em] text-white mb-6 md:mb-10">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.25em] text-white mb-4 md:mb-6">
           Legal Strategy · Est. 2019
         </span>
 
@@ -106,7 +106,7 @@ export function HeroSection() {
         </h1>
 
         {/* Concierge Search */}
-        <div className="w-full max-w-[560px] mt-6 md:mt-10">
+        <div className="w-full max-w-[560px] mt-5 md:mt-7">
           <form onSubmit={handleSearchSubmit} className="relative">
             <svg
               className="absolute left-4 top-1/2 -translate-y-1/2 text-white/60"
@@ -164,13 +164,13 @@ export function HeroSection() {
         </div>
 
         {/* Subheadline, hidden on small screens to preserve fit */}
-        <p className="hidden sm:block font-sans font-light text-[18px] md:text-[21px] text-white max-w-[500px] mt-5 md:mt-8 leading-relaxed">
+        <p className="hidden sm:block font-sans font-light text-[17px] md:text-[19px] text-white max-w-[500px] mt-4 md:mt-6 leading-relaxed">
           Delina Yasmeh is an attorney who works exclusively with entrepreneurs,
           creators, and high-net-worth individuals who&apos;ve outgrown generic legal advice.
         </p>
 
         {/* CTA Row */}
-        <div className="flex items-center justify-center gap-3 md:gap-4 mt-5 md:mt-9 flex-wrap">
+        <div className="flex items-center justify-center gap-3 md:gap-4 mt-4 md:mt-7 flex-wrap">
           <Link
             href="/book"
             className="btn-primary text-[12px] md:text-[13px] font-mono uppercase tracking-[0.2em] py-3.5 md:py-4 px-6 md:px-8"
@@ -187,22 +187,34 @@ export function HeroSection() {
 
       </div>
 
-      {/* Scrolling ticker — animated on desktop, touch-scrollable on mobile */}
+      {/* Scrolling ticker — absolutely pinned to bottom of hero */}
       <div
-        className="relative z-10 border-t border-white/15 overflow-x-auto lg:overflow-hidden no-scrollbar"
-        style={{ backgroundColor: 'rgba(10,10,10,0.6)' }}
+        className="absolute bottom-0 left-0 right-0 z-20 border-t border-white/15 overflow-x-auto lg:overflow-hidden no-scrollbar"
+        style={{ backgroundColor: 'rgba(10,10,10,0.7)' }}
         onMouseEnter={() => setTickerPaused(true)}
         onMouseLeave={() => setTickerPaused(false)}
       >
-        <div className={`ticker-strip py-4${tickerPaused ? ' paused' : ''}`}>
+        {/* Right fade-edge on mobile signals more content */}
+        <div
+          className="absolute right-0 top-0 bottom-0 w-16 pointer-events-none lg:hidden z-10"
+          style={{ background: 'linear-gradient(to left, rgba(10,10,10,0.9), transparent)' }}
+        />
+        <div
+          className="flex py-3.5"
+          style={{
+            width: 'max-content',
+            animation: 'marquee 32s linear infinite',
+            animationPlayState: tickerPaused ? 'paused' : 'running',
+          }}
+        >
           {DOUBLED.map((item, i) => (
             <Link
               key={i}
               href={item.href}
-              className="font-mono text-[13px] uppercase tracking-[0.22em] text-white/80 hover:text-white transition-colors duration-200 whitespace-nowrap mx-10 flex items-center gap-10"
+              className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/70 hover:text-white transition-colors duration-200 whitespace-nowrap mx-8 flex items-center gap-8"
             >
               {item.label}
-              <span className="text-white/25">·</span>
+              <span className="text-white/20">·</span>
             </Link>
           ))}
         </div>

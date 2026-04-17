@@ -47,6 +47,16 @@ html {
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
 
+/* Keyframes must live outside @layer so they're globally scoped */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes searchGlow {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(255,255,255,0.12), 0 0 22px rgba(255,255,255,0.10); }
+  50%       { box-shadow: 0 0 0 1px rgba(255,255,255,0.35), 0 0 40px rgba(255,255,255,0.25); }
+}
+
 @layer components {
 
   /* ── PAPER GRAIN ── */
@@ -130,40 +140,12 @@ html {
   .search-pulse {
     animation: searchGlow 2.8s ease-in-out infinite;
   }
-  @keyframes searchGlow {
-    0%, 100% {
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.12), 0 0 22px rgba(255,255,255,0.10);
-    }
-    50% {
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.35), 0 0 40px rgba(255,255,255,0.25);
-    }
-  }
 
   /* ── MARQUEE (logo strip) ── */
   .animate-marquee {
     display: flex;
     width: max-content;
     animation: marquee 28s linear infinite;
-  }
-
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-  }
-
-  /* ── TICKER (hero bottom strip) ── */
-  /* Desktop: animated marquee. Mobile: static, touch-scrollable. */
-  .ticker-strip {
-    display: flex;
-    width: max-content;
-  }
-  @media (min-width: 1024px) {
-    .ticker-strip {
-      animation: marquee 32s linear infinite;
-    }
-    .ticker-strip.paused {
-      animation-play-state: paused;
-    }
   }
 }
 
