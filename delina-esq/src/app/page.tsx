@@ -7,6 +7,9 @@ import { ProcessSection } from '@/components/sections/ProcessSection'
 import { CTABanner } from '@/components/sections/CTABanner'
 import { Footer } from '@/components/layout/Footer'
 import { Eyebrow } from '@/components/ui/Eyebrow'
+import { FeaturedArticles, type CategorySection } from '@/components/sections/FeaturedArticles'
+import { getAllMdxPosts } from '@/lib/mdx'
+import { POSTS } from '@/data/posts'
 
 export const metadata: Metadata = {
   title: 'Delina Yasmeh, Esq. | California Legal Strategy',
@@ -14,7 +17,70 @@ export const metadata: Metadata = {
     'Boutique legal strategy for California entrepreneurs, creators, and high-net-worth individuals. Paid intake. No templates.',
 }
 
+const SECTION_CONFIG: Array<{
+  category: string
+  description: string
+  color: string
+  practiceHref: string
+  practiceLabel: string
+}> = [
+  {
+    category: 'Tax Strategy',
+    description: 'Understanding your tax exposure is the highest-leverage move you can make at your income level.',
+    color: '#1A3A6E',
+    practiceHref: '/tax-attorney-small-business',
+    practiceLabel: 'Tax Attorney',
+  },
+  {
+    category: 'Creator Economy',
+    description: 'Content is the business. Treat it that way before the IRS treats it for you.',
+    color: '#9B1527',
+    practiceHref: '/creator-attorney',
+    practiceLabel: 'Creator Attorney',
+  },
+  {
+    category: 'Business Contracts',
+    description: 'The contract you sign in a hurry is the one you spend two years trying to get out of.',
+    color: '#2255CC',
+    practiceHref: '/business-contract-attorney',
+    practiceLabel: 'Contract Attorney',
+  },
+  {
+    category: 'LLC & Entity',
+    description: 'Formation is the beginning of the plan. What you do after filing is the actual plan.',
+    color: '#8090A8',
+    practiceHref: '/business-structure-attorney',
+    practiceLabel: 'LLC Attorney',
+  },
+  {
+    category: 'Prenuptial Agreements',
+    description: 'Having the conversation once, clearly, costs less than having it through attorneys later.',
+    color: '#9B1527',
+    practiceHref: '/prenuptial-agreement-attorney',
+    practiceLabel: 'Prenup Attorney',
+  },
+]
+
 export default function Home() {
+  const mdxPosts = getAllMdxPosts()
+  const legacyPosts = Object.entries(POSTS).map(([slug, p]) => ({
+    slug, title: p.title, category: p.category,
+    description: p.description, readTime: p.readTime,
+  }))
+
+  const allPosts = [
+    ...mdxPosts.map((p) => ({ slug: p.slug, title: p.title, category: p.category, description: p.description, readTime: p.readTime })),
+    ...legacyPosts,
+  ]
+
+  const sections: CategorySection[] = SECTION_CONFIG
+    .map((cfg) => {
+      const articles = allPosts.filter((p) => p.category === cfg.category).slice(0, 7)
+      if (!articles.length) return null
+      return { ...cfg, articles }
+    })
+    .filter((s): s is CategorySection => s !== null)
+
   return (
     <main className="bg-parchment pt-[52px]">
       <HeroSection />
@@ -31,6 +97,7 @@ export default function Home() {
         </div>
       </section>
       <WhoThisIsFor />
+      <FeaturedArticles sections={sections} />
       <ProcessSection />
       <CTABanner />
       <Footer />

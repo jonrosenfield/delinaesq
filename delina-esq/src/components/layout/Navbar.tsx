@@ -124,7 +124,7 @@ export function Navbar({ showConcierge = false }: NavbarProps) {
             About
           </Link>
           <Link
-            href="/blog"
+            href="/business-law-library"
             className="font-sans text-[15px] uppercase tracking-[0.12em] text-silver hover:text-white transition-colors"
           >
             Law Library
@@ -192,7 +192,7 @@ export function Navbar({ showConcierge = false }: NavbarProps) {
               About
             </Link>
             <Link
-              href="/blog"
+              href="/business-law-library"
               onClick={() => setMenuOpen(false)}
               className="font-sans text-[16px] uppercase tracking-[0.12em] text-silver hover:text-white transition-colors py-4 px-6 border-b border-steel"
             >

@@ -79,7 +79,7 @@ export function Footer() {
                 About Delina
               </Link>
               <Link
-                href="/blog"
+                href="/business-law-library"
                 className="font-sans text-[16px] text-silver hover:text-white transition-colors block mb-2"
               >
                 The Brief

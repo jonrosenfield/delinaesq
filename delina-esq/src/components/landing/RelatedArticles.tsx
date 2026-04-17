@@ -35,7 +35,7 @@ export function RelatedArticles({ tags, currentSlug }: RelatedArticlesProps) {
             </h2>
           </div>
           <Link
-            href="/blog"
+            href="/business-law-library"
             className="font-mono text-[13px] uppercase tracking-[0.15em] text-ink/50 hover:text-ink transition-colors hidden md:block"
           >
             All Articles →
@@ -46,7 +46,7 @@ export function RelatedArticles({ tags, currentSlug }: RelatedArticlesProps) {
           {related.map(([slug, post]) => (
             <Link
               key={slug}
-              href={`/blog/${slug}`}
+              href={`/business-law-library/${slug}`}
               className="group border border-steel/20 bg-white p-7 hover:border-ink/20 transition-all duration-300 block"
             >
               <span className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-mist block mb-3">
@@ -69,7 +69,7 @@ export function RelatedArticles({ tags, currentSlug }: RelatedArticlesProps) {
         </div>
 
         <Link
-          href="/blog"
+          href="/business-law-library"
           className="font-mono text-[13px] uppercase tracking-[0.15em] text-ink/50 hover:text-ink transition-colors mt-8 block md:hidden"
         >
           All Articles →
