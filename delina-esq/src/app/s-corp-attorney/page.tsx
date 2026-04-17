@@ -114,7 +114,7 @@ export default function SCorpAttorneyPage() {
           </div>
         </div>
       </section>
-      <RelatedArticles tags={['s-corp', 'tax-strategy', 'llc']} />
+      <RelatedArticles category="S-Corp Strategy" tags={['s-corp', 'tax-strategy']} />
       <LandingCTA
         headline="Ready to know if the S-Corp election actually makes sense for you?"
         body="The internet says &ldquo;elect S-Corp and save on taxes.&rdquo; Delina gives you the actual math. Tell us your situation, model the real numbers for your income level and entity structure."

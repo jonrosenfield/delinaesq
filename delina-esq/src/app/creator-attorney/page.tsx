@@ -114,7 +114,7 @@ export default function CreatorAttorneyPage() {
           </div>
         </div>
       </section>
-      <RelatedArticles tags={['creator', 'influencer', 'llc', 's-corp']} />
+      <RelatedArticles category="Creator Economy" tags={['creator', 'influencer']} />
       <LandingCTA
         headline="Ready to run your creator business like a business?"
         body="Brand deal contracts, LLC formation, tax strategy, and trademark registration , Delina advises creators who have real income and want real legal infrastructure. Tell us your situation, where you are and what you actually need."

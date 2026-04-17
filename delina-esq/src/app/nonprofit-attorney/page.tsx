@@ -113,7 +113,7 @@ export default function NonprofitPage() {
           </div>
         </div>
       </section>
-      <RelatedArticles tags={['nonprofit']} />
+      <RelatedArticles category="Nonprofit" tags={['nonprofit']} />
       <LandingCTA
         headline="Ready to build your nonprofit on a legal foundation that lasts?"
         body="Delina works with nonprofit founders who want to get the governance right from the beginning, not after the first board dispute or IRS inquiry. Tell us your situation, your organization and what proper formation looks like."

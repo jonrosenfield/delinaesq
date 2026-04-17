@@ -113,7 +113,7 @@ export default function BusinessStructureAttorneyPage() {
           </div>
         </div>
       </section>
-      <RelatedArticles tags={['entity-structure', 'llc', 'startup', 'tax-strategy']} />
+      <RelatedArticles category="LLC & Entity" tags={['entity-structure', 'llc']} />
       <LandingCTA
         headline="Ready to build your business on the right legal foundation?"
         body="Delina models the actual implications of each entity structure for your specific income, risk profile, and business plan. Tell us your situation, your options before formation , or to fix a structure that was never right."

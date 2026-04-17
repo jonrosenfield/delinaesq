@@ -114,7 +114,7 @@ export default function PrenuptialAgreementAttorneyPage() {
           </div>
         </div>
       </section>
-      <RelatedArticles tags={['prenup', 'marital-agreements', 'family-law', 'business-assets']} />
+      <RelatedArticles category="Prenuptial Agreements" tags={['prenup', 'marital-agreements']} />
       <LandingCTA
         headline="Ready to protect what you&apos;re building toward?"
         body="A prenuptial agreement is a one-time decision that removes an entire category of financial risk. Tell us your situation, your situation and what an enforceable agreement looks like for your specific assets."

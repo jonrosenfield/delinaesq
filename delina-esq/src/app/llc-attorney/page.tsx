@@ -113,7 +113,7 @@ export default function LLCPage() {
           </div>
         </div>
       </section>
-      <RelatedArticles tags={['llc', 'entity-structure', 'tax-strategy']} />
+      <RelatedArticles category="LLC & Entity" tags={['llc', 'entity-structure']} />
       <LandingCTA
         headline="Ready to build your business on the right legal foundation?"
         body="Delina works with business owners who want an LLC structure that actually does what they think it does. Tell us your situation, your business model, ownership structure, and the right entity setup for your situation."

@@ -114,7 +114,7 @@ export default function StartupAttorneyCaliforniaPage() {
           </div>
         </div>
       </section>
-      <RelatedArticles tags={['startup', 'founder', 'legal-documents', 'contract']} />
+      <RelatedArticles category="Startup & Founder Advisory" tags={['startup', 'founder']} />
       <LandingCTA
         headline="Ready to build a startup on a legal foundation that survives due diligence?"
         body="Delina works with founders who want to get the structure right from day one , not clean it up when an investor asks why the IP was never assigned. Tell us your situation, your entity, your co-founder structure, and your legal document needs."

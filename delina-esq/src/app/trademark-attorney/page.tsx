@@ -113,7 +113,7 @@ export default function TrademarkPage() {
           </div>
         </div>
       </section>
-      <RelatedArticles tags={['trademark']} />
+      <RelatedArticles category="Trademark" tags={['trademark']} />
       <LandingCTA
         headline="Ready to protect the brand you&apos;re building?"
         body="Trademark registration is a one-time investment that protects a long-term asset. Tell us your situation, your brand, your filing strategy, and what protection looks like for your specific situation."

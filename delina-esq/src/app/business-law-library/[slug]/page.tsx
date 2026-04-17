@@ -146,7 +146,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
           </div>
         </article>
 
-        <RelatedArticles tags={mdxPost.tags} currentSlug={params.slug} />
+        <RelatedArticles category={mdxPost.category} tags={mdxPost.tags} currentSlug={params.slug} />
 
         <section className="bg-ink py-20 px-6">
           <div className="max-w-[680px] mx-auto text-center">
@@ -256,7 +256,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
           </div>
         </div>
       </article>
-      <RelatedArticles tags={post.tags} currentSlug={params.slug} />
+      <RelatedArticles category={post.category} tags={post.tags} currentSlug={params.slug} />
       <section className="bg-ink py-20 px-6">
         <div className="max-w-[680px] mx-auto text-center">
           <span className="font-mono text-[12px] uppercase tracking-[0.2em] text-mist block mb-5">

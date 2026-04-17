@@ -114,7 +114,7 @@ export default function BusinessContractAttorneyPage() {
           </div>
         </div>
       </section>
-      <RelatedArticles tags={['contract', 'business-contracts', 'partnership', 'startup']} />
+      <RelatedArticles category="Business Contracts" tags={['contract', 'business-contracts']} />
       <LandingCTA
         headline="Ready to stop operating on handshakes?"
         body="Every business relationship that involves money or intellectual property should have a written contract that reflects the actual deal. Tell us your situation, what agreements your business needs and what they should say."
