@@ -168,7 +168,7 @@ export function Navbar({ showConcierge = false }: NavbarProps) {
       {menuOpen && (
         <div className="md:hidden fixed inset-0 top-[52px] bg-ink z-40 flex flex-col overflow-y-auto">
           <nav className="flex flex-col">
-            {/* Practice Areas — expanded in mobile */}
+            {/* Practice Areas, expanded in mobile */}
             <div className="border-b border-steel">
               <p className="font-mono text-[12px] uppercase tracking-[0.2em] text-mist px-6 pt-4 pb-2">
                 Practice Areas

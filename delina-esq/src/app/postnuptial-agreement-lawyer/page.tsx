@@ -31,7 +31,7 @@ const FEATURES = [
   },
   {
     title: 'Inheritance & Gift Clarity',
-    body: 'Assets received as gifts or inheritance during marriage are generally separate property — but commingling them with community funds can change that. Delina drafts agreements that protect these assets explicitly.',
+    body: 'Assets received as gifts or inheritance during marriage are generally separate property, but commingling them with community funds can change that. Delina drafts agreements that protect these assets explicitly.',
   },
   {
     title: 'Income & Compensation Reallocation',
@@ -76,7 +76,7 @@ export default function PostnupPage() {
       />
       <LandingSection eyebrow="What a Postnup Actually Does" headline="What most married entrepreneurs don&apos;t realize about California law.">
         <div className="space-y-5 font-sans text-[19px] text-ink/65 leading-relaxed max-w-[720px]">
-          <p>California is a community property state. Income earned during a marriage, and assets purchased with that income, are presumed to belong equally to both spouses — regardless of who earned the money or whose name is on the account.</p>
+          <p>California is a community property state. Income earned during a marriage, and assets purchased with that income, are presumed to belong equally to both spouses, regardless of who earned the money or whose name is on the account.</p>
           <p>For couples where one or both partners has started a business, received significant equity grants, or seen substantial income growth during the marriage, this default can have serious financial implications. A postnuptial agreement allows married couples to modify these rules by written contract.</p>
           <p>Unlike a prenup, a postnup is executed after marriage. Both are enforceable in California when drafted properly. The legal standard is high: both spouses must have independent legal counsel, there must be full financial disclosure, and the agreement must be signed voluntarily without coercion.</p>
         </div>
@@ -116,7 +116,7 @@ export default function PostnupPage() {
       <RelatedArticles tags={['postnup', 'marital-agreements', 'family-law', 'business-assets']} />
       <LandingCTA
         headline="Ready to put structure around what you&apos;ve built together?"
-        body="A postnuptial agreement converts an uncomfortable conversation into an enforceable document. Tell us your situation — your specific situation and asset structure."
+        body="A postnuptial agreement converts an uncomfortable conversation into an enforceable document. Tell us your situation, your specific situation and asset structure."
       />
       <Footer />
     </main>

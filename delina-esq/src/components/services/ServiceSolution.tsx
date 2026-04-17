@@ -29,11 +29,11 @@ export function ServiceSolution({ solutionCards, color }: ServiceSolutionProps) 
             A better approach.
           </h2>
           <p className="text-void-400 text-lg max-w-2xl font-body mb-16">
-            Integrated legal and tax strategy — not isolated advice from two different advisors.
+            Integrated legal and tax strategy, not isolated advice from two different advisors.
           </p>
         </ScrollReveal>
 
-        {/* Featured card — full width */}
+        {/* Featured card, full width */}
         {featured && (
           <ScrollReveal delay={0.15}>
             <motion.div

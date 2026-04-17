@@ -26,7 +26,7 @@ function ChromeSphere({ position, scale, speed }: { position: [number, number, n
   )
 }
 
-/* Wireframe geometric — Y2K floating shape */
+/* Wireframe geometric, Y2K floating shape */
 function WireframeShape({ position, rotation, scale, color }: {
   position: [number, number, number]
   rotation: [number, number, number]
@@ -127,7 +127,7 @@ export function ParticleField() {
         <ChromeSphere position={[4.5, -1, -2]} scale={0.12} speed={0.55} />
         <ChromeSphere position={[1, 3, -4]} scale={0.08} speed={0.35} />
 
-        {/* Wireframe shapes — Y2K geometric floaters */}
+        {/* Wireframe shapes, Y2K geometric floaters */}
         <WireframeShape position={[-2.5, -2, -1.5]} rotation={[0.5, 0.3, 0]} scale={0.35} color="#00FF41" />
         <WireframeShape position={[3, 2, -3]} rotation={[0.2, 0.8, 0.4]} scale={0.25} color="#00F5FF" />
         <WireframeShape position={[-1, 2.5, -2]} rotation={[0.7, 0.1, 0.5]} scale={0.2} color="#BF5AF2" />

@@ -27,7 +27,7 @@ export function OurApproach() {
       <div className="absolute bottom-12 left-8 w-32 h-32 border-b-2 border-l-2 border-cyber-violet/15 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        {/* Right-aligned header — breaks the left-aligned pattern */}
+        {/* Right-aligned header, breaks the left-aligned pattern */}
         <div className="text-right mb-16">
           <ScrollReveal>
             <SectionTag text="OUR APPROACH" />
@@ -44,12 +44,12 @@ export function OurApproach() {
             <p className="text-void-300 text-xl max-w-2xl leading-relaxed ml-auto font-body">
               Most professionals focus on one side: legal or tax.
               <br />
-              This firm handles both — and aligns them from the start.
+              This firm handles both, and aligns them from the start.
             </p>
           </ScrollReveal>
         </div>
 
-        {/* Credentials Card — tilted glass with bevel */}
+        {/* Credentials Card, tilted glass with bevel */}
         <ScrollReveal delay={0.3}>
           <motion.div
             className="glass-card p-8 md:p-12 max-w-3xl border-2 border-void-700"

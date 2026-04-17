@@ -102,7 +102,7 @@ export function ContactSection() {
             </div>
           </div>
 
-          {/* Right: Form — beveled glass card */}
+          {/* Right: Form, beveled glass card */}
           <ScrollReveal delay={0.2} direction="right">
             <div className="glass-card p-8 md:p-10 border-2 border-void-700 shadow-bevel">
               <AnimatePresence mode="wait">

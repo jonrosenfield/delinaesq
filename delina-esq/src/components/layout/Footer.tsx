@@ -19,7 +19,7 @@ const PRACTICE_AREAS = [
 export function Footer() {
   return (
     <>
-      {/* Concierge strip — appears above footer on every page */}
+      {/* Concierge strip, appears above footer on every page */}
       <ConciergeBar />
 
       <footer className="bg-ink border-t border-steel pt-20 pb-10 px-6 lg:px-12">
@@ -32,7 +32,7 @@ export function Footer() {
                 DELINA.ESQ
               </p>
               <p className="font-mono text-[13px] text-mist mt-2">
-                California Legal Strategy
+                A Lawyer for Every Stage of Your Business
               </p>
               <p className="font-mono text-[12px] text-mist/50 mt-6">
                 California Bar Association
@@ -45,7 +45,7 @@ export function Footer() {
               </p>
             </div>
 
-            {/* Column 2 — Practice Areas */}
+            {/* Column 2, Practice Areas */}
             <div>
               <span className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-mist block mb-5">
                 PRACTICE AREAS
@@ -61,7 +61,7 @@ export function Footer() {
               ))}
             </div>
 
-            {/* Column 3 — Connect */}
+            {/* Column 3, Connect */}
             <div>
               <span className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-mist block mb-5">
                 CONNECT
@@ -82,7 +82,7 @@ export function Footer() {
                 href="/business-law-library"
                 className="font-sans text-[16px] text-silver hover:text-white transition-colors block mb-2"
               >
-                The Brief
+                Law Library
               </Link>
               <a
                 href="https://www.linkedin.com/in/delinayasmeh"
@@ -99,21 +99,21 @@ export function Footer() {
           <div className="border-t border-steel mt-16 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-4">
               <Link
-                href="#"
+                href="/privacy"
                 className="font-mono text-[12px] text-mist hover:text-silver transition-colors"
               >
                 Privacy Policy
               </Link>
               <span className="font-mono text-[12px] text-steel">·</span>
               <Link
-                href="#"
+                href="/terms"
                 className="font-mono text-[12px] text-mist hover:text-silver transition-colors"
               >
                 Terms of Service
               </Link>
             </div>
             <p className="font-mono text-[12px] text-mist italic">
-              Built for California. Built to last.
+              Structure protects what strategy builds.
             </p>
           </div>
         </div>

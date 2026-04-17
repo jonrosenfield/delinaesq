@@ -27,7 +27,7 @@ const schema = {
 const FEATURES = [
   {
     title: 'S-Corp Election Analysis',
-    body: 'An S-Corp election can reduce self-employment tax significantly &mdash; but California adds a 1.5% franchise tax on net income. Delina models the actual breakeven for your income level before recommending the election.',
+    body: 'An S-Corp election can reduce self-employment tax significantly , but California adds a 1.5% franchise tax on net income. Delina models the actual breakeven for your income level before recommending the election.',
   },
   {
     title: 'Business Tax Strategy',
@@ -35,11 +35,11 @@ const FEATURES = [
   },
   {
     title: 'Digital Asset & Crypto Tax',
-    body: 'California taxes crypto gains at ordinary income rates &mdash; there is no capital gains preference at the state level. Creators and founders with significant crypto holdings need a strategy that accounts for California&apos;s specific treatment.',
+    body: 'California taxes crypto gains at ordinary income rates , there is no capital gains preference at the state level. Creators and founders with significant crypto holdings need a strategy that accounts for California&apos;s specific treatment.',
   },
   {
     title: 'Tax Attorney vs. CPA Guidance',
-    body: 'A CPA prepares your return. A tax attorney advises on strategy, structures transactions to minimize liability, and handles disputes with taxing authorities. Delina helps clients understand when they need each &mdash; and when they need both.',
+    body: 'A CPA prepares your return. A tax attorney advises on strategy, structures transactions to minimize liability, and handles disputes with taxing authorities. Delina helps clients understand when they need each , and when they need both.',
   },
 ]
 
@@ -50,7 +50,7 @@ const PAA = [
   },
   {
     q: 'When should I hire a tax attorney instead of a CPA?',
-    a: 'When you are making a significant structural decision &mdash; forming an entity, electing S-Corp status, planning a business sale, or dealing with an IRS audit. CPAs are excellent for return preparation. Tax attorneys are the right choice when the decision has legal implications that go beyond the annual return.',
+    a: 'When you are making a significant structural decision , forming an entity, electing S-Corp status, planning a business sale, or dealing with an IRS audit. CPAs are excellent for return preparation. Tax attorneys are the right choice when the decision has legal implications that go beyond the annual return.',
   },
   {
     q: 'How much can an S-Corp save on self-employment taxes in California?',
@@ -72,13 +72,13 @@ export default function TaxAttorneySmallBusinessPage() {
       <LandingHero accent="#1A3A6E"
         eyebrow="Tax Attorney · Small Business · California"
         headline="Tax Attorney"
-        subhead="Delina Yasmeh advises California small business owners, creators, and founders on tax strategy, entity structuring, and S-Corp elections &mdash; before tax season makes it too late to change anything."
+        subhead="Delina Yasmeh advises California small business owners, creators, and founders on tax strategy, entity structuring, and S-Corp elections , before tax season makes it too late to change anything."
       />
       <LandingSection eyebrow="Why Tax Strategy Matters Before April" headline="The decisions that reduce your tax bill happen before the year ends.">
         <div className="space-y-5 font-sans text-[19px] text-ink/65 leading-relaxed max-w-[720px]">
-          <p>Most business owners think about taxes in March. The decisions that actually affect their tax liability &mdash; entity structure, S-Corp election timing, retirement account contributions, income recognition &mdash; all happen during the year. By the time you are filing, the strategy window has closed.</p>
-          <p>California is one of the highest-tax states in the country. Combined federal and California rates for high-income earners can exceed 50% on ordinary income. The legal tools that reduce that number &mdash; S-Corp elections, qualified business income deductions, properly structured retirement accounts &mdash; are available to every business owner. Most are not using them fully.</p>
-          <p>Delina works with business owners who want a <Link href="/s-corp-attorney" className="text-ink underline underline-offset-2 hover:text-ink/70 transition-colors">tax strategy built into their entity structure</Link> from the start &mdash; not bolted on after three years of overpaying. If you have not evaluated your entity structure for tax efficiency in the last two years, that evaluation is overdue.</p>
+          <p>Most business owners think about taxes in March. The decisions that actually affect their tax liability , entity structure, S-Corp election timing, retirement account contributions, income recognition , all happen during the year. By the time you are filing, the strategy window has closed.</p>
+          <p>California is one of the highest-tax states in the country. Combined federal and California rates for high-income earners can exceed 50% on ordinary income. The legal tools that reduce that number , S-Corp elections, qualified business income deductions, properly structured retirement accounts , are available to every business owner. Most are not using them fully.</p>
+          <p>Delina works with business owners who want a <Link href="/s-corp-attorney" className="text-ink underline underline-offset-2 hover:text-ink/70 transition-colors">tax strategy built into their entity structure</Link> from the start , not bolted on after three years of overpaying. If you have not evaluated your entity structure for tax efficiency in the last two years, that evaluation is overdue.</p>
         </div>
       </LandingSection>
       <LandingSection eyebrow="What Delina Covers" headline="Tax strategy for California business owners who make real money.">
@@ -116,7 +116,7 @@ export default function TaxAttorneySmallBusinessPage() {
       <RelatedArticles tags={['tax', 'tax-strategy', 's-corp', 'llc']} />
       <LandingCTA
         headline="Ready to stop overpaying?"
-        body="Tax strategy is not about finding loopholes. It is about using the legal tools that exist for business owners and actually using them. Tell us your situation — your entity structure, income level, and what a real strategy looks like."
+        body="Tax strategy is not about finding loopholes. It is about using the legal tools that exist for business owners and actually using them. Tell us your situation, your entity structure, income level, and what a real strategy looks like."
       />
       <Footer />
     </main>

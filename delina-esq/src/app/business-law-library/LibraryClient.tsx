@@ -127,7 +127,7 @@ function EditorialView({ posts, categories, onCategoryClick }: {
             {/* Featured article */}
             {featured && <FeaturedCard post={featured} color={section.color} />}
 
-            {/* 6 supporting articles — 3×2 grid */}
+            {/* 6 supporting articles, 3×2 grid */}
             {supporting.length > 0 && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-steel/15 mt-px">
                 {supporting.slice(0, 6).map((post) => (
@@ -136,7 +136,7 @@ function EditorialView({ posts, categories, onCategoryClick }: {
               </div>
             )}
 
-            {/* View more — mobile + desktop */}
+            {/* View more, mobile + desktop */}
             <div className="flex items-center justify-between mt-8">
               <button
                 onClick={() => onCategoryClick(section.cat)}
@@ -364,7 +364,7 @@ export function LibraryClient({ posts }: { posts: PostMeta[] }) {
             WebkitBackdropFilter: 'blur(6px)',
           }}
         />
-        {/* Reactive category color overlay — fades in/out on nav hover */}
+        {/* Reactive category color overlay, fades in/out on nav hover */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -379,7 +379,7 @@ export function LibraryClient({ posts }: { posts: PostMeta[] }) {
         <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-12 h-full flex flex-col justify-end pb-16 pt-28">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-end">
 
-            {/* LEFT — headline + subtitle + search */}
+            {/* LEFT, headline + subtitle + search */}
             <div className="lg:col-span-7 flex flex-col">
               <span className="font-mono text-[0.625rem] uppercase tracking-[0.25em] text-white/40 block mb-6">
                 Legal Intelligence
@@ -391,7 +391,7 @@ export function LibraryClient({ posts }: { posts: PostMeta[] }) {
                 Law Library.
               </h1>
               <p className="font-sans font-light text-[17px] text-white/50 max-w-[420px] mt-5 mb-8 leading-relaxed">
-                Legal strategy for entrepreneurs, creators, and founders who have already Googled the basics — and found it unhelpful.
+                Legal strategy for entrepreneurs, creators, and founders who have already Googled the basics, and found it unhelpful.
               </p>
               <div className="relative max-w-[460px]">
                 <svg
@@ -428,7 +428,7 @@ export function LibraryClient({ posts }: { posts: PostMeta[] }) {
               </div>
             </div>
 
-            {/* RIGHT — vertical category index */}
+            {/* RIGHT, vertical category index */}
             <nav className="lg:col-span-5 flex flex-col gap-0 lg:pb-1">
               <span className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-white/30 block mb-4">
                 Browse by topic

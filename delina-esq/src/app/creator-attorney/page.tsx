@@ -31,7 +31,7 @@ const FEATURES = [
   },
   {
     title: 'Creator LLC Formation',
-    body: 'An LLC separates your personal assets from your business liabilities and positions your creator income as business income &mdash; which opens up deductions unavailable to individuals. California creators with consistent brand income should be operating through an entity, not as sole proprietors.',
+    body: 'An LLC separates your personal assets from your business liabilities and positions your creator income as business income , which opens up deductions unavailable to individuals. California creators with consistent brand income should be operating through an entity, not as sole proprietors.',
   },
   {
     title: 'Content Creator Tax Strategy',
@@ -50,11 +50,11 @@ const PAA = [
   },
   {
     q: 'What legal documents do content creators need?',
-    a: 'At minimum: an LLC operating agreement if you have one, a form brand deal contract that you control rather than signing the brand\'s template, a licensing agreement for content you license to others, and a trademark registration for your brand name if you are building something lasting. Delina drafts creator-specific documents that address the actual issues in creator contracts &mdash; not generic business agreements with your name swapped in.',
+    a: 'At minimum: an LLC operating agreement if you have one, a form brand deal contract that you control rather than signing the brand\'s template, a licensing agreement for content you license to others, and a trademark registration for your brand name if you are building something lasting. Delina drafts creator-specific documents that address the actual issues in creator contracts , not generic business agreements with your name swapped in.',
   },
   {
     q: 'What can content creators write off on taxes?',
-    a: 'Equipment, software, home office space, travel for content creation, production costs, platform fees, education related to your creator business, and professional services including legal and accounting fees. The key is that deductions require business intent and documentation. Delina advises creators on building a deduction strategy &mdash; not just collecting receipts.',
+    a: 'Equipment, software, home office space, travel for content creation, production costs, platform fees, education related to your creator business, and professional services including legal and accounting fees. The key is that deductions require business intent and documentation. Delina advises creators on building a deduction strategy , not just collecting receipts.',
   },
 ]
 
@@ -72,13 +72,13 @@ export default function CreatorAttorneyPage() {
       <LandingHero accent="#9B1527"
         eyebrow="Attorney for Creators · Influencers · Digital Entrepreneurs"
         headline="Creator &amp; Influencer Attorney"
-        subhead="Delina Yasmeh advises California content creators, influencers, and digital entrepreneurs on brand deal contracts, LLC formation, tax strategy, and IP protection &mdash; for creators who have outgrown the advice they&apos;re getting."
+        subhead="Delina Yasmeh advises California content creators, influencers, and digital entrepreneurs on brand deal contracts, LLC formation, tax strategy, and IP protection , for creators who have outgrown the advice they&apos;re getting."
       />
       <LandingSection eyebrow="Why Creators Need Their Own Legal Strategy" headline="The creator economy is a real business. Your legal structure should reflect that.">
         <div className="space-y-5 font-sans text-[19px] text-ink/65 leading-relaxed max-w-[720px]">
           <p>Most creators operating as sole proprietors are leaving money on the table and taking on personal liability they do not have to. Every brand deal you sign as an individual exposes your personal assets to claims arising from that deal. Every dollar you earn as a sole proprietor is subject to self-employment tax at 15.3%. Neither of these is required.</p>
-          <p>California creators with $50,000 or more in annual brand income should be operating through an entity. An <Link href="/llc-attorney" className="text-ink underline underline-offset-2 hover:text-ink/70 transition-colors">LLC</Link> provides liability protection, access to business deductions, and the option to elect S-Corp tax treatment once income justifies it. The $800 California minimum franchise tax is not nothing &mdash; but it is not the reason to avoid forming an entity.</p>
-          <p>Brand deal contracts are written by brands and their lawyers. They default to terms that favor the brand: broad content approval rights, indefinite licensing of your likeness, low kill fees, and exclusivity windows that are longer than you realize. Delina reviews these contracts before you sign &mdash; not after the brand has already used your content in a way you did not intend to authorize.</p>
+          <p>California creators with $50,000 or more in annual brand income should be operating through an entity. An <Link href="/llc-attorney" className="text-ink underline underline-offset-2 hover:text-ink/70 transition-colors">LLC</Link> provides liability protection, access to business deductions, and the option to elect S-Corp tax treatment once income justifies it. The $800 California minimum franchise tax is not nothing , but it is not the reason to avoid forming an entity.</p>
+          <p>Brand deal contracts are written by brands and their lawyers. They default to terms that favor the brand: broad content approval rights, indefinite licensing of your likeness, low kill fees, and exclusivity windows that are longer than you realize. Delina reviews these contracts before you sign , not after the brand has already used your content in a way you did not intend to authorize.</p>
           <p>If you are building a recognizable brand, <Link href="/trademark-attorney" className="text-ink underline underline-offset-2 hover:text-ink/70 transition-colors">federal trademark registration</Link> protects your name and logo nationwide. The registration process takes 12 to 18 months. The protection runs from your filing date, not your registration date. Waiting until your brand is established means a competitor can establish prior rights in your name in another state.</p>
         </div>
       </LandingSection>
@@ -117,7 +117,7 @@ export default function CreatorAttorneyPage() {
       <RelatedArticles tags={['creator', 'influencer', 'llc', 's-corp']} />
       <LandingCTA
         headline="Ready to run your creator business like a business?"
-        body="Brand deal contracts, LLC formation, tax strategy, and trademark registration &mdash; Delina advises creators who have real income and want real legal infrastructure. Tell us your situation — where you are and what you actually need."
+        body="Brand deal contracts, LLC formation, tax strategy, and trademark registration , Delina advises creators who have real income and want real legal infrastructure. Tell us your situation, where you are and what you actually need."
       />
       <Footer />
     </main>

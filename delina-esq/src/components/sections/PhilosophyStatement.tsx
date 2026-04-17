@@ -39,7 +39,7 @@ export function PhilosophyStatement() {
 
         {/* Attribution */}
         <p className="font-mono text-[12px] uppercase tracking-[0.2em] text-mist mt-10">
-          — DELINA YASMEH, ESQ. · CALIFORNIA ATTORNEY
+          DELINA YASMEH, ESQ.
         </p>
 
         {/* Divider */}

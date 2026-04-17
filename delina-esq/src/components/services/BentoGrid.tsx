@@ -10,7 +10,7 @@ const CHROME  = '#8090A8'  // Entity / Structure
 const NAVY    = '#1A3A6E'  // Tax / Compliance
 const COBALT  = '#2255CC'  // Contracts / Deals
 
-// Primary 6 — shown by default. 2-column grid: 3 rows × 2 cards each.
+// Primary 6, shown by default. 2-column grid: 3 rows × 2 cards each.
 const PRIMARY = [
   {
     eyebrow: 'FAMILY WEALTH PROTECTION',
@@ -22,14 +22,14 @@ const PRIMARY = [
   {
     eyebrow: 'CREATOR ECONOMY',
     title: 'Creator & Influencer Counsel',
-    body: "Brand deals, IP ownership, LLC structuring, content licensing — built for the business you're actually running, not the one your CPA imagines you have.",
+    body: "Brand deals, IP ownership, LLC structuring, content licensing, built for the business you're actually running, not the one your CPA imagines you have.",
     href: '/creator-attorney',
     accent: CRIMSON,
   },
   {
     eyebrow: 'ENTITY STRATEGY',
     title: 'LLC Formation & Structuring',
-    body: 'Not just formation — strategy. The right entity type, at the right time, structured for the way you actually make money.',
+    body: 'Not just formation, strategy. The right entity type, at the right time, structured for the way you actually make money.',
     href: '/business-structure-attorney',
     accent: CHROME,
   },
@@ -50,17 +50,17 @@ const PRIMARY = [
   {
     eyebrow: 'FOUNDER STRATEGY',
     title: 'Startup & Founder Advisory',
-    body: 'Cap table structure, investor agreements, co-founder splits — the legal decisions you make in year one will cost or save you in year three.',
+    body: 'Cap table structure, investor agreements, co-founder splits, the legal decisions you make in year one will cost or save you in year three.',
     href: '/startup-attorney-california',
     accent: COBALT,
   },
 ]
 
-// Secondary 5 — revealed on expand. 2-col rows + 1 full-width closer.
+// Secondary 5, revealed on expand. 2-col rows + 1 full-width closer.
 const SECONDARY = [
   {
     eyebrow: 'TAX STRATEGY',
-    title: 'Tax Attorney — Small Business',
+    title: 'Tax Attorney for Small Business',
     body: 'The difference between a CPA and a tax attorney is the difference between recording history and building a different future. Delina focuses on the second problem.',
     href: '/tax-attorney-small-business',
     accent: NAVY,
@@ -69,7 +69,7 @@ const SECONDARY = [
   {
     eyebrow: 'S-CORP STRATEGY',
     title: 'S-Corp Attorney',
-    body: 'The election looks simple. The California-specific math is not. 1.5% franchise tax, reasonable salary requirements, and FTB compliance — modeled before you commit.',
+    body: 'The election looks simple. The California-specific math is not. 1.5% franchise tax, reasonable salary requirements, and FTB compliance, modeled before you commit.',
     href: '/s-corp-attorney',
     accent: CHROME,
     full: false,
@@ -85,7 +85,7 @@ const SECONDARY = [
   {
     eyebrow: 'MISSION-DRIVEN',
     title: 'Nonprofit Attorney',
-    body: '501(c)(3) formation, governance documents, compliance, and board structure — for founders building organizations around a purpose, not a profit.',
+    body: '501(c)(3) formation, governance documents, compliance, and board structure, for founders building organizations around a purpose, not a profit.',
     href: '/nonprofit-attorney',
     accent: NAVY,
     full: false,
@@ -93,7 +93,7 @@ const SECONDARY = [
   {
     eyebrow: 'DIGITAL COMMERCE',
     title: 'E-Commerce Business Attorney',
-    body: 'LLC formation, sales tax compliance, supplier contracts, and consumer protection — for online store owners who have outgrown the template approach.',
+    body: 'LLC formation, sales tax compliance, supplier contracts, and consumer protection, for online store owners who have outgrown the template approach.',
     href: '/ecommerce-business-attorney',
     accent: CHROME,
     full: true, // full-width closer card
@@ -105,7 +105,7 @@ export function BentoGrid() {
 
   return (
     <div>
-      {/* Primary — clean 2-column grid */}
+      {/* Primary, clean 2-column grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/[0.06]">
         {PRIMARY.map((service, i) => (
           <motion.div
@@ -141,7 +141,7 @@ export function BentoGrid() {
         <div className="flex-1 h-px bg-steel/20" />
       </div>
 
-      {/* Secondary — animated reveal */}
+      {/* Secondary, animated reveal */}
       <AnimatePresence>
         {expanded && (
           <motion.div

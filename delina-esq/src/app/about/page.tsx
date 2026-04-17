@@ -38,8 +38,8 @@ const CAREER = [
   {
     number: '02',
     firm: 'Deloitte',
-    role: 'M&A Tax Group — Los Angeles',
-    description: 'Recruited to Deloitte\'s Mergers & Acquisitions Tax Group to advise private equity firms and corporate buyers on transactions valued in the hundreds of millions — covering tax due diligence, risk identification, and structural planning.',
+    role: 'M&A Tax Group, Los Angeles',
+    description: 'Recruited to Deloitte\'s Mergers & Acquisitions Tax Group to advise private equity firms and corporate buyers on transactions valued in the hundreds of millions, covering tax due diligence, risk identification, and structural planning.',
   },
   {
     number: '03',
@@ -51,7 +51,7 @@ const CAREER = [
     number: '04',
     firm: 'Litigation Practice',
     role: 'Trial Firm',
-    description: 'After Big Four tenure, transitioned into litigation — managing over 150 active cases at a high-volume trial firm. Work included hearings, settlement negotiations, and procedural motion practice.',
+    description: 'After Big Four tenure, transitioned into litigation, managing over 150 active cases at a high-volume trial firm. Work included hearings, settlement negotiations, and procedural motion practice.',
   },
 ]
 
@@ -87,7 +87,7 @@ export default function AboutPage() {
           <div className="aspect-[3/4] relative overflow-hidden">
             <Image
               src="/delina-yasmeh-attorney.png"
-              alt="Delina Yasmeh, Esq. — California Attorney and Tax Strategist"
+              alt="Delina Yasmeh, Esq., California Attorney and Tax Strategist"
               fill
               className="object-cover object-top"
               sizes="(max-width: 1024px) 100vw, 40vw"
@@ -105,10 +105,10 @@ export default function AboutPage() {
                 Delina Yasmeh is the founder and principal attorney of Delina Yasmeh Law, a boutique legal practice delivering high-level legal and tax counsel to founders, operators, and entrepreneurs across industries and jurisdictions.
               </p>
               <p>
-                She holds a Juris Doctor (JD), a Master of Laws in Taxation (LL.M.) — the most advanced academic credential in U.S. tax law — and a degree in accounting. This multidisciplinary background allows her to advise with precision across legal, tax, and financial dimensions simultaneously.
+                She holds a Juris Doctor (JD), a Master of Laws in Taxation (LL.M.), the most advanced academic credential in U.S. tax law, and a degree in accounting. This multidisciplinary background allows her to advise with precision across legal, tax, and financial dimensions simultaneously.
               </p>
               <p>
-                Most attorneys know law. Most accountants know tax. Delina knows both — and understands how they intersect in ways that change the outcome for clients who are building real businesses.
+                Most attorneys know law. Most accountants know tax. Delina knows both, and understands how they intersect in ways that change the outcome for clients who are building real businesses.
               </p>
             </div>
 
@@ -142,7 +142,7 @@ export default function AboutPage() {
             &ldquo;Lawyers don&apos;t know tax. Accountants don&apos;t know law. My clients shouldn&apos;t have to pay for that gap.&rdquo;
           </blockquote>
           <p className="font-mono text-[12px] uppercase tracking-[0.2em] text-mist/60 mt-8">
-            — Delina Yasmeh, Esq.
+           , Delina Yasmeh, Esq.
           </p>
         </div>
       </section>
@@ -193,10 +193,10 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-4 font-sans text-[19px] text-ink/65 leading-[1.8] max-w-[560px]">
               <p>
-                She founded Delina Yasmeh Law to offer a rare combination of legal, tax, financial, and litigation expertise under one roof. The practice is built around a simple premise: most businesses are paying for fragmentation — separate attorneys, CPAs, and advisors who don&apos;t talk to each other.
+                She founded Delina Yasmeh Law to offer a rare combination of legal, tax, financial, and litigation expertise under one roof. The practice is built around a simple premise: most businesses are paying for fragmentation, separate attorneys, CPAs, and advisors who don&apos;t talk to each other.
               </p>
               <p>
-                Her clients are founders, operators, and entrepreneurs who want one attorney who understands all of it — entity structure, tax strategy, contracts, and the decisions that compound over time.
+                Her clients are founders, operators, and entrepreneurs who want one attorney who understands all of it, entity structure, tax strategy, contracts, and the decisions that compound over time.
               </p>
             </div>
           </div>

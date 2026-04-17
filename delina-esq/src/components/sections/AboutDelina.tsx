@@ -20,7 +20,7 @@ const career = [
   },
   {
     firm: 'PwC Silicon Valley',
-    description: 'Focused on tech transactions, IP-heavy acquisitions, and venture-backed deals — working closely with investors, founders, and legal teams on cross-border structuring and multi-jurisdictional tax strategy.',
+    description: 'Focused on tech transactions, IP-heavy acquisitions, and venture-backed deals, working closely with investors, founders, and legal teams on cross-border structuring and multi-jurisdictional tax strategy.',
     color: 'cyber-violet',
     rotate: 0,
   },
@@ -48,7 +48,7 @@ export function AboutDelina() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         {/* Editorial Header + Photo */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-24">
-          {/* Text — offset in grid */}
+          {/* Text, offset in grid */}
           <div className="lg:col-span-7">
             <ScrollReveal>
               <SectionTag text="ABOUT DELINA" />
@@ -75,12 +75,12 @@ export function AboutDelina() {
 
             <ScrollReveal delay={0.3}>
               <p className="text-void-400 leading-relaxed font-body">
-                She holds a Juris Doctor (JD), a Master of Laws in Taxation (LL.M.) — the most advanced academic credential in U.S. tax law — and a degree in accounting. This multidisciplinary background allows her to advise with precision across legal, tax, and financial dimensions.
+                She holds a Juris Doctor (JD), a Master of Laws in Taxation (LL.M.), the most advanced academic credential in U.S. tax law, and a degree in accounting. This multidisciplinary background allows her to advise with precision across legal, tax, and financial dimensions.
               </p>
             </ScrollReveal>
           </div>
 
-          {/* Photo — overlapping editorial style */}
+          {/* Photo, overlapping editorial style */}
           <div className="lg:col-span-5">
             <ScrollReveal delay={0.3} direction="right">
               <motion.div
@@ -112,7 +112,7 @@ export function AboutDelina() {
           </div>
         </div>
 
-        {/* Career Timeline — anti-grid staggered cards */}
+        {/* Career Timeline, anti-grid staggered cards */}
         <div>
           <ScrollReveal>
             <h3 className="font-pixel text-sm text-hot-pink uppercase tracking-wider mb-10">
@@ -156,7 +156,7 @@ export function AboutDelina() {
               DELINA YASMEH LAW
             </h3>
             <p className="text-void-300 leading-relaxed font-body">
-              She founded Delina Yasmeh Law to offer a rare combination of legal, tax, financial, and litigation expertise. Her practice now supports early-stage founders, multi-entity operators, and high-growth businesses with tailored legal architecture — including entity structuring, tax strategy, contract drafting, and long-range advisory.
+              She founded Delina Yasmeh Law to offer a rare combination of legal, tax, financial, and litigation expertise. Her practice now supports early-stage founders, multi-entity operators, and high-growth businesses with tailored legal architecture, including entity structuring, tax strategy, contract drafting, and long-range advisory.
             </p>
           </motion.div>
         </ScrollReveal>

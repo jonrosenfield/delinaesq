@@ -22,7 +22,7 @@ export function Philosophy() {
           </h2>
         </ScrollReveal>
 
-        {/* The gap statement — editorial serif */}
+        {/* The gap statement, editorial serif */}
         <div className="relative">
           <ScrollReveal delay={0.2}>
             <p className="font-serif text-display-sm text-void-400 max-w-3xl leading-snug mb-3 italic">
@@ -46,26 +46,26 @@ export function Philosophy() {
 
         <ScrollReveal delay={0.35}>
           <p className="text-void-300 text-lg max-w-2xl leading-relaxed mb-4 font-body">
-            But tax and legal strategy affect the same decisions — entity type, compensation, contracts, and risk.
+            But tax and legal strategy affect the same decisions, entity type, compensation, contracts, and risk.
           </p>
           <p className="text-void-300 text-lg max-w-2xl leading-relaxed font-body">
             When those decisions are made separately, problems follow: inefficient tax treatment, missed elections, unenforceable terms, and inconsistent filings.
           </p>
         </ScrollReveal>
 
-        {/* Solution Block — beveled glass */}
+        {/* Solution Block, beveled glass */}
         <ScrollReveal delay={0.4}>
           <div className="glass-card p-8 md:p-12 mt-16 max-w-3xl border-2 border-void-700 shadow-bevel">
             <h3 className="font-pixel text-sm text-hot-pink uppercase tracking-wider mb-4">
               THIS FIRM SOLVES THAT
             </h3>
             <p className="text-void-200 text-lg leading-relaxed font-body">
-              Integrated legal and tax strategy — aligning formation, contracts, and compensation so everything works together. One advisor. Full visibility. No disconnect.
+              Integrated legal and tax strategy, aligning formation, contracts, and compensation so everything works together. One advisor. Full visibility. No disconnect.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Law + Tax Cards — tilted for anti-grid feel */}
+        {/* Law + Tax Cards, tilted for anti-grid feel */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-20 max-w-4xl">
           <ScrollReveal delay={0.2} direction="left">
             <motion.div
@@ -80,7 +80,7 @@ export function Philosophy() {
                 <h3 className="font-pixel text-lg font-bold text-cream uppercase">LAW</h3>
               </div>
               <p className="text-void-400 leading-relaxed text-sm font-body">
-                How you operate — how you structure ownership, define relationships, allocate risk, and protect your rights. You hire a lawyer to create clear agreements, defend your interests, limit liability, and build systems that hold under pressure.
+                How you operate, how you structure ownership, define relationships, allocate risk, and protect your rights. You hire a lawyer to create clear agreements, defend your interests, limit liability, and build systems that hold under pressure.
               </p>
             </motion.div>
           </ScrollReveal>
@@ -98,7 +98,7 @@ export function Philosophy() {
                 <h3 className="font-pixel text-lg font-bold text-cream uppercase">TAX</h3>
               </div>
               <p className="text-void-400 leading-relaxed text-sm font-body">
-                How you keep what you earn — how your business is classified, how income is treated, and how much is lost to the system. You hire a tax strategist to reduce exposure, use the code to your advantage, and design structures that preserve wealth legally and efficiently.
+                How you keep what you earn, how your business is classified, how income is treated, and how much is lost to the system. You hire a tax strategist to reduce exposure, use the code to your advantage, and design structures that preserve wealth legally and efficiently.
               </p>
             </motion.div>
           </ScrollReveal>
@@ -107,7 +107,7 @@ export function Philosophy() {
         <ScrollReveal delay={0.4}>
           <p className="mt-16 text-void-300 text-lg leading-relaxed max-w-3xl font-body">
             Together, these two forces determine whether your business is{' '}
-            <span className="text-cream font-serif italic">protected, profitable, and built to last</span> — or exposed, inefficient, and vulnerable to collapse.
+            <span className="text-cream font-serif italic">protected, profitable, and built to last</span>, or exposed, inefficient, and vulnerable to collapse.
           </p>
         </ScrollReveal>
       </div>

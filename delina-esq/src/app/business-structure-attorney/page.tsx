@@ -11,7 +11,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Business Structure Attorney in California | Delina Yasmeh, Esq.',
-  description: 'California business structure attorney for new business owners. LLC vs S-Corp vs sole proprietorship — modeled for your income and risk. Paid intake only.',
+  description: 'California business structure attorney for new business owners. LLC vs S-Corp vs sole proprietorship, modeled for your income and risk. Paid intake only.',
   alternates: { canonical: 'https://delina.esq/business-structure-attorney/' },
 }
 
@@ -27,7 +27,7 @@ const schema = {
 const FEATURES = [
   {
     title: 'LLC vs. S-Corp vs. Sole Proprietorship',
-    body: 'The right structure depends on your income level, liability exposure, number of owners, and plans for the business. Delina does not give generic recommendations &mdash; she models the actual numbers for your situation.',
+    body: 'The right structure depends on your income level, liability exposure, number of owners, and plans for the business. Delina does not give generic recommendations , she models the actual numbers for your situation.',
   },
   {
     title: 'Year-One Legal Checklist',
@@ -39,14 +39,14 @@ const FEATURES = [
   },
   {
     title: 'Growth Stage Planning',
-    body: 'The structure that works for a $50K business may not work at $250K. Delina advises on when to re-evaluate your structure and what the transition looks like &mdash; before the wrong structure has been in place long enough to create real problems.',
+    body: 'The structure that works for a $50K business may not work at $250K. Delina advises on when to re-evaluate your structure and what the transition looks like , before the wrong structure has been in place long enough to create real problems.',
   },
 ]
 
 const PAA = [
   {
     q: 'What does a business structure attorney do?',
-    a: 'A business structure attorney advises on which legal entity is right for your business, handles the formation documents, and makes sure the structure is set up correctly from a legal and tax perspective. The goal is not just to file paperwork &mdash; it is to make sure the entity you form does what you think it does.',
+    a: 'A business structure attorney advises on which legal entity is right for your business, handles the formation documents, and makes sure the structure is set up correctly from a legal and tax perspective. The goal is not just to file paperwork , it is to make sure the entity you form does what you think it does.',
   },
   {
     q: 'Do I need a lawyer to choose a business structure?',
@@ -72,13 +72,13 @@ export default function BusinessStructureAttorneyPage() {
       <LandingHero accent="#8090A8"
         eyebrow="Business Structure Attorney · California · New Business"
         headline="Business Structure Attorney"
-        subhead="Delina Yasmeh advises new California business owners on entity formation, LLC operating agreements, and the legal and tax implications of every structure &mdash; before the wrong choice becomes expensive to fix."
+        subhead="Delina Yasmeh advises new California business owners on entity formation, LLC operating agreements, and the legal and tax implications of every structure , before the wrong choice becomes expensive to fix."
       />
       <LandingSection eyebrow="Structure Is Not a Filing. It Is a Foundation." headline="Most new business owners choose a structure without understanding it.">
         <div className="space-y-5 font-sans text-[19px] text-ink/65 leading-relaxed max-w-[720px]">
-          <p>The internet will tell you to &ldquo;just form an LLC.&rdquo; That is not wrong &mdash; but it is incomplete. The entity you form determines your personal liability, your tax treatment, your ability to bring in partners or investors, and your options when you eventually want to sell or transition the business. These are not abstract questions. They have dollar amounts attached to them.</p>
-          <p>California adds complexity that other states do not have. Every LLC in California pays an $800 annual minimum franchise tax &mdash; regardless of whether the business made money. S-Corps pay 1.5% of net income to the state on top of federal obligations. These costs are predictable and should be part of your decision, not a surprise at year end.</p>
-          <p>If you expect to be profitable quickly, the conversation also includes whether an <Link href="/s-corp-attorney" className="text-ink underline underline-offset-2 hover:text-ink/70 transition-colors">S-Corp election</Link> makes sense and when to evaluate it. The election has a deadline &mdash; missing it means another year in the wrong tax structure.</p>
+          <p>The internet will tell you to &ldquo;just form an LLC.&rdquo; That is not wrong , but it is incomplete. The entity you form determines your personal liability, your tax treatment, your ability to bring in partners or investors, and your options when you eventually want to sell or transition the business. These are not abstract questions. They have dollar amounts attached to them.</p>
+          <p>California adds complexity that other states do not have. Every LLC in California pays an $800 annual minimum franchise tax , regardless of whether the business made money. S-Corps pay 1.5% of net income to the state on top of federal obligations. These costs are predictable and should be part of your decision, not a surprise at year end.</p>
+          <p>If you expect to be profitable quickly, the conversation also includes whether an <Link href="/s-corp-attorney" className="text-ink underline underline-offset-2 hover:text-ink/70 transition-colors">S-Corp election</Link> makes sense and when to evaluate it. The election has a deadline , missing it means another year in the wrong tax structure.</p>
         </div>
       </LandingSection>
       <LandingSection eyebrow="What Delina Covers" headline="Entity formation and structure for California businesses at every stage.">
@@ -116,7 +116,7 @@ export default function BusinessStructureAttorneyPage() {
       <RelatedArticles tags={['entity-structure', 'llc', 'startup', 'tax-strategy']} />
       <LandingCTA
         headline="Ready to build your business on the right legal foundation?"
-        body="Delina models the actual implications of each entity structure for your specific income, risk profile, and business plan. Tell us your situation — your options before formation &mdash; or to fix a structure that was never right."
+        body="Delina models the actual implications of each entity structure for your specific income, risk profile, and business plan. Tell us your situation, your options before formation , or to fix a structure that was never right."
       />
       <Footer />
     </main>

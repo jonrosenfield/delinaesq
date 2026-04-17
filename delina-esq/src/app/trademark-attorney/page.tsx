@@ -27,7 +27,7 @@ const schema = {
 const FEATURES = [
   {
     title: 'Federal Trademark Search & Clearance',
-    body: 'Before you file — or invest further in a brand name — Delina conducts a comprehensive clearance search to assess registration risk and identify potential conflicts.',
+    body: 'Before you file, or invest further in a brand name, Delina conducts a comprehensive clearance search to assess registration risk and identify potential conflicts.',
   },
   {
     title: 'USPTO Application & Prosecution',
@@ -35,7 +35,7 @@ const FEATURES = [
   },
   {
     title: 'Brand Protection Strategy',
-    body: 'A registered trademark is the foundation of brand protection — but the strategy extends to monitoring for infringement, licensing properly, and maintaining registration through continued use and renewal filings.',
+    body: 'A registered trademark is the foundation of brand protection, but the strategy extends to monitoring for infringement, licensing properly, and maintaining registration through continued use and renewal filings.',
   },
   {
     title: 'IP Assignment & Licensing',
@@ -50,11 +50,11 @@ const PAA = [
   },
   {
     q: 'Can I file a trademark application without an attorney?',
-    a: 'Yes — but the USPTO\'s rejection rate for pro se applicants is significantly higher than for attorney-filed applications. The most common errors are incorrect identification of goods and services, wrong filing basis, and failure to respond to office actions correctly. A rejected application still costs the filing fee. Delina recommends filing with counsel the first time.',
+    a: 'Yes, but the USPTO\'s rejection rate for pro se applicants is significantly higher than for attorney-filed applications. The most common errors are incorrect identification of goods and services, wrong filing basis, and failure to respond to office actions correctly. A rejected application still costs the filing fee. Delina recommends filing with counsel the first time.',
   },
   {
     q: 'How long does it take to get a trademark registered?',
-    a: 'USPTO processing times currently average 12–18 months from filing to registration for straightforward applications. Applications that receive office actions take longer. Priority rights date back to the filing date, so filing early — even before the mark is in commercial use — can protect your position.',
+    a: 'USPTO processing times currently average 12–18 months from filing to registration for straightforward applications. Applications that receive office actions take longer. Priority rights date back to the filing date, so filing early, even before the mark is in commercial use, can protect your position.',
   },
 ]
 
@@ -76,8 +76,8 @@ export default function TrademarkPage() {
       />
       <LandingSection eyebrow="Why Trademark Registration Matters" headline="Using a name is not the same as owning it.">
         <div className="space-y-5 font-sans text-[19px] text-ink/65 leading-relaxed max-w-[720px]">
-          <p>Common law trademark rights arise from use — but they are limited to the geographic area where you actually operate. A federal trademark registration with the USPTO gives you nationwide priority and the legal presumption of ownership across all fifty states.</p>
-          <p>For brands operating online, selling on Amazon, or licensing content to national partners, the geographic limitation of common law rights is a significant vulnerability. A competitor in another state can use your brand name legally — until you have a federal registration that establishes your priority.</p>
+          <p>Common law trademark rights arise from use, but they are limited to the geographic area where you actually operate. A federal trademark registration with the USPTO gives you nationwide priority and the legal presumption of ownership across all fifty states.</p>
+          <p>For brands operating online, selling on Amazon, or licensing content to national partners, the geographic limitation of common law rights is a significant vulnerability. A competitor in another state can use your brand name legally, until you have a federal registration that establishes your priority.</p>
           <p>The registration process takes 12–18 months. Rights, however, date back to your filing date. Waiting until your brand is established means giving competitors a head start on the same filing timeline.</p>
         </div>
       </LandingSection>
@@ -116,7 +116,7 @@ export default function TrademarkPage() {
       <RelatedArticles tags={['trademark']} />
       <LandingCTA
         headline="Ready to protect the brand you&apos;re building?"
-        body="Trademark registration is a one-time investment that protects a long-term asset. Tell us your situation — your brand, your filing strategy, and what protection looks like for your specific situation."
+        body="Trademark registration is a one-time investment that protects a long-term asset. Tell us your situation, your brand, your filing strategy, and what protection looks like for your specific situation."
       />
       <Footer />
     </main>

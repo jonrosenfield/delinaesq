@@ -88,7 +88,7 @@ export function ConciergeBar() {
           </p>
         )}
 
-        {/* Chips — text links with dot separators */}
+        {/* Chips, text links with dot separators */}
         <div className="flex flex-wrap items-center gap-x-1 gap-y-1.5 mt-3.5">
           {CHIPS.map((chip, i) => (
             <span key={chip.href} className="flex items-center">

@@ -46,7 +46,7 @@ const FEATURES = [
 const PAA = [
   {
     q: 'Do I need a lawyer to start a nonprofit in California?',
-    a: 'Technically no — but the IRS application process, California registration requirements, and governance document requirements are complex enough that most nonprofits formed without legal counsel have structural problems that surface later. Delina advises founders to engage legal counsel before filing, not after the IRS sends a rejection or a board dispute reveals that the bylaws don\'t cover what they thought they covered.',
+    a: 'Technically no, but the IRS application process, California registration requirements, and governance document requirements are complex enough that most nonprofits formed without legal counsel have structural problems that surface later. Delina advises founders to engage legal counsel before filing, not after the IRS sends a rejection or a board dispute reveals that the bylaws don\'t cover what they thought they covered.',
   },
   {
     q: 'How much does it cost to set up a nonprofit in California?',
@@ -54,7 +54,7 @@ const PAA = [
   },
   {
     q: 'What are the ongoing legal requirements for a California nonprofit?',
-    a: 'California nonprofits must file a biennial Statement of Information with the Secretary of State, register annually with the Attorney General\'s Registry of Charitable Trusts, maintain required governance documents, and hold board meetings as specified in the bylaws. Federal requirements include annual Form 990 filing. These requirements begin immediately after formation — not years later.',
+    a: 'California nonprofits must file a biennial Statement of Information with the Secretary of State, register annually with the Attorney General\'s Registry of Charitable Trusts, maintain required governance documents, and hold board meetings as specified in the bylaws. Federal requirements include annual Form 990 filing. These requirements begin immediately after formation, not years later.',
   },
 ]
 
@@ -78,7 +78,7 @@ export default function NonprofitPage() {
         <div className="space-y-5 font-sans text-[19px] text-ink/65 leading-relaxed max-w-[720px]">
           <p>Most people focus on the IRS application. The more important documents are the ones that govern how your nonprofit operates after you receive your determination letter: the bylaws, the conflict of interest policy, the executive compensation procedures, and the board committee structures.</p>
           <p>California adds its own layer of complexity. In addition to federal requirements, California nonprofits must register with the Attorney General&apos;s Registry of Charitable Trusts, file biennial statements with the Secretary of State, and comply with state-specific requirements around charitable solicitation and fundraising.</p>
-          <p>Delina works with nonprofit founders who want to build a organization that can sustain audits, board changes, and growth — not just clear the initial formation hurdle.</p>
+          <p>Delina works with nonprofit founders who want to build a organization that can sustain audits, board changes, and growth, not just clear the initial formation hurdle.</p>
         </div>
       </LandingSection>
       <LandingSection eyebrow="What Delina Covers" headline="Legal infrastructure for nonprofits built to last.">
@@ -116,7 +116,7 @@ export default function NonprofitPage() {
       <RelatedArticles tags={['nonprofit']} />
       <LandingCTA
         headline="Ready to build your nonprofit on a legal foundation that lasts?"
-        body="Delina works with nonprofit founders who want to get the governance right from the beginning — not after the first board dispute or IRS inquiry. Tell us your situation — your organization and what proper formation looks like."
+        body="Delina works with nonprofit founders who want to get the governance right from the beginning, not after the first board dispute or IRS inquiry. Tell us your situation, your organization and what proper formation looks like."
       />
       <Footer />
     </main>

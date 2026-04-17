@@ -46,11 +46,11 @@ const FEATURES = [
 const PAA = [
   {
     q: 'What type of lawyer is best for a prenuptial agreement?',
-    a: 'A family law attorney with experience drafting enforceable agreements for high-asset clients. The attorney must understand both California\'s community property rules and your specific financial structure — particularly if you own a business, hold equity, or earn income from multiple sources.',
+    a: 'A family law attorney with experience drafting enforceable agreements for high-asset clients. The attorney must understand both California\'s community property rules and your specific financial structure, particularly if you own a business, hold equity, or earn income from multiple sources.',
   },
   {
     q: 'Can one attorney represent both parties in a prenuptial agreement?',
-    a: 'No. California requires independent legal counsel for each party. Any attempt to use one attorney will likely render the agreement unenforceable. This is not a technicality — it is how courts decide whether both parties understood what they were signing.',
+    a: 'No. California requires independent legal counsel for each party. Any attempt to use one attorney will likely render the agreement unenforceable. This is not a technicality, it is how courts decide whether both parties understood what they were signing.',
   },
   {
     q: 'How much does a prenuptial agreement cost in California?',
@@ -77,9 +77,9 @@ export default function PrenuptialAgreementAttorneyPage() {
       <LandingSection eyebrow="What a Prenup Actually Does" headline="Most people misunderstand what a prenuptial agreement is.">
         <div className="space-y-5 font-sans text-[19px] text-ink/65 leading-relaxed max-w-[720px]">
           <p>A prenuptial agreement is not a plan for divorce. It is a legal document that decides, in advance, how your assets and liabilities will be treated if the marriage ends. California&apos;s community property rules mean that income earned during a marriage belongs equally to both spouses by default. A prenup changes that default.</p>
-          <p>For someone who owns a business, holds unvested equity, or earns significant income from a professional practice, the absence of a prenup is a financial decision &mdash; one made by inaction rather than intention.</p>
+          <p>For someone who owns a business, holds unvested equity, or earns significant income from a professional practice, the absence of a prenup is a financial decision , one made by inaction rather than intention.</p>
           <p>California Family Code &sect; 1615 sets specific requirements for enforceability: independent counsel for both parties, at least seven days between receiving the agreement and signing, and full financial disclosure. A prenup that skips any of these steps is vulnerable to challenge. Delina structures every agreement to meet this standard before either party signs.</p>
-          <p>Already married and need similar protections? California also recognizes <Link href="/postnuptial-agreement-lawyer" className="text-ink underline underline-offset-2 hover:text-ink/70 transition-colors">postnuptial agreements</Link> under the same enforceability framework. The strategy is the same &mdash; the timing is different.</p>
+          <p>Already married and need similar protections? California also recognizes <Link href="/postnuptial-agreement-lawyer" className="text-ink underline underline-offset-2 hover:text-ink/70 transition-colors">postnuptial agreements</Link> under the same enforceability framework. The strategy is the same , the timing is different.</p>
         </div>
       </LandingSection>
       <LandingSection eyebrow="Key Protections" headline="What Delina&apos;s agreements actually cover.">
@@ -117,7 +117,7 @@ export default function PrenuptialAgreementAttorneyPage() {
       <RelatedArticles tags={['prenup', 'marital-agreements', 'family-law', 'business-assets']} />
       <LandingCTA
         headline="Ready to protect what you&apos;re building toward?"
-        body="A prenuptial agreement is a one-time decision that removes an entire category of financial risk. Tell us your situation — your situation and what an enforceable agreement looks like for your specific assets."
+        body="A prenuptial agreement is a one-time decision that removes an entire category of financial risk. Tell us your situation, your situation and what an enforceable agreement looks like for your specific assets."
       />
       <Footer />
     </main>

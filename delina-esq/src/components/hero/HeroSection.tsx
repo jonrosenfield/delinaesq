@@ -74,7 +74,7 @@ export function HeroSection() {
         src="/delina-hero-test.mp4"
       />
 
-      {/* Dark blur overlay — always on */}
+      {/* Dark blur overlay, always on */}
       <div
         className="absolute inset-0"
         style={{
@@ -84,7 +84,7 @@ export function HeroSection() {
         }}
       />
 
-      {/* Main hero content — vertically centered */}
+      {/* Main hero content, vertically centered */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 py-8 md:py-6">
         {/* Eyebrow */}
         <span className="font-mono text-[0.625rem] uppercase tracking-[0.25em] text-white mb-6 md:mb-10">
@@ -163,7 +163,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Subheadline — hidden on small screens to preserve fit */}
+        {/* Subheadline, hidden on small screens to preserve fit */}
         <p className="hidden sm:block font-sans font-light text-[18px] md:text-[21px] text-white max-w-[500px] mt-5 md:mt-8 leading-relaxed">
           Delina Yasmeh is an attorney who works exclusively with entrepreneurs,
           creators, and high-net-worth individuals who&apos;ve outgrown generic legal advice.
@@ -187,7 +187,7 @@ export function HeroSection() {
 
       </div>
 
-      {/* Scrolling ticker — pinned to bottom, hover to pause, click to navigate */}
+      {/* Scrolling ticker, pinned to bottom, hover to pause, click to navigate */}
       <div
         className="relative z-10 border-t border-white/15 overflow-hidden cursor-pointer"
         style={{ backgroundColor: 'rgba(10,10,10,0.6)' }}

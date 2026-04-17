@@ -86,7 +86,7 @@ export function AgenticFinder() {
             onChange={(e) => handleSearch(e.target.value)}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setTimeout(() => setIsFocused(false), 300)}
-            placeholder="Tell us what you need — tax, contracts, entity, M&A..."
+            placeholder="Tell us what you need, tax, contracts, entity, M&A..."
             className="w-full bg-transparent px-4 py-5 text-void-100 font-body text-base placeholder:text-void-600 outline-none"
             aria-label="Search legal services"
           />

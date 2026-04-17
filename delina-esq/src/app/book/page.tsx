@@ -5,7 +5,7 @@ import { IntakeForm } from './IntakeForm'
 
 export const metadata: Metadata = {
   title: 'Start Here | Delina Yasmeh, Esq.',
-  description: 'Every situation is different. Share the details of yours and we\'ll respond with how we can help — whether that\'s a consultation, a project scope, or guidance on next steps.',
+  description: 'Every situation is different. Share the details of yours and we\'ll respond with how we can help, whether that\'s a consultation, a project scope, or guidance on next steps.',
   alternates: { canonical: 'https://delina.esq/book/' },
 }
 

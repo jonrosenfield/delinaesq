@@ -31,7 +31,7 @@ export function LandingHero({ eyebrow, headline, subhead, ctaHref = '/book', acc
         }}
       />
 
-      {/* Accent color tint — diagonal wash from bottom-right */}
+      {/* Accent color tint, diagonal wash from bottom-right */}
       {accent && (
         <div
           className="absolute inset-0 pointer-events-none"

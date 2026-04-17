@@ -36,7 +36,7 @@ export function IntakeForm() {
       <input type="hidden" name="form-name" value="intake" />
       <p hidden><input name="bot-field" /></p>
 
-      {/* Row 1 — Name + Email */}
+      {/* Row 1, Name + Email */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
         <div>
           <label htmlFor="name" className={labelClass}>Full Name *</label>
@@ -62,7 +62,7 @@ export function IntakeForm() {
         </div>
       </div>
 
-      {/* Row 2 — Phone */}
+      {/* Row 2, Phone */}
       <div>
         <label htmlFor="phone" className={labelClass}>Phone</label>
         <input

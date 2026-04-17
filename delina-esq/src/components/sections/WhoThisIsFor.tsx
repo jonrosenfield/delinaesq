@@ -81,11 +81,11 @@ export function WhoThisIsFor() {
           </motion.div>
         </div>
 
-        {/* Right Column — Delina's photo */}
+        {/* Right Column, Delina's photo */}
         <div className="sticky top-24 aspect-[3/4] relative overflow-hidden">
           <Image
             src="/delina-yasmeh-attorney.png"
-            alt="Delina Yasmeh, Esq. — California Attorney"
+            alt="Delina Yasmeh, Esq., California Attorney"
             fill
             className="object-cover object-top"
             sizes="(max-width: 1024px) 100vw, 40vw"

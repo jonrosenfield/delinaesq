@@ -36,7 +36,7 @@ export default function ThankYouPage() {
           {/* Body */}
           <p className="font-sans text-[19px] text-ink/60 leading-[1.8] mb-12 max-w-[440px]">
             Delina will review your intake and confirm a time within 1–2 business days.
-            Check your inbox — details will be sent to the email you provided.
+            Check your inbox, details will be sent to the email you provided.
           </p>
 
           {/* What happens next */}
@@ -44,7 +44,7 @@ export default function ThankYouPage() {
             {[
               ['01', 'Delina reviews your situation before the session so nothing is wasted on setup.'],
               ['02', 'You receive a confirmation with logistics within 1–2 business days.'],
-              ['03', 'The session is 60 minutes. Come with specifics — that is where the value is.'],
+              ['03', 'The session is 60 minutes. Come with specifics, that is where the value is.'],
             ].map(([num, text]) => (
               <div key={num} className="flex gap-6 items-start">
                 <span

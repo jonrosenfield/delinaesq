@@ -22,7 +22,7 @@ export function ServiceCard({ eyebrow, title, body, href, accent }: ServiceCardP
         className={`relative overflow-hidden group cursor-pointer ${padding} flex flex-col justify-between min-h-[300px] h-full transition-all duration-500 bg-ink border border-white/[0.07] hover:border-white/15`}
         style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.4)' }}
       >
-        {/* Gradient texture — hidden by default, revealed on hover */}
+        {/* Gradient texture, hidden by default, revealed on hover */}
         {accent && (
           <div
             className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
@@ -32,7 +32,7 @@ export function ServiceCard({ eyebrow, title, body, href, accent }: ServiceCardP
           />
         )}
 
-        {/* Grain texture — also fades in on hover */}
+        {/* Grain texture, also fades in on hover */}
         <div
           className="absolute inset-0 opacity-0 group-hover:opacity-[0.06] transition-opacity duration-500 pointer-events-none"
           style={{

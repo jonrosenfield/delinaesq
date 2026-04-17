@@ -11,7 +11,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Business Contract Attorney in California | Delina Yasmeh, Esq.',
-  description: 'California business contract attorney for entrepreneurs, creators, and founders. Custom agreements drafted to hold — not templates. Paid intake only.',
+  description: 'California business contract attorney for entrepreneurs, creators, and founders. Custom agreements drafted to hold, not templates. Paid intake only.',
   alternates: { canonical: 'https://delina.esq/business-contract-attorney/' },
 }
 
@@ -46,11 +46,11 @@ const FEATURES = [
 const PAA = [
   {
     q: 'Do I need a business contract attorney for a small business?',
-    a: 'Every business relationship that involves money, deliverables, or intellectual property should have a written contract. The question is not whether you need a contract — it is whether the contract you have actually protects you. Templates are better than nothing. Attorney-drafted contracts are better than templates.',
+    a: 'Every business relationship that involves money, deliverables, or intellectual property should have a written contract. The question is not whether you need a contract, it is whether the contract you have actually protects you. Templates are better than nothing. Attorney-drafted contracts are better than templates.',
   },
   {
     q: 'What is the difference between a business attorney and a contract attorney?',
-    a: 'A business attorney advises on the full legal picture: entity structure, tax strategy, contracts, and compliance. A contract attorney focuses specifically on drafting and reviewing agreements. Delina does both — she understands how your contracts fit into your broader business and tax strategy.',
+    a: 'A business attorney advises on the full legal picture: entity structure, tax strategy, contracts, and compliance. A contract attorney focuses specifically on drafting and reviewing agreements. Delina does both, she understands how your contracts fit into your broader business and tax strategy.',
   },
   {
     q: 'How much does it cost to have a contract drafted in California?',
@@ -72,14 +72,14 @@ export default function BusinessContractAttorneyPage() {
       <LandingHero accent="#2255CC"
         eyebrow="Business Contract Attorney · California"
         headline="Business Contract Attorney"
-        subhead="Delina Yasmeh drafts and reviews business contracts for California entrepreneurs, creators, and founders &mdash; written to protect you, not just to document the deal."
+        subhead="Delina Yasmeh drafts and reviews business contracts for California entrepreneurs, creators, and founders , written to protect you, not just to document the deal."
       />
       <LandingSection eyebrow="Why Business Contracts Matter" headline="The contract you sign determines what you can enforce.">
         <div className="space-y-5 font-sans text-[19px] text-ink/65 leading-relaxed max-w-[720px]">
-          <p>Most business disputes are not about what happened &mdash; they are about what was written down. A contract without clear payment terms, intellectual property ownership language, and termination provisions is not a contract. It is a handshake with more words.</p>
-          <p>California courts enforce contracts based on what the document says, not what you intended. If your contract is silent on a term, California&apos;s Commercial Code fills in the gap with a default rule &mdash; which may not be the rule you would have chosen. Delina drafts contracts that address these gaps explicitly.</p>
+          <p>Most business disputes are not about what happened , they are about what was written down. A contract without clear payment terms, intellectual property ownership language, and termination provisions is not a contract. It is a handshake with more words.</p>
+          <p>California courts enforce contracts based on what the document says, not what you intended. If your contract is silent on a term, California&apos;s Commercial Code fills in the gap with a default rule , which may not be the rule you would have chosen. Delina drafts contracts that address these gaps explicitly.</p>
           <p>Creators and digital entrepreneurs face specific contract issues that generic business templates do not address: content licensing rights, exclusivity windows, approval rights over how their name and likeness are used, and kill fees. These are not minor details. They determine whether a brand deal is profitable or a liability.</p>
-          <p>If your business involves partnerships or co-founders, a proper <Link href="/llc-attorney" className="text-ink underline underline-offset-2 hover:text-ink/70 transition-colors">LLC operating agreement</Link> is the foundational contract governing your business relationship &mdash; before any client-facing contracts come into play.</p>
+          <p>If your business involves partnerships or co-founders, a proper <Link href="/llc-attorney" className="text-ink underline underline-offset-2 hover:text-ink/70 transition-colors">LLC operating agreement</Link> is the foundational contract governing your business relationship , before any client-facing contracts come into play.</p>
         </div>
       </LandingSection>
       <LandingSection eyebrow="What Delina Covers" headline="Contract drafting and review for every business relationship.">
@@ -117,7 +117,7 @@ export default function BusinessContractAttorneyPage() {
       <RelatedArticles tags={['contract', 'business-contracts', 'partnership', 'startup']} />
       <LandingCTA
         headline="Ready to stop operating on handshakes?"
-        body="Every business relationship that involves money or intellectual property should have a written contract that reflects the actual deal. Tell us your situation — what agreements your business needs and what they should say."
+        body="Every business relationship that involves money or intellectual property should have a written contract that reflects the actual deal. Tell us your situation, what agreements your business needs and what they should say."
       />
       <Footer />
     </main>

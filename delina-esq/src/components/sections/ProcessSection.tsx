@@ -6,7 +6,7 @@ const STEPS = [
   {
     number: '01',
     title: 'Book Your Intake',
-    body: 'Sixty minutes. Your situation, your strategy. Not a free call — a focused session with an attorney who has specific opinions about your structure.',
+    body: 'Sixty minutes. Your situation, your strategy. Not a free call, a focused session with an attorney who has specific opinions about your structure.',
   },
   {
     number: '02',
@@ -16,7 +16,7 @@ const STEPS = [
   {
     number: '03',
     title: 'Execute with Precision',
-    body: 'Formation documents, operating agreements, contracts, and filings — reviewed and structured for enforceability.',
+    body: 'Formation documents, operating agreements, contracts, and filings, reviewed and structured for enforceability.',
   },
   {
     number: '04',

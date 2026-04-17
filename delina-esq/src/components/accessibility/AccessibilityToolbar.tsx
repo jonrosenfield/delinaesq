@@ -26,7 +26,7 @@ export function AccessibilityToolbar() {
 
   return (
     <>
-      {/* Toggle Button — fixed bottom-right */}
+      {/* Toggle Button, fixed bottom-right */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="fixed bottom-6 right-6 z-[9997] w-12 h-12 rounded-retro border-2 border-hot-pink bg-void-950 flex items-center justify-center transition-all duration-200 hover:shadow-glow-pink focus:outline-none focus:ring-2 focus:ring-hot-pink focus:ring-offset-2 focus:ring-offset-void-950"

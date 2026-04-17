@@ -17,7 +17,7 @@ export function FloatingPortals() {
       <div className="absolute bottom-24 right-12 w-28 h-28 border border-electric/8 rounded-retro rotate-12 pointer-events-none hidden lg:block" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        {/* Header — editorial centered */}
+        {/* Header, editorial centered */}
         <ScrollReveal>
           <div className="text-center mb-20">
             <span className="tag-label mb-6 inline-block">SERVICES</span>
@@ -30,7 +30,7 @@ export function FloatingPortals() {
           </div>
         </ScrollReveal>
 
-        {/* Featured Card — full width, beveled */}
+        {/* Featured Card, full width, beveled */}
         <ScrollReveal delay={0.1}>
           <Link href={`/${featured.slug}`} className="block group">
             <motion.div

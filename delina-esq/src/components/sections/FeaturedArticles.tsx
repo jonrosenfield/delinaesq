@@ -206,7 +206,7 @@ function CategorySectionBlock({
         <FeatureCard post={section.articles[0]} color={section.color} />
       )}
 
-      {/* 6 supporting articles — 3×2 grid */}
+      {/* 6 supporting articles, 3×2 grid */}
       {section.articles.length > 1 && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-steel/15 mt-px">
           {section.articles.slice(1, 7).map((post) => (

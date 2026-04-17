@@ -35,7 +35,7 @@ const FEATURES = [
   },
   {
     title: 'Website Legal Documents',
-    body: 'Terms of service, privacy policy, and refund policy are not just legal boilerplate &mdash; they are the contracts that govern your relationship with every customer. California&apos;s CCPA creates specific disclosure and consent requirements for businesses with California customers.',
+    body: 'Terms of service, privacy policy, and refund policy are not just legal boilerplate , they are the contracts that govern your relationship with every customer. California&apos;s CCPA creates specific disclosure and consent requirements for businesses with California customers.',
   },
   {
     title: 'E-Commerce Tax Strategy',
@@ -46,7 +46,7 @@ const FEATURES = [
 const PAA = [
   {
     q: 'Do I need an LLC for my online store?',
-    a: 'If you are selling online and generating meaningful revenue, an LLC is worth serious consideration. It separates your personal assets from business liabilities &mdash; including customer claims, product liability, and platform disputes. The California minimum franchise tax is $800 per year. For stores doing $50,000 or more in annual revenue, the liability protection alone justifies the cost.',
+    a: 'If you are selling online and generating meaningful revenue, an LLC is worth serious consideration. It separates your personal assets from business liabilities , including customer claims, product liability, and platform disputes. The California minimum franchise tax is $800 per year. For stores doing $50,000 or more in annual revenue, the liability protection alone justifies the cost.',
   },
   {
     q: 'What legal documents does an e-commerce store need?',
@@ -76,10 +76,10 @@ export default function EcommerceBusinessAttorneyPage() {
       />
       <LandingSection eyebrow="The Legal Picture for Online Store Owners" headline="E-commerce businesses have specific legal needs that generic advice misses.">
         <div className="space-y-5 font-sans text-[19px] text-ink/65 leading-relaxed max-w-[720px]">
-          <p>Operating an online store as a sole proprietor means that every customer dispute, product liability claim, and supplier disagreement is a personal liability. Your personal savings, your car, and your home are all exposed to claims against your business. An LLC changes that &mdash; for $800 per year in California franchise tax plus formation costs.</p>
+          <p>Operating an online store as a sole proprietor means that every customer dispute, product liability claim, and supplier disagreement is a personal liability. Your personal savings, your car, and your home are all exposed to claims against your business. An LLC changes that , for $800 per year in California franchise tax plus formation costs.</p>
           <p>California has its own e-commerce requirements that many out-of-state guides omit. The California Consumer Privacy Act (CCPA) requires businesses with California customers to provide specific disclosures and honor opt-out requests for data sharing. A generic privacy policy template is unlikely to meet this standard.</p>
           <p>Online sellers also face a tax picture more complicated than a single Schedule C. Sales tax nexus in multiple states, platform 1099-K income, and the question of whether your business income qualifies for the qualified business income deduction all affect what you owe. Delina advises on the entity structure that positions your store for <Link href="/tax-attorney-small-business" className="text-ink underline underline-offset-2 hover:text-ink/70 transition-colors">real tax efficiency</Link>, not just lower complexity on this year&apos;s return.</p>
-          <p>If you are building a brand alongside your store, <Link href="/trademark-attorney" className="text-ink underline underline-offset-2 hover:text-ink/70 transition-colors">trademark registration</Link> protects your name and product brand nationally. Online sellers on Amazon and other platforms are increasingly vulnerable to brand hijacking &mdash; a registered trademark gives you legal standing to enforce your rights.</p>
+          <p>If you are building a brand alongside your store, <Link href="/trademark-attorney" className="text-ink underline underline-offset-2 hover:text-ink/70 transition-colors">trademark registration</Link> protects your name and product brand nationally. Online sellers on Amazon and other platforms are increasingly vulnerable to brand hijacking , a registered trademark gives you legal standing to enforce your rights.</p>
         </div>
       </LandingSection>
       <LandingSection eyebrow="What Delina Covers" headline="Legal strategy for California e-commerce business owners.">
@@ -117,7 +117,7 @@ export default function EcommerceBusinessAttorneyPage() {
       <RelatedArticles tags={['ecommerce', 'llc', 'contract']} />
       <LandingCTA
         headline="Ready to run your online store with real legal infrastructure?"
-        body="LLC formation, supplier contracts, website legal documents, and tax strategy &mdash; Delina advises e-commerce business owners who want to build something that lasts without surprise legal and tax problems. Tell us your situation — your store and what you actually need."
+        body="LLC formation, supplier contracts, website legal documents, and tax strategy , Delina advises e-commerce business owners who want to build something that lasts without surprise legal and tax problems. Tell us your situation, your store and what you actually need."
       />
       <Footer />
     </main>

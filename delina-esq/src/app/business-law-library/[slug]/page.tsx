@@ -72,7 +72,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
       <main className="bg-parchment pt-[52px]">
         <Navbar />
         <header className="relative py-20 px-6 overflow-hidden" style={{ backgroundColor: '#0A0A0A' }}>
-          {/* Category color wash — diagonal from bottom-right, same pattern as landing pages */}
+          {/* Category color wash, diagonal from bottom-right, same pattern as landing pages */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{

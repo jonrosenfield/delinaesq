@@ -10,7 +10,7 @@ import { RelatedArticles } from '@/components/landing/RelatedArticles'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Startup Lawyer in California — Legal Strategy for Founders | Delina Yasmeh, Esq.',
+  title: 'Startup Lawyer in California, Legal Strategy for Founders | Delina Yasmeh, Esq.',
   description: 'California startup lawyer for early-stage founders. Entity formation, co-founder agreements, IP assignment, and startup legal documents. Paid intake only.',
   alternates: { canonical: 'https://delina.esq/startup-attorney-california/' },
 }
@@ -27,19 +27,19 @@ const schema = {
 const FEATURES = [
   {
     title: 'Entity Formation & Co-Founder Structure',
-    body: 'Who owns what percentage, what happens if a co-founder leaves, and who controls the company &mdash; these decisions should be documented before the first customer. Delina structures startup entities with these questions answered explicitly.',
+    body: 'Who owns what percentage, what happens if a co-founder leaves, and who controls the company , these decisions should be documented before the first customer. Delina structures startup entities with these questions answered explicitly.',
   },
   {
     title: 'IP Assignment & Founder Agreements',
-    body: 'If you built anything before forming the entity &mdash; code, designs, content, a product &mdash; that IP needs to be formally assigned to the company. Investors and acquirers will ask. Delina handles IP assignment and advisor agreements from the start.',
+    body: 'If you built anything before forming the entity , code, designs, content, a product , that IP needs to be formally assigned to the company. Investors and acquirers will ask. Delina handles IP assignment and advisor agreements from the start.',
   },
   {
     title: 'Startup Legal Documents',
-    body: 'NDAs, term sheets, consulting agreements, offer letters, and independent contractor agreements. Delina drafts startup-specific documents that reflect how early-stage companies actually operate &mdash; not how Fortune 500 companies operate.',
+    body: 'NDAs, term sheets, consulting agreements, offer letters, and independent contractor agreements. Delina drafts startup-specific documents that reflect how early-stage companies actually operate , not how Fortune 500 companies operate.',
   },
   {
     title: 'Equity & Vesting Structure',
-    body: 'Founder equity without a vesting schedule is a risk. If a co-founder leaves after six months with 33% of the company, that is not a hypothetical &mdash; it happens regularly. Delina advises on standard vesting terms and cliff provisions before anyone has reason to dispute them.',
+    body: 'Founder equity without a vesting schedule is a risk. If a co-founder leaves after six months with 33% of the company, that is not a hypothetical , it happens regularly. Delina advises on standard vesting terms and cliff provisions before anyone has reason to dispute them.',
   },
 ]
 
@@ -54,7 +54,7 @@ const PAA = [
   },
   {
     q: 'Should a California startup be an LLC or a C-Corp?',
-    a: 'If you plan to raise venture capital, you need a Delaware C-Corp. Venture funds generally will not invest in LLCs. If you are building a profitable small business without institutional investors, an LLC or S-Corp may be more tax-efficient. The choice depends entirely on your financing strategy. Delina advises on this decision early &mdash; before the wrong structure makes fundraising harder.',
+    a: 'If you plan to raise venture capital, you need a Delaware C-Corp. Venture funds generally will not invest in LLCs. If you are building a profitable small business without institutional investors, an LLC or S-Corp may be more tax-efficient. The choice depends entirely on your financing strategy. Delina advises on this decision early , before the wrong structure makes fundraising harder.',
   },
 ]
 
@@ -72,14 +72,14 @@ export default function StartupAttorneyCaliforniaPage() {
       <LandingHero accent="#2255CC"
         eyebrow="Startup Lawyer · California · Founder Legal Strategy"
         headline="Startup Attorney"
-        subhead="Delina Yasmeh advises California startup founders on entity formation, co-founder agreements, IP assignment, and the legal infrastructure that lets you build something institutional &mdash; not just fast."
+        subhead="Delina Yasmeh advises California startup founders on entity formation, co-founder agreements, IP assignment, and the legal infrastructure that lets you build something institutional , not just fast."
       />
       <LandingSection eyebrow="Why Startup Legal Strategy Matters Early" headline="The documents you skip at formation are the ones that hurt you at Series A.">
         <div className="space-y-5 font-sans text-[19px] text-ink/65 leading-relaxed max-w-[720px]">
           <p>Most startup legal disasters are not spectacular. They are a co-founder who owns 40% of the company with no vesting schedule, a product built on IP that was never formally assigned to the entity, or a cap table that no institutional investor will touch. These problems are invisible until they are expensive.</p>
-          <p>California adds specific complications for startups. Work created by employees during the scope of employment is owned by the employer under California Labor Code &sect; 2870 &mdash; but the line between &ldquo;scope of employment&rdquo; and personal projects is contested and has been litigated. Founders who worked at other companies before starting their startup need to understand this risk explicitly.</p>
-          <p>The entity decision also matters early. If you plan to raise venture capital, you almost certainly need a Delaware C-Corp &mdash; most institutional funds have restrictions on investing in LLCs. If you are building a bootstrapped profitable business, a <Link href="/llc-attorney" className="text-ink underline underline-offset-2 hover:text-ink/70 transition-colors">California LLC</Link> may be significantly more tax-efficient. Delina advises on this decision before formation, not after you have been operating in the wrong structure for two years.</p>
-          <p>Early-stage companies also need <Link href="/business-contract-attorney" className="text-ink underline underline-offset-2 hover:text-ink/70 transition-colors">contracts that reflect how startups actually work</Link> &mdash; contractor agreements, advisory agreements, and NDAs that are enforceable but not so heavy that they scare off the people you need to bring in.</p>
+          <p>California adds specific complications for startups. Work created by employees during the scope of employment is owned by the employer under California Labor Code &sect; 2870 , but the line between &ldquo;scope of employment&rdquo; and personal projects is contested and has been litigated. Founders who worked at other companies before starting their startup need to understand this risk explicitly.</p>
+          <p>The entity decision also matters early. If you plan to raise venture capital, you almost certainly need a Delaware C-Corp , most institutional funds have restrictions on investing in LLCs. If you are building a bootstrapped profitable business, a <Link href="/llc-attorney" className="text-ink underline underline-offset-2 hover:text-ink/70 transition-colors">California LLC</Link> may be significantly more tax-efficient. Delina advises on this decision before formation, not after you have been operating in the wrong structure for two years.</p>
+          <p>Early-stage companies also need <Link href="/business-contract-attorney" className="text-ink underline underline-offset-2 hover:text-ink/70 transition-colors">contracts that reflect how startups actually work</Link> , contractor agreements, advisory agreements, and NDAs that are enforceable but not so heavy that they scare off the people you need to bring in.</p>
         </div>
       </LandingSection>
       <LandingSection eyebrow="What Delina Covers" headline="Legal infrastructure for California founders building something real.">
@@ -117,7 +117,7 @@ export default function StartupAttorneyCaliforniaPage() {
       <RelatedArticles tags={['startup', 'founder', 'legal-documents', 'contract']} />
       <LandingCTA
         headline="Ready to build a startup on a legal foundation that survives due diligence?"
-        body="Delina works with founders who want to get the structure right from day one &mdash; not clean it up when an investor asks why the IP was never assigned. Tell us your situation — your entity, your co-founder structure, and your legal document needs."
+        body="Delina works with founders who want to get the structure right from day one , not clean it up when an investor asks why the IP was never assigned. Tell us your situation, your entity, your co-founder structure, and your legal document needs."
       />
       <Footer />
     </main>

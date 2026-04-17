@@ -23,7 +23,7 @@ export default function LawLibrary() {
     tags: p.tags,
   }))
 
-  // MDX posts from content/blog/ — server-side fs read
+  // MDX posts from content/blog/, server-side fs read
   const mdxPosts: PostMeta[] = getAllMdxPosts().map((p) => ({
     slug: p.slug,
     title: p.title,
