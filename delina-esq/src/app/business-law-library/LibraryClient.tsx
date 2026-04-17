@@ -471,26 +471,55 @@ export function LibraryClient({ posts }: { posts: PostMeta[] }) {
               </div>
             </div>
 
-            {/* RIGHT, vertical category index */}
-            <nav className="lg:col-span-5 flex flex-col gap-0 lg:pb-1">
+            {/* RIGHT, category index — vertical on desktop, horizontal scroll on mobile */}
+            <nav className="lg:col-span-5 lg:pb-1">
               <span className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-white/30 block mb-4">
                 Browse by topic
               </span>
-              {categories.map((cat) => {
-                const isActive = activeCategory === cat
-                const color = cat === 'All' ? '#fff' : cardColor(cat)
-                return (
-                  <CategoryNavItem
-                    key={cat}
-                    cat={cat}
-                    isActive={isActive}
-                    color={color}
-                    onClick={() => handleCategoryClick(cat)}
-                    onHoverStart={() => setHoveredCategory(cat === 'All' ? null : cat)}
-                    onHoverEnd={() => setHoveredCategory(null)}
-                  />
-                )
-              })}
+
+              {/* Mobile: horizontal pill strip */}
+              <div className="flex gap-2 overflow-x-auto pb-1 lg:hidden no-scrollbar">
+                {categories.map((cat) => {
+                  const isActive = activeCategory === cat
+                  const color = cat === 'All' ? '#fff' : cardColor(cat)
+                  return (
+                    <button
+                      key={cat}
+                      onClick={() => handleCategoryClick(cat)}
+                      className="flex-shrink-0 flex items-center gap-1.5 border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.15em] whitespace-nowrap transition-all duration-200"
+                      style={{
+                        borderColor: isActive ? color : 'rgba(255,255,255,0.2)',
+                        color: isActive ? color : 'rgba(255,255,255,0.45)',
+                        backgroundColor: isActive ? `${color}18` : 'transparent',
+                      }}
+                    >
+                      {isActive && (
+                        <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
+                      )}
+                      {cat}
+                    </button>
+                  )
+                })}
+              </div>
+
+              {/* Desktop: vertical list */}
+              <div className="hidden lg:flex lg:flex-col gap-0">
+                {categories.map((cat) => {
+                  const isActive = activeCategory === cat
+                  const color = cat === 'All' ? '#fff' : cardColor(cat)
+                  return (
+                    <CategoryNavItem
+                      key={cat}
+                      cat={cat}
+                      isActive={isActive}
+                      color={color}
+                      onClick={() => handleCategoryClick(cat)}
+                      onHoverStart={() => setHoveredCategory(cat === 'All' ? null : cat)}
+                      onHoverEnd={() => setHoveredCategory(null)}
+                    />
+                  )
+                })}
+              </div>
             </nav>
           </div>
         </div>

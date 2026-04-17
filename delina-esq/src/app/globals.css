@@ -43,6 +43,10 @@ html {
   ::-webkit-scrollbar-thumb { background: #CCCCCC; }
 }
 
+/* Hide scrollbar on horizontal pill strips while preserving scroll */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+
 @layer components {
 
   /* ── PAPER GRAIN ── */
@@ -140,6 +144,26 @@ html {
     display: flex;
     width: max-content;
     animation: marquee 28s linear infinite;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ── TICKER (hero bottom strip) ── */
+  /* Desktop: animated marquee. Mobile: static, touch-scrollable. */
+  .ticker-strip {
+    display: flex;
+    width: max-content;
+  }
+  @media (min-width: 1024px) {
+    .ticker-strip {
+      animation: marquee 32s linear infinite;
+    }
+    .ticker-strip.paused {
+      animation-play-state: paused;
+    }
   }
 }
 

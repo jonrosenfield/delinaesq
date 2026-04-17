@@ -187,21 +187,14 @@ export function HeroSection() {
 
       </div>
 
-      {/* Scrolling ticker, pinned to bottom, hover to pause, click to navigate */}
+      {/* Scrolling ticker — animated on desktop, touch-scrollable on mobile */}
       <div
-        className="relative z-10 border-t border-white/15 overflow-hidden cursor-pointer"
+        className="relative z-10 border-t border-white/15 overflow-x-auto lg:overflow-hidden no-scrollbar"
         style={{ backgroundColor: 'rgba(10,10,10,0.6)' }}
         onMouseEnter={() => setTickerPaused(true)}
         onMouseLeave={() => setTickerPaused(false)}
       >
-        <div
-          className="flex py-4"
-          style={{
-            animation: 'marquee 32s linear infinite',
-            animationPlayState: tickerPaused ? 'paused' : 'running',
-            width: 'max-content',
-          }}
-        >
+        <div className={`ticker-strip py-4${tickerPaused ? ' paused' : ''}`}>
           {DOUBLED.map((item, i) => (
             <Link
               key={i}
