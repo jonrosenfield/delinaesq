@@ -71,7 +71,7 @@ export default function TrademarkPage() {
       <Navbar />
       <LandingHero accent="#9B1527"
         eyebrow="Trademark Attorney · Brand Protection · California"
-        headline="Your Brand Name Is Only Protected If You Actually Protect It."
+        headline="Trademark Attorney"
         subhead="Delina Yasmeh handles federal trademark registration and brand protection strategy for California entrepreneurs, creators, and businesses building something worth protecting."
       />
       <LandingSection eyebrow="Why Trademark Registration Matters" headline="Using a name is not the same as owning it.">

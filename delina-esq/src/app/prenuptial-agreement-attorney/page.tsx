@@ -71,7 +71,7 @@ export default function PrenuptialAgreementAttorneyPage() {
       <Navbar />
       <LandingHero accent="#9B1527"
         eyebrow="Prenuptial Agreement Attorney · California"
-        headline="A Prenup Is Not a Pessimistic Document.<br />It Is a Financially Sophisticated One."
+        headline="Prenuptial Agreement Attorney"
         subhead="Delina Yasmeh drafts and reviews prenuptial agreements for California entrepreneurs, founders, and high earners who have something real to protect."
       />
       <LandingSection eyebrow="What a Prenup Actually Does" headline="Most people misunderstand what a prenuptial agreement is.">

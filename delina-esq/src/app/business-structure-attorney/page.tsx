@@ -71,7 +71,7 @@ export default function BusinessStructureAttorneyPage() {
       <Navbar />
       <LandingHero accent="#8090A8"
         eyebrow="Business Structure Attorney · California · New Business"
-        headline="The Structure You Choose on Day One Follows You.<br />Choose It With Someone Who Knows What It Means."
+        headline="Business Structure Attorney"
         subhead="Delina Yasmeh advises new California business owners on entity formation, LLC operating agreements, and the legal and tax implications of every structure &mdash; before the wrong choice becomes expensive to fix."
       />
       <LandingSection eyebrow="Structure Is Not a Filing. It Is a Foundation." headline="Most new business owners choose a structure without understanding it.">

@@ -71,7 +71,7 @@ export default function NonprofitPage() {
       <Navbar />
       <LandingHero accent="#1A3A6E"
         eyebrow="Nonprofit Attorney · California · 501(c)(3) Formation"
-        headline="Forming a Nonprofit Is Not the Hard Part.<br />Running One Legally Is."
+        headline="Nonprofit Attorney"
         subhead="Delina Yasmeh advises California nonprofit founders on 501(c)(3) formation, governance, compliance, and the ongoing legal requirements that keep tax-exempt status intact."
       />
       <LandingSection eyebrow="What Nonprofit Legal Counsel Actually Covers" headline="Formation is one day&apos;s work. Governance lasts as long as the organization does.">

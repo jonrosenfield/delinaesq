@@ -71,7 +71,7 @@ export default function EcommerceBusinessAttorneyPage() {
       <Navbar />
       <LandingHero accent="#8090A8"
         eyebrow="E-Commerce Business Attorney · California · Online Store Legal"
-        headline="You Built a Store. Now Build the Legal Structure<br />That Protects What You&apos;ve Built."
+        headline="E-Commerce Business Attorney"
         subhead="Delina Yasmeh advises California e-commerce business owners on LLC formation, supplier contracts, website legal documents, and the tax strategy that online sellers need but rarely get."
       />
       <LandingSection eyebrow="The Legal Picture for Online Store Owners" headline="E-commerce businesses have specific legal needs that generic advice misses.">

@@ -71,7 +71,7 @@ export default function LLCPage() {
       <Navbar />
       <LandingHero accent="#8090A8"
         eyebrow="LLC Attorney · California · Formation & Strategy"
-        headline="An LLC Is Not Just a Filing.<br />It Is a Legal Structure That Either Works or Doesn&apos;t."
+        headline="LLC Attorney"
         subhead="Delina Yasmeh advises California business owners on LLC formation, operating agreements, and entity strategy — built around how you actually make money, not a generic template."
       />
       <LandingSection eyebrow="What an LLC Actually Does" headline="Formation is the beginning. The operating agreement is what matters.">

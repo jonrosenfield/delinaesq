@@ -71,7 +71,7 @@ export default function PostnupPage() {
       <Navbar />
       <LandingHero accent="#9B1527"
         eyebrow="Postnuptial Agreement Lawyer · California"
-        headline="A Postnuptial Agreement Is Not an Admission of Failure.<br />It Is a Decision Made With Open Eyes."
+        headline="Postnuptial Agreement Lawyer"
         subhead="Delina Yasmeh drafts postnuptial agreements for California couples who&apos;ve built something during their marriage and need legal structure to protect it."
       />
       <LandingSection eyebrow="What a Postnup Actually Does" headline="What most married entrepreneurs don&apos;t realize about California law.">

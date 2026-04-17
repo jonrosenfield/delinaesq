@@ -71,7 +71,7 @@ export default function TaxAttorneySmallBusinessPage() {
       <Navbar />
       <LandingHero accent="#1A3A6E"
         eyebrow="Tax Attorney · Small Business · California"
-        headline="Your Tax Bill Is Not Fixed.<br />It Is the Result of Decisions You Made &mdash; or Didn&apos;t."
+        headline="Tax Attorney"
         subhead="Delina Yasmeh advises California small business owners, creators, and founders on tax strategy, entity structuring, and S-Corp elections &mdash; before tax season makes it too late to change anything."
       />
       <LandingSection eyebrow="Why Tax Strategy Matters Before April" headline="The decisions that reduce your tax bill happen before the year ends.">

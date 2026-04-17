@@ -71,7 +71,7 @@ export default function BusinessContractAttorneyPage() {
       <Navbar />
       <LandingHero accent="#2255CC"
         eyebrow="Business Contract Attorney · California"
-        headline="A Contract Is Not Paperwork.<br />It Is the Only Record of What Was Actually Agreed."
+        headline="Business Contract Attorney"
         subhead="Delina Yasmeh drafts and reviews business contracts for California entrepreneurs, creators, and founders &mdash; written to protect you, not just to document the deal."
       />
       <LandingSection eyebrow="Why Business Contracts Matter" headline="The contract you sign determines what you can enforce.">

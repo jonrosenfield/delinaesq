@@ -71,7 +71,7 @@ export default function SCorpAttorneyPage() {
       <Navbar />
       <LandingHero accent="#8090A8"
         eyebrow="S-Corp Attorney · California · Election & Tax Strategy"
-        headline="An S-Corp Election Can Save You $10,000 a Year.<br />It Can Also Cost You More Than That If You Do It Wrong."
+        headline="S-Corp Attorney"
         subhead="Delina Yasmeh advises California business owners on S-Corp elections, salary structuring, and the California-specific tax math that most &ldquo;just elect S-Corp&rdquo; advice ignores."
       />
       <LandingSection eyebrow="What the S-Corp Election Actually Does" headline="The tax savings are real. So is the California franchise tax.">

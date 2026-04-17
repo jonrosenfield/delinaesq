@@ -71,7 +71,7 @@ export default function StartupAttorneyCaliforniaPage() {
       <Navbar />
       <LandingHero accent="#2255CC"
         eyebrow="Startup Lawyer · California · Founder Legal Strategy"
-        headline="The Legal Problems That Kill Startups<br />Are Always the Ones Nobody Set Up a Document For."
+        headline="Startup Attorney"
         subhead="Delina Yasmeh advises California startup founders on entity formation, co-founder agreements, IP assignment, and the legal infrastructure that lets you build something institutional &mdash; not just fast."
       />
       <LandingSection eyebrow="Why Startup Legal Strategy Matters Early" headline="The documents you skip at formation are the ones that hurt you at Series A.">

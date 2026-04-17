@@ -71,7 +71,7 @@ export default function CreatorAttorneyPage() {
       <Navbar />
       <LandingHero accent="#9B1527"
         eyebrow="Attorney for Creators · Influencers · Digital Entrepreneurs"
-        headline="You Built Something Real.<br />Protect It Like a Business Owner, Not a Hobbyist."
+        headline="Creator &amp; Influencer Attorney"
         subhead="Delina Yasmeh advises California content creators, influencers, and digital entrepreneurs on brand deal contracts, LLC formation, tax strategy, and IP protection &mdash; for creators who have outgrown the advice they&apos;re getting."
       />
       <LandingSection eyebrow="Why Creators Need Their Own Legal Strategy" headline="The creator economy is a real business. Your legal structure should reflect that.">

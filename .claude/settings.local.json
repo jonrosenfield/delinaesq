@@ -20,7 +20,12 @@
       "Bash(kill -9 15956)",
       "Bash(pwdx 16403)",
       "Bash(curl -s http://localhost:3000)",
-      "Bash(curl -s \"http://localhost:3000/_next/static/css/app/layout.css\")"
+      "Bash(curl -s \"http://localhost:3000/_next/static/css/app/layout.css\")",
+      "Bash(sed -i '' 's|headline=\"A Prenup Is Not a Pessimistic Document.<br />It Is a Financially Sophisticated One.\"|headline=\"Prenuptial Agreement Attorney\"|' '/Users/jonathanrosenfield/Documents/Websites/DelinaESQ 2.0/delina-esq/src/app/prenuptial-agreement-attorney/page.tsx')",
+      "Bash(sed -i '' 's|headline=\"A Postnuptial Agreement Is Not an Admission of Failure.<br />It Is a Decision Made With Open Eyes.\"|headline=\"Postnuptial Agreement Lawyer\"|' '/Users/jonathanrosenfield/Documents/Websites/DelinaESQ 2.0/delina-esq/src/app/postnuptial-agreement-lawyer/page.tsx')",
+      "Bash(sed -i '' 's|headline=\"The Structure You Choose on Day One Follows You.<br />Choose It With Someone Who Knows What It Means.\"|headline=\"Business Structure Attorney\"|' '/Users/jonathanrosenfield/Documents/Websites/DelinaESQ 2.0/delina-esq/src/app/business-structure-attorney/page.tsx')",
+      "Bash(sed -i '' 's|headline=\"Your Tax Bill Is Not Fixed.<br />It Is the Result of Decisions You Made &mdash; or Didn&apos;t.\"|headline=\"Tax Attorney\"|' '/Users/jonathanrosenfield/Documents/Websites/DelinaESQ 2.0/delina-esq/src/app/tax-attorney-small-business/page.tsx')",
+      "Bash(sed -i '' 's|headline=\"You Built Something Real.<br />Protect It Like a Business Owner, Not a Hobbyist.\"|headline=\"Creator \\\\&amp; Influencer Attorney\"|' '/Users/jonathanrosenfield/Documents/Websites/DelinaESQ 2.0/delina-esq/src/app/creator-attorney/page.tsx')"
     ]
   }
 }
