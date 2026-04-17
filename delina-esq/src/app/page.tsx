@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { HeroSection } from '@/components/hero/HeroSection'
-import { LogoStrip } from '@/components/sections/LogoStrip'
 import { PhilosophyStatement } from '@/components/sections/PhilosophyStatement'
 import { BentoGrid } from '@/components/services/BentoGrid'
 import { WhoThisIsFor } from '@/components/sections/WhoThisIsFor'
@@ -8,7 +7,6 @@ import { ProcessSection } from '@/components/sections/ProcessSection'
 import { CTABanner } from '@/components/sections/CTABanner'
 import { Footer } from '@/components/layout/Footer'
 import { Eyebrow } from '@/components/ui/Eyebrow'
-import { ConciergeBar } from '@/components/layout/ConciergeBar'
 
 export const metadata: Metadata = {
   title: 'Delina Yasmeh, Esq. | California Legal Strategy',
@@ -19,9 +17,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="bg-parchment pt-[52px]">
-      <ConciergeBar />
       <HeroSection />
-      <LogoStrip />
       <PhilosophyStatement />
       <section id="services" className="py-24 bg-parchment">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-12 mb-14">

@@ -36,7 +36,7 @@ export function RelatedArticles({ tags, currentSlug }: RelatedArticlesProps) {
           </div>
           <Link
             href="/blog"
-            className="font-mono text-[10px] uppercase tracking-[0.15em] text-ink/50 hover:text-ink transition-colors hidden md:block"
+            className="font-mono text-[13px] uppercase tracking-[0.15em] text-ink/50 hover:text-ink transition-colors hidden md:block"
           >
             All Articles →
           </Link>
@@ -53,7 +53,7 @@ export function RelatedArticles({ tags, currentSlug }: RelatedArticlesProps) {
                 {post.category} · {post.readTime} read
               </span>
               <h3
-                className="font-display font-light text-ink leading-snug group-hover:text-ink/70 transition-colors"
+                className="font-sans font-medium text-ink leading-snug group-hover:text-ink/70 transition-colors"
                 style={{ fontSize: 'clamp(1.1rem, 1.8vw, 1.4rem)' }}
               >
                 {post.title}
@@ -61,7 +61,7 @@ export function RelatedArticles({ tags, currentSlug }: RelatedArticlesProps) {
               <p className="font-sans text-[12px] text-ink/45 leading-relaxed mt-3 line-clamp-2">
                 {post.description}
               </p>
-              <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-ink/35 mt-5 block">
+              <span className="font-mono text-[12px] uppercase tracking-[0.15em] text-ink/35 mt-5 block">
                 {formatted(post.date)}
               </span>
             </Link>
@@ -70,7 +70,7 @@ export function RelatedArticles({ tags, currentSlug }: RelatedArticlesProps) {
 
         <Link
           href="/blog"
-          className="font-mono text-[10px] uppercase tracking-[0.15em] text-ink/50 hover:text-ink transition-colors mt-8 block md:hidden"
+          className="font-mono text-[13px] uppercase tracking-[0.15em] text-ink/50 hover:text-ink transition-colors mt-8 block md:hidden"
         >
           All Articles →
         </Link>

@@ -1,32 +1,32 @@
 import type { Metadata } from 'next'
 import {
-  Cormorant_Garamond,
-  EB_Garamond,
-  Space_Grotesk,
+  Jost,
+  DM_Sans,
+  Inter,
   JetBrains_Mono,
 } from 'next/font/google'
 import './globals.css'
 import { Navbar } from '@/components/layout/Navbar'
 import { GrainOverlay } from '@/components/ui/GrainOverlay'
 
-const cormorant = Cormorant_Garamond({
+const jost = Jost({
   subsets: ['latin'],
-  weight: ['300', '400', '600'],
-  variable: '--font-cormorant',
+  weight: ['300', '400', '500', '600'],
+  variable: '--font-jost',
   display: 'swap',
 })
 
-const ebGaramond = EB_Garamond({
-  subsets: ['latin'],
-  weight: ['400', '500'],
-  variable: '--font-eb-garamond',
-  display: 'swap',
-})
-
-const spaceGrotesk = Space_Grotesk({
+const dmSans = DM_Sans({
   subsets: ['latin'],
   weight: ['300', '400', '500'],
-  variable: '--font-space-grotesk',
+  variable: '--font-dm-sans',
+  display: 'swap',
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['300', '400', '500'],
+  variable: '--font-inter',
   display: 'swap',
 })
 
@@ -98,7 +98,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${ebGaramond.variable} ${spaceGrotesk.variable} ${jetbrains.variable}`}
+      className={`${jost.variable} ${dmSans.variable} ${inter.variable} ${jetbrains.variable}`}
     >
       <head>
         <script

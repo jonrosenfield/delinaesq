@@ -10,7 +10,7 @@ export function LandingCTA({ headline, body, ctaHref = '/book' }: LandingCTAProp
   return (
     <section className="bg-ink py-24 px-6">
       <div className="max-w-[700px] mx-auto text-center">
-        <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/60 block mb-5">
+        <span className="font-mono text-[12px] uppercase tracking-[0.2em] text-white/60 block mb-5">
           Paid Intake · California Only · By Appointment
         </span>
         <h2
@@ -19,12 +19,12 @@ export function LandingCTA({ headline, body, ctaHref = '/book' }: LandingCTAProp
         >
           {headline}
         </h2>
-        <p className="font-sans font-light text-[15px] text-white/75 max-w-[460px] mx-auto mt-5 leading-relaxed">
+        <p className="font-sans font-light text-[19px] text-white/75 max-w-[460px] mx-auto mt-5 leading-relaxed">
           {body}
         </p>
         <Link
           href={ctaHref}
-          className="inline-flex items-center gap-2 px-10 py-4 mt-9 border border-white/50 text-white font-mono text-[10px] uppercase tracking-[0.2em] hover:bg-white hover:text-ink transition-all duration-200"
+          className="inline-flex items-center gap-2 px-10 py-4 mt-9 border border-white/50 text-white font-mono text-[13px] uppercase tracking-[0.2em] hover:bg-white hover:text-ink transition-all duration-200"
         >
           Book Your Intake →
         </Link>

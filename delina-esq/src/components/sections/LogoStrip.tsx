@@ -19,7 +19,7 @@ export function LogoStrip() {
         {doubled.map((item, i) => (
           <span
             key={i}
-            className="text-[9px] font-mono uppercase tracking-[0.25em] text-mist mx-8 whitespace-nowrap"
+            className="text-[12px] font-mono uppercase tracking-[0.25em] text-mist mx-8 whitespace-nowrap"
           >
             {item}
             <span className="ml-8 text-steel">·</span>

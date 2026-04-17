@@ -1,126 +1,219 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.14 },
-  },
-}
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 22 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.75, ease: [0.25, 0.46, 0.45, 0.94] as const },
-  },
-}
-
-const STATS = [
-  { value: '127+', label: 'Clients Structured' },
-  { value: '$2M+', label: 'Tax Liability Saved' },
-  { value: '8', label: 'Practice Areas' },
+const INTENT_MAP: [RegExp, string][] = [
+  [/llc|structure|entity|formation/i, '/business-structure-attorney'],
+  [/prenup|marriage|marital/i, '/prenuptial-agreement-attorney'],
+  [/postnup/i, '/postnuptial-agreement-lawyer'],
+  [/creator|influencer|brand deal|content/i, '/creator-attorney'],
+  [/s.?corp|s corp/i, '/s-corp-attorney'],
+  [/tax|irs/i, '/tax-attorney-small-business'],
+  [/startup|founder|raise|funding|investor/i, '/startup-attorney-california'],
+  [/contract|agreement|deal|review/i, '/business-contract-attorney'],
+  [/trademark/i, '/trademark-attorney'],
+  [/nonprofit|501/i, '/nonprofit-attorney'],
+  [/ecommerce|e.?commerce|shopify|online store/i, '/ecommerce-business-attorney'],
 ]
 
-export function HeroSection() {
-  return (
-    <section className="min-h-[calc(100vh-52px)] bg-ink flex flex-col relative overflow-hidden">
-      {/* Main hero content — vertically centered */}
-      <motion.div
-        className="flex-1 flex flex-col items-center justify-center text-center px-6 py-20"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        {/* Eyebrow */}
-        <motion.span
-          variants={itemVariants}
-          className="font-mono text-[0.625rem] uppercase tracking-[0.25em] text-mist mb-10"
-        >
-          California Legal Strategy · Est. 2019
-        </motion.span>
+const CHIPS = [
+  { label: 'LLC Formation', href: '/business-structure-attorney' },
+  { label: 'Trademark Law', href: '/trademark-attorney' },
+  { label: 'Tax Strategy', href: '/tax-attorney-small-business' },
+  { label: 'Creator Business', href: '/creator-attorney' },
+  { label: 'S-Corp Election', href: '/s-corp-attorney' },
+  { label: 'Contract Review', href: '/business-contract-attorney' },
+]
 
-        {/* Headline — full editorial width */}
-        <motion.h1
-          variants={itemVariants}
-          className="font-display text-white max-w-[1000px] mx-auto"
-          style={{ fontSize: 'clamp(4.5rem, 11vw, 10.5rem)', lineHeight: 0.88, letterSpacing: '-0.04em' }}
+const TICKER = [
+  { label: 'Prenuptial Agreements', href: '/prenuptial-agreement-attorney' },
+  { label: 'LLC Formation', href: '/business-structure-attorney' },
+  { label: 'S-Corp Strategy', href: '/s-corp-attorney' },
+  { label: 'Creator Counsel', href: '/creator-attorney' },
+  { label: 'Trademark Protection', href: '/trademark-attorney' },
+  { label: 'Contract Advisory', href: '/business-contract-attorney' },
+  { label: 'Tax Optimization', href: '/tax-attorney-small-business' },
+  { label: 'Startup Structuring', href: '/startup-attorney-california' },
+  { label: 'Nonprofit Formation', href: '/nonprofit-attorney' },
+  { label: 'E-Commerce Law', href: '/ecommerce-business-attorney' },
+]
+
+const DOUBLED = [...TICKER, ...TICKER]
+
+export function HeroSection() {
+  const [searchValue, setSearchValue] = useState('')
+  const [searchFocused, setSearchFocused] = useState(false)
+  const [feedback, setFeedback] = useState('')
+  const [tickerPaused, setTickerPaused] = useState(false)
+  const router = useRouter()
+
+  function handleSearchSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    if (!searchValue.trim()) return
+    for (const [pattern, path] of INTENT_MAP) {
+      if (pattern.test(searchValue)) {
+        router.push(path)
+        return
+      }
+    }
+    setFeedback('Finding the right page for you →')
+    setTimeout(() => router.push('/business-structure-attorney'), 1200)
+  }
+
+  return (
+    <section className="min-h-[calc(100vh-52px)] flex flex-col relative overflow-hidden">
+      {/* Video background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        src="/delina-hero-test.mp4"
+      />
+
+      {/* Dark blur overlay — always on */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundColor: 'rgba(10,10,10,0.65)',
+          backdropFilter: 'blur(6px)',
+          WebkitBackdropFilter: 'blur(6px)',
+        }}
+      />
+
+      {/* Main hero content — vertically centered */}
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 py-10">
+        {/* Eyebrow */}
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.25em] text-white mb-10">
+          California Legal Strategy · Est. 2019
+        </span>
+
+        {/* Headline */}
+        <h1
+          className="font-display text-white max-w-[1100px] mx-auto"
+          style={{
+            fontSize: 'clamp(2.6rem, 5.5vw, 5.5rem)',
+            lineHeight: 1.0,
+            letterSpacing: '0.03em',
+          }}
         >
-          <span className="block italic font-light">Protect</span>
-          <span className="block font-semibold">What You&apos;ve Built.</span>
-        </motion.h1>
+          <span className="block font-medium uppercase">A Lawyer for</span>
+          <span className="block font-medium uppercase">Every Stage of</span>
+          <span className="block font-medium uppercase">Your Business.</span>
+        </h1>
+
+        {/* Concierge Search */}
+        <div className="w-full max-w-[560px] mt-10">
+          <form onSubmit={handleSearchSubmit} className="relative">
+            <svg
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-white/60"
+              width="15" height="15" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+            </svg>
+            <input
+              type="text"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+              onFocus={() => setSearchFocused(true)}
+              onBlur={() => setTimeout(() => setSearchFocused(false), 200)}
+              placeholder="What are you building or protecting?"
+              className={`w-full bg-white/10 border text-white placeholder:text-white/50 font-sans text-[16px] pl-11 pr-12 py-4 outline-none transition-all duration-300 ${searchFocused ? '' : 'search-pulse'}`}
+              style={{
+                backdropFilter: 'blur(12px)',
+                borderColor: searchFocused ? 'rgba(255,255,255,0.7)' : 'rgba(255,255,255,0.4)',
+                boxShadow: searchFocused
+                  ? '0 0 0 3px rgba(255,255,255,0.12), 0 0 40px rgba(255,255,255,0.25)'
+                  : undefined,
+              }}
+            />
+            <button
+              type="submit"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors font-mono text-lg"
+              aria-label="Search"
+            >
+              →
+            </button>
+          </form>
+
+          {feedback && (
+            <p className="mt-2 font-mono text-[12px] uppercase tracking-[0.15em] text-white/60 text-left pl-1">
+              {feedback}
+            </p>
+          )}
+
+          {/* Quick-route grid */}
+          <div className="grid grid-cols-3 gap-px mt-4 bg-white/10">
+            {CHIPS.map((chip) => (
+              <button
+                key={chip.href}
+                onClick={() => router.push(chip.href)}
+                className="bg-black/30 hover:bg-white/15 text-white/60 hover:text-white font-mono text-[10px] uppercase tracking-[0.12em] px-3 py-3 text-left transition-all duration-200 flex items-center justify-between gap-2 group"
+                style={{ backdropFilter: 'blur(8px)' }}
+              >
+                <span>{chip.label}</span>
+                <span className="text-white/30 group-hover:text-white/70 transition-colors">→</span>
+              </button>
+            ))}
+          </div>
+        </div>
 
         {/* Subheadline */}
-        <motion.p
-          variants={itemVariants}
-          className="font-sans font-light text-[17px] text-silver max-w-[500px] mt-8 leading-relaxed"
-        >
+        <p className="font-sans font-light text-[21px] text-white max-w-[500px] mt-8 leading-relaxed">
           Delina Yasmeh is a California attorney who works exclusively with entrepreneurs,
           creators, and high-net-worth individuals who&apos;ve outgrown generic legal advice.
-        </motion.p>
+        </p>
 
         {/* CTA Row */}
-        <motion.div
-          variants={itemVariants}
-          className="flex items-center justify-center gap-4 mt-9 flex-wrap"
-        >
+        <div className="flex items-center justify-center gap-4 mt-9 flex-wrap">
           <Link
             href="/book"
-            className="btn-primary text-[10px] font-mono uppercase tracking-[0.2em] py-4 px-8"
+            className="btn-primary text-[13px] font-mono uppercase tracking-[0.2em] py-4 px-8"
           >
-            Book Your Intake →
+            Get Started →
           </Link>
           <a
             href="#services"
-            className="btn-ghost text-[10px] font-mono uppercase tracking-[0.2em] py-4 px-8"
+            className="btn-ghost text-[13px] font-mono uppercase tracking-[0.2em] py-4 px-8"
           >
             How It Works
           </a>
-        </motion.div>
+        </div>
 
-        {/* Proof Chips */}
-        <motion.div
-          variants={itemVariants}
-          className="flex gap-3 mt-6 justify-center flex-wrap"
-        >
-          {['California Licensed', 'JD + LL.M. Taxation', 'S-Corp & LLC Strategy'].map((chip) => (
-            <span
-              key={chip}
-              className="text-[9px] font-mono uppercase tracking-[0.2em] text-mist border border-steel/50 px-3 py-1.5"
-            >
-              {chip}
-            </span>
-          ))}
-        </motion.div>
-      </motion.div>
+      </div>
 
-      {/* Stats strip — pinned to bottom of hero */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.0, duration: 0.8 }}
-        className="border-t border-steel/40 grid grid-cols-3"
+      {/* Scrolling ticker — pinned to bottom, hover to pause, click to navigate */}
+      <div
+        className="relative z-10 border-t border-white/15 overflow-hidden cursor-pointer"
+        style={{ backgroundColor: 'rgba(10,10,10,0.6)' }}
+        onMouseEnter={() => setTickerPaused(true)}
+        onMouseLeave={() => setTickerPaused(false)}
       >
-        {STATS.map((stat, i) => (
-          <div
-            key={stat.label}
-            className={`py-6 px-8 text-center ${i < STATS.length - 1 ? 'border-r border-steel/40' : ''}`}
-          >
-            <span
-              className="font-display text-white font-light block"
-              style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', lineHeight: 1 }}
+        <div
+          className="flex py-4"
+          style={{
+            animation: 'marquee 32s linear infinite',
+            animationPlayState: tickerPaused ? 'paused' : 'running',
+            width: 'max-content',
+          }}
+        >
+          {DOUBLED.map((item, i) => (
+            <Link
+              key={i}
+              href={item.href}
+              className="font-mono text-[13px] uppercase tracking-[0.22em] text-white/80 hover:text-white transition-colors duration-200 whitespace-nowrap mx-10 flex items-center gap-10"
             >
-              {stat.value}
-            </span>
-            <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-mist block mt-1.5">
-              {stat.label}
-            </span>
-          </div>
-        ))}
-      </motion.div>
+              {item.label}
+              <span className="text-white/25">·</span>
+            </Link>
+          ))}
+        </div>
+      </div>
     </section>
   )
 }

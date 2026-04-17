@@ -69,13 +69,13 @@ export default function BusinessContractAttorneyPage() {
     <main className="bg-parchment">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <Navbar />
-      <LandingHero
+      <LandingHero accent="#2255CC"
         eyebrow="Business Contract Attorney · California"
         headline="A Contract Is Not Paperwork.<br />It Is the Only Record of What Was Actually Agreed."
         subhead="Delina Yasmeh drafts and reviews business contracts for California entrepreneurs, creators, and founders &mdash; written to protect you, not just to document the deal."
       />
       <LandingSection eyebrow="Why Business Contracts Matter" headline="The contract you sign determines what you can enforce.">
-        <div className="space-y-5 font-sans text-[15px] text-ink/65 leading-relaxed max-w-[720px]">
+        <div className="space-y-5 font-sans text-[19px] text-ink/65 leading-relaxed max-w-[720px]">
           <p>Most business disputes are not about what happened &mdash; they are about what was written down. A contract without clear payment terms, intellectual property ownership language, and termination provisions is not a contract. It is a handshake with more words.</p>
           <p>California courts enforce contracts based on what the document says, not what you intended. If your contract is silent on a term, California&apos;s Commercial Code fills in the gap with a default rule &mdash; which may not be the rule you would have chosen. Delina drafts contracts that address these gaps explicitly.</p>
           <p>Creators and digital entrepreneurs face specific contract issues that generic business templates do not address: content licensing rights, exclusivity windows, approval rights over how their name and likeness are used, and kill fees. These are not minor details. They determine whether a brand deal is profitable or a liability.</p>
@@ -101,12 +101,12 @@ export default function BusinessContractAttorneyPage() {
                 className="flex items-center justify-between py-5 group"
               >
                 <span
-                  className="font-display font-light text-ink group-hover:text-ink/60 transition-colors"
+                  className="font-sans font-medium text-ink group-hover:text-ink/60 transition-colors"
                   style={{ fontSize: 'clamp(1.1rem, 2vw, 1.5rem)' }}
                 >
                   {r.label}
                 </span>
-                <span className="font-mono text-[11px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
+                <span className="font-mono text-[12px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
                   →
                 </span>
               </Link>

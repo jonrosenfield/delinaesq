@@ -31,13 +31,13 @@ export function Footer() {
               <p className="font-display text-[20px] tracking-[0.15em] text-white font-normal">
                 DELINA.ESQ
               </p>
-              <p className="font-mono text-[10px] text-mist mt-2">
+              <p className="font-mono text-[13px] text-mist mt-2">
                 California Legal Strategy
               </p>
-              <p className="font-mono text-[9px] text-mist/50 mt-6">
+              <p className="font-mono text-[12px] text-mist/50 mt-6">
                 California Bar Association
               </p>
-              <p className="font-mono text-[9px] text-mist mt-2">
+              <p className="font-mono text-[12px] text-mist mt-2">
                 &copy; 2026 Delina Yasmeh, Esq.
               </p>
               <p className="font-mono text-[8px] text-mist/40 mt-2 max-w-[200px] leading-relaxed">
@@ -54,7 +54,7 @@ export function Footer() {
                 <Link
                   key={`${item.label}-${item.href}`}
                   href={item.href}
-                  className="font-sans text-[13px] text-silver hover:text-white transition-colors block mb-2"
+                  className="font-sans text-[16px] text-silver hover:text-white transition-colors block mb-2"
                 >
                   {item.label}
                 </Link>
@@ -68,19 +68,19 @@ export function Footer() {
               </span>
               <Link
                 href="/book"
-                className="font-sans text-[13px] text-white hover:text-silver transition-colors block mb-2"
+                className="font-sans text-[16px] text-white hover:text-silver transition-colors block mb-2"
               >
                 Book Your Intake
               </Link>
               <Link
                 href="/about"
-                className="font-sans text-[13px] text-silver hover:text-white transition-colors block mb-2"
+                className="font-sans text-[16px] text-silver hover:text-white transition-colors block mb-2"
               >
                 About Delina
               </Link>
               <Link
                 href="/blog"
-                className="font-sans text-[13px] text-silver hover:text-white transition-colors block mb-2"
+                className="font-sans text-[16px] text-silver hover:text-white transition-colors block mb-2"
               >
                 The Brief
               </Link>
@@ -88,7 +88,7 @@ export function Footer() {
                 href="https://www.linkedin.com/in/delinayasmeh"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-sans text-[13px] text-silver hover:text-white transition-colors block mb-2"
+                className="font-sans text-[16px] text-silver hover:text-white transition-colors block mb-2"
               >
                 LinkedIn
               </a>
@@ -100,19 +100,19 @@ export function Footer() {
             <div className="flex items-center gap-4">
               <Link
                 href="#"
-                className="font-mono text-[9px] text-mist hover:text-silver transition-colors"
+                className="font-mono text-[12px] text-mist hover:text-silver transition-colors"
               >
                 Privacy Policy
               </Link>
-              <span className="font-mono text-[9px] text-steel">·</span>
+              <span className="font-mono text-[12px] text-steel">·</span>
               <Link
                 href="#"
-                className="font-mono text-[9px] text-mist hover:text-silver transition-colors"
+                className="font-mono text-[12px] text-mist hover:text-silver transition-colors"
               >
                 Terms of Service
               </Link>
             </div>
-            <p className="font-mono text-[9px] text-mist italic">
+            <p className="font-mono text-[12px] text-mist italic">
               Built for California. Built to last.
             </p>
           </div>

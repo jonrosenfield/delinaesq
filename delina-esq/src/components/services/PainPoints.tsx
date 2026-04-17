@@ -53,7 +53,7 @@ export function PainPoints({ painPoints, color }: PainPointsProps) {
                 style={{ boxShadow: `3px 3px 0px ${colors.shadow}` }}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <span className={`font-pixel text-[10px] tracking-[0.2em] px-3 py-1 rounded-retro border ${colors.accent} ${colors.border} ${colors.bg}`}>
+                  <span className={`font-pixel text-[13px] tracking-[0.2em] px-3 py-1 rounded-retro border ${colors.accent} ${colors.border} ${colors.bg}`}>
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <h3 className="font-pixel text-sm font-bold text-cream uppercase">

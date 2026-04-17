@@ -71,7 +71,7 @@ export function ThankYouContent() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6 + i * 0.1 }}
               >
-                <span className="text-hot-pink font-pixel text-[10px] mt-0.5">
+                <span className="text-hot-pink font-pixel text-[13px] mt-0.5">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <p className="text-void-300 text-sm font-body">{step}</p>
@@ -104,7 +104,7 @@ export function ThankYouContent() {
           <p className="text-void-500 text-sm mb-2 font-body">For urgent matters, reach us directly at:</p>
           <a
             href="mailto:info@delina.esq"
-            className="text-hot-pink font-pixel text-[10px] tracking-wider uppercase hover:text-electric transition-colors"
+            className="text-hot-pink font-pixel text-[13px] tracking-wider uppercase hover:text-electric transition-colors"
           >
             info@delina.esq
           </a>

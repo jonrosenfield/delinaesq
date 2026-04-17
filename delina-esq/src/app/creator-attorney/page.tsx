@@ -69,13 +69,13 @@ export default function CreatorAttorneyPage() {
     <main className="bg-parchment">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <Navbar />
-      <LandingHero
+      <LandingHero accent="#9B1527"
         eyebrow="Attorney for Creators · Influencers · Digital Entrepreneurs"
         headline="You Built Something Real.<br />Protect It Like a Business Owner, Not a Hobbyist."
         subhead="Delina Yasmeh advises California content creators, influencers, and digital entrepreneurs on brand deal contracts, LLC formation, tax strategy, and IP protection &mdash; for creators who have outgrown the advice they&apos;re getting."
       />
       <LandingSection eyebrow="Why Creators Need Their Own Legal Strategy" headline="The creator economy is a real business. Your legal structure should reflect that.">
-        <div className="space-y-5 font-sans text-[15px] text-ink/65 leading-relaxed max-w-[720px]">
+        <div className="space-y-5 font-sans text-[19px] text-ink/65 leading-relaxed max-w-[720px]">
           <p>Most creators operating as sole proprietors are leaving money on the table and taking on personal liability they do not have to. Every brand deal you sign as an individual exposes your personal assets to claims arising from that deal. Every dollar you earn as a sole proprietor is subject to self-employment tax at 15.3%. Neither of these is required.</p>
           <p>California creators with $50,000 or more in annual brand income should be operating through an entity. An <Link href="/llc-attorney" className="text-ink underline underline-offset-2 hover:text-ink/70 transition-colors">LLC</Link> provides liability protection, access to business deductions, and the option to elect S-Corp tax treatment once income justifies it. The $800 California minimum franchise tax is not nothing &mdash; but it is not the reason to avoid forming an entity.</p>
           <p>Brand deal contracts are written by brands and their lawyers. They default to terms that favor the brand: broad content approval rights, indefinite licensing of your likeness, low kill fees, and exclusivity windows that are longer than you realize. Delina reviews these contracts before you sign &mdash; not after the brand has already used your content in a way you did not intend to authorize.</p>
@@ -101,12 +101,12 @@ export default function CreatorAttorneyPage() {
                 className="flex items-center justify-between py-5 group"
               >
                 <span
-                  className="font-display font-light text-ink group-hover:text-ink/60 transition-colors"
+                  className="font-sans font-medium text-ink group-hover:text-ink/60 transition-colors"
                   style={{ fontSize: 'clamp(1.1rem, 2vw, 1.5rem)' }}
                 >
                   {r.label}
                 </span>
-                <span className="font-mono text-[11px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
+                <span className="font-mono text-[12px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
                   →
                 </span>
               </Link>

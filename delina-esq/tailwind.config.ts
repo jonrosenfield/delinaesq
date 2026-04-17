@@ -28,16 +28,16 @@ const config: Config = {
         sage:   '#00C896',
       },
       fontFamily: {
-        display:  ['var(--font-cormorant)', 'Georgia', 'serif'],
-        editorial:['var(--font-eb-garamond)', 'Georgia', 'serif'],
-        sans:     ['var(--font-space-grotesk)', 'system-ui', 'sans-serif'],
-        mono:     ['var(--font-jetbrains)', 'monospace'],
+        display:  ['var(--font-jost)', 'system-ui', 'sans-serif'],
+        editorial:['var(--font-dm-sans)', 'system-ui', 'sans-serif'],
+        sans:     ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        mono:     ['var(--font-inter)', 'system-ui', 'sans-serif'],
       },
       fontSize: {
-        // Vogue-scale editorial type
-        'headline': ['clamp(5rem, 13vw, 11rem)', { lineHeight: '0.88', letterSpacing: '-0.04em' }],
-        'title':    ['clamp(3rem, 7vw, 6.5rem)',  { lineHeight: '0.92', letterSpacing: '-0.03em' }],
-        'subhead':  ['clamp(1.75rem, 3.5vw, 3rem)', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+        // Modern geometric sans scale — open tracking, clean weight
+        'headline': ['clamp(5rem, 13vw, 11rem)', { lineHeight: '0.9',  letterSpacing: '0.04em' }],
+        'title':    ['clamp(3rem, 7vw, 6.5rem)',  { lineHeight: '0.95', letterSpacing: '0.03em' }],
+        'subhead':  ['clamp(1.75rem, 3.5vw, 3rem)', { lineHeight: '1.1', letterSpacing: '0.01em' }],
         'eyebrow':  ['0.6875rem',                  { lineHeight: '1',   letterSpacing: '0.2em'  }],
         'body-lg':  ['clamp(1.0625rem, 1.5vw, 1.25rem)', { lineHeight: '1.75', letterSpacing: '0.01em' }],
         'body':     ['1rem',                        { lineHeight: '1.7', letterSpacing: '0.005em' }],

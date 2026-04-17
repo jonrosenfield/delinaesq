@@ -55,7 +55,7 @@ export function FloatingPortals() {
                       </li>
                     ))}
                   </ul>
-                  <span className={`inline-block mt-6 font-pixel text-[10px] tracking-[0.15em] uppercase ${featuredColors.accent}`}>
+                  <span className={`inline-block mt-6 font-pixel text-[13px] tracking-[0.15em] uppercase ${featuredColors.accent}`}>
                     Learn More &#8594;
                   </span>
                 </div>
@@ -93,7 +93,7 @@ export function FloatingPortals() {
                         </li>
                       ))}
                     </ul>
-                    <span className={`inline-block mt-5 font-pixel text-[10px] tracking-[0.15em] uppercase ${colors.accent}`}>
+                    <span className={`inline-block mt-5 font-pixel text-[13px] tracking-[0.15em] uppercase ${colors.accent}`}>
                       Learn More &#8594;
                     </span>
                   </motion.div>

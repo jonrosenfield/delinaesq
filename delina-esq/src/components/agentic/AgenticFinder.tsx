@@ -134,7 +134,7 @@ export function AgenticFinder() {
       </AnimatePresence>
 
       <motion.p
-        className="text-center text-void-600 text-[9px] font-pixel tracking-[0.3em] mt-3"
+        className="text-center text-void-600 text-[12px] font-pixel tracking-[0.3em] mt-3"
         initial={{ opacity: 0 }}
         animate={{ opacity: isFocused ? 0 : 0.5 }}
         transition={{ duration: 0.3 }}

@@ -50,7 +50,7 @@ export function CrossLinks({ relatedSlugs }: CrossLinksProps) {
                     <p className="text-void-400 text-sm font-body leading-relaxed mb-4">
                       {service.description}
                     </p>
-                    <span className={`font-pixel text-[10px] tracking-[0.15em] uppercase ${colors.accent}`}>
+                    <span className={`font-pixel text-[13px] tracking-[0.15em] uppercase ${colors.accent}`}>
                       Learn More &#8594;
                     </span>
                   </motion.div>

@@ -69,13 +69,13 @@ export default function BusinessStructureAttorneyPage() {
     <main className="bg-parchment">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <Navbar />
-      <LandingHero
+      <LandingHero accent="#8090A8"
         eyebrow="Business Structure Attorney · California · New Business"
         headline="The Structure You Choose on Day One Follows You.<br />Choose It With Someone Who Knows What It Means."
         subhead="Delina Yasmeh advises new California business owners on entity formation, LLC operating agreements, and the legal and tax implications of every structure &mdash; before the wrong choice becomes expensive to fix."
       />
       <LandingSection eyebrow="Structure Is Not a Filing. It Is a Foundation." headline="Most new business owners choose a structure without understanding it.">
-        <div className="space-y-5 font-sans text-[15px] text-ink/65 leading-relaxed max-w-[720px]">
+        <div className="space-y-5 font-sans text-[19px] text-ink/65 leading-relaxed max-w-[720px]">
           <p>The internet will tell you to &ldquo;just form an LLC.&rdquo; That is not wrong &mdash; but it is incomplete. The entity you form determines your personal liability, your tax treatment, your ability to bring in partners or investors, and your options when you eventually want to sell or transition the business. These are not abstract questions. They have dollar amounts attached to them.</p>
           <p>California adds complexity that other states do not have. Every LLC in California pays an $800 annual minimum franchise tax &mdash; regardless of whether the business made money. S-Corps pay 1.5% of net income to the state on top of federal obligations. These costs are predictable and should be part of your decision, not a surprise at year end.</p>
           <p>If you expect to be profitable quickly, the conversation also includes whether an <Link href="/s-corp-attorney" className="text-ink underline underline-offset-2 hover:text-ink/70 transition-colors">S-Corp election</Link> makes sense and when to evaluate it. The election has a deadline &mdash; missing it means another year in the wrong tax structure.</p>
@@ -100,12 +100,12 @@ export default function BusinessStructureAttorneyPage() {
                 className="flex items-center justify-between py-5 group"
               >
                 <span
-                  className="font-display font-light text-ink group-hover:text-ink/60 transition-colors"
+                  className="font-sans font-medium text-ink group-hover:text-ink/60 transition-colors"
                   style={{ fontSize: 'clamp(1.1rem, 2vw, 1.5rem)' }}
                 >
                   {r.label}
                 </span>
-                <span className="font-mono text-[11px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
+                <span className="font-mono text-[12px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
                   →
                 </span>
               </Link>

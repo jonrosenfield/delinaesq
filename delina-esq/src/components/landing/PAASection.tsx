@@ -37,10 +37,10 @@ export function PAASection({ questions }: PAASectionProps) {
         <div className="space-y-0">
           {questions.map(({ q, a }, i) => (
             <div key={i} className="border-t border-steel/20 py-8">
-              <h3 className="font-display font-light text-ink text-[1.25rem] leading-snug tracking-[-0.01em] mb-3">
+              <h3 className="font-sans font-medium text-ink text-[1.25rem] leading-snug mb-3">
                 {q}
               </h3>
-              <p className="font-sans text-[14px] text-ink/65 leading-relaxed max-w-[700px]">{a}</p>
+              <p className="font-sans text-[18px] text-ink/65 leading-relaxed max-w-[700px]">{a}</p>
             </div>
           ))}
           <div className="border-t border-steel/20" />

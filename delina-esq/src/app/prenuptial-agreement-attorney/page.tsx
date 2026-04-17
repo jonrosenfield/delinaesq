@@ -69,13 +69,13 @@ export default function PrenuptialAgreementAttorneyPage() {
     <main className="bg-parchment">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <Navbar />
-      <LandingHero
+      <LandingHero accent="#9B1527"
         eyebrow="Prenuptial Agreement Attorney · California"
         headline="A Prenup Is Not a Pessimistic Document.<br />It Is a Financially Sophisticated One."
         subhead="Delina Yasmeh drafts and reviews prenuptial agreements for California entrepreneurs, founders, and high earners who have something real to protect."
       />
       <LandingSection eyebrow="What a Prenup Actually Does" headline="Most people misunderstand what a prenuptial agreement is.">
-        <div className="space-y-5 font-sans text-[15px] text-ink/65 leading-relaxed max-w-[720px]">
+        <div className="space-y-5 font-sans text-[19px] text-ink/65 leading-relaxed max-w-[720px]">
           <p>A prenuptial agreement is not a plan for divorce. It is a legal document that decides, in advance, how your assets and liabilities will be treated if the marriage ends. California&apos;s community property rules mean that income earned during a marriage belongs equally to both spouses by default. A prenup changes that default.</p>
           <p>For someone who owns a business, holds unvested equity, or earns significant income from a professional practice, the absence of a prenup is a financial decision &mdash; one made by inaction rather than intention.</p>
           <p>California Family Code &sect; 1615 sets specific requirements for enforceability: independent counsel for both parties, at least seven days between receiving the agreement and signing, and full financial disclosure. A prenup that skips any of these steps is vulnerable to challenge. Delina structures every agreement to meet this standard before either party signs.</p>
@@ -101,12 +101,12 @@ export default function PrenuptialAgreementAttorneyPage() {
                 className="flex items-center justify-between py-5 group"
               >
                 <span
-                  className="font-display font-light text-ink group-hover:text-ink/60 transition-colors"
+                  className="font-sans font-medium text-ink group-hover:text-ink/60 transition-colors"
                   style={{ fontSize: 'clamp(1.1rem, 2vw, 1.5rem)' }}
                 >
                   {r.label}
                 </span>
-                <span className="font-mono text-[11px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
+                <span className="font-mono text-[12px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
                   →
                 </span>
               </Link>

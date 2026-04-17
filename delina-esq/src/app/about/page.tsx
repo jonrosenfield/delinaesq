@@ -73,7 +73,7 @@ export default function AboutPage() {
           >
             Delina Yasmeh
           </h1>
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-mist/60 mt-4">
+          <p className="font-mono text-[13px] uppercase tracking-[0.2em] text-mist/60 mt-4">
             JD · LL.M. Taxation · California Attorney
           </p>
         </div>
@@ -100,7 +100,7 @@ export default function AboutPage() {
             <span className="font-mono text-[0.625rem] uppercase tracking-[0.25em] text-mist block mb-6">
               Background
             </span>
-            <div className="space-y-5 font-sans text-[15px] text-ink/65 leading-[1.8] max-w-[620px]">
+            <div className="space-y-5 font-sans text-[19px] text-ink/65 leading-[1.8] max-w-[620px]">
               <p>
                 Delina Yasmeh is the founder and principal attorney of Delina Yasmeh Law, a boutique legal practice delivering high-level legal and tax counsel to founders, operators, and entrepreneurs across industries and jurisdictions.
               </p>
@@ -121,7 +121,7 @@ export default function AboutPage() {
               ].map((cred) => (
                 <div key={cred.sub} className="border border-steel/20 bg-white p-5">
                   <span className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-mist block mb-1">{cred.sub}</span>
-                  <span className="font-display font-light text-ink text-[1.1rem] leading-snug">{cred.label}</span>
+                  <span className="font-sans font-medium text-ink text-[1.1rem] leading-snug">{cred.label}</span>
                 </div>
               ))}
             </div>
@@ -141,7 +141,7 @@ export default function AboutPage() {
           >
             &ldquo;Lawyers don&apos;t know tax. Accountants don&apos;t know law. My clients shouldn&apos;t have to pay for that gap.&rdquo;
           </blockquote>
-          <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-mist/60 mt-8">
+          <p className="font-mono text-[12px] uppercase tracking-[0.2em] text-mist/60 mt-8">
             — Delina Yasmeh, Esq.
           </p>
         </div>
@@ -163,13 +163,13 @@ export default function AboutPage() {
                 <span className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-mist/60 block mb-4">
                   {item.number}
                 </span>
-                <h3 className="font-display font-light text-ink text-[1.4rem] leading-tight mb-1">
+                <h3 className="font-sans font-medium text-ink text-[1.4rem] leading-tight mb-1">
                   {item.firm}
                 </h3>
-                <p className="font-mono text-[9px] uppercase tracking-[0.15em] text-mist mb-4">
+                <p className="font-mono text-[12px] uppercase tracking-[0.15em] text-mist mb-4">
                   {item.role}
                 </p>
-                <p className="font-sans text-[13px] text-ink/60 leading-relaxed">
+                <p className="font-sans text-[16px] text-ink/60 leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -191,7 +191,7 @@ export default function AboutPage() {
             >
               Delina Yasmeh Law
             </h2>
-            <div className="space-y-4 font-sans text-[15px] text-ink/65 leading-[1.8] max-w-[560px]">
+            <div className="space-y-4 font-sans text-[19px] text-ink/65 leading-[1.8] max-w-[560px]">
               <p>
                 She founded Delina Yasmeh Law to offer a rare combination of legal, tax, financial, and litigation expertise under one roof. The practice is built around a simple premise: most businesses are paying for fragmentation — separate attorneys, CPAs, and advisors who don&apos;t talk to each other.
               </p>
@@ -203,11 +203,11 @@ export default function AboutPage() {
           <div className="flex flex-col gap-4">
             <Link
               href="/book"
-              className="inline-flex items-center gap-2 border border-ink/30 text-ink font-mono text-[10px] uppercase tracking-[0.2em] px-8 py-4 hover:bg-ink hover:text-white transition-all duration-200 self-start"
+              className="inline-flex items-center gap-2 border border-ink/30 text-ink font-mono text-[13px] uppercase tracking-[0.2em] px-8 py-4 hover:bg-ink hover:text-white transition-all duration-200 self-start"
             >
               Book Your Intake →
             </Link>
-            <p className="font-mono text-[9px] text-ink/35 uppercase tracking-[0.15em]">
+            <p className="font-mono text-[12px] text-ink/35 uppercase tracking-[0.15em]">
               By appointment · California only
             </p>
           </div>

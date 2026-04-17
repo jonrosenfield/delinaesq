@@ -72,7 +72,7 @@ export function ServiceCTA({ serviceTitle, color }: ServiceCTAProps) {
             <div className="space-y-8">
               <ScrollReveal delay={0.3}>
                 <div>
-                  <h3 className="font-pixel text-[10px] tracking-[0.2em] uppercase text-hot-pink mb-2">
+                  <h3 className="font-pixel text-[13px] tracking-[0.2em] uppercase text-hot-pink mb-2">
                     EMAIL
                   </h3>
                   <a
@@ -86,7 +86,7 @@ export function ServiceCTA({ serviceTitle, color }: ServiceCTAProps) {
 
               <ScrollReveal delay={0.35}>
                 <div>
-                  <h3 className="font-pixel text-[10px] tracking-[0.2em] uppercase text-hot-pink mb-2">
+                  <h3 className="font-pixel text-[13px] tracking-[0.2em] uppercase text-hot-pink mb-2">
                     PHONE
                   </h3>
                   <a
@@ -100,7 +100,7 @@ export function ServiceCTA({ serviceTitle, color }: ServiceCTAProps) {
 
               <ScrollReveal delay={0.4}>
                 <div>
-                  <h3 className="font-pixel text-[10px] tracking-[0.2em] uppercase text-hot-pink mb-2">
+                  <h3 className="font-pixel text-[13px] tracking-[0.2em] uppercase text-hot-pink mb-2">
                     SCHEDULE
                   </h3>
                   <p className="text-void-400 font-body">Submit an inquiry to get started</p>

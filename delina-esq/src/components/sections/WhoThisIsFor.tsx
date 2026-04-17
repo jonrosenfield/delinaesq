@@ -70,10 +70,10 @@ export function WhoThisIsFor() {
                 variants={itemVariants}
                 className="border-t border-steel/30 pt-5 pb-5"
               >
-                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-mist/70 block mb-1">
+                <span className="font-mono text-[12px] uppercase tracking-[0.2em] text-mist/70 block mb-1">
                   {item.label}
                 </span>
-                <p className="font-sans text-[14px] text-ink/70 leading-relaxed">
+                <p className="font-sans text-[18px] text-ink/70 leading-relaxed">
                   {item.body}
                 </p>
               </motion.div>

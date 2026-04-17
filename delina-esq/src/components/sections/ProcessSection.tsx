@@ -68,14 +68,14 @@ export function ProcessSection() {
 
             {/* Title */}
             <h3
-              className="font-display font-light text-white mt-3 mb-3 leading-tight"
+              className="font-sans font-medium text-white mt-3 mb-3 leading-tight"
               style={{ fontSize: '1.6rem' }}
             >
               {step.title}
             </h3>
 
             {/* Body */}
-            <p className="font-sans text-[13px] text-silver leading-relaxed">
+            <p className="font-sans text-[16px] text-silver leading-relaxed">
               {step.body}
             </p>
           </motion.div>

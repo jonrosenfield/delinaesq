@@ -69,13 +69,13 @@ export default function StartupAttorneyCaliforniaPage() {
     <main className="bg-parchment">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <Navbar />
-      <LandingHero
+      <LandingHero accent="#2255CC"
         eyebrow="Startup Lawyer · California · Founder Legal Strategy"
         headline="The Legal Problems That Kill Startups<br />Are Always the Ones Nobody Set Up a Document For."
         subhead="Delina Yasmeh advises California startup founders on entity formation, co-founder agreements, IP assignment, and the legal infrastructure that lets you build something institutional &mdash; not just fast."
       />
       <LandingSection eyebrow="Why Startup Legal Strategy Matters Early" headline="The documents you skip at formation are the ones that hurt you at Series A.">
-        <div className="space-y-5 font-sans text-[15px] text-ink/65 leading-relaxed max-w-[720px]">
+        <div className="space-y-5 font-sans text-[19px] text-ink/65 leading-relaxed max-w-[720px]">
           <p>Most startup legal disasters are not spectacular. They are a co-founder who owns 40% of the company with no vesting schedule, a product built on IP that was never formally assigned to the entity, or a cap table that no institutional investor will touch. These problems are invisible until they are expensive.</p>
           <p>California adds specific complications for startups. Work created by employees during the scope of employment is owned by the employer under California Labor Code &sect; 2870 &mdash; but the line between &ldquo;scope of employment&rdquo; and personal projects is contested and has been litigated. Founders who worked at other companies before starting their startup need to understand this risk explicitly.</p>
           <p>The entity decision also matters early. If you plan to raise venture capital, you almost certainly need a Delaware C-Corp &mdash; most institutional funds have restrictions on investing in LLCs. If you are building a bootstrapped profitable business, a <Link href="/llc-attorney" className="text-ink underline underline-offset-2 hover:text-ink/70 transition-colors">California LLC</Link> may be significantly more tax-efficient. Delina advises on this decision before formation, not after you have been operating in the wrong structure for two years.</p>
@@ -101,12 +101,12 @@ export default function StartupAttorneyCaliforniaPage() {
                 className="flex items-center justify-between py-5 group"
               >
                 <span
-                  className="font-display font-light text-ink group-hover:text-ink/60 transition-colors"
+                  className="font-sans font-medium text-ink group-hover:text-ink/60 transition-colors"
                   style={{ fontSize: 'clamp(1.1rem, 2vw, 1.5rem)' }}
                 >
                   {r.label}
                 </span>
-                <span className="font-mono text-[11px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
+                <span className="font-mono text-[12px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
                   →
                 </span>
               </Link>

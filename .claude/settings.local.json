@@ -2,7 +2,25 @@
   "permissions": {
     "allow": [
       "Bash(npx next build)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(npm run:*)",
+      "WebFetch(domain:theprotocole.com)",
+      "Bash(curl -s \"https://theprotocole.com/\")",
+      "Bash(find . -name \"*.tsx\" -exec sed -i '' 's/text-\\\\[17px\\\\]/text-[21px]/g' {} +)",
+      "Bash(find . -name \"*.tsx\" -exec sed -i '' 's/text-\\\\[15px\\\\]/text-[19px]/g' {} +)",
+      "Bash(find . -name \"*.tsx\" -exec sed -i '' 's/text-\\\\[14px\\\\]/text-[18px]/g' {} +)",
+      "Bash(find . -name \"*.tsx\" -exec sed -i '' 's/text-\\\\[13px\\\\]/text-[16px]/g' {} +)",
+      "Bash(find . -name \"*.tsx\" -exec sed -i '' 's/text-\\\\[10px\\\\]/text-[13px]/g' {} +)",
+      "Bash(find . -name \"*.tsx\" -exec sed -i '' 's/text-\\\\[11px\\\\]/text-[12px]/g' {} +)",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(rm -rf .next)",
+      "Bash(pkill -9 -f \"next\")",
+      "Bash(pkill -9 -f \"node\")",
+      "Bash(kill -9 15312 15309)",
+      "Bash(kill -9 15956)",
+      "Bash(pwdx 16403)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(curl -s \"http://localhost:3000/_next/static/css/app/layout.css\")"
     ]
   }
 }

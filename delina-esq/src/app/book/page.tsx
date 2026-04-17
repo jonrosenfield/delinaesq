@@ -53,7 +53,7 @@ export default function BookPage() {
             </h1>
           </div>
           <div>
-            <p className="font-sans font-light text-[17px] text-silver leading-relaxed max-w-[440px]">
+            <p className="font-sans font-light text-[21px] text-silver leading-relaxed max-w-[440px]">
               This is not a free consultation. It is a paid, focused session with
               an attorney who has specific opinions about your situation —
               built around the details you provide below.
@@ -83,10 +83,10 @@ export default function BookPage() {
               {EXPECT.map((item) => (
                 <div key={item.number} className="py-6">
                   <div className="flex items-baseline gap-4 mb-1">
-                    <span className="font-mono text-[9px] text-mist/50">{item.number}</span>
-                    <span className="font-display font-light text-ink text-[1.1rem]">{item.title}</span>
+                    <span className="font-mono text-[12px] text-mist/50">{item.number}</span>
+                    <span className="font-sans font-medium text-ink text-[1.1rem]">{item.title}</span>
                   </div>
-                  <p className="font-sans text-[13px] text-ink/55 leading-relaxed pl-8">
+                  <p className="font-sans text-[16px] text-ink/55 leading-relaxed pl-8">
                     {item.body}
                   </p>
                 </div>
@@ -95,7 +95,7 @@ export default function BookPage() {
 
             {/* Not for */}
             <div className="mt-10 border border-steel/20 bg-white p-6">
-              <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-mist block mb-4">
+              <span className="font-mono text-[12px] uppercase tracking-[0.2em] text-mist block mb-4">
                 This session is not for
               </span>
               {[

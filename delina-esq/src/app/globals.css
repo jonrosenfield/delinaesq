@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Root font scale — must live outside @layer to override Tailwind preflight */
+html {
+  font-size: 125%; /* 20px base — equivalent to 125% browser zoom */
+}
+
+
 /* ══════════════════════════════════════════════
    DELINA.ESQ 2.0 — PRADA MINIMALISM × VOGUE EDITORIAL
    "Clarity is protection. Structure is self-respect."
@@ -114,6 +120,19 @@
   /* ── HORIZONTAL RULE ── */
   .rule {
     @apply border-t border-steel w-full;
+  }
+
+  /* ── SEARCH PULSE ── */
+  .search-pulse {
+    animation: searchGlow 2.8s ease-in-out infinite;
+  }
+  @keyframes searchGlow {
+    0%, 100% {
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.12), 0 0 22px rgba(255,255,255,0.10);
+    }
+    50% {
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.35), 0 0 40px rgba(255,255,255,0.25);
+    }
   }
 
   /* ── MARQUEE (logo strip) ── */

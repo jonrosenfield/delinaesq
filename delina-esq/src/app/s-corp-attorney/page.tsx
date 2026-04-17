@@ -69,13 +69,13 @@ export default function SCorpAttorneyPage() {
     <main className="bg-parchment">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <Navbar />
-      <LandingHero
+      <LandingHero accent="#8090A8"
         eyebrow="S-Corp Attorney · California · Election & Tax Strategy"
         headline="An S-Corp Election Can Save You $10,000 a Year.<br />It Can Also Cost You More Than That If You Do It Wrong."
         subhead="Delina Yasmeh advises California business owners on S-Corp elections, salary structuring, and the California-specific tax math that most &ldquo;just elect S-Corp&rdquo; advice ignores."
       />
       <LandingSection eyebrow="What the S-Corp Election Actually Does" headline="The tax savings are real. So is the California franchise tax.">
-        <div className="space-y-5 font-sans text-[15px] text-ink/65 leading-relaxed max-w-[720px]">
+        <div className="space-y-5 font-sans text-[19px] text-ink/65 leading-relaxed max-w-[720px]">
           <p>Self-employment tax is 15.3% on the first $168,600 of net income and 2.9% above that. An S-Corp allows you to split your income into two buckets: salary (subject to SE tax) and distributions (not subject to SE tax). The savings come from the distribution portion.</p>
           <p>California adds a layer that every online calculator ignores: a 1.5% franchise tax on S-Corp net income, with a minimum of $800. For lower income levels, this tax erodes a significant portion of the federal SE tax savings. The breakeven in California is higher than it is in most other states.</p>
           <p>The other factor most people overlook is the reasonable salary requirement. The IRS has successfully challenged S-Corp owner-employees who pay themselves below-market salaries to maximize distributions. Getting the salary structure right &mdash; not just filing the form &mdash; is the actual work.</p>
@@ -101,12 +101,12 @@ export default function SCorpAttorneyPage() {
                 className="flex items-center justify-between py-5 group"
               >
                 <span
-                  className="font-display font-light text-ink group-hover:text-ink/60 transition-colors"
+                  className="font-sans font-medium text-ink group-hover:text-ink/60 transition-colors"
                   style={{ fontSize: 'clamp(1.1rem, 2vw, 1.5rem)' }}
                 >
                   {r.label}
                 </span>
-                <span className="font-mono text-[11px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
+                <span className="font-mono text-[12px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
                   →
                 </span>
               </Link>

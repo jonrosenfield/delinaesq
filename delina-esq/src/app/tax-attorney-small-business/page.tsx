@@ -69,13 +69,13 @@ export default function TaxAttorneySmallBusinessPage() {
     <main className="bg-parchment">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <Navbar />
-      <LandingHero
+      <LandingHero accent="#1A3A6E"
         eyebrow="Tax Attorney · Small Business · California"
         headline="Your Tax Bill Is Not Fixed.<br />It Is the Result of Decisions You Made &mdash; or Didn&apos;t."
         subhead="Delina Yasmeh advises California small business owners, creators, and founders on tax strategy, entity structuring, and S-Corp elections &mdash; before tax season makes it too late to change anything."
       />
       <LandingSection eyebrow="Why Tax Strategy Matters Before April" headline="The decisions that reduce your tax bill happen before the year ends.">
-        <div className="space-y-5 font-sans text-[15px] text-ink/65 leading-relaxed max-w-[720px]">
+        <div className="space-y-5 font-sans text-[19px] text-ink/65 leading-relaxed max-w-[720px]">
           <p>Most business owners think about taxes in March. The decisions that actually affect their tax liability &mdash; entity structure, S-Corp election timing, retirement account contributions, income recognition &mdash; all happen during the year. By the time you are filing, the strategy window has closed.</p>
           <p>California is one of the highest-tax states in the country. Combined federal and California rates for high-income earners can exceed 50% on ordinary income. The legal tools that reduce that number &mdash; S-Corp elections, qualified business income deductions, properly structured retirement accounts &mdash; are available to every business owner. Most are not using them fully.</p>
           <p>Delina works with business owners who want a <Link href="/s-corp-attorney" className="text-ink underline underline-offset-2 hover:text-ink/70 transition-colors">tax strategy built into their entity structure</Link> from the start &mdash; not bolted on after three years of overpaying. If you have not evaluated your entity structure for tax efficiency in the last two years, that evaluation is overdue.</p>
@@ -100,12 +100,12 @@ export default function TaxAttorneySmallBusinessPage() {
                 className="flex items-center justify-between py-5 group"
               >
                 <span
-                  className="font-display font-light text-ink group-hover:text-ink/60 transition-colors"
+                  className="font-sans font-medium text-ink group-hover:text-ink/60 transition-colors"
                   style={{ fontSize: 'clamp(1.1rem, 2vw, 1.5rem)' }}
                 >
                   {r.label}
                 </span>
-                <span className="font-mono text-[11px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
+                <span className="font-mono text-[12px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
                   →
                 </span>
               </Link>

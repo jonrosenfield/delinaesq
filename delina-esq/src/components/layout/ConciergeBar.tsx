@@ -76,14 +76,14 @@ export function ConciergeBar() {
           <button
             type="submit"
             aria-label="Search"
-            className="font-mono text-[13px] text-ink/40 hover:text-ink transition-colors flex-shrink-0 pb-2"
+            className="font-mono text-[16px] text-ink/40 hover:text-ink transition-colors flex-shrink-0 pb-2"
           >
             →
           </button>
         </form>
 
         {feedback && (
-          <p className="mt-1.5 font-mono text-[10px] text-ink/50 uppercase tracking-[0.15em]">
+          <p className="mt-1.5 font-mono text-[13px] text-ink/50 uppercase tracking-[0.15em]">
             {feedback}
           </p>
         )}
@@ -94,12 +94,12 @@ export function ConciergeBar() {
             <span key={chip.href} className="flex items-center">
               <button
                 onClick={() => router.push(chip.href)}
-                className="font-mono text-[9px] uppercase tracking-[0.18em] text-ink/40 hover:text-ink transition-colors py-0.5"
+                className="font-mono text-[12px] uppercase tracking-[0.18em] text-ink/40 hover:text-ink transition-colors py-0.5"
               >
                 {chip.label}
               </button>
               {i < CHIPS.length - 1 && (
-                <span className="font-mono text-[9px] text-ink/20 mx-2.5 select-none">·</span>
+                <span className="font-mono text-[12px] text-ink/20 mx-2.5 select-none">·</span>
               )}
             </span>
           ))}

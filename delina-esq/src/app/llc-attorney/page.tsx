@@ -69,13 +69,13 @@ export default function LLCPage() {
     <main className="bg-parchment">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <Navbar />
-      <LandingHero
+      <LandingHero accent="#8090A8"
         eyebrow="LLC Attorney · California · Formation & Strategy"
         headline="An LLC Is Not Just a Filing.<br />It Is a Legal Structure That Either Works or Doesn&apos;t."
         subhead="Delina Yasmeh advises California business owners on LLC formation, operating agreements, and entity strategy — built around how you actually make money, not a generic template."
       />
       <LandingSection eyebrow="What an LLC Actually Does" headline="Formation is the beginning. The operating agreement is what matters.">
-        <div className="space-y-5 font-sans text-[15px] text-ink/65 leading-relaxed max-w-[720px]">
+        <div className="space-y-5 font-sans text-[19px] text-ink/65 leading-relaxed max-w-[720px]">
           <p>A California LLC limits your personal liability for business obligations — but only if the entity is properly maintained and your personal finances are genuinely separate from your business finances. Courts can pierce the corporate veil when owners treat the LLC as an extension of their personal accounts.</p>
           <p>The operating agreement governs how your LLC runs: who has authority to make decisions, how profits are allocated, what happens when a member wants to leave, and how disputes are resolved. Without a properly drafted operating agreement, these questions are answered by California&apos;s default rules — which may not reflect your intentions.</p>
           <p>California charges an $800 annual minimum franchise tax on all LLCs, plus a gross receipts fee once revenue exceeds $250,000. These costs are real and predictable. Delina gives you the full picture before you form.</p>
@@ -100,12 +100,12 @@ export default function LLCPage() {
                 className="flex items-center justify-between py-5 group"
               >
                 <span
-                  className="font-display font-light text-ink group-hover:text-ink/60 transition-colors"
+                  className="font-sans font-medium text-ink group-hover:text-ink/60 transition-colors"
                   style={{ fontSize: 'clamp(1.1rem, 2vw, 1.5rem)' }}
                 >
                   {r.label}
                 </span>
-                <span className="font-mono text-[11px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
+                <span className="font-mono text-[12px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
                   →
                 </span>
               </Link>

@@ -31,7 +31,7 @@ export default function BlogIndex() {
           >
             The Brief.
           </h1>
-          <p className="font-sans font-light text-[17px] text-silver max-w-[480px] mt-6 leading-relaxed">
+          <p className="font-sans font-light text-[21px] text-silver max-w-[480px] mt-6 leading-relaxed">
             Legal strategy for California entrepreneurs, creators, and business owners who have already
             Googled the basics and found them unhelpful.
           </p>
@@ -56,28 +56,28 @@ export default function BlogIndex() {
                   `}
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-mist">
+                    <span className="font-mono text-[12px] uppercase tracking-[0.2em] text-mist">
                       {post.category}
                     </span>
                     <span className="text-steel/40">·</span>
-                    <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-mist">
+                    <span className="font-mono text-[12px] uppercase tracking-[0.2em] text-mist">
                       {post.readTime} read
                     </span>
                   </div>
                   <h2
-                    className="font-display font-light text-ink leading-[1.15] tracking-[-0.01em] group-hover:text-ink/60 transition-colors mb-3"
+                    className="font-sans font-medium text-ink leading-[1.15] group-hover:text-ink/60 transition-colors mb-3"
                     style={{ fontSize: 'clamp(1.25rem, 2vw, 1.5rem)' }}
                   >
                     {post.title}
                   </h2>
-                  <p className="font-sans text-[13px] text-ink/50 leading-relaxed mb-5">
+                  <p className="font-sans text-[16px] text-ink/50 leading-relaxed mb-5">
                     {post.description}
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-ink/35">
+                    <span className="font-mono text-[12px] uppercase tracking-[0.15em] text-ink/35">
                       {formatted}
                     </span>
-                    <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-ink/50 group-hover:text-ink transition-colors">
+                    <span className="font-mono text-[12px] uppercase tracking-[0.15em] text-ink/50 group-hover:text-ink transition-colors">
                       Read →
                     </span>
                   </div>

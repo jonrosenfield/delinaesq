@@ -69,13 +69,13 @@ export default function PostnupPage() {
     <main className="bg-parchment">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <Navbar />
-      <LandingHero
+      <LandingHero accent="#9B1527"
         eyebrow="Postnuptial Agreement Lawyer · California"
         headline="A Postnuptial Agreement Is Not an Admission of Failure.<br />It Is a Decision Made With Open Eyes."
         subhead="Delina Yasmeh drafts postnuptial agreements for California couples who&apos;ve built something during their marriage and need legal structure to protect it."
       />
       <LandingSection eyebrow="What a Postnup Actually Does" headline="What most married entrepreneurs don&apos;t realize about California law.">
-        <div className="space-y-5 font-sans text-[15px] text-ink/65 leading-relaxed max-w-[720px]">
+        <div className="space-y-5 font-sans text-[19px] text-ink/65 leading-relaxed max-w-[720px]">
           <p>California is a community property state. Income earned during a marriage, and assets purchased with that income, are presumed to belong equally to both spouses — regardless of who earned the money or whose name is on the account.</p>
           <p>For couples where one or both partners has started a business, received significant equity grants, or seen substantial income growth during the marriage, this default can have serious financial implications. A postnuptial agreement allows married couples to modify these rules by written contract.</p>
           <p>Unlike a prenup, a postnup is executed after marriage. Both are enforceable in California when drafted properly. The legal standard is high: both spouses must have independent legal counsel, there must be full financial disclosure, and the agreement must be signed voluntarily without coercion.</p>
@@ -100,12 +100,12 @@ export default function PostnupPage() {
                 className="flex items-center justify-between py-5 group"
               >
                 <span
-                  className="font-display font-light text-ink group-hover:text-ink/60 transition-colors"
+                  className="font-sans font-medium text-ink group-hover:text-ink/60 transition-colors"
                   style={{ fontSize: 'clamp(1.1rem, 2vw, 1.5rem)' }}
                 >
                   {r.label}
                 </span>
-                <span className="font-mono text-[11px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
+                <span className="font-mono text-[12px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
                   →
                 </span>
               </Link>

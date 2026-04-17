@@ -55,7 +55,7 @@ export function AccessibilityToolbar() {
             role="dialog"
             aria-label="Accessibility settings"
           >
-            <h3 className="font-pixel text-[10px] tracking-[0.2em] uppercase text-hot-pink mb-4">
+            <h3 className="font-pixel text-[13px] tracking-[0.2em] uppercase text-hot-pink mb-4">
               ACCESSIBILITY
             </h3>
 
@@ -85,7 +85,7 @@ export function AccessibilityToolbar() {
             {hasActiveSettings && (
               <button
                 onClick={resetAll}
-                className="mt-4 w-full font-pixel text-[9px] tracking-[0.15em] uppercase text-void-500 hover:text-cream py-2 border border-void-700 rounded-retro hover:border-void-500 transition-colors"
+                className="mt-4 w-full font-pixel text-[12px] tracking-[0.15em] uppercase text-void-500 hover:text-cream py-2 border border-void-700 rounded-retro hover:border-void-500 transition-colors"
               >
                 RESET ALL
               </button>

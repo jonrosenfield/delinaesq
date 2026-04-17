@@ -69,13 +69,13 @@ export default function TrademarkPage() {
     <main className="bg-parchment">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <Navbar />
-      <LandingHero
+      <LandingHero accent="#9B1527"
         eyebrow="Trademark Attorney · Brand Protection · California"
         headline="Your Brand Name Is Only Protected If You Actually Protect It."
         subhead="Delina Yasmeh handles federal trademark registration and brand protection strategy for California entrepreneurs, creators, and businesses building something worth protecting."
       />
       <LandingSection eyebrow="Why Trademark Registration Matters" headline="Using a name is not the same as owning it.">
-        <div className="space-y-5 font-sans text-[15px] text-ink/65 leading-relaxed max-w-[720px]">
+        <div className="space-y-5 font-sans text-[19px] text-ink/65 leading-relaxed max-w-[720px]">
           <p>Common law trademark rights arise from use — but they are limited to the geographic area where you actually operate. A federal trademark registration with the USPTO gives you nationwide priority and the legal presumption of ownership across all fifty states.</p>
           <p>For brands operating online, selling on Amazon, or licensing content to national partners, the geographic limitation of common law rights is a significant vulnerability. A competitor in another state can use your brand name legally — until you have a federal registration that establishes your priority.</p>
           <p>The registration process takes 12–18 months. Rights, however, date back to your filing date. Waiting until your brand is established means giving competitors a head start on the same filing timeline.</p>
@@ -100,12 +100,12 @@ export default function TrademarkPage() {
                 className="flex items-center justify-between py-5 group"
               >
                 <span
-                  className="font-display font-light text-ink group-hover:text-ink/60 transition-colors"
+                  className="font-sans font-medium text-ink group-hover:text-ink/60 transition-colors"
                   style={{ fontSize: 'clamp(1.1rem, 2vw, 1.5rem)' }}
                 >
                   {r.label}
                 </span>
-                <span className="font-mono text-[11px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
+                <span className="font-mono text-[12px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
                   →
                 </span>
               </Link>

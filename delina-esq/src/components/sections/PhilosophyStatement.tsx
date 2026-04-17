@@ -38,7 +38,7 @@ export function PhilosophyStatement() {
         </blockquote>
 
         {/* Attribution */}
-        <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-mist mt-10">
+        <p className="font-mono text-[12px] uppercase tracking-[0.2em] text-mist mt-10">
           — DELINA YASMEH, ESQ. · CALIFORNIA ATTORNEY
         </p>
 

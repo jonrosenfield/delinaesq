@@ -70,7 +70,7 @@ export function Navbar({ showConcierge = false }: NavbarProps) {
         {/* Wordmark */}
         <Link
           href="/"
-          className="font-display tracking-[0.15em] text-[15px] text-white font-normal hover:text-ivory transition-colors"
+          className="font-display tracking-[0.15em] text-[19px] text-white font-normal hover:text-ivory transition-colors"
         >
           DELINA.ESQ
         </Link>
@@ -86,7 +86,7 @@ export function Navbar({ showConcierge = false }: NavbarProps) {
             onMouseLeave={services.close_}
           >
             <button
-              className="font-sans text-[11px] uppercase tracking-[0.12em] text-silver hover:text-white transition-colors flex items-center gap-1"
+              className="font-sans text-[15px] uppercase tracking-[0.12em] text-silver hover:text-white transition-colors flex items-center gap-1"
               onClick={() => services.open ? services.close_() : services.open_()}
             >
               Services
@@ -108,7 +108,7 @@ export function Navbar({ showConcierge = false }: NavbarProps) {
                         key={area.href}
                         href={area.href}
                         onClick={() => services.close_()}
-                        className="font-sans text-[11px] text-silver hover:text-white hover:bg-white/5 transition-all px-4 py-2.5 block leading-snug"
+                        className="font-sans text-[15px] text-silver hover:text-white hover:bg-white/5 transition-all px-4 py-2.5 block leading-snug"
                       >
                         {area.label}
                       </Link>
@@ -121,21 +121,21 @@ export function Navbar({ showConcierge = false }: NavbarProps) {
 
           <Link
             href="/about"
-            className="font-sans text-[11px] uppercase tracking-[0.12em] text-silver hover:text-white transition-colors"
+            className="font-sans text-[15px] uppercase tracking-[0.12em] text-silver hover:text-white transition-colors"
           >
             About
           </Link>
           <Link
             href="/blog"
-            className="font-sans text-[11px] uppercase tracking-[0.12em] text-silver hover:text-white transition-colors"
+            className="font-sans text-[15px] uppercase tracking-[0.12em] text-silver hover:text-white transition-colors"
           >
-            The Brief
+            Law Library
           </Link>
           <Link
             href="/book"
-            className="font-mono text-[10px] uppercase tracking-[0.18em] px-5 py-2 border border-white/40 text-white hover:bg-white hover:text-ink transition-all duration-200"
+            className="font-mono text-[13px] uppercase tracking-[0.18em] px-5 py-2 border border-white/40 text-white hover:bg-white hover:text-ink transition-all duration-200"
           >
-            Book Your Intake
+            Get Started
           </Link>
         </div>
 
@@ -172,7 +172,7 @@ export function Navbar({ showConcierge = false }: NavbarProps) {
           <nav className="flex flex-col">
             {/* Practice Areas — expanded in mobile */}
             <div className="border-b border-steel">
-              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-mist px-6 pt-4 pb-2">
+              <p className="font-mono text-[12px] uppercase tracking-[0.2em] text-mist px-6 pt-4 pb-2">
                 Practice Areas
               </p>
               {PRACTICE_AREAS.map((area) => (
@@ -189,24 +189,24 @@ export function Navbar({ showConcierge = false }: NavbarProps) {
             <Link
               href="/about"
               onClick={() => setMenuOpen(false)}
-              className="font-sans text-[13px] uppercase tracking-[0.12em] text-silver hover:text-white transition-colors py-4 px-6 border-b border-steel"
+              className="font-sans text-[16px] uppercase tracking-[0.12em] text-silver hover:text-white transition-colors py-4 px-6 border-b border-steel"
             >
               About
             </Link>
             <Link
               href="/blog"
               onClick={() => setMenuOpen(false)}
-              className="font-sans text-[13px] uppercase tracking-[0.12em] text-silver hover:text-white transition-colors py-4 px-6 border-b border-steel"
+              className="font-sans text-[16px] uppercase tracking-[0.12em] text-silver hover:text-white transition-colors py-4 px-6 border-b border-steel"
             >
-              The Brief
+              Law Library
             </Link>
             <div className="px-6 pt-6">
               <Link
                 href="/book"
                 onClick={() => setMenuOpen(false)}
-                className="border border-white/40 text-white font-mono text-[10px] uppercase tracking-[0.18em] py-3 w-full justify-center hover:bg-white hover:text-ink transition-all duration-200 flex items-center"
+                className="border border-white/40 text-white font-mono text-[13px] uppercase tracking-[0.18em] py-3 w-full justify-center hover:bg-white hover:text-ink transition-all duration-200 flex items-center"
               >
-                Book Your Intake
+                Get Started
               </Link>
             </div>
           </nav>

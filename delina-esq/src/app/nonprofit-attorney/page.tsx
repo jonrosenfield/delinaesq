@@ -69,13 +69,13 @@ export default function NonprofitPage() {
     <main className="bg-parchment">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <Navbar />
-      <LandingHero
+      <LandingHero accent="#1A3A6E"
         eyebrow="Nonprofit Attorney · California · 501(c)(3) Formation"
         headline="Forming a Nonprofit Is Not the Hard Part.<br />Running One Legally Is."
         subhead="Delina Yasmeh advises California nonprofit founders on 501(c)(3) formation, governance, compliance, and the ongoing legal requirements that keep tax-exempt status intact."
       />
       <LandingSection eyebrow="What Nonprofit Legal Counsel Actually Covers" headline="Formation is one day&apos;s work. Governance lasts as long as the organization does.">
-        <div className="space-y-5 font-sans text-[15px] text-ink/65 leading-relaxed max-w-[720px]">
+        <div className="space-y-5 font-sans text-[19px] text-ink/65 leading-relaxed max-w-[720px]">
           <p>Most people focus on the IRS application. The more important documents are the ones that govern how your nonprofit operates after you receive your determination letter: the bylaws, the conflict of interest policy, the executive compensation procedures, and the board committee structures.</p>
           <p>California adds its own layer of complexity. In addition to federal requirements, California nonprofits must register with the Attorney General&apos;s Registry of Charitable Trusts, file biennial statements with the Secretary of State, and comply with state-specific requirements around charitable solicitation and fundraising.</p>
           <p>Delina works with nonprofit founders who want to build a organization that can sustain audits, board changes, and growth — not just clear the initial formation hurdle.</p>
@@ -100,12 +100,12 @@ export default function NonprofitPage() {
                 className="flex items-center justify-between py-5 group"
               >
                 <span
-                  className="font-display font-light text-ink group-hover:text-ink/60 transition-colors"
+                  className="font-sans font-medium text-ink group-hover:text-ink/60 transition-colors"
                   style={{ fontSize: 'clamp(1.1rem, 2vw, 1.5rem)' }}
                 >
                   {r.label}
                 </span>
-                <span className="font-mono text-[11px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
+                <span className="font-mono text-[12px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
                   →
                 </span>
               </Link>

@@ -47,10 +47,10 @@ const EMPTY: FormState = {
 }
 
 const fieldClass =
-  'w-full bg-transparent border-0 border-b border-ink/20 focus:border-ink outline-none font-sans text-[15px] text-ink placeholder:text-ink/25 py-3 transition-colors duration-200'
+  'w-full bg-transparent border-0 border-b border-ink/20 focus:border-ink outline-none font-sans text-[19px] text-ink placeholder:text-ink/25 py-3 transition-colors duration-200'
 
 const labelClass =
-  'font-mono text-[9px] uppercase tracking-[0.2em] text-ink/45 block mb-1'
+  'font-mono text-[12px] uppercase tracking-[0.2em] text-ink/45 block mb-1'
 
 export function IntakeForm() {
   const [form, setForm] = useState<FormState>(EMPTY)
@@ -95,12 +95,12 @@ export function IntakeForm() {
         >
           You&apos;re on the calendar.
         </h2>
-        <p className="font-sans text-[15px] text-ink/60 leading-relaxed max-w-[440px] mb-8">
+        <p className="font-sans text-[19px] text-ink/60 leading-relaxed max-w-[440px] mb-8">
           Delina will review your intake and confirm a time within 1–2 business days.
           Check your inbox — confirmation details will be sent to the email you provided.
         </p>
         <div className="border-t border-steel/20 pt-6">
-          <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-mist">
+          <p className="font-mono text-[12px] uppercase tracking-[0.2em] text-mist">
             Questions? hello@delina.esq
           </p>
         </div>
@@ -210,12 +210,12 @@ export function IntakeForm() {
         <button
           type="submit"
           disabled={status === 'sending'}
-          className="inline-flex items-center gap-2 border border-ink/30 text-ink font-mono text-[10px] uppercase tracking-[0.2em] px-10 py-4 hover:bg-ink hover:text-white transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
+          className="inline-flex items-center gap-2 border border-ink/30 text-ink font-mono text-[13px] uppercase tracking-[0.2em] px-10 py-4 hover:bg-ink hover:text-white transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
         >
           {status === 'sending' ? 'Sending…' : 'Submit Your Intake →'}
         </button>
         {status === 'error' && (
-          <span className="font-mono text-[9px] text-ink/50 uppercase tracking-[0.15em]">
+          <span className="font-mono text-[12px] text-ink/50 uppercase tracking-[0.15em]">
             Something went wrong — please email hello@delina.esq
           </span>
         )}

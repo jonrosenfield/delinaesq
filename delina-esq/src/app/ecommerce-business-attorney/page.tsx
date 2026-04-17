@@ -69,13 +69,13 @@ export default function EcommerceBusinessAttorneyPage() {
     <main className="bg-parchment">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <Navbar />
-      <LandingHero
+      <LandingHero accent="#8090A8"
         eyebrow="E-Commerce Business Attorney · California · Online Store Legal"
         headline="You Built a Store. Now Build the Legal Structure<br />That Protects What You&apos;ve Built."
         subhead="Delina Yasmeh advises California e-commerce business owners on LLC formation, supplier contracts, website legal documents, and the tax strategy that online sellers need but rarely get."
       />
       <LandingSection eyebrow="The Legal Picture for Online Store Owners" headline="E-commerce businesses have specific legal needs that generic advice misses.">
-        <div className="space-y-5 font-sans text-[15px] text-ink/65 leading-relaxed max-w-[720px]">
+        <div className="space-y-5 font-sans text-[19px] text-ink/65 leading-relaxed max-w-[720px]">
           <p>Operating an online store as a sole proprietor means that every customer dispute, product liability claim, and supplier disagreement is a personal liability. Your personal savings, your car, and your home are all exposed to claims against your business. An LLC changes that &mdash; for $800 per year in California franchise tax plus formation costs.</p>
           <p>California has its own e-commerce requirements that many out-of-state guides omit. The California Consumer Privacy Act (CCPA) requires businesses with California customers to provide specific disclosures and honor opt-out requests for data sharing. A generic privacy policy template is unlikely to meet this standard.</p>
           <p>Online sellers also face a tax picture more complicated than a single Schedule C. Sales tax nexus in multiple states, platform 1099-K income, and the question of whether your business income qualifies for the qualified business income deduction all affect what you owe. Delina advises on the entity structure that positions your store for <Link href="/tax-attorney-small-business" className="text-ink underline underline-offset-2 hover:text-ink/70 transition-colors">real tax efficiency</Link>, not just lower complexity on this year&apos;s return.</p>
@@ -101,12 +101,12 @@ export default function EcommerceBusinessAttorneyPage() {
                 className="flex items-center justify-between py-5 group"
               >
                 <span
-                  className="font-display font-light text-ink group-hover:text-ink/60 transition-colors"
+                  className="font-sans font-medium text-ink group-hover:text-ink/60 transition-colors"
                   style={{ fontSize: 'clamp(1.1rem, 2vw, 1.5rem)' }}
                 >
                   {r.label}
                 </span>
-                <span className="font-mono text-[11px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
+                <span className="font-mono text-[12px] text-ink/25 group-hover:text-ink group-hover:translate-x-1.5 transition-all duration-200">
                   →
                 </span>
               </Link>

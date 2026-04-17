@@ -58,7 +58,7 @@ export function AboutDelina() {
               <h2 className="font-serif text-display-lg font-bold mt-8 mb-2 text-cream italic">
                 Delina Yasmeh
               </h2>
-              <p className="font-pixel text-[10px] tracking-[0.15em] text-void-400 uppercase mb-8">
+              <p className="font-pixel text-[13px] tracking-[0.15em] text-void-400 uppercase mb-8">
                 ATTORNEY // TAX STRATEGIST // FOUNDER
               </p>
             </ScrollReveal>
@@ -129,7 +129,7 @@ export function AboutDelina() {
                   style={{ boxShadow: `3px 3px 0px ${colorAccent[item.color].shadow}` }}
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <span className={`font-pixel text-[10px] tracking-[0.2em] px-3 py-1 rounded-retro border ${colorAccent[item.color].badge}`}>
+                    <span className={`font-pixel text-[13px] tracking-[0.2em] px-3 py-1 rounded-retro border ${colorAccent[item.color].badge}`}>
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <h4 className="font-pixel text-sm font-bold text-cream uppercase">

@@ -25,7 +25,7 @@ export function GlowInput({ label, className = '', ...props }: GlowInputProps) {
         onChange={(e) => { setHasValue(!!e.target.value); props.onChange?.(e) }}
       />
       <label
-        className={`absolute left-1 font-pixel text-[9px] tracking-[0.2em] uppercase transition-all duration-300 pointer-events-none ${
+        className={`absolute left-1 font-pixel text-[12px] tracking-[0.2em] uppercase transition-all duration-300 pointer-events-none ${
           focused || hasValue
             ? 'top-0 text-hot-pink'
             : 'top-5 text-void-600'
@@ -61,7 +61,7 @@ export function GlowTextarea({ label, className = '', ...props }: GlowTextareaPr
         onChange={(e) => { setHasValue(!!e.target.value); props.onChange?.(e) }}
       />
       <label
-        className={`absolute left-1 font-pixel text-[9px] tracking-[0.2em] uppercase transition-all duration-300 pointer-events-none ${
+        className={`absolute left-1 font-pixel text-[12px] tracking-[0.2em] uppercase transition-all duration-300 pointer-events-none ${
           focused || hasValue
             ? 'top-0 text-hot-pink'
             : 'top-5 text-void-600'

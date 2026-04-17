@@ -45,7 +45,7 @@ export function SocialProof({ metrics, color }: SocialProofProps) {
                 <span className={`block font-pixel text-2xl md:text-3xl font-bold ${colors.accent} mb-2`}>
                   {metric.value}
                 </span>
-                <span className="block font-pixel text-[10px] tracking-[0.15em] uppercase text-cream mb-3">
+                <span className="block font-pixel text-[13px] tracking-[0.15em] uppercase text-cream mb-3">
                   {metric.label}
                 </span>
                 <p className="text-void-500 text-xs font-body leading-relaxed">
