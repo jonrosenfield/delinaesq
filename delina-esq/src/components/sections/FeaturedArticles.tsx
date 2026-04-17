@@ -13,6 +13,7 @@ export interface FeaturedPost {
 
 export interface CategorySection {
   category: string
+  headline: string
   description: string
   color: string
   practiceHref: string
@@ -150,7 +151,7 @@ function SectionBridge({
         </h3>
       </div>
       <Link
-        href="/business-law-library"
+        href={`/business-law-library?category=${encodeURIComponent(next.category)}`}
         className="font-mono text-[10px] uppercase tracking-[0.2em] text-mist hover:text-ink transition-colors hidden md:block"
       >
         View all →
@@ -172,13 +173,18 @@ function CategorySectionBlock({
       {/* Section header */}
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
         <div>
-          {/* Colored rule above heading */}
-          <div className="w-10 h-[3px] mb-5" style={{ backgroundColor: section.color }} />
+          {/* Category tag */}
+          <div className="inline-flex items-center gap-2 border px-3 py-1.5 mb-6" style={{ borderColor: `${section.color}50` }}>
+            <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: section.color }} />
+            <span className="font-mono text-[9px] uppercase tracking-[0.28em]" style={{ color: section.color }}>
+              {section.category}
+            </span>
+          </div>
           <h2
             className="font-display font-light text-ink leading-[0.95]"
             style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)' }}
           >
-            {section.category}
+            {section.headline}
           </h2>
           <p className="font-sans text-[16px] text-ink/50 mt-3 max-w-[480px] leading-relaxed">
             {section.description}
@@ -186,7 +192,7 @@ function CategorySectionBlock({
         </div>
         <div className="flex items-center gap-5 flex-shrink-0">
           <Link
-            href={`/business-law-library`}
+            href={`/business-law-library?category=${encodeURIComponent(section.category)}`}
             className="font-mono text-[10px] uppercase tracking-[0.18em] text-mist hover:text-ink transition-colors"
           >
             All Articles →
@@ -218,7 +224,7 @@ function CategorySectionBlock({
       {/* View more link */}
       <div className="mt-8 flex items-center justify-between">
         <Link
-          href={`/business-law-library`}
+          href={`/business-law-library?category=${encodeURIComponent(section.category)}`}
           className="font-mono text-[10px] uppercase tracking-[0.18em] border-b pb-px transition-colors"
           style={{ color: section.color, borderColor: `${section.color}50` }}
         >
@@ -248,7 +254,7 @@ export function FeaturedArticles({ sections }: { sections: CategorySection[] }) 
         <div className="pt-20 pb-4 flex items-end justify-between">
           <div>
             <span className="font-mono text-[0.625rem] uppercase tracking-[0.25em] text-mist block mb-4">
-              Law Library · California Legal Strategy
+              Law Library · Tax, Contracts & Business Structure
             </span>
             <h2
               className="font-display font-light text-ink leading-[0.95]"

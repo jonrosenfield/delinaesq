@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useMemo, useRef } from 'react'
+import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 
 export interface PostMeta {
@@ -11,6 +12,34 @@ export interface PostMeta {
   date: string
   readTime: string
   tags: string[]
+}
+
+const CATEGORY_HEADLINE: Record<string, string> = {
+  'Business Contracts':         'Read it before you sign it.',
+  'Creator Economy':            'Your content is a business. Build it that way.',
+  'Tax Strategy':               'Your tax exposure is a choice.',
+  'LLC & Entity':               'Formation is just the beginning.',
+  'Prenuptial Agreements':      'The conversation that protects everything else.',
+  'Postnuptial Agreements':     "It's not too late to get it in writing.",
+  'Nonprofit':                  'Purpose needs structure to survive.',
+  'S-Corp Strategy':            'The election that changes everything.',
+  'Startup & Founder Advisory': 'Build the company like you plan to keep it.',
+  'E-Commerce Law':             'Digital shelves. Real legal exposure.',
+  'Trademark':                  'Your name is worth protecting.',
+}
+
+const CATEGORY_DESCRIPTION: Record<string, string> = {
+  'Business Contracts':         'The contract you sign in a hurry is the one you spend two years trying to get out of.',
+  'Creator Economy':            'Content is the business. Treat it that way before the IRS treats it for you.',
+  'Tax Strategy':               'Understanding your tax exposure is the highest-leverage move you can make at your income level.',
+  'LLC & Entity':               'Formation is the beginning of the plan. What you do after filing is the actual plan.',
+  'Prenuptial Agreements':      'Having the conversation once, clearly, costs less than having it through attorneys later.',
+  'Postnuptial Agreements':     'Circumstances change. Your agreements should keep pace.',
+  'Nonprofit':                  'A mission without legal structure is just an intention.',
+  'S-Corp Strategy':            'The right election at the right time can change your tax picture permanently.',
+  'Startup & Founder Advisory': 'The decisions you make before you raise money are the ones you live with longest.',
+  'E-Commerce Law':             'Selling online is still selling. The obligations are the same.',
+  'Trademark':                  'Your brand is an asset. Protect it like one.',
 }
 
 const CATEGORY_COLOR: Record<string, string> = {
@@ -105,19 +134,30 @@ function EditorialView({ posts, categories, onCategoryClick }: {
         return (
           <div key={section.cat} className="pt-16 pb-2">
             {/* Section heading */}
-            <div className="flex items-end justify-between mb-8">
-              <div className="flex items-center gap-4">
-                <div className="w-[3px] h-9 flex-shrink-0" style={{ backgroundColor: section.color }} />
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+              <div>
+                {/* Category pill */}
+                <div className="inline-flex items-center gap-2 border px-3 py-1.5 mb-6" style={{ borderColor: `${section.color}50` }}>
+                  <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: section.color }} />
+                  <span className="font-mono text-[9px] uppercase tracking-[0.28em]" style={{ color: section.color }}>
+                    {section.cat}
+                  </span>
+                </div>
                 <h2
-                  className="font-display font-light text-ink leading-none"
-                  style={{ fontSize: 'clamp(1.6rem, 3vw, 2.6rem)' }}
+                  className="font-display font-light text-ink leading-[0.95]"
+                  style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)' }}
                 >
-                  {section.cat}
+                  {CATEGORY_HEADLINE[section.cat] ?? section.cat}
                 </h2>
+                {CATEGORY_DESCRIPTION[section.cat] && (
+                  <p className="font-sans text-[16px] text-ink/50 mt-3 max-w-[480px] leading-relaxed">
+                    {CATEGORY_DESCRIPTION[section.cat]}
+                  </p>
+                )}
               </div>
               <button
                 onClick={() => onCategoryClick(section.cat)}
-                className="font-mono text-[10px] uppercase tracking-[0.18em] transition-colors hidden md:block"
+                className="font-mono text-[10px] uppercase tracking-[0.18em] transition-colors flex-shrink-0"
                 style={{ color: section.color }}
               >
                 View all →
@@ -308,8 +348,11 @@ function CategoryNavItem({
 
 /* ── MAIN ────────────────────────────────────────────────────── */
 export function LibraryClient({ posts }: { posts: PostMeta[] }) {
+  const searchParams = useSearchParams()
+  const initialCategory = searchParams.get('category') ?? 'All'
+
   const [query, setQuery] = useState('')
-  const [activeCategory, setActiveCategory] = useState('All')
+  const [activeCategory, setActiveCategory] = useState(initialCategory)
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null)
   const [searchFocused, setSearchFocused] = useState(false)
   const gridRef = useRef<HTMLDivElement>(null)

@@ -19,6 +19,7 @@ export const metadata: Metadata = {
 
 const SECTION_CONFIG: Array<{
   category: string
+  headline: string
   description: string
   color: string
   practiceHref: string
@@ -26,6 +27,7 @@ const SECTION_CONFIG: Array<{
 }> = [
   {
     category: 'Tax Strategy',
+    headline: 'Your tax exposure is a choice.',
     description: 'Understanding your tax exposure is the highest-leverage move you can make at your income level.',
     color: '#1A3A6E',
     practiceHref: '/tax-attorney-small-business',
@@ -33,6 +35,7 @@ const SECTION_CONFIG: Array<{
   },
   {
     category: 'Creator Economy',
+    headline: 'Your content is a business. Build it that way.',
     description: 'Content is the business. Treat it that way before the IRS treats it for you.',
     color: '#9B1527',
     practiceHref: '/creator-attorney',
@@ -40,6 +43,7 @@ const SECTION_CONFIG: Array<{
   },
   {
     category: 'Business Contracts',
+    headline: 'Read it before you sign it.',
     description: 'The contract you sign in a hurry is the one you spend two years trying to get out of.',
     color: '#2255CC',
     practiceHref: '/business-contract-attorney',
@@ -47,6 +51,7 @@ const SECTION_CONFIG: Array<{
   },
   {
     category: 'LLC & Entity',
+    headline: 'Formation is just the beginning.',
     description: 'Formation is the beginning of the plan. What you do after filing is the actual plan.',
     color: '#8090A8',
     practiceHref: '/business-structure-attorney',
@@ -54,6 +59,7 @@ const SECTION_CONFIG: Array<{
   },
   {
     category: 'Prenuptial Agreements',
+    headline: 'The conversation that protects everything else.',
     description: 'Having the conversation once, clearly, costs less than having it through attorneys later.',
     color: '#9B1527',
     practiceHref: '/prenuptial-agreement-attorney',

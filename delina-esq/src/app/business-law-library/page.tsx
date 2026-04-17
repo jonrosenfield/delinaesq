@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { POSTS } from '@/data/posts'
@@ -45,8 +46,10 @@ export default function LawLibrary() {
     <main className="bg-parchment pt-[52px]">
       <Navbar />
 
-      {/* Client component handles all search/filter/display */}
-      <LibraryClient posts={merged} />
+      {/* Suspense required for useSearchParams inside LibraryClient */}
+      <Suspense fallback={null}>
+        <LibraryClient posts={merged} />
+      </Suspense>
 
       <Footer />
     </main>
