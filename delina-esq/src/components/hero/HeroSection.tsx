@@ -63,7 +63,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="min-h-[calc(100vh-52px)] flex flex-col relative overflow-hidden">
+    <section className="h-[calc(100vh-52px)] flex flex-col relative overflow-hidden">
       {/* Video background */}
       <video
         autoPlay
@@ -85,7 +85,7 @@ export function HeroSection() {
       />
 
       {/* Main hero content — vertically centered */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 py-10">
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 py-6 overflow-hidden">
         {/* Eyebrow */}
         <span className="font-mono text-[0.625rem] uppercase tracking-[0.25em] text-white mb-10">
           California Legal Strategy · Est. 2019

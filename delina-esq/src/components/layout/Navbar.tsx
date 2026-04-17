@@ -63,9 +63,7 @@ export function Navbar({ showConcierge = false }: NavbarProps) {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <nav
-        className={`w-full h-[52px] bg-ink/90 backdrop-blur-md flex items-center justify-between px-6 lg:px-12 transition-all duration-300 ${
-          scrolled ? 'border-b border-steel' : ''
-        }`}
+        className="w-full h-[52px] bg-ink border-b border-steel flex items-center justify-between px-6 lg:px-12"
       >
         {/* Wordmark */}
         <Link
