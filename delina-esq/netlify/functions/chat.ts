@@ -80,12 +80,14 @@ export const handler = async (event: NetlifyEvent): Promise<NetlifyResponse> => 
       }),
     })
 
+    console.log('OpenRouter status:', response.status)
+    const data = await response.json()
+    console.log('OpenRouter response:', JSON.stringify(data).slice(0, 500))
+
     if (!response.ok) {
-      const errorText = await response.text()
-      return { statusCode: 502, body: JSON.stringify({ error: 'Upstream error', detail: errorText }) }
+      return { statusCode: 502, body: JSON.stringify({ error: 'Upstream error', detail: data }) }
     }
 
-    const data = await response.json()
     const reply: string = data.choices?.[0]?.message?.content ?? data.error?.message ?? "I'm not sure. Try browsing the [Law Library](/business-law-library) or [book a consultation](/book) directly."
 
     return {
