@@ -1,6 +1,7 @@
 [build]
   command = "npm run build"
   publish = "out"
+  functions = "netlify/functions"
 
 # Next.js static export: each page has its own HTML file.
 # The catch-all below handles direct URL access for pages that

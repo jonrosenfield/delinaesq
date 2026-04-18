@@ -9,6 +9,7 @@ import './globals.css'
 import { Navbar } from '@/components/layout/Navbar'
 import { GrainOverlay } from '@/components/ui/GrainOverlay'
 import { CookieBanner } from '@/components/ui/CookieBanner'
+import { ChatWidget } from '@/components/chat/ChatWidget'
 
 const jost = Jost({
   subsets: ['latin'],
@@ -112,6 +113,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <CookieBanner />
+        <ChatWidget />
       </body>
     </html>
   )
