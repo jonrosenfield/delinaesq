@@ -48,11 +48,11 @@ export function ConciergeBar() {
   }
 
   return (
-    <div className="bg-ivory border-b border-steel/25 px-6 lg:px-12 py-5">
+    <div className="bg-ink border-t border-white/8 border-b border-white/5 px-6 lg:px-12 py-6">
       <div className="max-w-[1200px] mx-auto">
 
         {/* Search row */}
-        <form onSubmit={handleSubmit} className="flex items-center gap-5">
+        <form onSubmit={handleSubmit} className="flex items-center gap-5 group cursor-text" onClick={(e) => { if (e.target === e.currentTarget) e.currentTarget.querySelector('input')?.focus() }}>
           <div className="flex-1 relative pb-2">
             <input
               type="text"
@@ -61,14 +61,14 @@ export function ConciergeBar() {
               onFocus={() => setFocused(true)}
               onBlur={() => setFocused(false)}
               placeholder="What are you building or protecting?"
-              className="bg-transparent w-full outline-none text-ink placeholder:text-ink/35 font-display italic tracking-[-0.01em] transition-all duration-200"
+              className="bg-transparent w-full outline-none text-white placeholder:text-white/55 group-hover:placeholder:text-white/75 font-display italic tracking-[-0.01em] transition-all duration-300"
               style={{ fontSize: 'clamp(1rem, 1.4vw, 1.2rem)' }}
             />
-            {/* Animated underline */}
-            <div className="absolute bottom-0 left-0 right-0 h-px">
-              <div className="h-full bg-ink/15" />
+            {/* Animated underline — partial on hover, full on focus */}
+            <div className="absolute bottom-0 left-0 right-0 h-px overflow-hidden">
+              <div className="h-full bg-white/10" />
               <div
-                className={`absolute inset-0 bg-ink/50 transition-transform duration-300 origin-left ${focused ? 'scale-x-100' : 'scale-x-0'}`}
+                className={`absolute inset-0 bg-white/40 transition-transform duration-500 origin-left ${focused ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-[0.4]'}`}
               />
             </div>
           </div>
@@ -76,14 +76,14 @@ export function ConciergeBar() {
           <button
             type="submit"
             aria-label="Search"
-            className="font-mono text-[16px] text-ink/40 hover:text-ink transition-colors flex-shrink-0 pb-2"
+            className="font-mono text-[16px] text-white/55 group-hover:text-white/80 hover:text-white transition-colors flex-shrink-0 pb-2"
           >
             →
           </button>
         </form>
 
         {feedback && (
-          <p className="mt-1.5 font-mono text-[13px] text-ink/50 uppercase tracking-[0.15em]">
+          <p className="mt-1.5 font-mono text-[13px] text-white/40 uppercase tracking-[0.15em]">
             {feedback}
           </p>
         )}
@@ -94,12 +94,12 @@ export function ConciergeBar() {
             <span key={chip.href} className="flex items-center">
               <button
                 onClick={() => router.push(chip.href)}
-                className="font-mono text-[12px] uppercase tracking-[0.18em] text-ink/40 hover:text-ink transition-colors py-0.5"
+                className="font-mono text-[12px] uppercase tracking-[0.18em] text-white/50 hover:text-white transition-colors py-0.5"
               >
                 {chip.label}
               </button>
               {i < CHIPS.length - 1 && (
-                <span className="font-mono text-[12px] text-ink/20 mx-2.5 select-none">·</span>
+                <span className="font-mono text-[12px] text-white/25 mx-2.5 select-none">·</span>
               )}
             </span>
           ))}

@@ -28,9 +28,9 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
             {/* Column 1 */}
             <div>
-              <p className="font-display text-[20px] tracking-[0.15em] text-white font-normal">
+              <Link href="/" className="font-display text-[20px] tracking-[0.15em] text-white font-normal hover:text-silver transition-colors">
                 DELINA.ESQ
-              </p>
+              </Link>
               <p className="font-mono text-[13px] text-mist mt-2">
                 A Lawyer for Every Stage of Your Business
               </p>

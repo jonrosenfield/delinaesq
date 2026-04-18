@@ -34,7 +34,8 @@
       "Bash(xargs sed:*)",
       "Bash(xargs -0 sed -i '' 's/ — /, /g')",
       "Bash(grep:*)",
-      "Bash(curl -s http://localhost:3000/tax-attorney-small-business)"
+      "Bash(curl -s http://localhost:3000/tax-attorney-small-business)",
+      "Bash(awk -F: '{sum += $2} END {print sum \" total occurrences across \" NR \" files\"}')"
     ]
   }
 }
