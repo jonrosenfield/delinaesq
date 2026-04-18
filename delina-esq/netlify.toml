@@ -3,6 +3,12 @@
   publish = "out"
   functions = "netlify/functions"
 
+[functions]
+  node_bundler = "esbuild"
+
+[build.environment]
+  NODE_VERSION = "20"
+
 # Next.js static export: each page has its own HTML file.
 # The catch-all below handles direct URL access for pages that
 # don't exist as separate files (404 fallback). Netlify form

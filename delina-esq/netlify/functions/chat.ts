@@ -62,6 +62,7 @@ export const handler = async (event: NetlifyEvent): Promise<NetlifyResponse> => 
     return { statusCode: 400, body: JSON.stringify({ error: 'Invalid request' }) }
   }
 
+  console.log('Calling OpenRouter, key present:', !!apiKey, 'messages:', messages.length)
   try {
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
@@ -92,7 +93,8 @@ export const handler = async (event: NetlifyEvent): Promise<NetlifyResponse> => 
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ reply }),
     }
-  } catch {
-    return { statusCode: 500, body: JSON.stringify({ error: 'Server error' }) }
+  } catch (err) {
+    console.error('Function error:', err)
+    return { statusCode: 500, body: JSON.stringify({ error: 'Server error', detail: String(err) }) }
   }
 }
