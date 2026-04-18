@@ -60,7 +60,7 @@ export function ConciergeBar() {
               onChange={(e) => setValue(e.target.value)}
               onFocus={() => setFocused(true)}
               onBlur={() => setFocused(false)}
-              placeholder="What are you building or protecting?"
+              placeholder="Tell us what you need help with."
               className="bg-transparent w-full outline-none text-white placeholder:text-white/55 group-hover:placeholder:text-white/75 font-display italic tracking-[-0.01em] transition-all duration-300"
               style={{ fontSize: 'clamp(1rem, 1.4vw, 1.2rem)' }}
             />

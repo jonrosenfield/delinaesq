@@ -122,7 +122,7 @@ export function HeroSection() {
               onChange={(e) => setSearchValue(e.target.value)}
               onFocus={() => setSearchFocused(true)}
               onBlur={() => setTimeout(() => setSearchFocused(false), 200)}
-              placeholder="What are you building or protecting?"
+              placeholder="Tell us what you need help with."
               className={`w-full bg-white/10 border text-white placeholder:text-white/50 font-sans text-[15px] md:text-[16px] pl-11 pr-12 py-3.5 md:py-4 outline-none transition-all duration-300 ${searchFocused ? '' : 'search-pulse'}`}
               style={{
                 backdropFilter: 'blur(12px)',
