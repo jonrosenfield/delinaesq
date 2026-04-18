@@ -94,7 +94,7 @@ export function ChatWidget() {
         ...prev,
         {
           role: 'assistant',
-          content: data.reply || "I'm not sure — try the [Law Library](/business-law-library) or [book a consultation](/book).",
+          content: data.reply || "I'm not sure. Try browsing the [Law Library](/business-law-library) or [book a consultation](/book) directly.",
         },
       ])
     } catch {

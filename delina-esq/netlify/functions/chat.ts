@@ -84,7 +84,7 @@ export const handler = async (event: NetlifyEvent): Promise<NetlifyResponse> => 
     }
 
     const data = await response.json()
-    const reply: string = data.choices?.[0]?.message?.content ?? "I'm not sure — try browsing the [Law Library](/business-law-library) or [book a consultation](/book)."
+    const reply: string = data.choices?.[0]?.message?.content ?? "I'm not sure. Try browsing the [Law Library](/business-law-library) or [book a consultation](/book) directly."
 
     return {
       statusCode: 200,
