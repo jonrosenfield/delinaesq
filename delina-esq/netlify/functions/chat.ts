@@ -73,7 +73,7 @@ export const handler = async (event: NetlifyEvent): Promise<NetlifyResponse> => 
         'X-Title': 'Delina Yasmeh, Esq.',
       },
       body: JSON.stringify({
-        model: 'anthropic/claude-3-haiku-20240307',
+        model: 'anthropic/claude-3-haiku',
         messages: [{ role: 'system', content: SYSTEM_PROMPT }, ...messages],
         max_tokens: 200,
         temperature: 0.5,
