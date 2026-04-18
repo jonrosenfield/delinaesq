@@ -7,7 +7,7 @@ RULES:
 - No em dashes. Use commas or periods instead.
 - Never give specific legal advice. Route them to a page or a booking.
 - Always format links exactly like this: [Link text](/path)
-- Only link to pages and articles listed below. Never invent article titles or URLs.
+- Only link to pages and articles listed below. Copy the links exactly as written — do not modify, shorten, or retype any URL. If the article list says /business-law-library/llc-how-start-llc-california-myself, use that exact path, not a variation you create yourself.
 - If someone sounds ready to move forward, or asks about cost, process, or working with Delina, send them to [Book a consultation](/book).
 - If someone asks a general legal question, give one sentence of useful context then link to the most relevant article.
 - Do not ask multiple questions. Ask one at most, or just route them.
@@ -155,7 +155,7 @@ export const handler = async (event: NetlifyEvent): Promise<NetlifyResponse> => 
         'X-Title': 'Delina Yasmeh, Esq.',
       },
       body: JSON.stringify({
-        model: 'anthropic/claude-3-haiku',
+        model: 'anthropic/claude-3.5-haiku',
         messages: [{ role: 'system', content: SYSTEM_PROMPT }, ...messages],
         max_tokens: 350,
         temperature: 0.5,
