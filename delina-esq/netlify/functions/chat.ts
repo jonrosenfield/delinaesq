@@ -72,7 +72,7 @@ export const handler = async (event: NetlifyEvent): Promise<NetlifyResponse> => 
         'X-Title': 'Delina Yasmeh, Esq.',
       },
       body: JSON.stringify({
-        model: 'anthropic/claude-3-haiku',
+        model: 'anthropic/claude-3-haiku-20240307',
         messages: [{ role: 'system', content: SYSTEM_PROMPT }, ...messages],
         max_tokens: 200,
         temperature: 0.5,
@@ -80,11 +80,12 @@ export const handler = async (event: NetlifyEvent): Promise<NetlifyResponse> => 
     })
 
     if (!response.ok) {
-      return { statusCode: 502, body: JSON.stringify({ error: 'Upstream error' }) }
+      const errorText = await response.text()
+      return { statusCode: 502, body: JSON.stringify({ error: 'Upstream error', detail: errorText }) }
     }
 
     const data = await response.json()
-    const reply: string = data.choices?.[0]?.message?.content ?? "I'm not sure. Try browsing the [Law Library](/business-law-library) or [book a consultation](/book) directly."
+    const reply: string = data.choices?.[0]?.message?.content ?? data.error?.message ?? "I'm not sure. Try browsing the [Law Library](/business-law-library) or [book a consultation](/book) directly."
 
     return {
       statusCode: 200,
