@@ -38,7 +38,8 @@
       "Bash(awk -F: '{sum += $2} END {print sum \" total occurrences across \" NR \" files\"}')",
       "Bash(cp /Users/jonathanrosenfield/Downloads/intake-deploy/delina-esq/netlify/functions/intake-upload.js \"/Users/jonathanrosenfield/Documents/Websites/DelinaESQ 2.0/delina-esq/netlify/functions/intake-upload.js\")",
       "Bash(cp /Users/jonathanrosenfield/Downloads/intake-deploy/delina-esq/netlify/functions/intake-serve.js \"/Users/jonathanrosenfield/Documents/Websites/DelinaESQ 2.0/delina-esq/netlify/functions/intake-serve.js\")",
-      "Bash(cp /Users/jonathanrosenfield/Downloads/intake-deploy/delina-esq/netlify/functions/intake-list.js \"/Users/jonathanrosenfield/Documents/Websites/DelinaESQ 2.0/delina-esq/netlify/functions/intake-list.js\")"
+      "Bash(cp /Users/jonathanrosenfield/Downloads/intake-deploy/delina-esq/netlify/functions/intake-list.js \"/Users/jonathanrosenfield/Documents/Websites/DelinaESQ 2.0/delina-esq/netlify/functions/intake-list.js\")",
+      "Bash(curl -s -o \"/tmp/jonathan-test-2.html\" \"https://delina.esq/intake/jonathan-test-2\")"
     ]
   }
 }
