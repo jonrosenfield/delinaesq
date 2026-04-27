@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Intake Admin — Law Office of Delina Yasmeh</title>
+<style>
+  :root {
+    --ink: #0A0A0A;
+    --paper: #F9F7F4;
+    --signal: #0047FF;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    --serif: Georgia, 'Times New Roman', serif;
+    --mono: 'SFMono-Regular', Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+  .top-bar {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .top-bar .brand {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14pt;
+    letter-spacing: -0.01em;
+    text-transform: none;
+  }
+  .top-bar .brand span { color: var(--signal); }
+  .container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 0 24px;
+  }
+
+  /* Login */
+  .login-box {
+    max-width: 360px;
+    margin: 120px auto;
+    text-align: center;
+  }
+  .login-box h1 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 24pt;
+    margin-bottom: 8px;
+  }
+  .login-box p {
+    color: #737373;
+    font-size: 13px;
+    margin-bottom: 28px;
+  }
+  .login-box input {
+    width: 100%;
+    border: 1px solid #D9D9D9;
+    padding: 12px 14px;
+    font-family: var(--sans);
+    font-size: 14px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .login-box input:focus { outline: none; border-color: var(--signal); }
+  .btn {
+    display: inline-block;
+    background: var(--signal);
+    color: #fff;
+    border: none;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 100%;
+  }
+  .btn:hover { opacity: 0.9; }
+  .btn-outline {
+    background: none;
+    border: 1px solid #D9D9D9;
+    color: var(--ink);
+  }
+  .btn-outline:hover { border-color: var(--signal); color: var(--signal); }
+  .btn-sm { padding: 8px 16px; width: auto; font-size: 9px; }
+  .btn-danger { background: #dc3545; }
+
+  /* Dashboard */
+  .dash-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+  .dash-header h1 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22pt;
+  }
+  .form-list { margin-top: 20px; }
+  .form-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(10,10,10,0.06);
+  }
+  .form-item .slug {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+  }
+  .form-item .url {
+    font-size: 12px;
+    color: var(--signal);
+    text-decoration: none;
+  }
+  .form-item .url:hover { text-decoration: underline; }
+  .form-item .actions { display: flex; gap: 8px; }
+  .copy-btn {
+    background: none;
+    border: 1px solid #D9D9D9;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 2px;
+    cursor: pointer;
+    color: #737373;
+  }
+  .copy-btn:hover { border-color: var(--signal); color: var(--signal); }
+  .copy-btn.copied { border-color: #28a745; color: #28a745; }
+
+  /* Publish form */
+  .publish-section {
+    background: #fff;
+    border: 1px solid rgba(10,10,10,0.08);
+    border-radius: 4px;
+    padding: 24px;
+    margin-top: 24px;
+  }
+  .publish-section h3 {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #737373;
+    margin-bottom: 16px;
+  }
+  .publish-section label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #737373;
+    margin-bottom: 4px;
+    margin-top: 12px;
+  }
+  .publish-section input[type="text"],
+  .publish-section input[type="file"] {
+    width: 100%;
+    border: 1px solid #D9D9D9;
+    padding: 10px 12px;
+    font-family: var(--sans);
+    font-size: 13px;
+    border-radius: 3px;
+    background: var(--paper);
+  }
+  .publish-section input:focus { outline: none; border-color: var(--signal); }
+  .status {
+    margin-top: 14px;
+    font-size: 12px;
+    color: #737373;
+  }
+  .status.success { color: #28a745; }
+  .status.error { color: #dc3545; }
+  .result-url {
+    margin-top: 12px;
+    padding: 12px;
+    background: var(--paper);
+    border: 1px solid rgba(10,10,10,0.08);
+    border-radius: 3px;
+    display: none;
+  }
+  .result-url a {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--signal);
+    word-break: break-all;
+  }
+  .empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #A3A3A3;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="brand">Delina<span>.esq</span></div>
+  <div>INTAKE ADMIN</div>
+</div>
+
+<!-- LOGIN SCREEN -->
+<div id="login-screen">
+  <div class="login-box">
+    <h1>Intake Admin</h1>
+    <p>Enter your admin password to manage client intake forms.</p>
+    <input type="password" id="login-pass" placeholder="Password" autofocus>
+    <button class="btn" id="login-btn">Sign In</button>
+  </div>
+</div>
+
+<!-- DASHBOARD (hidden until login) -->
+<div id="dashboard" style="display: none;">
+  <div class="container">
+    <div class="dash-header">
+      <h1>Published Forms</h1>
+    </div>
+
+    <div class="publish-section">
+      <h3>Publish New Intake Form</h3>
+      <label>Client Slug (becomes the URL)</label>
+      <input type="text" id="pub-slug" placeholder="e.g. coffee-boy (becomes delina.esq/intake/coffee-boy)">
+      <label>Intake Form HTML File</label>
+      <input type="file" id="pub-file" accept=".html">
+      <div style="margin-top: 16px;">
+        <button class="btn" id="pub-btn">Publish</button>
+      </div>
+      <div class="status" id="pub-status"></div>
+      <div class="result-url" id="pub-result">
+        <strong>Client link:</strong><br>
+        <a id="pub-url" href="#" target="_blank"></a>
+        <button class="copy-btn" id="pub-copy" style="margin-top: 8px;">Copy Link</button>
+      </div>
+    </div>
+
+    <div class="form-list" id="form-list">
+      <div class="empty-state">Loading published forms...</div>
+    </div>
+  </div>
+</div>
+
+<script>
+var adminPassword = '';
+
+// Login
+document.getElementById('login-btn').addEventListener('click', doLogin);
+document.getElementById('login-pass').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') doLogin();
+});
+
+function doLogin() {
+  adminPassword = document.getElementById('login-pass').value;
+  if (!adminPassword) return;
+  // Try listing forms to verify password
+  fetch('/.netlify/functions/intake-list', {
+    method: 'POST',
+    body: JSON.stringify({ password: adminPassword })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    if (data.error) {
+      alert('Invalid password');
+      return;
+    }
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    renderFormList(data.forms);
+  })
+  .catch(function() { alert('Connection error. Please try again.'); });
+}
+
+// Render form list
+function renderFormList(forms) {
+  var list = document.getElementById('form-list');
+  if (!forms || forms.length === 0) {
+    list.innerHTML = '<div class="empty-state">No intake forms published yet. Use the form above to publish one.</div>';
+    return;
+  }
+  list.innerHTML = '';
+  forms.forEach(function(f) {
+    var item = document.createElement('div');
+    item.className = 'form-item';
+    item.innerHTML = '<div><div class="slug">' + f.slug + '</div>' +
+      '<a class="url" href="' + f.url + '" target="_blank">' + f.url + '</a></div>' +
+      '<div class="actions"><button class="copy-btn" data-url="' + f.url + '">Copy Link</button></div>';
+    item.querySelector('.copy-btn').addEventListener('click', function() {
+      navigator.clipboard.writeText(f.url);
+      this.textContent = 'Copied!';
+      this.classList.add('copied');
+      var btn = this;
+      setTimeout(function() { btn.textContent = 'Copy Link'; btn.classList.remove('copied'); }, 2000);
+    });
+    list.appendChild(item);
+  });
+}
+
+// Publish
+document.getElementById('pub-btn').addEventListener('click', function() {
+  var slug = document.getElementById('pub-slug').value.trim();
+  var fileInput = document.getElementById('pub-file');
+  var status = document.getElementById('pub-status');
+
+  if (!slug) { status.textContent = 'Please enter a client slug.'; status.className = 'status error'; return; }
+  if (!fileInput.files.length) { status.textContent = 'Please select an HTML file.'; status.className = 'status error'; return; }
+
+  status.textContent = 'Publishing...';
+  status.className = 'status';
+
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var html = e.target.result;
+    fetch('/.netlify/functions/intake-upload', {
+      method: 'POST',
+      body: JSON.stringify({ slug: slug, html: html, password: adminPassword })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.error) {
+        status.textContent = 'Error: ' + data.error;
+        status.className = 'status error';
+        return;
+      }
+      status.textContent = 'Published successfully!';
+      status.className = 'status success';
+      document.getElementById('pub-result').style.display = 'block';
+      var urlEl = document.getElementById('pub-url');
+      urlEl.href = data.url;
+      urlEl.textContent = data.url;
+      // Refresh list
+      fetch('/.netlify/functions/intake-list', {
+        method: 'POST',
+        body: JSON.stringify({ password: adminPassword })
+      }).then(function(r) { return r.json(); }).then(function(d) { renderFormList(d.forms); });
+    })
+    .catch(function(err) {
+      status.textContent = 'Error: ' + err.message;
+      status.className = 'status error';
+    });
+  };
+  reader.readAsText(fileInput.files[0]);
+});
+
+// Copy result URL
+document.getElementById('pub-copy').addEventListener('click', function() {
+  var url = document.getElementById('pub-url').textContent;
+  navigator.clipboard.writeText(url);
+  this.textContent = 'Copied!';
+  this.classList.add('copied');
+  var btn = this;
+  setTimeout(function() { btn.textContent = 'Copy Link'; btn.classList.remove('copied'); }, 2000);
+});
+</script>
+</body>
+</html>

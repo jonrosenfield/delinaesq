@@ -109,7 +109,7 @@ export function HeroSection() {
         <div className="w-full max-w-[560px] mt-5 md:mt-7">
           <form onSubmit={handleSearchSubmit} className="relative">
             <svg
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-white/60"
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-white/80"
               width="15" height="15" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" strokeWidth="2" strokeLinecap="round"
             >
@@ -123,13 +123,15 @@ export function HeroSection() {
               onFocus={() => setSearchFocused(true)}
               onBlur={() => setTimeout(() => setSearchFocused(false), 200)}
               placeholder="Tell us what you need help with."
-              className={`w-full bg-white/10 border text-white placeholder:text-white/50 font-sans text-[15px] md:text-[16px] pl-11 pr-12 py-3.5 md:py-4 outline-none transition-all duration-300 ${searchFocused ? '' : 'search-pulse'}`}
+              className={`w-full border-2 text-white placeholder:text-white/70 font-sans text-[15px] md:text-[16px] pl-11 pr-12 py-3.5 md:py-4 outline-none transition-all duration-300 ${searchFocused ? '' : 'search-pulse'}`}
               style={{
-                backdropFilter: 'blur(12px)',
-                borderColor: searchFocused ? 'rgba(255,255,255,0.7)' : 'rgba(255,255,255,0.4)',
+                background: 'rgba(255,255,255,0.18)',
+                backdropFilter: 'blur(24px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(24px) saturate(180%)',
+                borderColor: searchFocused ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.75)',
                 boxShadow: searchFocused
-                  ? '0 0 0 3px rgba(255,255,255,0.12), 0 0 40px rgba(255,255,255,0.25)'
-                  : undefined,
+                  ? '0 0 0 3px rgba(255,255,255,0.15), 0 0 50px rgba(255,255,255,0.3), inset 0 1px 0 rgba(255,255,255,0.2)'
+                  : 'inset 0 1px 0 rgba(255,255,255,0.15)',
               }}
             />
             <button

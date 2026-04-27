@@ -9,6 +9,19 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Intake form admin page (must come BEFORE the wildcard)
+[[redirects]]
+  from = "/intake/admin"
+  to = "/intake/admin.html"
+  status = 200
+  force = true
+
+# Serve intake forms via function
+[[redirects]]
+  from = "/intake/:slug"
+  to = "/.netlify/functions/intake-serve"
+  status = 200
+
 # Next.js static export: each page has its own HTML file.
 # The catch-all below handles direct URL access for pages that
 # don't exist as separate files (404 fallback). Netlify form
