@@ -38,7 +38,11 @@ exports.handler = async (event) => {
     }
 
     // Store the HTML in Netlify Blobs
-    const store = getStore("intake-forms");
+    const store = getStore({
+      name: "intake-forms",
+      siteID: process.env.NETLIFY_SITE_ID,
+      token: process.env.NETLIFY_BLOBS_TOKEN,
+    });
     await store.set(safeSlug, html, { metadata: { created: new Date().toISOString() } });
 
     const url = `https://delina.esq/intake/${safeSlug}`;

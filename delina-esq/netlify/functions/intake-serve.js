@@ -21,7 +21,11 @@ exports.handler = async (event) => {
   }
 
   try {
-    const store = getStore("intake-forms");
+    const store = getStore({
+      name: "intake-forms",
+      siteID: process.env.NETLIFY_SITE_ID,
+      token: process.env.NETLIFY_BLOBS_TOKEN,
+    });
     const html = await store.get(slug, { type: "text" });
 
     if (!html) {

@@ -20,7 +20,11 @@ exports.handler = async (event) => {
       return { statusCode: 401, headers, body: JSON.stringify({ error: "Invalid password" }) };
     }
 
-    const store = getStore("intake-forms");
+    const store = getStore({
+      name: "intake-forms",
+      siteID: process.env.NETLIFY_SITE_ID,
+      token: process.env.NETLIFY_BLOBS_TOKEN,
+    });
     const { blobs } = await store.list();
 
     const forms = blobs.map((b) => ({
