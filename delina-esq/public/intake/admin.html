@@ -275,17 +275,24 @@ function doLogin() {
     method: 'POST',
     body: JSON.stringify({ password: adminPassword })
   })
-  .then(function(r) { return r.json(); })
-  .then(function(data) {
-    if (data.error) {
-      alert('Invalid password');
+  .then(function(r) {
+    return r.text().then(function(text) { return { status: r.status, text: text }; });
+  })
+  .then(function(res) {
+    var data;
+    try { data = JSON.parse(res.text); } catch (e) {
+      alert('Server returned non-JSON (status ' + res.status + '):\n\n' + res.text.substring(0, 300));
+      return;
+    }
+    if (res.status !== 200 || data.error) {
+      alert('Login failed (status ' + res.status + '): ' + (data.error || 'unknown error'));
       return;
     }
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('dashboard').style.display = 'block';
     renderFormList(data.forms);
   })
-  .catch(function() { alert('Connection error. Please try again.'); });
+  .catch(function(err) { alert('Connection error: ' + err.message); });
 }
 
 // Render form list
