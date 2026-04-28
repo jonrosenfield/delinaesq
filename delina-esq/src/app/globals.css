@@ -48,6 +48,18 @@ html {
 .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
 
 /* Keyframes must live outside @layer so they're globally scoped */
+@keyframes chatBob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.15); }
+}
+@keyframes arrowSlide {
+  0%, 100% { transform: translateX(0); opacity: 0.85; }
+  50%      { transform: translateX(4px); opacity: 1; }
+}
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }

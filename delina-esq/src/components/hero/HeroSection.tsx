@@ -63,7 +63,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="min-h-[calc(100vh-52px)] md:h-[calc(100vh-52px)] flex flex-col relative overflow-hidden">
+    <section className="min-h-[calc(100vh-52px)] flex flex-col relative overflow-hidden">
       {/* Video background */}
       <video
         autoPlay
@@ -85,7 +85,7 @@ export function HeroSection() {
       />
 
       {/* Main hero content — pb clears the pinned ticker */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 pt-8 md:pt-6" style={{ paddingBottom: '72px' }}>
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 pt-8 md:pt-6 pb-24 md:pb-28">
         {/* Eyebrow */}
         <span className="font-mono text-[0.625rem] uppercase tracking-[0.25em] text-white mb-4 md:mb-6">
           Legal Strategy · Est. 2019

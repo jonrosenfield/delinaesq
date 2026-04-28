@@ -220,15 +220,28 @@ export function ChatWidget() {
 
       {/* Tooltip bubble — appears to the left of the tab */}
       <div
-        className={`fixed right-14 z-50 transition-all duration-300 ${
-          showTooltip && !open ? 'opacity-100 translate-x-0 pointer-events-auto' : 'opacity-0 translate-x-2 pointer-events-none'
+        className={`fixed right-14 z-50 transition-all duration-500 ${
+          showTooltip && !open ? 'opacity-100 translate-x-0 pointer-events-auto' : 'opacity-0 translate-x-3 pointer-events-none'
         }`}
-        style={{ top: 'calc(50% - 24px)' }}
+        style={{ top: 'calc(50% - 38px)' }}
       >
-        <div className="bg-white text-ink font-sans text-[12px] px-3.5 py-2 whitespace-nowrap leading-snug shadow-xl relative">
-          Have a legal question? Ask me anything.
-          <div className="absolute right-[-5px] top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-white rotate-45" />
-        </div>
+        <button
+          type="button"
+          onClick={() => { setOpen(true); setShowTooltip(false) }}
+          aria-label="Open chat assistant"
+          className="group bg-white text-ink rounded-md px-4 py-3 shadow-2xl relative max-w-[240px] text-left cursor-pointer transition-shadow duration-200 hover:shadow-[0_20px_50px_rgba(0,71,255,0.25)]"
+          style={{ animation: showTooltip && !open ? 'chatBob 2.6s ease-in-out infinite' : undefined }}
+        >
+          <div className="font-sans text-[12.5px] leading-snug text-ink/80">
+            Have a legal question?<br />
+            Ask me anything.
+          </div>
+          <div className="mt-2 pt-2 border-t border-ink/10 flex items-center gap-1.5 font-mono text-[10px] tracking-[0.18em] uppercase text-cobalt group-hover:text-cobalt/80 transition-colors">
+            <span>Chat with us now</span>
+            <span style={{ animation: 'arrowSlide 1.2s ease-in-out infinite', display: 'inline-block' }}>→</span>
+          </div>
+          <div className="absolute right-[-5px] top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-white rotate-45 group-hover:bg-white" />
+        </button>
       </div>
 
       {/* Right-side vertical tab */}
@@ -236,24 +249,33 @@ export function ChatWidget() {
         <button
           onClick={() => { setOpen((o) => !o); setShowTooltip(false) }}
           aria-label="Toggle chat assistant"
-          className={`flex flex-col items-center gap-3 px-3 py-5 font-mono text-[10px] uppercase tracking-[0.2em] transition-all duration-300 border-l border-t border-b ${
+          className={`flex flex-col items-center gap-3 px-3 py-5 font-mono text-[10px] uppercase tracking-[0.2em] transition-all duration-300 border-l border-t border-b rounded-l-md ${
             open
               ? 'bg-ink text-white/60 border-white/20 hover:text-white'
-              : 'bg-white text-ink border-white/0 hover:bg-white/90'
+              : 'bg-white text-ink border-white/0 hover:bg-white/95'
           }`}
           style={!open ? {
             boxShadow: '0 0 0 1px rgba(255,255,255,0.75), -4px 0 24px rgba(255,255,255,0.18), -8px 0 60px rgba(255,255,255,0.08)',
             animation: 'searchGlow 2.8s ease-in-out infinite',
           } : undefined}
         >
-          <svg width="13" height="13" viewBox="0 0 14 14" fill="none" style={{ transform: 'rotate(0deg)' }}>
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+            style={{
+              animation: !open ? 'iconPulse 1.8s ease-in-out infinite' : undefined,
+              color: !open ? '#0047FF' : 'currentColor',
+            }}
+          >
             <path
               d="M1 1h12v9H8L5 13v-3H1V1z"
               stroke="currentColor"
-              strokeWidth="1.3"
+              strokeWidth="1.4"
               strokeLinejoin="round"
               fill={open ? 'none' : 'currentColor'}
-              fillOpacity={open ? 0 : 0.12}
+              fillOpacity={open ? 0 : 0.18}
             />
           </svg>
           <span style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
