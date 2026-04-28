@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Intake Admin — Law Office of Delina Yasmeh</title>
+<title>Document Admin — Law Office of Delina Yasmeh</title>
 <style>
   :root {
     --ink: #0A0A0A;
@@ -41,7 +41,7 @@
   }
   .top-bar .brand span { color: var(--signal); }
   .container {
-    max-width: 700px;
+    max-width: 760px;
     margin: 40px auto;
     padding: 0 24px;
   }
@@ -89,28 +89,55 @@
     width: 100%;
   }
   .btn:hover { opacity: 0.9; }
-  .btn-outline {
-    background: none;
-    border: 1px solid #D9D9D9;
-    color: var(--ink);
-  }
-  .btn-outline:hover { border-color: var(--signal); color: var(--signal); }
-  .btn-sm { padding: 8px 16px; width: auto; font-size: 9px; }
-  .btn-danger { background: #dc3545; }
 
   /* Dashboard */
   .dash-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
   .dash-header h1 {
     font-family: var(--serif);
     font-style: italic;
     font-size: 22pt;
+    margin-bottom: 4px;
   }
-  .form-list { margin-top: 20px; }
+  .dash-header .sub {
+    color: #737373;
+    font-size: 13px;
+  }
+
+  /* Tabs */
+  .tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid rgba(10,10,10,0.12);
+    margin-bottom: 24px;
+  }
+  .tab {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 12px 20px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #737373;
+    cursor: pointer;
+    margin-bottom: -1px;
+  }
+  .tab:hover { color: var(--ink); }
+  .tab.active {
+    color: var(--ink);
+    border-bottom-color: var(--signal);
+  }
+  .tab .count {
+    font-size: 9px;
+    color: #A3A3A3;
+    margin-left: 6px;
+  }
+
+  /* Form list */
+  .form-list { margin-top: 8px; }
   .form-item {
     display: flex;
     justify-content: space-between;
@@ -144,6 +171,7 @@
   }
   .copy-btn:hover { border-color: var(--signal); color: var(--signal); }
   .copy-btn.copied { border-color: #28a745; color: #28a745; }
+  .copy-btn.delete-btn { border-color: #dc3545; color: #dc3545; }
 
   /* Publish form */
   .publish-section {
@@ -151,7 +179,7 @@
     border: 1px solid rgba(10,10,10,0.08);
     border-radius: 4px;
     padding: 24px;
-    margin-top: 24px;
+    margin-bottom: 24px;
   }
   .publish-section h3 {
     font-family: var(--mono);
@@ -215,14 +243,14 @@
 
 <div class="top-bar">
   <div class="brand">Delina<span>.esq</span></div>
-  <div>INTAKE ADMIN</div>
+  <div>Document Admin</div>
 </div>
 
 <!-- LOGIN SCREEN -->
 <div id="login-screen">
   <div class="login-box">
-    <h1>Intake Admin</h1>
-    <p>Enter your admin password to manage client intake forms.</p>
+    <h1>Document Admin</h1>
+    <p>Enter your admin password to manage client documents.</p>
     <input type="password" id="login-pass" placeholder="Password" autofocus>
     <button class="btn" id="login-btn">Sign In</button>
   </div>
@@ -232,16 +260,23 @@
 <div id="dashboard" style="display: none;">
   <div class="container">
     <div class="dash-header">
-      <h1>Published Forms</h1>
+      <h1>Published Documents</h1>
+      <div class="sub">Upload and manage client intake forms, engagement letters, and statements of work.</div>
+    </div>
+
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-type="intake">Intake <span class="count" id="count-intake"></span></button>
+      <button class="tab" data-type="engagement">Engagement <span class="count" id="count-engagement"></span></button>
+      <button class="tab" data-type="sow">SOW <span class="count" id="count-sow"></span></button>
     </div>
 
     <div class="publish-section">
-      <h3>Publish New Intake Form</h3>
+      <h3>Publish New <span id="pub-type-label">Intake Form</span></h3>
       <label>Client Slug (becomes the URL)</label>
-      <input type="text" id="pub-slug" placeholder="e.g. coffee-boy (becomes delina.esq/intake/coffee-boy)">
-      <label>Intake Form HTML File</label>
+      <input type="text" id="pub-slug" placeholder="e.g. coffee-boy">
+      <label>Document HTML File</label>
       <input type="file" id="pub-file" accept=".html">
-      <label>Client Password (optional — leave blank for unprotected form)</label>
+      <label>Client Password (optional — leave blank for unprotected document)</label>
       <input type="text" id="pub-client-pass" placeholder="e.g. coffee2026 — share with client separately">
       <div style="margin-top: 16px;">
         <button class="btn" id="pub-btn">Publish</button>
@@ -259,13 +294,19 @@
     </div>
 
     <div class="form-list" id="form-list">
-      <div class="empty-state">Loading published forms...</div>
+      <div class="empty-state">Loading documents...</div>
     </div>
   </div>
 </div>
 
 <script>
 var adminPassword = '';
+var activeType = 'intake';
+var TYPE_LABELS = {
+  intake: 'Intake Form',
+  engagement: 'Engagement Letter',
+  sow: 'Statement of Work',
+};
 
 // Login
 document.getElementById('login-btn').addEventListener('click', doLogin);
@@ -276,10 +317,9 @@ document.getElementById('login-pass').addEventListener('keydown', function(e) {
 function doLogin() {
   adminPassword = document.getElementById('login-pass').value;
   if (!adminPassword) return;
-  // Try listing forms to verify password
-  fetch('/.netlify/functions/intake-list', {
+  fetch('/.netlify/functions/doc-list', {
     method: 'POST',
-    body: JSON.stringify({ password: adminPassword })
+    body: JSON.stringify({ type: activeType, password: adminPassword })
   })
   .then(function(r) {
     return r.text().then(function(text) { return { status: r.status, text: text }; });
@@ -297,15 +337,63 @@ function doLogin() {
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('dashboard').style.display = 'block';
     renderFormList(data.forms);
+    refreshAllCounts();
   })
   .catch(function(err) { alert('Connection error: ' + err.message); });
+}
+
+// Tab switching
+document.querySelectorAll('.tab').forEach(function(tab) {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+    tab.classList.add('active');
+    activeType = tab.dataset.type;
+    document.getElementById('pub-type-label').textContent = TYPE_LABELS[activeType];
+    document.getElementById('pub-status').textContent = '';
+    document.getElementById('pub-result').style.display = 'none';
+    loadList();
+  });
+});
+
+function loadList() {
+  document.getElementById('form-list').innerHTML = '<div class="empty-state">Loading...</div>';
+  fetch('/.netlify/functions/doc-list', {
+    method: 'POST',
+    body: JSON.stringify({ type: activeType, password: adminPassword })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    if (data.error) {
+      document.getElementById('form-list').innerHTML = '<div class="empty-state">Error: ' + data.error + '</div>';
+      return;
+    }
+    renderFormList(data.forms);
+    document.getElementById('count-' + activeType).textContent = '(' + (data.forms || []).length + ')';
+  })
+  .catch(function(err) {
+    document.getElementById('form-list').innerHTML = '<div class="empty-state">Error loading documents.</div>';
+  });
+}
+
+function refreshAllCounts() {
+  ['intake', 'engagement', 'sow'].forEach(function(t) {
+    fetch('/.netlify/functions/doc-list', {
+      method: 'POST',
+      body: JSON.stringify({ type: t, password: adminPassword })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.forms) document.getElementById('count-' + t).textContent = '(' + data.forms.length + ')';
+    })
+    .catch(function() {});
+  });
 }
 
 // Render form list
 function renderFormList(forms) {
   var list = document.getElementById('form-list');
   if (!forms || forms.length === 0) {
-    list.innerHTML = '<div class="empty-state">No intake forms published yet. Use the form above to publish one.</div>';
+    list.innerHTML = '<div class="empty-state">No ' + TYPE_LABELS[activeType].toLowerCase() + 's published yet. Use the form above to publish one.</div>';
     return;
   }
   list.innerHTML = '';
@@ -317,7 +405,7 @@ function renderFormList(forms) {
       '<a class="url" href="' + f.url + '" target="_blank">' + f.url + '</a></div>' +
       '<div class="actions">' +
         '<button class="copy-btn" data-url="' + f.url + '">Copy Link</button>' +
-        '<button class="copy-btn delete-btn" style="border-color:#dc3545;color:#dc3545;" data-slug="' + f.slug + '">Delete</button>' +
+        '<button class="copy-btn delete-btn" data-slug="' + f.slug + '">Delete</button>' +
       '</div>';
     item.querySelector('.copy-btn').addEventListener('click', function() {
       navigator.clipboard.writeText(f.url);
@@ -327,21 +415,18 @@ function renderFormList(forms) {
       setTimeout(function() { btn.textContent = 'Copy Link'; btn.classList.remove('copied'); }, 2000);
     });
     item.querySelector('.delete-btn').addEventListener('click', function() {
-      if (!confirm('Delete intake form "' + f.slug + '"? This cannot be undone.')) return;
+      if (!confirm('Delete ' + TYPE_LABELS[activeType].toLowerCase() + ' "' + f.slug + '"? This cannot be undone.')) return;
       var btn = this;
       btn.textContent = 'Deleting...';
-      fetch('/.netlify/functions/intake-delete', {
+      fetch('/.netlify/functions/doc-delete', {
         method: 'POST',
-        body: JSON.stringify({ slug: f.slug, password: adminPassword })
+        body: JSON.stringify({ type: activeType, slug: f.slug, password: adminPassword })
       })
       .then(function(r) { return r.json(); })
       .then(function(data) {
         if (data.error) { alert('Delete failed: ' + data.error); btn.textContent = 'Delete'; return; }
-        // Refresh list
-        fetch('/.netlify/functions/intake-list', {
-          method: 'POST',
-          body: JSON.stringify({ password: adminPassword })
-        }).then(function(r) { return r.json(); }).then(function(d) { renderFormList(d.forms); });
+        loadList();
+        refreshAllCounts();
       })
       .catch(function(err) { alert('Delete error: ' + err.message); btn.textContent = 'Delete'; });
     });
@@ -353,6 +438,7 @@ function renderFormList(forms) {
 document.getElementById('pub-btn').addEventListener('click', function() {
   var slug = document.getElementById('pub-slug').value.trim();
   var fileInput = document.getElementById('pub-file');
+  var clientPassword = document.getElementById('pub-client-pass').value.trim();
   var status = document.getElementById('pub-status');
 
   if (!slug) { status.textContent = 'Please enter a client slug.'; status.className = 'status error'; return; }
@@ -361,14 +447,18 @@ document.getElementById('pub-btn').addEventListener('click', function() {
   status.textContent = 'Publishing...';
   status.className = 'status';
 
-  var clientPassword = document.getElementById('pub-client-pass').value.trim();
-
   var reader = new FileReader();
   reader.onload = function(e) {
     var html = e.target.result;
-    fetch('/.netlify/functions/intake-upload', {
+    fetch('/.netlify/functions/doc-upload', {
       method: 'POST',
-      body: JSON.stringify({ slug: slug, html: html, password: adminPassword, clientPassword: clientPassword })
+      body: JSON.stringify({
+        type: activeType,
+        slug: slug,
+        html: html,
+        password: adminPassword,
+        clientPassword: clientPassword
+      })
     })
     .then(function(r) { return r.json(); })
     .then(function(data) {
@@ -383,7 +473,6 @@ document.getElementById('pub-btn').addEventListener('click', function() {
       var urlEl = document.getElementById('pub-url');
       urlEl.href = data.url;
       urlEl.textContent = data.url;
-      // Show password reminder if one was set
       var passDisplay = document.getElementById('pub-pass-display');
       var passValue = document.getElementById('pub-pass-value');
       if (clientPassword) {
@@ -392,13 +481,11 @@ document.getElementById('pub-btn').addEventListener('click', function() {
       } else {
         passDisplay.style.display = 'none';
       }
-      // Clear password input so it doesn't carry over to the next upload
       document.getElementById('pub-client-pass').value = '';
-      // Refresh list
-      fetch('/.netlify/functions/intake-list', {
-        method: 'POST',
-        body: JSON.stringify({ password: adminPassword })
-      }).then(function(r) { return r.json(); }).then(function(d) { renderFormList(d.forms); });
+      document.getElementById('pub-slug').value = '';
+      fileInput.value = '';
+      loadList();
+      refreshAllCounts();
     })
     .catch(function(err) {
       status.textContent = 'Error: ' + err.message;

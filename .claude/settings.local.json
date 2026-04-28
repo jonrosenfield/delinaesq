@@ -39,7 +39,9 @@
       "Bash(cp /Users/jonathanrosenfield/Downloads/intake-deploy/delina-esq/netlify/functions/intake-upload.js \"/Users/jonathanrosenfield/Documents/Websites/DelinaESQ 2.0/delina-esq/netlify/functions/intake-upload.js\")",
       "Bash(cp /Users/jonathanrosenfield/Downloads/intake-deploy/delina-esq/netlify/functions/intake-serve.js \"/Users/jonathanrosenfield/Documents/Websites/DelinaESQ 2.0/delina-esq/netlify/functions/intake-serve.js\")",
       "Bash(cp /Users/jonathanrosenfield/Downloads/intake-deploy/delina-esq/netlify/functions/intake-list.js \"/Users/jonathanrosenfield/Documents/Websites/DelinaESQ 2.0/delina-esq/netlify/functions/intake-list.js\")",
-      "Bash(curl -s -o \"/tmp/jonathan-test-2.html\" \"https://delina.esq/intake/jonathan-test-2\")"
+      "Bash(curl -s -o \"/tmp/jonathan-test-2.html\" \"https://delina.esq/intake/jonathan-test-2\")",
+      "Bash(cp \"/Users/jonathanrosenfield/Library/Mobile Documents/com~apple~CloudDocs/Persian Queen/Doc Templates/Master Engagement Letter and SOW/Delina.ESQ - Master Engagement Agreement.html\" \"/Users/jonathanrosenfield/Library/Mobile Documents/com~apple~CloudDocs/Persian Queen/Doc Templates/Master Engagement Letter and SOW/Delina.ESQ - Master Engagement Agreement.BACKUP-$\\(date +%Y%m%d-%H%M%S\\).html\")",
+      "Bash(cp \"/Users/jonathanrosenfield/Library/Mobile Documents/com~apple~CloudDocs/Persian Queen/Doc Templates/Master Engagement Letter and SOW/Delina.ESQ - Statement of Work.html\" \"/Users/jonathanrosenfield/Library/Mobile Documents/com~apple~CloudDocs/Persian Queen/Doc Templates/Master Engagement Letter and SOW/Delina.ESQ - Statement of Work.BACKUP-$\\(date +%Y%m%d-%H%M%S\\).html\")"
     ]
   }
 }

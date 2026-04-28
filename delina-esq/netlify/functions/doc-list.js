@@ -2,6 +2,12 @@ const { getStore } = require("@netlify/blobs");
 
 const ADMIN_PASSWORD = process.env.INTAKE_ADMIN_PASSWORD || "delina2026";
 
+const STORES = {
+  intake: "intake-forms",
+  engagement: "engagement-letters",
+  sow: "sow-documents",
+};
+
 exports.handler = async (event) => {
   const headers = {
     "Access-Control-Allow-Origin": "*",
@@ -12,18 +18,20 @@ exports.handler = async (event) => {
   if (event.httpMethod === "OPTIONS") return { statusCode: 200, headers, body: "" };
 
   try {
-    const { password } = JSON.parse(event.body || "{}");
+    const { type, password } = JSON.parse(event.body || "{}");
     if (password !== ADMIN_PASSWORD) {
       return { statusCode: 401, headers, body: JSON.stringify({ error: "Invalid password" }) };
     }
+    if (!type || !STORES[type]) {
+      return { statusCode: 400, headers, body: JSON.stringify({ error: "Invalid or missing type" }) };
+    }
 
     const store = getStore({
-      name: "intake-forms",
+      name: STORES[type],
       siteID: process.env.NETLIFY_SITE_ID,
       token: process.env.NETLIFY_BLOBS_TOKEN,
     });
 
-    // List with metadata so we can flag password-protected forms
     const { blobs } = await store.list();
 
     const forms = await Promise.all(
@@ -39,17 +47,16 @@ exports.handler = async (event) => {
         } catch {}
         return {
           slug: b.key,
-          url: `https://delina.esq/intake/${b.key}`,
+          url: `https://delina.esq/${type}/${b.key}`,
           passwordProtected,
           created,
         };
       })
     );
 
-    // Sort newest first
     forms.sort((a, b) => (b.created || "").localeCompare(a.created || ""));
 
-    return { statusCode: 200, headers, body: JSON.stringify({ forms }) };
+    return { statusCode: 200, headers, body: JSON.stringify({ forms, type }) };
   } catch (err) {
     return { statusCode: 500, headers, body: JSON.stringify({ error: err.message }) };
   }

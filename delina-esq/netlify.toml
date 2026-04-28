@@ -9,17 +9,34 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# Intake form admin page (must come BEFORE the wildcard)
+# Unified document admin (must come BEFORE the wildcard)
 [[redirects]]
-  from = "/intake/admin"
-  to = "/intake/admin.html"
+  from = "/docs/admin"
+  to = "/docs/admin.html"
   status = 200
   force = true
 
-# Serve intake forms via function
+# Old intake admin URL → permanent redirect to unified admin
+[[redirects]]
+  from = "/intake/admin"
+  to = "/docs/admin"
+  status = 301
+  force = true
+
+# Serve all client documents via the type-aware function
 [[redirects]]
   from = "/intake/:slug"
-  to = "/.netlify/functions/intake-serve"
+  to = "/.netlify/functions/doc-serve"
+  status = 200
+
+[[redirects]]
+  from = "/engagement/:slug"
+  to = "/.netlify/functions/doc-serve"
+  status = 200
+
+[[redirects]]
+  from = "/sow/:slug"
+  to = "/.netlify/functions/doc-serve"
   status = 200
 
 # Next.js static export: each page has its own HTML file.

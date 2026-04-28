@@ -3,6 +3,12 @@ const crypto = require("crypto");
 
 const ADMIN_PASSWORD = process.env.INTAKE_ADMIN_PASSWORD || "delina2026";
 
+const STORES = {
+  intake: "intake-forms",
+  engagement: "engagement-letters",
+  sow: "sow-documents",
+};
+
 function hashPassword(pw) {
   return crypto.createHash("sha256").update(String(pw)).digest("hex");
 }
@@ -18,10 +24,13 @@ exports.handler = async (event) => {
   if (event.httpMethod !== "POST") return { statusCode: 405, headers, body: "Method not allowed" };
 
   try {
-    const { slug, html, password, clientPassword } = JSON.parse(event.body);
+    const { type, slug, html, password, clientPassword } = JSON.parse(event.body);
 
     if (password !== ADMIN_PASSWORD) {
       return { statusCode: 401, headers, body: JSON.stringify({ error: "Invalid password" }) };
+    }
+    if (!type || !STORES[type]) {
+      return { statusCode: 400, headers, body: JSON.stringify({ error: "Invalid or missing type. Must be one of: " + Object.keys(STORES).join(", ") }) };
     }
     if (!slug || !html) {
       return { statusCode: 400, headers, body: JSON.stringify({ error: "Missing slug or html" }) };
@@ -32,23 +41,29 @@ exports.handler = async (event) => {
       return { statusCode: 400, headers, body: JSON.stringify({ error: "Invalid slug" }) };
     }
 
-    const metadata = { created: new Date().toISOString() };
+    const metadata = { created: new Date().toISOString(), type };
     if (clientPassword && String(clientPassword).trim()) {
       metadata.passwordHash = hashPassword(String(clientPassword).trim());
     }
 
     const store = getStore({
-      name: "intake-forms",
+      name: STORES[type],
       siteID: process.env.NETLIFY_SITE_ID,
       token: process.env.NETLIFY_BLOBS_TOKEN,
     });
     await store.set(safeSlug, html, { metadata });
 
-    const url = `https://delina.esq/intake/${safeSlug}`;
+    const url = `https://delina.esq/${type}/${safeSlug}`;
     return {
       statusCode: 200,
       headers,
-      body: JSON.stringify({ success: true, url, slug: safeSlug, passwordProtected: !!metadata.passwordHash }),
+      body: JSON.stringify({
+        success: true,
+        url,
+        slug: safeSlug,
+        type,
+        passwordProtected: !!metadata.passwordHash,
+      }),
     };
   } catch (err) {
     return { statusCode: 500, headers, body: JSON.stringify({ error: err.message }) };

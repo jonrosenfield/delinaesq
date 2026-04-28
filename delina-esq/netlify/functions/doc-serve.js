@@ -1,20 +1,33 @@
 const { getStore } = require("@netlify/blobs");
 const crypto = require("crypto");
 
+const STORES = {
+  intake: "intake-forms",
+  engagement: "engagement-letters",
+  sow: "sow-documents",
+};
+
+const TYPE_LABELS = {
+  intake: "Client Intake",
+  engagement: "Engagement Letter",
+  sow: "Statement of Work",
+};
+
 function hashPassword(pw) {
   return crypto.createHash("sha256").update(String(pw)).digest("hex");
 }
 
-function gatePage(slug, error) {
+function gatePage(type, slug, error) {
   const errMsg = error
     ? `<div style="color:#dc3545;font-size:13px;margin-top:-4px;margin-bottom:14px;">Incorrect password. Please try again.</div>`
     : "";
+  const label = TYPE_LABELS[type] || "Document";
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Protected Intake Form — Delina.ESQ</title>
+<title>Protected ${label} — Delina.ESQ</title>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;background:#F1EDE6;color:#0A0A0A;min-height:100vh;display:flex;flex-direction:column}
@@ -37,17 +50,17 @@ function gatePage(slug, error) {
 <body>
   <div class="top">
     <div class="brand">Delina<span>.esq</span></div>
-    <div>Client Intake</div>
+    <div>${label}</div>
   </div>
   <div class="wrap">
     <div class="card">
-      <div class="eyebrow">Protected Form</div>
+      <div class="eyebrow">Protected Document</div>
       <h1>Enter Password</h1>
-      <p class="sub">This intake form is password-protected. Please enter the password provided by Delina to continue.</p>
+      <p class="sub">This document is password-protected. Please enter the password provided by Delina to continue.</p>
       ${errMsg}
-      <form method="POST" action="/intake/${slug}">
+      <form method="POST" action="/${type}/${slug}">
         <input type="password" name="password" placeholder="Password" autofocus required>
-        <button type="submit">Unlock Form</button>
+        <button type="submit">Unlock Document</button>
       </form>
       <div class="foot">Trouble accessing? Email <a href="mailto:delina@delina.esq">delina@delina.esq</a></div>
     </div>
@@ -72,20 +85,21 @@ async function parseBody(event) {
 
 exports.handler = async (event) => {
   const path = event.path || event.rawUrl || "";
-  const match = path.match(/\/intake\/([a-z0-9-]+)/);
+  // Match /intake/[slug], /engagement/[slug], /sow/[slug]
+  const match = path.match(/\/(intake|engagement|sow)\/([a-z0-9-]+)/);
   if (!match) {
     return {
       statusCode: 404,
       headers: { "Content-Type": "text/html" },
-      body: "<h1>Not Found</h1><p>No intake form found at this URL.</p>",
+      body: "<h1>Not Found</h1><p>No document found at this URL.</p>",
     };
   }
-  const slug = match[1];
+  const [, type, slug] = match;
   if (slug === "admin") return { statusCode: 404, body: "Not found" };
 
   try {
     const store = getStore({
-      name: "intake-forms",
+      name: STORES[type],
       siteID: process.env.NETLIFY_SITE_ID,
       token: process.env.NETLIFY_BLOBS_TOKEN,
     });
@@ -94,13 +108,12 @@ exports.handler = async (event) => {
       return {
         statusCode: 404,
         headers: { "Content-Type": "text/html" },
-        body: "<h1>Not Found</h1><p>This intake form does not exist or has expired.</p>",
+        body: "<h1>Not Found</h1><p>This document does not exist or has expired.</p>",
       };
     }
     const html = result.data;
     const passwordHash = result.metadata && result.metadata.passwordHash;
 
-    // No password protection — serve directly
     if (!passwordHash) {
       return {
         statusCode: 200,
@@ -109,7 +122,6 @@ exports.handler = async (event) => {
       };
     }
 
-    // Password protection — handle gate
     if (event.httpMethod === "POST") {
       const body = await parseBody(event);
       const submitted = body.password ? String(body.password).trim() : "";
@@ -123,21 +135,20 @@ exports.handler = async (event) => {
       return {
         statusCode: 401,
         headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-cache" },
-        body: gatePage(slug, true),
+        body: gatePage(type, slug, true),
       };
     }
 
-    // GET on a protected form — show gate
     return {
       statusCode: 200,
       headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-cache" },
-      body: gatePage(slug, false),
+      body: gatePage(type, slug, false),
     };
   } catch (err) {
     return {
       statusCode: 500,
       headers: { "Content-Type": "text/html" },
-      body: "<h1>Error</h1><p>Something went wrong loading this form.</p>",
+      body: "<h1>Error</h1><p>Something went wrong loading this document.</p>",
     };
   }
 };

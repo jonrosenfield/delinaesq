@@ -2,6 +2,12 @@ const { getStore } = require("@netlify/blobs");
 
 const ADMIN_PASSWORD = process.env.INTAKE_ADMIN_PASSWORD || "delina2026";
 
+const STORES = {
+  intake: "intake-forms",
+  engagement: "engagement-letters",
+  sow: "sow-documents",
+};
+
 exports.handler = async (event) => {
   const headers = {
     "Access-Control-Allow-Origin": "*",
@@ -13,16 +19,19 @@ exports.handler = async (event) => {
   if (event.httpMethod !== "POST") return { statusCode: 405, headers, body: "Method not allowed" };
 
   try {
-    const { slug, password } = JSON.parse(event.body || "{}");
+    const { type, slug, password } = JSON.parse(event.body || "{}");
     if (password !== ADMIN_PASSWORD) {
       return { statusCode: 401, headers, body: JSON.stringify({ error: "Invalid password" }) };
+    }
+    if (!type || !STORES[type]) {
+      return { statusCode: 400, headers, body: JSON.stringify({ error: "Invalid or missing type" }) };
     }
     if (!slug) {
       return { statusCode: 400, headers, body: JSON.stringify({ error: "Missing slug" }) };
     }
 
     const store = getStore({
-      name: "intake-forms",
+      name: STORES[type],
       siteID: process.env.NETLIFY_SITE_ID,
       token: process.env.NETLIFY_BLOBS_TOKEN,
     });
