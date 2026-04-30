@@ -43,7 +43,12 @@
       "Bash(cp \"/Users/jonathanrosenfield/Library/Mobile Documents/com~apple~CloudDocs/Persian Queen/Doc Templates/Master Engagement Letter and SOW/Delina.ESQ - Master Engagement Agreement.html\" \"/Users/jonathanrosenfield/Library/Mobile Documents/com~apple~CloudDocs/Persian Queen/Doc Templates/Master Engagement Letter and SOW/Delina.ESQ - Master Engagement Agreement.BACKUP-$\\(date +%Y%m%d-%H%M%S\\).html\")",
       "Bash(cp \"/Users/jonathanrosenfield/Library/Mobile Documents/com~apple~CloudDocs/Persian Queen/Doc Templates/Master Engagement Letter and SOW/Delina.ESQ - Statement of Work.html\" \"/Users/jonathanrosenfield/Library/Mobile Documents/com~apple~CloudDocs/Persian Queen/Doc Templates/Master Engagement Letter and SOW/Delina.ESQ - Statement of Work.BACKUP-$\\(date +%Y%m%d-%H%M%S\\).html\")",
       "Bash(cp \"/Users/jonathanrosenfield/Library/Mobile Documents/com~apple~CloudDocs/Persian Queen/Doc Templates/Master Engagement Letter and SOW/Delina.ESQ - Master Engagement Agreement.html\" \"/Users/jonathanrosenfield/Library/Mobile Documents/com~apple~CloudDocs/Persian Queen/Doc Templates/Master Engagement Letter and SOW/Delina.ESQ - Master Engagement Agreement.BACKUP-mobile-$\\(date +%Y%m%d-%H%M%S\\).html\")",
-      "Bash(cp \"/Users/jonathanrosenfield/Library/Mobile Documents/com~apple~CloudDocs/Persian Queen/Doc Templates/Master Engagement Letter and SOW/Delina.ESQ - Statement of Work.html\" \"/Users/jonathanrosenfield/Library/Mobile Documents/com~apple~CloudDocs/Persian Queen/Doc Templates/Master Engagement Letter and SOW/Delina.ESQ - Statement of Work.BACKUP-mobile-$\\(date +%Y%m%d-%H%M%S\\).html\")"
+      "Bash(cp \"/Users/jonathanrosenfield/Library/Mobile Documents/com~apple~CloudDocs/Persian Queen/Doc Templates/Master Engagement Letter and SOW/Delina.ESQ - Statement of Work.html\" \"/Users/jonathanrosenfield/Library/Mobile Documents/com~apple~CloudDocs/Persian Queen/Doc Templates/Master Engagement Letter and SOW/Delina.ESQ - Statement of Work.BACKUP-mobile-$\\(date +%Y%m%d-%H%M%S\\).html\")",
+      "WebFetch(domain:www.netlify.com)",
+      "WebSearch",
+      "WebFetch(domain:developers.netlify.com)",
+      "Read(//private/tmp/**)",
+      "Bash(node -e ' *)"
     ]
   }
 }
