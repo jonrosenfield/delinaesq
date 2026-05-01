@@ -7,6 +7,7 @@ const STORES = {
   intake: "intake-forms",
   engagement: "engagement-letters",
   sow: "sow-documents",
+  operating: "operating-agreements",
 };
 
 function hashPassword(pw) {

@@ -39,6 +39,11 @@
   to = "/.netlify/functions/doc-serve"
   status = 200
 
+[[redirects]]
+  from = "/operating/:slug"
+  to = "/.netlify/functions/doc-serve"
+  status = 200
+
 # Next.js static export: each page has its own HTML file.
 # The catch-all below handles direct URL access for pages that
 # don't exist as separate files (404 fallback). Netlify form

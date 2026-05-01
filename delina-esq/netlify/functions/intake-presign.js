@@ -10,11 +10,13 @@ const DOC_STORES = {
   intake: "intake-forms",
   engagement: "engagement-letters",
   sow: "sow-documents",
+  operating: "operating-agreements",
 };
 const DOC_PREFIX = {
   intake: "intakes",
   engagement: "engagements",
   sow: "sows",
+  operating: "operating",
 };
 
 const ALLOWED_MIME_PREFIXES = [

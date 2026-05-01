@@ -52,7 +52,12 @@
       "Bash(node /tmp/extract-intake.js)",
       "Bash(node /tmp/inject-template2.js)",
       "Bash(node /tmp/verify3.js)",
-      "Bash(node *)"
+      "Bash(node *)",
+      "Bash(cp \"/Volumes/JRT9/FYF/Episode 19 \\(#9 Official\\)/Client Intake - John Michael Doe.pdf\" /tmp/auto-generated.pdf)",
+      "Bash(cp \"/Users/jonathanrosenfield/Desktop/Client Intake — Law Office of Delina Yasmeh.pdf\" /tmp/save-pdf-version.pdf)",
+      "Bash(sed -n '985,1010p' /tmp/intake-inner.html)",
+      "Bash(sed -n '1042,1075p' /tmp/intake-inner.html)",
+      "Bash(sed -n '1284,1300p' /tmp/intake-inner.html)"
     ]
   }
 }

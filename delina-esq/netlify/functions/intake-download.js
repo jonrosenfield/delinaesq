@@ -33,7 +33,7 @@ exports.handler = async (event) => {
     if (password !== ADMIN_PASSWORD) {
       return { statusCode: 401, headers, body: JSON.stringify({ error: "Invalid password" }) };
     }
-    if (!key || typeof key !== "string" || !/^(intakes|engagements|sows)\//.test(key)) {
+    if (!key || typeof key !== "string" || !/^(intakes|engagements|sows|operating)\//.test(key)) {
       return { statusCode: 400, headers, body: JSON.stringify({ error: "Invalid key" }) };
     }
 

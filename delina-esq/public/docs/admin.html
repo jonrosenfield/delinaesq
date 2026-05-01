@@ -281,6 +281,7 @@
   .sub-meta-line .pill.type-intake { color: #0047FF; background: rgba(0,71,255,0.08); border-color: rgba(0,71,255,0.25); font-weight: 600; }
   .sub-meta-line .pill.type-engagement { color: #7C3AED; background: rgba(124,58,237,0.08); border-color: rgba(124,58,237,0.25); font-weight: 600; }
   .sub-meta-line .pill.type-sow { color: #16A34A; background: rgba(22,163,74,0.08); border-color: rgba(22,163,74,0.25); font-weight: 600; }
+  .sub-meta-line .pill.type-operating { color: #C2410C; background: rgba(194,65,12,0.08); border-color: rgba(194,65,12,0.25); font-weight: 600; }
   .sub-actions { display: flex; gap: 8px; align-items: center; }
   .sub-toggle {
     font-family: var(--mono);
@@ -408,6 +409,7 @@
       <button class="tab active" data-type="intake">Intake <span class="count" id="count-intake"></span></button>
       <button class="tab" data-type="engagement">Engagement <span class="count" id="count-engagement"></span></button>
       <button class="tab" data-type="sow">SOW <span class="count" id="count-sow"></span></button>
+      <button class="tab" data-type="operating">Operating <span class="count" id="count-operating"></span></button>
       <button class="tab" data-type="submissions">Submissions <span class="count" id="count-submissions"></span></button>
     </div>
 
@@ -451,6 +453,7 @@ var TYPE_LABELS = {
   intake: 'Intake Form',
   engagement: 'Engagement Letter',
   sow: 'Statement of Work',
+  operating: 'Operating Agreement',
 };
 
 // Login
@@ -529,7 +532,7 @@ function loadList() {
 }
 
 function refreshAllCounts() {
-  ['intake', 'engagement', 'sow'].forEach(function(t) {
+  ['intake', 'engagement', 'sow', 'operating'].forEach(function(t) {
     fetch('/.netlify/functions/doc-list', {
       method: 'POST',
       body: JSON.stringify({ type: t, password: adminPassword })
@@ -743,7 +746,7 @@ function renderSubmissions(subs) {
     var nameHtml = s.clientName
       ? '<div class="sub-name">' + escapeHtml(s.clientName) + '</div>'
       : '<div class="sub-name empty">(no name yet)</div>';
-    var typeLabels = { intake: 'INTAKE', engagement: 'ENGAGEMENT', sow: 'SOW' };
+    var typeLabels = { intake: 'INTAKE', engagement: 'ENGAGEMENT', sow: 'SOW', operating: 'OPERATING' };
     var typeKey = s.type || 'intake';
     var typePill = '<span class="pill type-' + escapeHtml(typeKey) + '">' + escapeHtml(typeLabels[typeKey] || typeKey.toUpperCase()) + '</span>';
     var emailPill = s.clientEmail ? '<span class="pill signal">' + escapeHtml(s.clientEmail) + '</span>' : '';

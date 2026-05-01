@@ -49,7 +49,7 @@ exports.handler = async (event) => {
     const record = JSON.parse(raw);
     const fileKeys = (record.files || [])
       .map((f) => f && f.key)
-      .filter((k) => typeof k === "string" && /^(intakes|engagements|sows)\//.test(k));
+      .filter((k) => typeof k === "string" && /^(intakes|engagements|sows|operating)\//.test(k));
 
     if (fileKeys.length > 0) {
       const client = buildClient();
