@@ -40,6 +40,7 @@ exports.handler = async (event) => {
           const m = (meta && meta.metadata) || {};
           return {
             submissionId: b.key,
+            type: m.type || "intake",
             slug: m.slug || "",
             createdAt: m.createdAt || "",
             fileCount: Number(m.fileCount || 0),
@@ -47,7 +48,7 @@ exports.handler = async (event) => {
             clientEmail: m.clientEmail || "",
           };
         } catch {
-          return { submissionId: b.key, slug: "", createdAt: "", fileCount: 0, clientName: "", clientEmail: "" };
+          return { submissionId: b.key, type: "intake", slug: "", createdAt: "", fileCount: 0, clientName: "", clientEmail: "" };
         }
       })
     );

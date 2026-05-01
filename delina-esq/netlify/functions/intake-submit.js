@@ -4,6 +4,17 @@ const MAX_FIELDS = 100;
 const MAX_FIELD_LEN = 50000;
 const MAX_FILES = 25;
 
+const DOC_STORES = {
+  intake: "intake-forms",
+  engagement: "engagement-letters",
+  sow: "sow-documents",
+};
+const DOC_PREFIX = {
+  intake: "intakes",
+  engagement: "engagements",
+  sow: "sows",
+};
+
 function validSlug(slug) {
   return typeof slug === "string" && /^[a-z0-9][a-z0-9-]{0,63}$/.test(slug);
 }
@@ -27,9 +38,9 @@ function sanitizeFields(input) {
   return out;
 }
 
-function sanitizeFiles(input, slug, submissionId) {
+function sanitizeFiles(input, type, slug, submissionId) {
   if (!Array.isArray(input)) return [];
-  const prefix = `intakes/${slug}/${submissionId}/`;
+  const prefix = `${DOC_PREFIX[type]}/${slug}/${submissionId}/`;
   return input
     .slice(0, MAX_FILES)
     .filter((f) => f && typeof f === "object" && typeof f.key === "string" && f.key.startsWith(prefix))
@@ -55,8 +66,13 @@ exports.handler = async (event) => {
   }
 
   try {
-    const { slug, submissionId, fields, files } = JSON.parse(event.body || "{}");
+    const body = JSON.parse(event.body || "{}");
+    const type = body.type || "intake";
+    const { slug, submissionId, fields, files } = body;
 
+    if (!DOC_STORES[type]) {
+      return { statusCode: 400, headers, body: JSON.stringify({ error: "Invalid document type" }) };
+    }
     if (!validSlug(slug)) {
       return { statusCode: 400, headers, body: JSON.stringify({ error: "Invalid slug" }) };
     }
@@ -64,21 +80,22 @@ exports.handler = async (event) => {
       return { statusCode: 400, headers, body: JSON.stringify({ error: "Invalid submissionId" }) };
     }
 
-    const intakeStore = getStore({
-      name: "intake-forms",
+    const docStore = getStore({
+      name: DOC_STORES[type],
       siteID: process.env.NETLIFY_SITE_ID,
       token: process.env.NETLIFY_BLOBS_TOKEN,
     });
-    const meta = await intakeStore.getMetadata(slug);
+    const meta = await docStore.getMetadata(slug);
     if (!meta) {
-      return { statusCode: 404, headers, body: JSON.stringify({ error: "No intake form exists for this slug" }) };
+      return { statusCode: 404, headers, body: JSON.stringify({ error: `No ${type} document exists for this slug` }) };
     }
 
     const cleanFields = sanitizeFields(fields);
-    const cleanFiles = sanitizeFiles(files, slug, submissionId);
+    const cleanFiles = sanitizeFiles(files, type, slug, submissionId);
 
     const record = {
       submissionId,
+      type,
       slug,
       createdAt: new Date().toISOString(),
       fields: cleanFields,
@@ -94,11 +111,12 @@ exports.handler = async (event) => {
     });
     await submissions.set(submissionId, JSON.stringify(record), {
       metadata: {
+        type,
         slug,
         createdAt: record.createdAt,
         fileCount: cleanFiles.length,
-        clientName: cleanFields.full_name || cleanFields.name || "",
-        clientEmail: cleanFields.email || "",
+        clientName: cleanFields.full_name || cleanFields.printed_name || cleanFields.name || "",
+        clientEmail: cleanFields.email || cleanFields.client_email || "",
       },
     });
 

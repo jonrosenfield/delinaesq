@@ -48,7 +48,11 @@
       "WebSearch",
       "WebFetch(domain:developers.netlify.com)",
       "Read(//private/tmp/**)",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(node /tmp/extract-intake.js)",
+      "Bash(node /tmp/inject-template2.js)",
+      "Bash(node /tmp/verify3.js)",
+      "Bash(node *)"
     ]
   }
 }

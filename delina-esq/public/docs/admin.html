@@ -278,6 +278,9 @@
     color: #555;
   }
   .sub-meta-line .pill.signal { color: var(--signal); border-color: rgba(0,71,255,0.2); }
+  .sub-meta-line .pill.type-intake { color: #0047FF; background: rgba(0,71,255,0.08); border-color: rgba(0,71,255,0.25); font-weight: 600; }
+  .sub-meta-line .pill.type-engagement { color: #7C3AED; background: rgba(124,58,237,0.08); border-color: rgba(124,58,237,0.25); font-weight: 600; }
+  .sub-meta-line .pill.type-sow { color: #16A34A; background: rgba(22,163,74,0.08); border-color: rgba(22,163,74,0.25); font-weight: 600; }
   .sub-actions { display: flex; gap: 8px; align-items: center; }
   .sub-toggle {
     font-family: var(--mono);
@@ -674,7 +677,9 @@ var FIELD_LABELS = {
   id_type: 'ID Type', id_number: 'ID Number', id_issuer: 'ID Issuer', id_exp: 'ID Expiration',
   matter_description: 'Legal Matter', desired_outcome: 'Desired Outcome',
   deadlines: 'Deadlines', referral: 'Referral Source', additional_info: 'Additional Info',
-  signature: 'Signature', sign_date: 'Sign Date'
+  signature: 'Signature', sign_date: 'Sign Date',
+  printed_name: 'Printed Name', signature_title: 'Signature Title', signature_date: 'Signature Date',
+  signature_method: 'Signature Method', client_email: 'Client Email'
 };
 
 function fieldLabel(key) {
@@ -738,15 +743,18 @@ function renderSubmissions(subs) {
     var nameHtml = s.clientName
       ? '<div class="sub-name">' + escapeHtml(s.clientName) + '</div>'
       : '<div class="sub-name empty">(no name yet)</div>';
+    var typeLabels = { intake: 'INTAKE', engagement: 'ENGAGEMENT', sow: 'SOW' };
+    var typeKey = s.type || 'intake';
+    var typePill = '<span class="pill type-' + escapeHtml(typeKey) + '">' + escapeHtml(typeLabels[typeKey] || typeKey.toUpperCase()) + '</span>';
     var emailPill = s.clientEmail ? '<span class="pill signal">' + escapeHtml(s.clientEmail) + '</span>' : '';
-    var slugPill = s.slug ? '<span class="pill">/intake/' + escapeHtml(s.slug) + '</span>' : '';
+    var slugPill = s.slug ? '<span class="pill">/' + escapeHtml(typeKey) + '/' + escapeHtml(s.slug) + '</span>' : '';
     var datePill = '<span class="pill">' + escapeHtml(formatDate(s.createdAt)) + '</span>';
     var filesPill = '<span class="pill">' + s.fileCount + ' file' + (s.fileCount === 1 ? '' : 's') + '</span>';
     item.innerHTML =
       '<div class="sub-row" data-id="' + escapeHtml(s.submissionId) + '">' +
         '<div class="sub-meta-left">' +
           nameHtml +
-          '<div class="sub-meta-line">' + slugPill + emailPill + datePill + filesPill + '</div>' +
+          '<div class="sub-meta-line">' + typePill + slugPill + emailPill + datePill + filesPill + '</div>' +
         '</div>' +
         '<div class="sub-actions"><span class="sub-toggle">▸</span></div>' +
       '</div>' +

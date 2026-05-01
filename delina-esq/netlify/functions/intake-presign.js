@@ -6,6 +6,17 @@ const crypto = require("crypto");
 const MAX_FILE_BYTES = 500 * 1024 * 1024; // 500 MB
 const URL_TTL_SECONDS = 900; // 15 minutes
 
+const DOC_STORES = {
+  intake: "intake-forms",
+  engagement: "engagement-letters",
+  sow: "sow-documents",
+};
+const DOC_PREFIX = {
+  intake: "intakes",
+  engagement: "engagements",
+  sow: "sows",
+};
+
 const ALLOWED_MIME_PREFIXES = [
   "application/pdf",
   "application/msword",
@@ -70,8 +81,13 @@ exports.handler = async (event) => {
   }
 
   try {
-    const { slug, submissionId, filename, contentType, size } = JSON.parse(event.body || "{}");
+    const body = JSON.parse(event.body || "{}");
+    const type = body.type || "intake";
+    const { slug, submissionId, filename, contentType, size } = body;
 
+    if (!DOC_STORES[type]) {
+      return { statusCode: 400, headers, body: JSON.stringify({ error: "Invalid document type" }) };
+    }
     if (!validSlug(slug)) {
       return { statusCode: 400, headers, body: JSON.stringify({ error: "Invalid slug" }) };
     }
@@ -88,19 +104,19 @@ exports.handler = async (event) => {
       return { statusCode: 400, headers, body: JSON.stringify({ error: "File type not allowed" }) };
     }
 
-    const intakeStore = getStore({
-      name: "intake-forms",
+    const docStore = getStore({
+      name: DOC_STORES[type],
       siteID: process.env.NETLIFY_SITE_ID,
       token: process.env.NETLIFY_BLOBS_TOKEN,
     });
-    const meta = await intakeStore.getMetadata(slug);
+    const meta = await docStore.getMetadata(slug);
     if (!meta) {
-      return { statusCode: 404, headers, body: JSON.stringify({ error: "No intake form exists for this slug" }) };
+      return { statusCode: 404, headers, body: JSON.stringify({ error: `No ${type} document exists for this slug` }) };
     }
 
     const safeName = sanitizeFilename(filename);
     const fileId = crypto.randomUUID();
-    const key = `intakes/${slug}/${submissionId}/${fileId}-${safeName}`;
+    const key = `${DOC_PREFIX[type]}/${slug}/${submissionId}/${fileId}-${safeName}`;
 
     const client = buildClient();
     const command = new PutObjectCommand({
