@@ -278,6 +278,19 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
 .fm-why { font-size: 11px; color: var(--mid); line-height: 1.5; padding-top: 9px; border-top: 1px solid var(--rule); }
 .fm-intro { max-width: var(--max); margin: 0 auto; padding: 0 48px 20px; font-size: 12px; color: var(--mid); line-height: 1.6; }
 
+/* ─ PAA INDEX ─ */
+.paa-grid { max-width: var(--max); margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.paa-card { background: var(--white); border: 1px solid var(--rule); border-top: 3px solid var(--accent, #888); padding: 16px 18px; }
+.paa-land { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent, #888); font-weight: 500; margin-bottom: 12px; }
+.paa-stats { display: flex; gap: 14px; padding-bottom: 12px; margin-bottom: 10px; border-bottom: 1px solid var(--rule); }
+.paa-stat { display: flex; flex-direction: column; flex: 1; }
+.paa-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--ink); line-height: 1; }
+.paa-stat-num.muted { color: var(--light); }
+.paa-stat-label { font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--light); margin-top: 5px; }
+.paa-q { font-size: 11px; color: var(--mid); line-height: 1.5; padding: 5px 0; border-bottom: 1px solid #f2f1ed; }
+.paa-q:last-child { border-bottom: none; }
+.paa-foot { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); margin-top: 10px; padding-top: 9px; border-top: 1px solid var(--rule); }
+
 /* ─ PASSWORD OVERLAY ─ */
 .pw-overlay { position: fixed; inset: 0; background: var(--bg); z-index: 10000; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; }
 .pw-logo { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 300; color: var(--ink); letter-spacing: 0.06em; line-height: 1; margin-bottom: 6px; }
@@ -300,7 +313,7 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
   .masthead { padding: 40px 28px 34px; }
   .masthead-title { font-size: 44px; }
   .section-label { padding: 32px 28px 14px; }
-  .homepage-block, .lp-grid, .connector, .tick-row, .hint-row, .crosslink-grid, .legend-wrap, .comp-intel-grid, .analysis-table-wrap, .pricing-wrap, .weakness-grid, .fm-grid, .foot, .ci-intro, .fm-intro { padding-left: 28px; padding-right: 28px; }
+  .homepage-block, .lp-grid, .connector, .tick-row, .hint-row, .crosslink-grid, .legend-wrap, .comp-intel-grid, .analysis-table-wrap, .pricing-wrap, .weakness-grid, .fm-grid, .paa-grid, .foot, .ci-intro, .fm-intro { padding-left: 28px; padding-right: 28px; }
   .legend-wrap { padding-bottom: 48px; }
   .nav-inner { padding: 0 28px; }
   .lp-grid { grid-template-columns: repeat(2, 1fr); }
@@ -310,6 +323,7 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
   .comp-intel-grid { grid-template-columns: repeat(2, 1fr); }
   .weakness-grid { grid-template-columns: repeat(2, 1fr); }
   .fm-grid { grid-template-columns: repeat(2, 1fr); }
+  .paa-grid { grid-template-columns: repeat(2, 1fr); }
   .pricing-tier { grid-template-columns: 130px 100px 1fr; }
   .summary-table-wrap { padding-left: 28px; padding-right: 28px; overflow-x: auto; }
 }
@@ -322,7 +336,7 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
   .nav-link { font-size: 8px; padding: 12px 10px; letter-spacing: 0.12em; }
   .nav-download { font-size: 8px; padding: 0 12px; letter-spacing: 0.12em; }
   .section-label { padding: 28px 16px 12px; font-size: 8px; letter-spacing: 0.2em; }
-  .homepage-block, .lp-grid, .connector, .tick-row, .hint-row, .crosslink-grid, .legend-wrap, .comp-intel-grid, .analysis-table-wrap, .pricing-wrap, .weakness-grid, .fm-grid, .foot, .ci-intro, .fm-intro { padding-left: 16px; padding-right: 16px; }
+  .homepage-block, .lp-grid, .connector, .tick-row, .hint-row, .crosslink-grid, .legend-wrap, .comp-intel-grid, .analysis-table-wrap, .pricing-wrap, .weakness-grid, .fm-grid, .paa-grid, .foot, .ci-intro, .fm-intro { padding-left: 16px; padding-right: 16px; }
   .legend-wrap { padding-bottom: 40px; }
   .nav-inner { padding: 0 16px; }
   .tick-row { display: none; }
@@ -334,6 +348,7 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
   .comp-intel-grid { grid-template-columns: 1fr; }
   .weakness-grid { grid-template-columns: 1fr; }
   .fm-grid { grid-template-columns: 1fr; }
+  .paa-grid { grid-template-columns: 1fr; }
   .intel-grid { grid-template-columns: 1fr; }
   .pricing-tier { grid-template-columns: 1fr; border-left: 1px solid var(--rule); border-right: 1px solid var(--rule); }
   .pricing-tier.delina-row { border-left: 4px solid #5a8a64; }
@@ -391,6 +406,8 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
     <a class="nav-link section-break" href="#competitive-landscape">Competition</a>
     <a class="nav-link" href="#strategic-summary">Summary</a>
     <a class="nav-link" href="#threat-matrix">Threat Matrix</a>
+    <a class="nav-link" href="#recurring-competitors">Recurring Competitors</a>
+    <a class="nav-link" href="#paa-index">PAA Bank</a>
     <a class="nav-link" href="#pricing">Pricing Map</a>
     <a class="nav-link" href="#weaknesses">Weaknesses</a>
     <a class="nav-link" href="#first-mover">First Movers</a>
@@ -415,6 +432,8 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       <a class="nav-mobile-link" href="#competitive-landscape" onclick="closeNav()">Competition</a>
       <a class="nav-mobile-link" href="#strategic-summary" onclick="closeNav()">Strategic Summary</a>
       <a class="nav-mobile-link" href="#threat-matrix" onclick="closeNav()">Threat Matrix</a>
+      <a class="nav-mobile-link" href="#recurring-competitors" onclick="closeNav()">Recurring Competitors</a>
+      <a class="nav-mobile-link" href="#paa-index" onclick="closeNav()">PAA Bank</a>
       <a class="nav-mobile-link" href="#pricing" onclick="closeNav()">Pricing Map</a>
       <a class="nav-mobile-link" href="#weaknesses" onclick="closeNav()">Weaknesses</a>
       <a class="nav-mobile-link" href="#first-mover" onclick="closeNav()">First Movers</a>
@@ -1490,7 +1509,7 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       <div class="legend-row"><span class="legend-term">Beatable Comp</span><span class="legend-def">The lowest-DR site currently ranking in the top 10. This is your first target — build a better page than theirs and earn more links.</span></div>
       <div class="legend-row"><span class="legend-term">Avg Competitor DR</span><span class="legend-def">Mean DR of all non-outlier results in the top 10. Gives a realistic read on how competitive the SERP is overall. Outliers (gov, mega-brands) are excluded.</span></div>
       <div class="legend-row"><span class="legend-term">Outlier</span><span class="legend-def">A result ranking due to brand authority (irs.gov, legalzoom, reddit) rather than content quality. They are essentially impossible to outrank — build around them, not against them.</span></div>
-      <div class="legend-row"><span class="legend-term">Word Count Target</span><span class="legend-def">Recommended content length based on what is currently ranking for each keyword. Match or exceed the beatable competitor's word count.</span></div>
+      <div class="legend-row"><span class="legend-term">Word Count Target</span><span class="legend-def">Recommended content length based on what is currently ranking for each keyword. Match or exceed the beatable competitor's word count. <strong style="color:var(--ink);">Reality check:</strong> across 1,110 ranking pages tracked in the SERP Detail data, the average is <strong style="color:var(--ink);">2,677 words</strong>. Per-card targets show the lower bound for parity on Tier-A KD-0 pages; high-DR head terms need to clear the 2,677 average to compete.</span></div>
     </div>
 
     <div class="legend-card">
@@ -1998,6 +2017,490 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       </tr>
     </tbody>
   </table>
+</div>
+
+<!-- RECURRING COMPETITOR MAP -->
+<div id="recurring-competitors" class="section-label" style="margin-top:60px;">Recurring Competitor Map — Cross-Land SERP Authorities</div>
+<div class="ci-intro">Across 200 keywords and 1,865 ranked URLs, twenty domains appear repeatedly in the top-10 across multiple Lands. These are the authorities that follow Delina everywhere — knowing which to outrank, which to skip, and which to build around shapes the entire content strategy. <strong style="color:var(--ink);">One reality check:</strong> the average ranking page in this dataset is <strong style="color:var(--ink);">2,677 words</strong> (n=1,110) — well above the 1,000–1,500 word targets shown on most landing-page cards. Pages targeting high-DR head terms need to clear that bar; Tier-A KD 0 pages can stay tight.</div>
+<div class="analysis-table-wrap">
+  <table class="analysis-table">
+    <thead>
+      <tr>
+        <th>Domain</th>
+        <th style="text-align:right;white-space:nowrap;">Hits</th>
+        <th style="text-align:right;white-space:nowrap;">Lands</th>
+        <th style="text-align:right;white-space:nowrap;">Keywords</th>
+        <th>Type</th>
+        <th>Posture</th>
+        <th style="min-width:260px;">Strategic Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="font-family:monospace;color:var(--ink);font-weight:500;">reddit.com</td>
+        <td style="text-align:right;font-family:monospace;color:var(--ink);">51</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">10</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">46</td>
+        <td><span class="ci-badge marketplace">UGC Outlier</span></td>
+        <td><span class="threat-badge med">Build Around</span></td>
+        <td class="td-insight">Reddit ranks via discussion authority and "best-of" thread aggregation. Mine Reddit threads for genuine PAA seeds; you don't outrank them, you steal their question structure.</td>
+      </tr>
+      <tr>
+        <td style="font-family:monospace;color:var(--ink);font-weight:500;">sec.gov</td>
+        <td style="text-align:right;font-family:monospace;color:var(--ink);">40</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">7</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">38</td>
+        <td><span class="ci-badge biglaw">Gov Primary</span></td>
+        <td><span class="threat-badge high">Skip</span></td>
+        <td class="td-insight">SEC EDGAR sample exhibits dominate APA, buy-sell, joinder, work-for-hire, and many other contract SERPs. Authority + primary-doc status. Cite as reference; never compete head-on.</td>
+      </tr>
+      <tr>
+        <td style="font-family:monospace;color:var(--ink);font-weight:500;">legalzoom.com</td>
+        <td style="text-align:right;font-family:monospace;color:var(--ink);">27</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">7</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">23</td>
+        <td><span class="ci-badge platform">Platform</span></td>
+        <td><span class="threat-badge low">Compete</span></td>
+        <td class="td-insight">Beatable. LegalZoom ranks on DR but content is thin generalist marketing. Strategic depth + California-specificity wins long-tail and PAA panels every time.</td>
+      </tr>
+      <tr>
+        <td style="font-family:monospace;color:var(--ink);font-weight:500;">irs.gov</td>
+        <td style="text-align:right;font-family:monospace;color:var(--ink);">26</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">6</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">20</td>
+        <td><span class="ci-badge biglaw">Gov Primary</span></td>
+        <td><span class="threat-badge high">Skip</span></td>
+        <td class="td-insight">Primary tax authority for Form 2553, S-corp pages, and procedural tax content. Build around by linking to IRS as the citation your strategic content references.</td>
+      </tr>
+      <tr>
+        <td style="font-family:monospace;color:var(--ink);font-weight:500;">en.wikipedia.org</td>
+        <td style="text-align:right;font-family:monospace;color:var(--ink);">22</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">6</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">22</td>
+        <td><span class="ci-badge biglaw">Definition Outlier</span></td>
+        <td><span class="threat-badge high">Skip Head Terms</span></td>
+        <td class="td-insight">Wikipedia owns generic "what is X" definitions. Target the strategic, jurisdictional, use-case, and "should I" angles Wikipedia structurally can't produce.</td>
+      </tr>
+      <tr>
+        <td style="font-family:monospace;color:var(--ink);font-weight:500;">investopedia.com</td>
+        <td style="text-align:right;font-family:monospace;color:var(--ink);">20</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">4</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">18</td>
+        <td><span class="ci-badge biglaw">Definition Outlier</span></td>
+        <td><span class="threat-badge high">Skip Head Terms</span></td>
+        <td class="td-insight">Owns financial-legal definition SERPs — escrow, indemnification, JV, buy-sell, ground lease. Win on California specificity, service intent, and founder-scale framing.</td>
+      </tr>
+      <tr>
+        <td style="font-family:monospace;color:var(--ink);font-weight:500;">law.cornell.edu (LII)</td>
+        <td style="text-align:right;font-family:monospace;color:var(--ink);">19</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">6</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">18</td>
+        <td><span class="ci-badge biglaw">Legal Authority</span></td>
+        <td><span class="threat-badge high">Skip</span></td>
+        <td class="td-insight">Cornell LII Wex is THE legal-definition authority. Frequent #1 for "what is X" in contract law. Reference and link; never write a definitional page that competes directly.</td>
+      </tr>
+      <tr>
+        <td style="font-family:monospace;color:var(--ink);font-weight:500;">wolterskluwer.com</td>
+        <td style="text-align:right;font-family:monospace;color:var(--ink);">16</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">5</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">14</td>
+        <td><span class="ci-badge platform">Corporate Filing Co</span></td>
+        <td><span class="threat-badge low">Compete</span></td>
+        <td class="td-insight">Beatable. WoltersKluwer publishes thin marketing-flavor content for paid services. Founder voice + creator-economy specificity outranks them on engagement and depth.</td>
+      </tr>
+      <tr>
+        <td style="font-family:monospace;color:var(--ink);font-weight:500;">content.next.westlaw.com</td>
+        <td style="text-align:right;font-family:monospace;color:var(--ink);">15</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">5</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">15</td>
+        <td><span class="ci-badge advisory">Practitioner Tool</span></td>
+        <td><span class="threat-badge med">Build Around</span></td>
+        <td class="td-insight">Westlaw Practical Law glossary often serves 403 / paywalled to non-subscribers. Snippets rank but click-through is low — opportunity to own the same query with usable content.</td>
+      </tr>
+      <tr>
+        <td style="font-family:monospace;color:var(--ink);font-weight:500;">sba.gov</td>
+        <td style="text-align:right;font-family:monospace;color:var(--ink);">14</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">4</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">12</td>
+        <td><span class="ci-badge biglaw">Gov Primary</span></td>
+        <td><span class="threat-badge high">Skip</span></td>
+        <td class="td-insight">SBA owns "how to start a business" + small-business primary content. Build around with content that picks up where SBA's generalist guidance ends — California reality and tax math.</td>
+      </tr>
+      <tr>
+        <td style="font-family:monospace;color:var(--ink);font-weight:500;">justia.com</td>
+        <td style="text-align:right;font-family:monospace;color:var(--ink);">14</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">2</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">11</td>
+        <td><span class="ci-badge marketplace">Lawyer Directory</span></td>
+        <td><span class="threat-badge med">Compete via Local Pack</span></td>
+        <td class="td-insight">Justia is a lawyer directory ranking via E-E-A-T and link aggregation. Compete on the local-pack alongside their listing, not against the directory page itself.</td>
+      </tr>
+      <tr>
+        <td style="font-family:monospace;color:var(--ink);font-weight:500;">turbotax.intuit.com</td>
+        <td style="text-align:right;font-family:monospace;color:var(--ink);">13</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">4</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">13</td>
+        <td><span class="ci-badge platform">Tax Tool</span></td>
+        <td><span class="threat-badge low">Compete</span></td>
+        <td class="td-insight">Beatable. TurboTax content is automated and consumer-targeted. Founder-strategic and California-specific tax angles win on every long-tail S-corp / creator query.</td>
+      </tr>
+      <tr>
+        <td style="font-family:monospace;color:var(--ink);font-weight:500;">youtube.com</td>
+        <td style="text-align:right;font-family:monospace;color:var(--ink);">13</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">6</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">13</td>
+        <td><span class="ci-badge marketplace">UGC Outlier</span></td>
+        <td><span class="threat-badge med">Build Around</span></td>
+        <td class="td-insight">YouTube vertical-video panels eat real estate on many SERPs. Repurpose every pillar blog post as a YouTube companion to capture this slot directly rather than ceding it.</td>
+      </tr>
+      <tr>
+        <td style="font-family:monospace;color:var(--ink);font-weight:500;">uk.practicallaw.thomsonreuters.com</td>
+        <td style="text-align:right;font-family:monospace;color:var(--ink);">13</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">4</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">13</td>
+        <td><span class="ci-badge advisory">Practitioner Tool</span></td>
+        <td><span class="threat-badge med">Build Around</span></td>
+        <td class="td-insight">Practical Law UK is paywalled / 403 in many cases. Snippet ranks but offers no consumer journey — opportunity to own the same query with a public, usable answer.</td>
+      </tr>
+      <tr>
+        <td style="font-family:monospace;color:var(--ink);font-weight:500;">sirion.ai</td>
+        <td style="text-align:right;font-family:monospace;color:var(--ink);">13</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">2</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">13</td>
+        <td><span class="ci-badge platform">Contract Tool</span></td>
+        <td><span class="threat-badge low">Compete</span></td>
+        <td class="td-insight">Beatable. Sirion is enterprise contract management with thin SEO-bait content marketing pages. Outrank with attorney-authored depth on every contract-definition keyword.</td>
+      </tr>
+      <tr>
+        <td style="font-family:monospace;color:var(--ink);font-weight:500;">legal.thomsonreuters.com</td>
+        <td style="text-align:right;font-family:monospace;color:var(--ink);">12</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">6</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">11</td>
+        <td><span class="ci-badge advisory">Practitioner Authority</span></td>
+        <td><span class="threat-badge low">Compete</span></td>
+        <td class="td-insight">Thomson Reuters publishes promotional blog content that ranks on DR alone. Beatable on strategic depth and creator-economy framing — standard B2B content that ignores founders.</td>
+      </tr>
+      <tr>
+        <td style="font-family:monospace;color:var(--ink);font-weight:500;">upcounsel.com</td>
+        <td style="text-align:right;font-family:monospace;color:var(--ink);">12</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">5</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">12</td>
+        <td><span class="ci-badge marketplace">Marketplace</span></td>
+        <td><span class="threat-badge low">Compete</span></td>
+        <td class="td-insight">UpCounsel marketplace listings commoditize attorney services. Strategic boutique content wins on intent quality and CA-specific authority every time.</td>
+      </tr>
+      <tr>
+        <td style="font-family:monospace;color:var(--ink);font-weight:500;">nolo.com</td>
+        <td style="text-align:right;font-family:monospace;color:var(--ink);">11</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">8</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">10</td>
+        <td><span class="ci-badge biglaw">Definition Authority</span></td>
+        <td><span class="threat-badge high">Skip Head Terms</span></td>
+        <td class="td-insight">Nolo dominates plain-language legal definitions across the most lands (8). Skip the head-term battle — target practical, California-specific application content Nolo doesn't write.</td>
+      </tr>
+      <tr>
+        <td style="font-family:monospace;color:var(--ink);font-weight:500;">rocketlawyer.com</td>
+        <td style="text-align:right;font-family:monospace;color:var(--ink);">11</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">4</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">10</td>
+        <td><span class="ci-badge platform">Platform</span></td>
+        <td><span class="threat-badge low">Compete</span></td>
+        <td class="td-insight">Beatable. Rocket Lawyer is a template + subscription factory. Strategic counsel content beats them on every "do I need a lawyer for X" PAA question.</td>
+      </tr>
+      <tr>
+        <td style="font-family:monospace;color:var(--ink);font-weight:500;">uschamber.com</td>
+        <td style="text-align:right;font-family:monospace;color:var(--ink);">11</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">7</td>
+        <td style="text-align:right;font-family:monospace;color:var(--mid);">10</td>
+        <td><span class="ci-badge brand">Industry Authority</span></td>
+        <td><span class="threat-badge med">Build Around</span></td>
+        <td class="td-insight">US Chamber dominates business-strategy editorial. Build around with practitioner-specific California angles Chamber's generalist editorial team won't produce.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="ci-intro" style="padding-top:14px;padding-bottom:0;">
+  <strong style="color:var(--ink);">The pattern:</strong> roughly half of recurring authorities are "Skip" (gov + Wikipedia + Cornell + Investopedia + Nolo on definitions) and the other half are "Compete" (LegalZoom, WoltersKluwer, TurboTax, UpCounsel, Rocket Lawyer, Sirion, Thomson Reuters). The Compete cohort is what makes the 200-keyword bible winnable. None of them speak to a $250K+ California creator/founder; all are beatable with strategic, jurisdictional, role-specific content.
+</div>
+
+<!-- PAA INDEX -->
+<div id="paa-index" class="section-label" style="margin-top:60px;">PAA Question Bank — Unsurfaced Blog-Post Inventory</div>
+<div class="ci-intro">The dedicated PAA Questions sheet in the bible captures <strong style="color:var(--ink);">581 unique People-Also-Ask questions</strong> across 200 keywords. The land cards above surface roughly 105 of these as supporting blog posts; the rest is a queued backlog. Each card below shows total / surfaced / queued counts plus a representative slice of the queued questions worth writing next. <em>Browse the full bank in</em> <a href="desq-seo-bible.xlsx" download style="color:var(--ink);text-decoration:underline;">desq-seo-bible 2.0.xlsx</a> &raquo; PAA Questions sheet.</div>
+<div class="paa-grid">
+
+  <div class="paa-card" style="--accent:#b8706a">
+    <div class="paa-land">Prenup Land</div>
+    <div class="paa-stats">
+      <div class="paa-stat"><span class="paa-stat-num">11</span><span class="paa-stat-label">Total</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">7</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">4</span><span class="paa-stat-label">Queued</span></div>
+    </div>
+    <div class="paa-q">What happens if I don&#x27;t do a prenup?</div>
+    <div class="paa-q">How do you determine if you need a prenup?</div>
+    <div class="paa-q">How soon before marriage do you need a prenup?</div>
+    <div class="paa-q">What is the downside of a prenup?</div>
+    <div class="paa-foot">Most surfaced — small remaining queue</div>
+  </div>
+  <div class="paa-card" style="--accent:#9a4f4f">
+    <div class="paa-land">Postnup Land</div>
+    <div class="paa-stats">
+      <div class="paa-stat"><span class="paa-stat-num">12</span><span class="paa-stat-label">Total</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">12</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">0</span><span class="paa-stat-label">Queued</span></div>
+    </div>
+    <div class="paa-q" style="color:var(--light);font-style:italic;">All PAAs already surfaced as supporting blog posts above.</div>
+    <div class="paa-foot">Fully surfaced — no remaining queue</div>
+  </div>
+  <div class="paa-card" style="--accent:#5e9472">
+    <div class="paa-land">Nonprofit Land</div>
+    <div class="paa-stats">
+      <div class="paa-stat"><span class="paa-stat-num">16</span><span class="paa-stat-label">Total</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">5</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">11</span><span class="paa-stat-label">Queued</span></div>
+    </div>
+    <div class="paa-q">How much does a 501c3 application cost?</div>
+    <div class="paa-q">How hard is it to set up a 501c3?</div>
+    <div class="paa-q">What is the 5% rule for nonprofits?</div>
+    <div class="paa-q">Can I pay myself if I run a nonprofit?</div>
+    <div class="paa-q">How hard is it to start a non-profit in California?</div>
+    <div class="paa-q">What does non-profit lawyer mean?</div>
+    <div class="paa-q">What is the 80/20 rule for nonprofits?</div>
+    <div class="paa-q">What is the highest paying job in a non-profit?</div>
+    <div class="paa-q">Can someone sue a non-profit?</div>
+    <div class="paa-q">What are non-profits not allowed to do?</div>
+    <div class="paa-foot">501(c)(3) procedural + creator-nonprofit angles</div>
+  </div>
+  <div class="paa-card" style="--accent:#b08858">
+    <div class="paa-land">Contract Land</div>
+    <div class="paa-stats">
+      <div class="paa-stat"><span class="paa-stat-num">227</span><span class="paa-stat-label">Total</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">36</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">191</span><span class="paa-stat-label">Queued</span></div>
+    </div>
+    <div class="paa-q">How to write an independent contractor agreement?</div>
+    <div class="paa-q">What&#x27;s the difference between MSA and SLA?</div>
+    <div class="paa-q">How does an MSA work?</div>
+    <div class="paa-q">Is an MSA the same as an NDA?</div>
+    <div class="paa-q">What is the NDA agreement for?</div>
+    <div class="paa-q">How serious is signing an NDA?</div>
+    <div class="paa-q">What happens if I break an NDA?</div>
+    <div class="paa-q">Can you make an NDA yourself?</div>
+    <div class="paa-q">Does a partnership agreement need to be signed by a lawyer?</div>
+    <div class="paa-q">Can I write my own partnership agreement?</div>
+    <div class="paa-q">Who writes a partnership agreement?</div>
+    <div class="paa-q">How much does it cost for a lawyer to write a contract?</div>
+    <div class="paa-q">What type of lawyer drafts contracts?</div>
+    <div class="paa-q">How much is drafting a contract?</div>
+    <div class="paa-q">Are terms and conditions actually legally binding?</div>
+    <div class="paa-q">What kind of lawyer writes terms and conditions?</div>
+    <div class="paa-foot">Largest queue in the bible — multi-year content runway</div>
+  </div>
+  <div class="paa-card" style="--accent:#7a60a0">
+    <div class="paa-land">Tax Strategy Land</div>
+    <div class="paa-stats">
+      <div class="paa-stat"><span class="paa-stat-num">34</span><span class="paa-stat-label">Total</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">11</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">23</span><span class="paa-stat-label">Queued</span></div>
+    </div>
+    <div class="paa-q">What are the 4 smart moves to cut your 2025 tax bill?</div>
+    <div class="paa-q">Can you use the Augusta rule if you have a home office?</div>
+    <div class="paa-q">Is there a difference between a tax attorney and a CPA?</div>
+    <div class="paa-q">Are tax lawyers worth the cost?</div>
+    <div class="paa-q">Can a tax attorney negotiate with the IRS?</div>
+    <div class="paa-q">Should I hire a CPA or tax attorney?</div>
+    <div class="paa-q">Is hiring a tax advocate worth the cost?</div>
+    <div class="paa-q">Is it worth it to get a tax attorney?</div>
+    <div class="paa-q">How much do corporate and tax lawyers cost?</div>
+    <div class="paa-foot">Augusta rule + tax-attorney-vs-CPA cluster</div>
+  </div>
+  <div class="paa-card" style="--accent:#5a8a64">
+    <div class="paa-land">LLC Land</div>
+    <div class="paa-stats">
+      <div class="paa-stat"><span class="paa-stat-num">64</span><span class="paa-stat-label">Total</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">9</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">55</span><span class="paa-stat-label">Queued</span></div>
+    </div>
+    <div class="paa-q">Do I need a business license in GA to sell online?</div>
+    <div class="paa-q">How do I start an LLC in California myself?</div>
+    <div class="paa-q">Is it worth having an LLC in California?</div>
+    <div class="paa-q">Can I write my own operating agreement for my LLC?</div>
+    <div class="paa-q">Can an LLC exist without an operating agreement?</div>
+    <div class="paa-q">What is the operating agreement of an LLC?</div>
+    <div class="paa-q">What are common mistakes in LLC agreements?</div>
+    <div class="paa-q">Do single members of an LLC file federal taxes?</div>
+    <div class="paa-q">How can a single-member LLC avoid taxes?</div>
+    <div class="paa-q">Do you file your LLC business and personal taxes together?</div>
+    <div class="paa-q">What percentage tax does an LLC pay the IRS?</div>
+    <div class="paa-q">How much does an LLC cost in NM?</div>
+    <div class="paa-foot">CA $800 fee + operating-agreement clusters dominate</div>
+  </div>
+  <div class="paa-card" style="--accent:#c08840">
+    <div class="paa-land">Trademark Land</div>
+    <div class="paa-stats">
+      <div class="paa-stat"><span class="paa-stat-num">35</span><span class="paa-stat-label">Total</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">8</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">27</span><span class="paa-stat-label">Queued</span></div>
+    </div>
+    <div class="paa-q">Is Taylor Swift&#x27;s name trademarked?</div>
+    <div class="paa-q">How do I copyright a company name or logo?</div>
+    <div class="paa-q">What is an example of trademark infringement?</div>
+    <div class="paa-q">How serious is trademark infringement?</div>
+    <div class="paa-q">What to do if someone is infringing your trademark?</div>
+    <div class="paa-q">Is it necessary to get an attorney for a trademark?</div>
+    <div class="paa-q">Is a trademark lawyer worth it?</div>
+    <div class="paa-q">What is the average cost to trademark a name?</div>
+    <div class="paa-q">Do you need a lawyer to file a trademark?</div>
+    <div class="paa-q">Can you trademark a name that already exists?</div>
+    <div class="paa-foot">Copyright-vs-trademark + infringement clusters</div>
+  </div>
+  <div class="paa-card" style="--accent:#888040">
+    <div class="paa-land">S-Corp Land</div>
+    <div class="paa-stats">
+      <div class="paa-stat"><span class="paa-stat-num">35</span><span class="paa-stat-label">Total</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">7</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">28</span><span class="paa-stat-label">Queued</span></div>
+    </div>
+    <div class="paa-q">What is the 2% rule for S corp?</div>
+    <div class="paa-q">Is S corp and sole proprietor the same thing?</div>
+    <div class="paa-q">Is owning an S Corp considered self-employed?</div>
+    <div class="paa-q">Is an S Corp still considered an LLC?</div>
+    <div class="paa-q">Should your LLC be taxed as an S corp?</div>
+    <div class="paa-q">What are the benefits of taxing an LLC as an S corp?</div>
+    <div class="paa-q">How to avoid taxes with S corp?</div>
+    <div class="paa-q">When should you turn your LLC into an S corp?</div>
+    <div class="paa-q">What is reasonable compensation for an S-corp owner?</div>
+    <div class="paa-q">How does the S-corp 60/40 rule work?</div>
+    <div class="paa-foot">2% rule, reasonable comp, S-corp election angle</div>
+  </div>
+  <div class="paa-card" style="--accent:#449090">
+    <div class="paa-land">New Business Owner Land</div>
+    <div class="paa-stats">
+      <div class="paa-stat"><span class="paa-stat-num">12</span><span class="paa-stat-label">Total</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">4</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">8</span><span class="paa-stat-label">Queued</span></div>
+    </div>
+    <div class="paa-q">Do I need to pay $800 for an LLC in California?</div>
+    <div class="paa-q">Can you look up a business license in California?</div>
+    <div class="paa-q">What business does not need a license?</div>
+    <div class="paa-q">What are common LLC mistakes to avoid?</div>
+    <div class="paa-q">How much does a corporate attorney cost?</div>
+    <div class="paa-q">What does a corporate attorney do?</div>
+    <div class="paa-q">What type of attorney handles business?</div>
+    <div class="paa-q">How much does it cost for a lawyer to write a business contract?</div>
+    <div class="paa-foot">$800 CA confusion + corporate-attorney pricing cluster</div>
+  </div>
+  <div class="paa-card" style="--accent:#9a8838">
+    <div class="paa-land">Startup Founder Land</div>
+    <div class="paa-stats">
+      <div class="paa-stat"><span class="paa-stat-num">22</span><span class="paa-stat-label">Total</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">7</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">15</span><span class="paa-stat-label">Queued</span></div>
+    </div>
+    <div class="paa-q">What kind of attorney do I need to start a business?</div>
+    <div class="paa-q">What is the 80/20 rule for lawyers?</div>
+    <div class="paa-q">What does a startup lawyer do?</div>
+    <div class="paa-q">What type of lawyer helps start a business?</div>
+    <div class="paa-q">What do lawyers do for startups?</div>
+    <div class="paa-q">When should a startup hire a lawyer?</div>
+    <div class="paa-q">How much do startups spend on legal fees?</div>
+    <div class="paa-q">What is a convertible note and how does it work?</div>
+    <div class="paa-q">Why do startups use convertible notes?</div>
+    <div class="paa-q">Is a SAFE better than a convertible note?</div>
+    <div class="paa-foot">Convertible-note + when-to-hire-startup-lawyer cluster</div>
+  </div>
+  <div class="paa-card" style="--accent:#4a6898">
+    <div class="paa-land">Creator Land</div>
+    <div class="paa-stats">
+      <div class="paa-stat"><span class="paa-stat-num">48</span><span class="paa-stat-label">Total</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">6</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">42</span><span class="paa-stat-label">Queued</span></div>
+    </div>
+    <div class="paa-q">Should I start an LLC for my OnlyFans?</div>
+    <div class="paa-q">Do I need an EIN as a content creator?</div>
+    <div class="paa-q">What is the $600 rule?</div>
+    <div class="paa-q">How much do influencers have to pay in taxes?</div>
+    <div class="paa-q">How do influencers write off taxes?</div>
+    <div class="paa-q">How do influencers pay their taxes?</div>
+    <div class="paa-q">Do TikTok creators have to pay taxes?</div>
+    <div class="paa-q">Do content creators have to pay taxes?</div>
+    <div class="paa-q">What can content creators write off on taxes?</div>
+    <div class="paa-q">What is the $600 rule in the IRS?</div>
+    <div class="paa-q">Do content creators get a W2?</div>
+    <div class="paa-q">Should I start an LLC as a YouTuber?</div>
+    <div class="paa-foot">Direct creator-tax cluster + $600 IRS rule confusion</div>
+  </div>
+  <div class="paa-card" style="--accent:#3a7098">
+    <div class="paa-land">E-Commerce Land</div>
+    <div class="paa-stats">
+      <div class="paa-stat"><span class="paa-stat-num">18</span><span class="paa-stat-label">Total</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">4</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">14</span><span class="paa-stat-label">Queued</span></div>
+    </div>
+    <div class="paa-q">Does Shopify report taxes to the IRS?</div>
+    <div class="paa-q">What taxes do dropshippers pay?</div>
+    <div class="paa-q">Do I need to pay tax for dropshipping?</div>
+    <div class="paa-q">Is drop shipping dead in 2026?</div>
+    <div class="paa-q">What are 5 disadvantages of LLC?</div>
+    <div class="paa-q">Is an LLC good for online business?</div>
+    <div class="paa-q">What does CCPA compliance mean?</div>
+    <div class="paa-q">What is the difference between CCPA and GDPR?</div>
+    <div class="paa-q">What are the CCPA requirements?</div>
+    <div class="paa-q">What is the CCPA compliance summary?</div>
+    <div class="paa-foot">Shopify/dropshipping tax + CCPA cluster</div>
+  </div>
+  <div class="paa-card" style="--accent:#884870">
+    <div class="paa-land">Business Exit Land</div>
+    <div class="paa-stats">
+      <div class="paa-stat"><span class="paa-stat-num">8</span><span class="paa-stat-label">Total</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">3</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">5</span><span class="paa-stat-label">Queued</span></div>
+    </div>
+    <div class="paa-q">What are the 5 D&#x27;s of exit planning?</div>
+    <div class="paa-q">What are the 4 exit strategies?</div>
+    <div class="paa-q">What are the four basic exit strategy possibilities?</div>
+    <div class="paa-q">Can I write my own purchase agreement?</div>
+    <div class="paa-q">Do you need a bill of sale for an asset purchase agreement?</div>
+    <div class="paa-foot">Pillar-grade questions — small but high-value queue</div>
+  </div>
+  <div class="paa-card" style="--accent:#a85a48">
+    <div class="paa-land">Employment &amp; HR Land</div>
+    <div class="paa-stats">
+      <div class="paa-stat"><span class="paa-stat-num">24</span><span class="paa-stat-label">Total</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">6</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">18</span><span class="paa-stat-label">Queued</span></div>
+    </div>
+    <div class="paa-q">What is the code of conduct?</div>
+    <div class="paa-q">What are the 5 principles of the code of conduct?</div>
+    <div class="paa-q">How do I create an employee handbook?</div>
+    <div class="paa-q">Can ChatGPT write an employee handbook?</div>
+    <div class="paa-q">What is a typical severance agreement?</div>
+    <div class="paa-q">What are the red flags in a severance agreement?</div>
+    <div class="paa-q">What is the downside to severance?</div>
+    <div class="paa-q">How enforceable is a non-solicitation agreement?</div>
+    <div class="paa-q">Can I work for a competitor if I signed a non-solicitation?</div>
+    <div class="paa-q">What is an example of a non-solicit?</div>
+    <div class="paa-foot">Code-of-conduct, severance red flags, non-solicit enforceability</div>
+  </div>
+  <div class="paa-card" style="--accent:#487078">
+    <div class="paa-land">Entity Structuring Land</div>
+    <div class="paa-stats">
+      <div class="paa-stat"><span class="paa-stat-num">15</span><span class="paa-stat-label">Total</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">5</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">10</span><span class="paa-stat-label">Queued</span></div>
+    </div>
+    <div class="paa-q">Is APC a felony in Oklahoma?</div>
+    <div class="paa-q">What is APC in medical terms?</div>
+    <div class="paa-q">Why would someone choose a limited partnership?</div>
+    <div class="paa-q">How does an LP make money?</div>
+    <div class="paa-q">What are the three types of licensing?</div>
+    <div class="paa-q">What does licensee mean in law?</div>
+    <div class="paa-q">What is an example of licensing?</div>
+    <div class="paa-q">What is a side letter in finance?</div>
+    <div class="paa-q">What does a side letter do?</div>
+    <div class="paa-q">Who signs a side letter?</div>
+    <div class="paa-foot">APC disambiguation + LP/licensing fundamentals</div>
+  </div>
+
 </div>
 
 <!-- PRICING ARCHITECTURE -->

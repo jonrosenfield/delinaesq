@@ -57,7 +57,11 @@
       "Bash(cp \"/Users/jonathanrosenfield/Desktop/Client Intake — Law Office of Delina Yasmeh.pdf\" /tmp/save-pdf-version.pdf)",
       "Bash(sed -n '985,1010p' /tmp/intake-inner.html)",
       "Bash(sed -n '1042,1075p' /tmp/intake-inner.html)",
-      "Bash(sed -n '1284,1300p' /tmp/intake-inner.html)"
+      "Bash(sed -n '1284,1300p' /tmp/intake-inner.html)",
+      "Bash(dig +short NS delina.esq)",
+      "Bash(dig +short delina.esq)",
+      "Bash(curl -sI https://delina.esq/sitemap.xml)",
+      "Bash(curl -s https://delina.esq/sitemap.xml)"
     ]
   }
 }
