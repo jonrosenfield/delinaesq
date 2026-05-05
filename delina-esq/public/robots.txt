@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /thank-you/
+Disallow: /docs/admin
+Disallow: /intake/
+Disallow: /engagement/
+Disallow: /sow/
+Disallow: /operating/
+
+Sitemap: https://delina.esq/sitemap.xml

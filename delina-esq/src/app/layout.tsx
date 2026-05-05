@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import {
   Jost,
   DM_Sans,
@@ -10,6 +11,8 @@ import { Navbar } from '@/components/layout/Navbar'
 import { GrainOverlay } from '@/components/ui/GrainOverlay'
 import { CookieBanner } from '@/components/ui/CookieBanner'
 import { ChatWidget } from '@/components/chat/ChatWidget'
+
+const GA_ID = 'G-05W3SW23QP'
 
 const jost = Jost({
   subsets: ['latin'],
@@ -109,6 +112,18 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-ink text-bone font-sans">
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}');
+          `}
+        </Script>
         <GrainOverlay />
         <Navbar />
         {children}
