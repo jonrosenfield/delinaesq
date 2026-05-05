@@ -44,27 +44,26 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://delina.esq'),
-  title: {
-    default: 'Delina Yasmeh, Esq. | California Legal Strategy',
-    template: '%s | Delina Yasmeh, Esq.',
-  },
+  title: 'Delina Yasmeh, Esq. | California Legal Strategy',
   description:
     'Boutique legal strategy for California entrepreneurs, creators, and high-net-worth individuals. Paid intake. No templates.',
   authors: [{ name: 'Delina Yasmeh, Esq.' }],
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://delina.esq',
-    title: 'Delina Yasmeh, Esq. | California Legal Strategy',
-    description:
-      'Boutique legal strategy for California entrepreneurs, creators, and high-net-worth individuals. Paid intake. No templates.',
     siteName: 'DELINA.ESQ',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Delina Yasmeh, Esq. — California legal and tax strategy attorney',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Delina Yasmeh, Esq. | California Legal Strategy',
-    description:
-      'Boutique legal strategy for California entrepreneurs, creators, and high-net-worth individuals. Paid intake. No templates.',
+    images: ['/og-image.jpg'],
   },
   robots: { index: true, follow: true },
   icons: {
@@ -83,18 +82,19 @@ const jsonLd = {
   '@type': ['LegalService', 'ProfessionalService'],
   name: 'Delina Yasmeh, Esq.',
   url: 'https://delina.esq',
-  areaServed: 'California',
+  areaServed: { '@type': 'Country', name: 'United States' },
   priceRange: '$$$$',
   description:
-    'Boutique legal strategy for California entrepreneurs, creators, and high-net-worth individuals.',
+    'Boutique legal and tax strategy for founders, creators, and high-net-worth entrepreneurs.',
   serviceType: [
-    'Tax Strategy',
+    'Startup Legal Strategy',
+    'Business Tax Strategy',
     'Entity Structuring',
     'LLC Formation',
     'S-Corp Election',
     'Contract Drafting',
+    'Trademark & Brand Protection',
     'Prenuptial Agreements',
-    'Startup Advisory',
     'Creator Counsel',
   ],
   founder: {

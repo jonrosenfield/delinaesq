@@ -66,12 +66,29 @@ export async function generateMetadata({
 }: {
   params: { slug: string }
 }): Promise<Metadata> {
+  const url = `https://delina.esq/business-law-library/${params.slug}/`
   const mdxPost = getMdxPost(params.slug)
   if (mdxPost) {
     return {
       title: `${mdxPost.title} | Delina Yasmeh, Esq.`,
       description: mdxPost.description,
-      alternates: { canonical: `https://delina.esq/business-law-library/${params.slug}/` },
+      alternates: { canonical: url },
+      openGraph: {
+        type: 'article',
+        url,
+        title: mdxPost.title,
+        description: mdxPost.description,
+        publishedTime: mdxPost.date,
+        authors: ['Delina Yasmeh, Esq.'],
+        section: mdxPost.category,
+        tags: mdxPost.tags,
+        images: ['/og-image.jpg'],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: mdxPost.title,
+        description: mdxPost.description,
+      },
     }
   }
   const post = POSTS[params.slug]
@@ -79,7 +96,23 @@ export async function generateMetadata({
   return {
     title: `${post.title} | Delina Yasmeh, Esq.`,
     description: post.description,
-    alternates: { canonical: `https://delina.esq/business-law-library/${params.slug}/` },
+    alternates: { canonical: url },
+    openGraph: {
+      type: 'article',
+      url,
+      title: post.title,
+      description: post.description,
+      publishedTime: post.date,
+      authors: ['Delina Yasmeh, Esq.'],
+      section: post.category,
+      tags: post.tags,
+      images: ['/og-image.jpg'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+    },
   }
 }
 
@@ -110,8 +143,22 @@ export default async function BlogPost({ params }: { params: { slug: string } })
       year: 'numeric', month: 'long', day: 'numeric',
     })
     const color = categoryColor(mdxPost.category)
+    const articleSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: mdxPost.title,
+      author: { '@type': 'Person', name: 'Delina Yasmeh', jobTitle: 'Attorney', url: 'https://delina.esq' },
+      publisher: { '@type': 'Organization', name: 'Delina Yasmeh, Esq.', url: 'https://delina.esq' },
+      datePublished: mdxPost.date,
+      description: mdxPost.description,
+      mainEntityOfPage: `https://delina.esq/business-law-library/${params.slug}/`,
+    }
     return (
       <main className="bg-parchment pt-[52px]">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        />
         <Navbar />
         <header className="relative py-20 px-6 overflow-hidden" style={{ backgroundColor: '#0A0A0A' }}>
           {/* Category color wash, diagonal from bottom-right, same pattern as landing pages */}
@@ -255,6 +302,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
     publisher: { '@type': 'Organization', name: 'Delina Yasmeh, Esq.', url: 'https://delina.esq' },
     datePublished: post.date,
     description: post.description,
+    mainEntityOfPage: `https://delina.esq/business-law-library/${params.slug}/`,
   }
 
   const formatted = new Date(post.date).toLocaleDateString('en-US', {

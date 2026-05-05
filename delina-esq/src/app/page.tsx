@@ -12,9 +12,20 @@ import { getAllMdxPosts } from '@/lib/mdx'
 import { POSTS } from '@/data/posts'
 
 export const metadata: Metadata = {
-  title: 'Delina Yasmeh, Esq. | California Legal Strategy',
+  title: 'Startup Lawyer & Business Tax Lawyer | Delina Yasmeh, Esq.',
   description:
-    'Boutique legal strategy for California entrepreneurs, creators, and high-net-worth individuals. Paid intake. No templates.',
+    "Startup lawyer and business tax lawyer for entrepreneurs who've outgrown generic legal advice. Entity structuring, tax strategy, and contracts. Paid intake.",
+  alternates: { canonical: 'https://delina.esq/' },
+  keywords: [
+    'startup lawyer',
+    'business tax lawyer',
+    'business startup lawyer',
+    'small business tax lawyer',
+    'tax lawyer',
+    'tax attorney',
+    'business formation lawyer',
+    'lawyer for business startup',
+  ],
 }
 
 const SECTION_CONFIG: Array<{
