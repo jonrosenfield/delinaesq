@@ -44,6 +44,80 @@
   to = "/.netlify/functions/doc-serve"
   status = 200
 
+# Short marketing URLs → canonical landing pages (301)
+# force = true so these win over any generated static HTML at the same path.
+[[redirects]]
+  from = "/prenup"
+  to = "/prenuptial-agreement-attorney"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/prenup/*"
+  to = "/prenuptial-agreement-attorney"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tax-strategy"
+  to = "/tax-attorney-small-business"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tax-strategy/*"
+  to = "/tax-attorney-small-business"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/startup"
+  to = "/startup-attorney-california"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/startup/*"
+  to = "/startup-attorney-california"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/creator"
+  to = "/creator-attorney"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/creator/*"
+  to = "/creator-attorney"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contract-drafting"
+  to = "/business-contract-attorney"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contract-drafting/*"
+  to = "/business-contract-attorney"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/entity-structuring"
+  to = "/business-structure-attorney"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/entity-structuring/*"
+  to = "/business-structure-attorney"
+  status = 301
+  force = true
+
 # Next.js static export: each page has its own HTML file.
 # The catch-all below handles direct URL access for pages that
 # don't exist as separate files (404 fallback). Netlify form

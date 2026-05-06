@@ -153,11 +153,24 @@ export default async function BlogPost({ params }: { params: { slug: string } })
       description: mdxPost.description,
       mainEntityOfPage: `https://delina.esq/business-law-library/${params.slug}/`,
     }
+    const breadcrumbSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://delina.esq/' },
+        { '@type': 'ListItem', position: 2, name: 'Law Library', item: 'https://delina.esq/business-law-library/' },
+        { '@type': 'ListItem', position: 3, name: mdxPost.title, item: `https://delina.esq/business-law-library/${params.slug}/` },
+      ],
+    }
     return (
       <main className="bg-parchment pt-[52px]">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
         />
         <Navbar />
         <header className="relative py-20 px-6 overflow-hidden" style={{ backgroundColor: '#0A0A0A' }}>
@@ -304,6 +317,15 @@ export default async function BlogPost({ params }: { params: { slug: string } })
     description: post.description,
     mainEntityOfPage: `https://delina.esq/business-law-library/${params.slug}/`,
   }
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://delina.esq/' },
+      { '@type': 'ListItem', position: 2, name: 'Law Library', item: 'https://delina.esq/business-law-library/' },
+      { '@type': 'ListItem', position: 3, name: post.title, item: `https://delina.esq/business-law-library/${params.slug}/` },
+    ],
+  }
 
   const formatted = new Date(post.date).toLocaleDateString('en-US', {
     year: 'numeric', month: 'long', day: 'numeric',
@@ -315,6 +337,10 @@ export default async function BlogPost({ params }: { params: { slug: string } })
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <Navbar />
       <header className="relative py-20 px-6 overflow-hidden" style={{ backgroundColor: '#0A0A0A' }}>
