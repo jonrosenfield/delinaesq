@@ -24,19 +24,49 @@ const DRAWER_ITEM = {
 }
 
 const PRACTICE_AREAS = [
-  { label: 'Prenuptial Agreement Attorney', href: '/prenuptial-agreement-attorney' },
-  { label: 'Postnuptial Agreement Lawyer', href: '/postnuptial-agreement-lawyer' },
-  { label: 'LLC Attorney', href: '/llc-attorney' },
-  { label: 'S-Corp Attorney', href: '/s-corp-attorney' },
-  { label: 'Business Contract Attorney', href: '/business-contract-attorney' },
-  { label: 'Tax Attorney', href: '/tax-attorney-small-business' },
-  { label: 'Business Structure Attorney', href: '/business-structure-attorney' },
-  { label: 'Startup Lawyer', href: '/startup-attorney-california' },
-  { label: 'Attorney for Creators & Influencers', href: '/creator-attorney' },
-  { label: 'Trademark Attorney', href: '/trademark-attorney' },
-  { label: 'Nonprofit Attorney', href: '/nonprofit-attorney' },
-  { label: 'E-Commerce Business Attorney', href: '/ecommerce-business-attorney' },
+  { label: 'Prenuptial Agreements', href: '/prenuptial-agreement-attorney' },
+  { label: 'Postnuptial Agreements', href: '/postnuptial-agreement-lawyer' },
+  { label: 'LLC', href: '/llc-attorney' },
+  { label: 'S-Corp', href: '/s-corp-attorney' },
+  { label: 'Business Contracts', href: '/business-contract-attorney' },
+  { label: 'Tax Strategy', href: '/tax-attorney-small-business' },
+  { label: 'Business Structure', href: '/business-structure-attorney' },
+  { label: 'Startups', href: '/startup-attorney-california' },
+  { label: 'Creators & Influencers', href: '/creator-attorney' },
+  { label: 'Trademark', href: '/trademark-attorney' },
+  { label: 'Nonprofit', href: '/nonprofit-attorney' },
+  { label: 'E-Commerce', href: '/ecommerce-business-attorney' },
 ]
+
+const MEGA_MENU = [
+  {
+    eyebrow: 'Entity & Tax',
+    items: [
+      { label: 'LLC', href: '/llc-attorney' },
+      { label: 'S-Corp', href: '/s-corp-attorney' },
+      { label: 'Business Structure', href: '/business-structure-attorney' },
+      { label: 'Tax Strategy', href: '/tax-attorney-small-business' },
+    ],
+  },
+  {
+    eyebrow: 'Protection',
+    items: [
+      { label: 'Business Contracts', href: '/business-contract-attorney' },
+      { label: 'Trademark', href: '/trademark-attorney' },
+      { label: 'Prenuptial Agreements', href: '/prenuptial-agreement-attorney' },
+      { label: 'Postnuptial Agreements', href: '/postnuptial-agreement-lawyer' },
+    ],
+  },
+  {
+    eyebrow: 'Specialized',
+    items: [
+      { label: 'Startups', href: '/startup-attorney-california' },
+      { label: 'Creators & Influencers', href: '/creator-attorney' },
+      { label: 'Nonprofit', href: '/nonprofit-attorney' },
+      { label: 'E-Commerce', href: '/ecommerce-business-attorney' },
+    ],
+  },
+] as const
 
 export function Navbar({ showConcierge = false }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false)
@@ -90,37 +120,96 @@ export function Navbar({ showConcierge = false }: NavbarProps) {
             onMouseLeave={services.close_}
           >
             <button
-              className="font-sans text-[15px] uppercase tracking-[0.12em] text-silver hover:text-white transition-colors flex items-center gap-1"
+              className="font-sans text-[15px] uppercase tracking-[0.12em] text-silver hover:text-white transition-colors flex items-center gap-1.5"
               onClick={() => services.open ? services.close_() : services.open_()}
             >
               Services
-              <span className={`text-[8px] transition-transform duration-200 ${services.open ? 'rotate-180' : ''}`}>▾</span>
+              <svg
+                width="9" height="9" viewBox="0 0 9 9"
+                fill="none" stroke="currentColor" strokeWidth="1.25"
+                strokeLinecap="round" strokeLinejoin="round"
+                className={`transition-transform duration-300 ${services.open ? 'rotate-180' : ''}`}
+                aria-hidden="true"
+              >
+                <path d="M1.75 3.25 L4.5 6 L7.25 3.25" />
+              </svg>
             </button>
 
-            {services.open && (
-              <div
-                className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[500px]"
-                onMouseEnter={services.cancel}
-                onMouseLeave={services.close_}
-              >
-                <div className="bg-ink border border-steel shadow-2xl py-5 px-2">
-                  {/* Arrow */}
-                  <div className="absolute top-[3px] left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-ink border-l border-t border-steel rotate-45" />
-                  <div className="grid grid-cols-2 gap-x-2">
-                    {PRACTICE_AREAS.map((area) => (
-                      <Link
-                        key={area.href}
-                        href={area.href}
-                        onClick={() => services.close_()}
-                        className="font-sans text-[15px] text-silver hover:text-white hover:bg-white/5 transition-all px-4 py-2.5 block leading-snug"
-                      >
-                        {area.label}
-                      </Link>
+            <AnimatePresence>
+              {services.open && (
+                <motion.div
+                  key="mega-menu"
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+                  onMouseEnter={services.cancel}
+                  onMouseLeave={services.close_}
+                  className="fixed left-0 right-0 top-[52px] bg-ink border-b border-steel z-40"
+                >
+                  <div className="max-w-[1200px] mx-auto px-6 lg:px-12 py-14 grid grid-cols-12 gap-8">
+                    {MEGA_MENU.map((column, colIdx) => (
+                      <div key={column.eyebrow} className="col-span-3">
+                        <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-mist mb-6">
+                          {column.eyebrow}
+                        </p>
+                        <ul className="space-y-3">
+                          {column.items.map((area, i) => (
+                            <motion.li
+                              key={area.href}
+                              initial={{ opacity: 0, y: 6 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{
+                                duration: 0.3,
+                                ease: [0.4, 0, 0.2, 1],
+                                delay: 0.08 + colIdx * 0.04 + i * 0.03,
+                              }}
+                            >
+                              <Link
+                                href={area.href}
+                                onClick={() => services.close_()}
+                                className="group inline-flex items-baseline gap-2 font-sans text-[15px] text-silver hover:text-white transition-colors"
+                              >
+                                <span className="relative">
+                                  {area.label}
+                                  <span className="absolute left-0 right-0 -bottom-0.5 h-px bg-white origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                                </span>
+                              </Link>
+                            </motion.li>
+                          ))}
+                        </ul>
+                      </div>
                     ))}
+
+                    {/* Featured CTA column */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
+                      className="col-span-3 border-l border-steel pl-8 flex flex-col"
+                    >
+                      <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-mist mb-6">
+                        Where to Start
+                      </p>
+                      <p className="font-display font-light text-[1.625rem] text-white leading-[1.15] mb-4 tracking-[-0.015em]">
+                        Tell us your situation.
+                      </p>
+                      <p className="font-sans font-light text-[14px] text-silver leading-relaxed mb-6">
+                        We will route you to the right strategy and the right contact method.
+                      </p>
+                      <Link
+                        href="/book"
+                        onClick={() => services.close_()}
+                        className="mt-auto inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-white border-b border-white/30 hover:border-white pb-2 self-start transition-colors"
+                      >
+                        Contact Us
+                        <span className="text-white/60">→</span>
+                      </Link>
+                    </motion.div>
                   </div>
-                </div>
-              </div>
-            )}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           <Link
