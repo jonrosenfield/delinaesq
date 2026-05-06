@@ -17,14 +17,14 @@ function MessageContent({ text }: { text: string }) {
         const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/)
         if (match) {
           const [, label, href] = match
-          const isExternal = href.startsWith('http')
-          if (isExternal) {
+          const isHttp = href.startsWith('http')
+          const isProtocol = href.startsWith('tel:') || href.startsWith('mailto:')
+          if (isHttp || isProtocol) {
             return (
               <a
                 key={i}
                 href={href}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...(isHttp ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 className="underline underline-offset-2 text-white/90 hover:text-white transition-colors"
               >
                 {label}
@@ -49,7 +49,7 @@ function MessageContent({ text }: { text: string }) {
 
 const OPENING_MESSAGE: Message = {
   role: 'assistant',
-  content: "Taxes, contracts, LLC formation, prenups, trademarks. Tell me what you are dealing with and I will point you to the right place, or get you [booked with Delina](/book) directly.",
+  content: "Taxes, contracts, LLC formation, prenups, trademarks. Tell me what you're dealing with and I'll point you to the right place. Or just [call 818-888-6060](tel:818-888-6060), [email info@delina.esq](mailto:info@delina.esq), or [send your situation](/book).",
 }
 
 export function ChatWidget() {
@@ -220,10 +220,9 @@ export function ChatWidget() {
 
       {/* Tooltip bubble — appears to the left of the tab */}
       <div
-        className={`fixed right-14 z-50 transition-all duration-500 ${
+        className={`fixed right-14 z-50 top-[calc(80%_-_38px)] md:top-[calc(50%_-_38px)] transition-all duration-500 ${
           showTooltip && !open ? 'opacity-100 translate-x-0 pointer-events-auto' : 'opacity-0 translate-x-3 pointer-events-none'
         }`}
-        style={{ top: 'calc(50% - 38px)' }}
       >
         <button
           type="button"
@@ -245,7 +244,7 @@ export function ChatWidget() {
       </div>
 
       {/* Right-side vertical tab */}
-      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50">
+      <div className="fixed right-0 top-[80%] md:top-1/2 -translate-y-1/2 z-50">
         <button
           onClick={() => { setOpen((o) => !o); setShowTooltip(false) }}
           aria-label="Toggle chat assistant"

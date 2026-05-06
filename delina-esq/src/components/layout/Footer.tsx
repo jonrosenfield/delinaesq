@@ -66,6 +66,18 @@ export function Footer() {
               <span className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-mist block mb-5">
                 CONNECT
               </span>
+              <a
+                href="tel:818-888-6060"
+                className="font-mono text-[16px] tracking-[0.05em] text-white hover:text-silver transition-colors block mb-2"
+              >
+                818-888-6060
+              </a>
+              <a
+                href="mailto:info@delina.esq"
+                className="font-mono text-[16px] tracking-[0.05em] text-white hover:text-silver transition-colors block mb-5"
+              >
+                info@delina.esq
+              </a>
               <Link
                 href="/book"
                 className="font-sans text-[16px] text-white hover:text-silver transition-colors block mb-2"

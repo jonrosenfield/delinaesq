@@ -82,6 +82,8 @@ const jsonLd = {
   '@type': ['LegalService', 'ProfessionalService'],
   name: 'Delina Yasmeh, Esq.',
   url: 'https://delina.esq',
+  telephone: '+1-818-888-6060',
+  email: 'info@delina.esq',
   areaServed: { '@type': 'Country', name: 'United States' },
   priceRange: '$$$$',
   description:

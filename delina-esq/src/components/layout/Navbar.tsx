@@ -129,6 +129,16 @@ export function Navbar({ showConcierge = false }: NavbarProps) {
           >
             Law Library
           </Link>
+          <a
+            href="tel:818-888-6060"
+            className="font-mono text-[13px] tracking-[0.05em] text-silver hover:text-white transition-colors flex items-center gap-2"
+            aria-label="Call Delina Yasmeh, Esq. at 818-888-6060"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+            </svg>
+            818-888-6060
+          </a>
           <Link
             href="/book"
             className="font-mono text-[13px] uppercase tracking-[0.18em] px-5 py-2 border border-white/40 text-white hover:bg-white hover:text-ink transition-all duration-200"
@@ -137,9 +147,19 @@ export function Navbar({ showConcierge = false }: NavbarProps) {
           </Link>
         </div>
 
-        {/* Mobile Hamburger */}
+        {/* Mobile actions */}
+        <div className="md:hidden flex items-center gap-1">
+          <a
+            href="tel:818-888-6060"
+            className="w-10 h-10 flex items-center justify-center text-white hover:text-silver transition-colors"
+            aria-label="Call Delina Yasmeh, Esq. at 818-888-6060"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+            </svg>
+          </a>
         <button
-          className="md:hidden flex flex-col gap-1.5 w-8 h-8 items-center justify-center"
+          className="flex flex-col gap-1.5 w-8 h-8 items-center justify-center"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
         >
@@ -159,6 +179,7 @@ export function Navbar({ showConcierge = false }: NavbarProps) {
             }`}
           />
         </button>
+        </div>
       </nav>
 
       {/* Concierge Bar */}
@@ -168,6 +189,35 @@ export function Navbar({ showConcierge = false }: NavbarProps) {
       {menuOpen && (
         <div className="md:hidden fixed inset-0 top-[52px] bg-ink z-40 flex flex-col overflow-y-auto">
           <nav className="flex flex-col">
+            {/* Direct contact, top of drawer for fastest access */}
+            <div className="border-b border-steel grid grid-cols-2">
+              <a
+                href="tel:818-888-6060"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center gap-3 py-5 px-6 text-white hover:bg-white/5 transition-colors border-r border-steel"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+                </svg>
+                <div className="flex flex-col">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-mist">Call</span>
+                  <span className="font-mono text-[13px] tracking-[0.05em]">818-888-6060</span>
+                </div>
+              </a>
+              <a
+                href="mailto:info@delina.esq"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center gap-3 py-5 px-6 text-white hover:bg-white/5 transition-colors"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                </svg>
+                <div className="flex flex-col">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-mist">Email</span>
+                  <span className="font-mono text-[13px] tracking-[0.05em] truncate">info@delina.esq</span>
+                </div>
+              </a>
+            </div>
             {/* Practice Areas, expanded in mobile */}
             <div className="border-b border-steel">
               <p className="font-mono text-[12px] uppercase tracking-[0.2em] text-mist px-6 pt-4 pb-2">

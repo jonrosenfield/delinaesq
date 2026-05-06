@@ -177,7 +177,7 @@ export function HeroSection() {
             href="/book"
             className="btn-primary text-[12px] md:text-[13px] font-mono uppercase tracking-[0.2em] py-3.5 md:py-4 px-6 md:px-8"
           >
-            Get Started →
+            Contact Us →
           </Link>
           <a
             href="#services"
