@@ -128,12 +128,13 @@ export function ChatWidget() {
 
   return (
     <>
-      {/* Chat panel — opens leftward from the right-side tab */}
+      {/* Chat panel — full-width on mobile, anchored right on desktop */}
       <div
-        className={`fixed right-14 z-50 w-[340px] sm:w-[380px] flex flex-col transition-all duration-300 ${
-          open ? 'opacity-100 translate-x-0 pointer-events-auto' : 'opacity-0 translate-x-4 pointer-events-none'
-        }`}
-        style={{ top: 'calc(50% - 260px)', maxHeight: 'min(520px, calc(100vh - 120px))' }}
+        className={`fixed z-50 flex flex-col transition-all duration-300
+          top-[64px] left-3 right-3 bottom-3 max-h-[calc(100dvh-76px)]
+          md:top-[calc(50%-260px)] md:left-auto md:right-14 md:bottom-auto md:w-[340px] lg:w-[380px] md:max-h-[min(520px,calc(100vh-120px))]
+          ${open ? 'opacity-100 translate-x-0 pointer-events-auto' : 'opacity-0 translate-x-4 pointer-events-none'}
+        `}
       >
         {/* Panel */}
         <div className="flex flex-col bg-ink border border-white/10 overflow-hidden" style={{ maxHeight: 'inherit' }}>
@@ -218,9 +219,9 @@ export function ChatWidget() {
         </div>
       </div>
 
-      {/* Tooltip bubble — appears to the left of the tab */}
+      {/* Tooltip bubble — desktop only, would cover content on mobile */}
       <div
-        className={`fixed right-14 z-50 top-[calc(80%_-_38px)] md:top-[calc(50%_-_38px)] transition-all duration-500 ${
+        className={`hidden md:block fixed right-14 z-50 top-[calc(50%_-_38px)] transition-all duration-500 ${
           showTooltip && !open ? 'opacity-100 translate-x-0 pointer-events-auto' : 'opacity-0 translate-x-3 pointer-events-none'
         }`}
       >
@@ -244,7 +245,7 @@ export function ChatWidget() {
       </div>
 
       {/* Right-side vertical tab */}
-      <div className="fixed right-0 top-[80%] md:top-1/2 -translate-y-1/2 z-50">
+      <div className="fixed right-0 bottom-24 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-50">
         <button
           onClick={() => { setOpen((o) => !o); setShowTooltip(false) }}
           aria-label="Toggle chat assistant"
