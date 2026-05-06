@@ -95,22 +95,22 @@ export function HeroSection() {
         <h1
           className="font-display text-white max-w-[1100px] mx-auto"
           style={{
-            fontSize: 'clamp(2.2rem, 5.5vw, 5.5rem)',
+            fontSize: 'clamp(1.75rem, 5.5vw, 5.5rem)',
             lineHeight: 1.0,
             letterSpacing: '0.03em',
           }}
         >
-          <span className="block font-medium uppercase">A Lawyer for</span>
-          <span className="block font-medium uppercase">Every Stage of</span>
-          <span className="block font-medium uppercase">Your Business.</span>
+          <span className="block font-medium uppercase whitespace-nowrap">A Lawyer for</span>
+          <span className="block font-medium uppercase whitespace-nowrap">Every Stage of</span>
+          <span className="block font-medium uppercase whitespace-nowrap">Your Business.</span>
         </h1>
 
         {/* Concierge Search */}
         <div className="w-full max-w-[560px] mt-5 md:mt-7">
           <form onSubmit={handleSearchSubmit} className="relative">
             <svg
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-white/80"
-              width="15" height="15" viewBox="0 0 24 24" fill="none"
+              className="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 text-white/80"
+              width="14" height="14" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" strokeWidth="2" strokeLinecap="round"
             >
               <circle cx="11" cy="11" r="8" />
@@ -123,7 +123,7 @@ export function HeroSection() {
               onFocus={() => setSearchFocused(true)}
               onBlur={() => setTimeout(() => setSearchFocused(false), 200)}
               placeholder="Tell us what you need help with."
-              className={`w-full border-2 text-white placeholder:text-white/70 font-sans text-[15px] md:text-[16px] pl-11 pr-12 py-3.5 md:py-4 outline-none transition-all duration-300 ${searchFocused ? '' : 'search-pulse'}`}
+              className={`w-full border-2 text-white placeholder:text-white/70 font-sans text-[14px] md:text-[16px] pl-9 pr-10 md:pl-11 md:pr-12 py-3.5 md:py-4 outline-none transition-all duration-300 ${searchFocused ? '' : 'search-pulse'}`}
               style={{
                 background: 'rgba(255,255,255,0.18)',
                 backdropFilter: 'blur(24px) saturate(180%)',
@@ -136,7 +136,7 @@ export function HeroSection() {
             />
             <button
               type="submit"
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors font-mono text-lg"
+              className="absolute right-3 md:right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors font-mono text-base md:text-lg"
               aria-label="Search"
             >
               →
