@@ -180,7 +180,7 @@ export function HeroSection() {
             Contact Us →
           </Link>
           <a
-            href="#services"
+            href="#process"
             className="btn-ghost text-[12px] md:text-[13px] font-mono uppercase tracking-[0.2em] py-3.5 md:py-4 px-6 md:px-8"
           >
             How It Works

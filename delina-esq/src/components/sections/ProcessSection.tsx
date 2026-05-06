@@ -27,7 +27,7 @@ const STEPS = [
 
 export function ProcessSection() {
   return (
-    <section id="process" className="bg-ink py-24 px-6">
+    <section id="process" className="bg-ink py-24 px-6 scroll-mt-[52px]">
       {/* Header */}
       <div className="max-w-[1200px] mx-auto mb-16">
         <span className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-mist block mb-4">
