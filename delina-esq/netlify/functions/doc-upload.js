@@ -8,6 +8,7 @@ const STORES = {
   engagement: "engagement-letters",
   sow: "sow-documents",
   operating: "operating-agreements",
+  upload: "secure-uploads",
 };
 
 function hashPassword(pw) {

@@ -44,6 +44,11 @@
   to = "/.netlify/functions/doc-serve"
   status = 200
 
+[[redirects]]
+  from = "/upload/:slug"
+  to = "/.netlify/functions/doc-serve"
+  status = 200
+
 # Short marketing URLs → canonical landing pages (301)
 # force = true so these win over any generated static HTML at the same path.
 [[redirects]]

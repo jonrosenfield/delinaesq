@@ -6,6 +6,7 @@ const STORES = {
   engagement: "engagement-letters",
   sow: "sow-documents",
   operating: "operating-agreements",
+  upload: "secure-uploads",
 };
 
 const TYPE_LABELS = {
@@ -13,6 +14,7 @@ const TYPE_LABELS = {
   engagement: "Engagement Letter",
   sow: "Statement of Work",
   operating: "Operating Agreement",
+  upload: "Secure Document Upload",
 };
 
 function hashPassword(pw) {
@@ -87,8 +89,8 @@ async function parseBody(event) {
 
 exports.handler = async (event) => {
   const path = event.path || event.rawUrl || "";
-  // Match /intake/[slug], /engagement/[slug], /sow/[slug]
-  const match = path.match(/\/(intake|engagement|sow|operating)\/([a-z0-9-]+)/);
+  // Match /intake/[slug], /engagement/[slug], /sow/[slug], /operating/[slug], /upload/[slug]
+  const match = path.match(/\/(intake|engagement|sow|operating|upload)\/([a-z0-9-]+)/);
   if (!match) {
     return {
       statusCode: 404,

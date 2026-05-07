@@ -282,6 +282,7 @@
   .sub-meta-line .pill.type-engagement { color: #7C3AED; background: rgba(124,58,237,0.08); border-color: rgba(124,58,237,0.25); font-weight: 600; }
   .sub-meta-line .pill.type-sow { color: #16A34A; background: rgba(22,163,74,0.08); border-color: rgba(22,163,74,0.25); font-weight: 600; }
   .sub-meta-line .pill.type-operating { color: #C2410C; background: rgba(194,65,12,0.08); border-color: rgba(194,65,12,0.25); font-weight: 600; }
+  .sub-meta-line .pill.type-upload { color: #0891B2; background: rgba(8,145,178,0.08); border-color: rgba(8,145,178,0.25); font-weight: 600; }
   .sub-actions { display: flex; gap: 8px; align-items: center; }
   .sub-toggle {
     font-family: var(--mono);
@@ -402,7 +403,7 @@
   <div class="container">
     <div class="dash-header">
       <h1>Published Documents</h1>
-      <div class="sub">Upload and manage client intake forms, engagement letters, and statements of work.</div>
+      <div class="sub">Upload and manage client intake forms, engagement letters, statements of work, and secure document uploads.</div>
     </div>
 
     <div class="tabs" id="tabs">
@@ -410,6 +411,7 @@
       <button class="tab" data-type="engagement">Engagement <span class="count" id="count-engagement"></span></button>
       <button class="tab" data-type="sow">SOW <span class="count" id="count-sow"></span></button>
       <button class="tab" data-type="operating">Operating <span class="count" id="count-operating"></span></button>
+      <button class="tab" data-type="upload">Upload <span class="count" id="count-upload"></span></button>
       <button class="tab" data-type="submissions">Submissions <span class="count" id="count-submissions"></span></button>
     </div>
 
@@ -454,6 +456,7 @@ var TYPE_LABELS = {
   engagement: 'Engagement Letter',
   sow: 'Statement of Work',
   operating: 'Operating Agreement',
+  upload: 'Secure Document Upload',
 };
 
 // Login
@@ -532,7 +535,7 @@ function loadList() {
 }
 
 function refreshAllCounts() {
-  ['intake', 'engagement', 'sow', 'operating'].forEach(function(t) {
+  ['intake', 'engagement', 'sow', 'operating', 'upload'].forEach(function(t) {
     fetch('/.netlify/functions/doc-list', {
       method: 'POST',
       body: JSON.stringify({ type: t, password: adminPassword })
@@ -678,7 +681,7 @@ var FIELD_LABELS = {
   entity_name: 'Entity Name', entity_type: 'Entity Type', formation_state: 'Formation State',
   ein: 'EIN', role: 'Role',
   id_type: 'ID Type', id_number: 'ID Number', id_issuer: 'ID Issuer', id_exp: 'ID Expiration',
-  matter_description: 'Legal Matter', desired_outcome: 'Desired Outcome',
+  matter_description: 'Legal Matter', description: 'Description', desired_outcome: 'Desired Outcome',
   deadlines: 'Deadlines', referral: 'Referral Source', additional_info: 'Additional Info',
   signature: 'Signature', sign_date: 'Sign Date',
   printed_name: 'Printed Name', signature_title: 'Signature Title', signature_date: 'Signature Date',
@@ -746,7 +749,7 @@ function renderSubmissions(subs) {
     var nameHtml = s.clientName
       ? '<div class="sub-name">' + escapeHtml(s.clientName) + '</div>'
       : '<div class="sub-name empty">(no name yet)</div>';
-    var typeLabels = { intake: 'INTAKE', engagement: 'ENGAGEMENT', sow: 'SOW', operating: 'OPERATING' };
+    var typeLabels = { intake: 'INTAKE', engagement: 'ENGAGEMENT', sow: 'SOW', operating: 'OPERATING', upload: 'UPLOAD' };
     var typeKey = s.type || 'intake';
     var typePill = '<span class="pill type-' + escapeHtml(typeKey) + '">' + escapeHtml(typeLabels[typeKey] || typeKey.toUpperCase()) + '</span>';
     var emailPill = s.clientEmail ? '<span class="pill signal">' + escapeHtml(s.clientEmail) + '</span>' : '';

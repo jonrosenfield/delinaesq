@@ -9,12 +9,14 @@ const DOC_STORES = {
   engagement: "engagement-letters",
   sow: "sow-documents",
   operating: "operating-agreements",
+  upload: "secure-uploads",
 };
 const DOC_PREFIX = {
   intake: "intakes",
   engagement: "engagements",
   sow: "sows",
   operating: "operating",
+  upload: "uploads",
 };
 
 function validSlug(slug) {
@@ -38,6 +40,83 @@ function sanitizeFields(input) {
     out[safeKey] = val.slice(0, MAX_FIELD_LEN);
   }
   return out;
+}
+
+const DOC_TYPE_LABEL = {
+  intake: "Intake Form",
+  engagement: "Engagement Letter",
+  sow: "Statement of Work",
+  operating: "Operating Agreement",
+  upload: "Secure Document Upload",
+};
+
+function escapeHtml(s) {
+  return String(s || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+async function sendSubmissionNotification({ type, slug, clientName, clientEmail, createdAt, submissionId, fileCount }) {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) return; // not configured yet — skip silently
+
+  const recipient = process.env.INTAKE_NOTIFICATION_EMAIL || "info@delina.esq";
+  const fromAddress = process.env.RESEND_FROM || "Delina.ESQ <noreply@delina.esq>";
+  const label = DOC_TYPE_LABEL[type] || type;
+  const safeName = escapeHtml(clientName) || "Unknown";
+  const safeEmail = escapeHtml(clientEmail) || "Not provided";
+  const safeSlug = escapeHtml(slug);
+  const safeId = escapeHtml(submissionId);
+  const submittedAt = new Date(createdAt).toLocaleString("en-US", {
+    timeZone: "America/Los_Angeles",
+    dateStyle: "medium",
+    timeStyle: "short",
+  });
+
+  const html = `
+    <div style="font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;max-width:560px;margin:0 auto;padding:32px;color:#0A0A0A;">
+      <p style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#666;margin:0 0 8px;">DELINA.ESQ · New Submission</p>
+      <h1 style="font-size:22px;font-weight:600;margin:0 0 24px;line-height:1.3;">New ${label} from ${safeName}</h1>
+      <table style="width:100%;border-collapse:collapse;font-size:14px;line-height:1.6;">
+        <tr><td style="padding:6px 0;color:#666;width:30%;">Type</td><td style="padding:6px 0;">${label}</td></tr>
+        <tr><td style="padding:6px 0;color:#666;">Client name</td><td style="padding:6px 0;">${safeName}</td></tr>
+        <tr><td style="padding:6px 0;color:#666;">Client email</td><td style="padding:6px 0;">${safeEmail}</td></tr>
+        <tr><td style="padding:6px 0;color:#666;">Document slug</td><td style="padding:6px 0;font-family:ui-monospace,monospace;font-size:13px;">${safeSlug}</td></tr>
+        <tr><td style="padding:6px 0;color:#666;">Files attached</td><td style="padding:6px 0;">${Number(fileCount) || 0}</td></tr>
+        <tr><td style="padding:6px 0;color:#666;">Submitted</td><td style="padding:6px 0;">${escapeHtml(submittedAt)} PT</td></tr>
+        <tr><td style="padding:6px 0;color:#666;">Submission ID</td><td style="padding:6px 0;font-family:ui-monospace,monospace;font-size:12px;color:#999;">${safeId}</td></tr>
+      </table>
+      <p style="margin:32px 0 0;">
+        <a href="https://delina.esq/docs/admin" style="display:inline-block;background:#0A0A0A;color:#fff;text-decoration:none;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;padding:14px 28px;">Open Admin Dashboard →</a>
+      </p>
+    </div>
+  `;
+
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: fromAddress,
+        to: recipient,
+        reply_to: clientEmail || undefined,
+        subject: `New ${label}: ${clientName || "Unknown"}`,
+        html,
+      }),
+    });
+    if (!res.ok) {
+      const detail = await res.text();
+      console.error("Resend notification failed:", res.status, detail);
+    }
+  } catch (err) {
+    console.error("Resend notification error:", err);
+  }
 }
 
 function sanitizeFiles(input, type, slug, submissionId) {
@@ -111,15 +190,29 @@ exports.handler = async (event) => {
       siteID: process.env.NETLIFY_SITE_ID,
       token: process.env.NETLIFY_BLOBS_TOKEN,
     });
+    const clientName = cleanFields.full_name || cleanFields.printed_name || cleanFields.name || "";
+    const clientEmail = cleanFields.email || cleanFields.client_email || "";
+
     await submissions.set(submissionId, JSON.stringify(record), {
       metadata: {
         type,
         slug,
         createdAt: record.createdAt,
         fileCount: cleanFiles.length,
-        clientName: cleanFields.full_name || cleanFields.printed_name || cleanFields.name || "",
-        clientEmail: cleanFields.email || cleanFields.client_email || "",
+        clientName,
+        clientEmail,
       },
+    });
+
+    // Fire and await the notification, but don't fail the request if it errors
+    await sendSubmissionNotification({
+      type,
+      slug,
+      clientName,
+      clientEmail,
+      createdAt: record.createdAt,
+      submissionId,
+      fileCount: cleanFiles.length,
     });
 
     return {

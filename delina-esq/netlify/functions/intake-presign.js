@@ -11,12 +11,14 @@ const DOC_STORES = {
   engagement: "engagement-letters",
   sow: "sow-documents",
   operating: "operating-agreements",
+  upload: "secure-uploads",
 };
 const DOC_PREFIX = {
   intake: "intakes",
   engagement: "engagements",
   sow: "sows",
   operating: "operating",
+  upload: "uploads",
 };
 
 const ALLOWED_MIME_PREFIXES = [
