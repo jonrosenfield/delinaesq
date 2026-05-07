@@ -63,7 +63,12 @@ async function sendSubmissionNotification({ type, slug, clientName, clientEmail,
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) return; // not configured yet — skip silently
 
-  const recipient = process.env.INTAKE_NOTIFICATION_EMAIL || "info@delina.esq";
+  // Recipient(s) — comma-separated list supported, e.g. "delina@delina.esq, jonathan@delina.esq"
+  const recipientRaw = process.env.INTAKE_NOTIFICATION_EMAIL || "info@delina.esq";
+  const recipient = recipientRaw
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
   const fromAddress = process.env.RESEND_FROM || "Delina.ESQ <noreply@delina.esq>";
   const label = DOC_TYPE_LABEL[type] || type;
   const safeName = escapeHtml(clientName) || "Unknown";
