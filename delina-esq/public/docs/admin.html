@@ -238,6 +238,64 @@
     font-style: italic;
   }
 
+  /* Submissions toolbar */
+  .submissions-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(10,10,10,0.06);
+  }
+  .submissions-toolbar input[type="search"] {
+    flex: 1 1 240px;
+    min-width: 200px;
+    border: 1px solid rgba(10,10,10,0.15);
+    background: #fff;
+    padding: 9px 12px;
+    font-family: var(--sans);
+    font-size: 13px;
+    border-radius: 3px;
+    outline: none;
+    -webkit-appearance: none;
+  }
+  .submissions-toolbar input[type="search"]:focus { border-color: var(--signal); }
+  .submissions-toolbar input[type="search"]::placeholder { color: rgba(10,10,10,0.35); }
+  .sub-type-filters {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .sub-filter-pill {
+    background: none;
+    border: 1px solid rgba(10,10,10,0.15);
+    color: #737373;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+  }
+  .sub-filter-pill:hover { color: var(--ink); border-color: rgba(10,10,10,0.4); }
+  .sub-filter-pill.active {
+    background: var(--ink);
+    color: #fff;
+    border-color: var(--ink);
+  }
+  .sub-count-readout {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #A3A3A3;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
   /* Submissions */
   .sub-item {
     border-bottom: 1px solid rgba(10,10,10,0.06);
@@ -442,6 +500,19 @@
       <div class="empty-state">Loading documents...</div>
     </div>
 
+    <div class="submissions-toolbar" id="submissions-toolbar" style="display:none;">
+      <input type="search" id="sub-search" placeholder="Search by client name, email, or slug…" autocomplete="off">
+      <div class="sub-type-filters" id="sub-type-filters">
+        <button type="button" class="sub-filter-pill active" data-filter="all">All</button>
+        <button type="button" class="sub-filter-pill" data-filter="intake">Intake</button>
+        <button type="button" class="sub-filter-pill" data-filter="engagement">Engagement</button>
+        <button type="button" class="sub-filter-pill" data-filter="sow">SOW</button>
+        <button type="button" class="sub-filter-pill" data-filter="operating">Operating</button>
+        <button type="button" class="sub-filter-pill" data-filter="upload">Upload</button>
+      </div>
+      <div class="sub-count-readout" id="sub-count-readout"></div>
+    </div>
+
     <div class="submissions-list" id="submissions-list" style="display:none;">
       <div class="empty-state">Loading submissions...</div>
     </div>
@@ -503,6 +574,7 @@ document.querySelectorAll('.tab').forEach(function(tab) {
     document.querySelector('.publish-section').style.display = isSubs ? 'none' : '';
     document.getElementById('form-list').style.display = isSubs ? 'none' : '';
     document.getElementById('submissions-list').style.display = isSubs ? '' : 'none';
+    document.getElementById('submissions-toolbar').style.display = isSubs ? 'flex' : 'none';
     document.getElementById('pub-status').textContent = '';
     document.getElementById('pub-result').style.display = 'none';
     if (isSubs) {
@@ -715,6 +787,10 @@ function escapeHtml(s) {
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
+var allSubmissions = [];
+var submissionsSearch = '';
+var submissionsTypeFilter = 'all';
+
 function loadSubmissions() {
   var list = document.getElementById('submissions-list');
   list.innerHTML = '<div class="empty-state">Loading submissions...</div>';
@@ -726,20 +802,68 @@ function loadSubmissions() {
   .then(function(data) {
     if (data.error) {
       list.innerHTML = '<div class="empty-state">Error: ' + escapeHtml(data.error) + '</div>';
+      allSubmissions = [];
+      updateCountReadout();
       return;
     }
-    renderSubmissions(data.submissions || []);
-    document.getElementById('count-submissions').textContent = '(' + (data.submissions || []).length + ')';
+    allSubmissions = data.submissions || [];
+    document.getElementById('count-submissions').textContent = '(' + allSubmissions.length + ')';
+    applySubmissionsFilter();
   })
   .catch(function(err) {
     list.innerHTML = '<div class="empty-state">Connection error.</div>';
   });
 }
 
+function applySubmissionsFilter() {
+  var q = submissionsSearch.trim().toLowerCase();
+  var tf = submissionsTypeFilter;
+  var filtered = allSubmissions.filter(function(s) {
+    if (tf !== 'all' && (s.type || 'intake') !== tf) return false;
+    if (!q) return true;
+    var hay = (s.clientName || '') + ' ' + (s.clientEmail || '') + ' ' + (s.slug || '');
+    return hay.toLowerCase().indexOf(q) !== -1;
+  });
+  renderSubmissions(filtered);
+  updateCountReadout(filtered.length);
+}
+
+function updateCountReadout(visibleCount) {
+  var readout = document.getElementById('sub-count-readout');
+  if (!readout) return;
+  var total = allSubmissions.length;
+  if (typeof visibleCount === 'undefined') visibleCount = total;
+  if (visibleCount === total) {
+    readout.textContent = total + ' ' + (total === 1 ? 'submission' : 'submissions');
+  } else {
+    readout.textContent = visibleCount + ' of ' + total;
+  }
+}
+
+// Wire search input
+document.getElementById('sub-search').addEventListener('input', function(e) {
+  submissionsSearch = e.target.value;
+  applySubmissionsFilter();
+});
+
+// Wire type filter pills
+document.querySelectorAll('#sub-type-filters .sub-filter-pill').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('#sub-type-filters .sub-filter-pill').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    submissionsTypeFilter = btn.dataset.filter;
+    applySubmissionsFilter();
+  });
+});
+
 function renderSubmissions(subs) {
   var list = document.getElementById('submissions-list');
   if (!subs || subs.length === 0) {
-    list.innerHTML = '<div class="empty-state">No submissions yet. They will appear here when clients submit their intake forms.</div>';
+    var hasAny = allSubmissions && allSubmissions.length > 0;
+    var isFiltered = submissionsSearch.trim() !== '' || submissionsTypeFilter !== 'all';
+    list.innerHTML = hasAny && isFiltered
+      ? '<div class="empty-state">No submissions match the current search or filter.</div>'
+      : '<div class="empty-state">No submissions yet. They will appear here when clients submit their intake forms.</div>';
     return;
   }
   list.innerHTML = '';

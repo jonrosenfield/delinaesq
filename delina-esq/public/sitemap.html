@@ -278,6 +278,35 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
 .fm-why { font-size: 11px; color: var(--mid); line-height: 1.5; padding-top: 9px; border-top: 1px solid var(--rule); }
 .fm-intro { max-width: var(--max); margin: 0 auto; padding: 0 48px 20px; font-size: 12px; color: var(--mid); line-height: 1.6; }
 
+/* ─ BUILD ROADMAP ─ */
+.roadmap-grid { max-width: var(--max); margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.sprint-card { background: var(--white); border: 1px solid var(--rule); border-left: 3px solid var(--accent, #888); padding: 18px 20px; display: flex; flex-direction: column; }
+.sprint-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
+.sprint-num { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 400; color: var(--accent, #888); line-height: 1; }
+.sprint-weeks { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--light); font-weight: 500; }
+.sprint-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 400; color: var(--ink); line-height: 1.25; margin-bottom: 8px; }
+.sprint-rationale { font-size: 11px; color: var(--mid); line-height: 1.55; padding-bottom: 12px; margin-bottom: 10px; border-bottom: 1px solid #f2f1ed; }
+.sprint-pages-label { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--light); margin-bottom: 6px; font-weight: 500; }
+.sprint-page { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 4px 0; border-bottom: 1px solid #f2f1ed; }
+.sprint-page:last-child { border-bottom: none; }
+.sprint-url { color: var(--ink); font-family: monospace; font-weight: 500; font-size: 10px; line-height: 1.45; }
+.sprint-stat { color: var(--light); font-size: 10px; white-space: nowrap; flex-shrink: 0; }
+.sprint-kpi { margin-top: 12px; padding: 10px 12px; background: #f5faf6; border: 1px solid #c0d8c8; border-left: 3px solid var(--accent, #888); font-size: 11px; color: #4a5a50; line-height: 1.5; }
+.sprint-kpi strong { color: var(--ink); font-weight: 500; }
+
+/* ─ SPEC CARDS (TEMPLATE / LOCAL / EEAT) ─ */
+.spec-grid { max-width: var(--max); margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.spec-card { background: var(--white); border: 1px solid var(--rule); border-top: 3px solid var(--accent, #888); padding: 20px 22px; }
+.spec-type { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent, #888); font-weight: 500; margin-bottom: 12px; }
+.spec-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 400; color: var(--ink); margin: 16px 0 8px; padding-top: 12px; border-top: 1px solid var(--rule); }
+.spec-card h4:first-of-type { padding-top: 0; border-top: none; margin-top: 0; }
+.spec-card ul { list-style: none; padding: 0; margin: 0; }
+.spec-card li { font-size: 11px; color: var(--mid); line-height: 1.55; padding: 4px 0; border-bottom: 1px solid #f2f1ed; }
+.spec-card li:last-child { border-bottom: none; }
+.spec-card li strong { color: var(--ink); font-weight: 500; }
+.spec-card p { font-size: 11px; color: var(--mid); line-height: 1.55; margin-bottom: 4px; }
+.spec-card code { font-family: monospace; font-size: 10px; color: var(--ink); background: var(--bg); padding: 1px 5px; border: 1px solid var(--rule); }
+
 /* ─ PAA INDEX ─ */
 .paa-grid { max-width: var(--max); margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .paa-card { background: var(--white); border: 1px solid var(--rule); border-top: 3px solid var(--accent, #888); padding: 16px 18px; }
@@ -313,7 +342,7 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
   .masthead { padding: 40px 28px 34px; }
   .masthead-title { font-size: 44px; }
   .section-label { padding: 32px 28px 14px; }
-  .homepage-block, .lp-grid, .connector, .tick-row, .hint-row, .crosslink-grid, .legend-wrap, .comp-intel-grid, .analysis-table-wrap, .pricing-wrap, .weakness-grid, .fm-grid, .paa-grid, .foot, .ci-intro, .fm-intro { padding-left: 28px; padding-right: 28px; }
+  .homepage-block, .lp-grid, .connector, .tick-row, .hint-row, .crosslink-grid, .legend-wrap, .comp-intel-grid, .analysis-table-wrap, .pricing-wrap, .weakness-grid, .fm-grid, .paa-grid, .roadmap-grid, .spec-grid, .foot, .ci-intro, .fm-intro { padding-left: 28px; padding-right: 28px; }
   .legend-wrap { padding-bottom: 48px; }
   .nav-inner { padding: 0 28px; }
   .lp-grid { grid-template-columns: repeat(2, 1fr); }
@@ -324,6 +353,8 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
   .weakness-grid { grid-template-columns: repeat(2, 1fr); }
   .fm-grid { grid-template-columns: repeat(2, 1fr); }
   .paa-grid { grid-template-columns: repeat(2, 1fr); }
+  .roadmap-grid { grid-template-columns: 1fr; }
+  .spec-grid { grid-template-columns: 1fr; }
   .pricing-tier { grid-template-columns: 130px 100px 1fr; }
   .summary-table-wrap { padding-left: 28px; padding-right: 28px; overflow-x: auto; }
 }
@@ -336,7 +367,7 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
   .nav-link { font-size: 8px; padding: 12px 10px; letter-spacing: 0.12em; }
   .nav-download { font-size: 8px; padding: 0 12px; letter-spacing: 0.12em; }
   .section-label { padding: 28px 16px 12px; font-size: 8px; letter-spacing: 0.2em; }
-  .homepage-block, .lp-grid, .connector, .tick-row, .hint-row, .crosslink-grid, .legend-wrap, .comp-intel-grid, .analysis-table-wrap, .pricing-wrap, .weakness-grid, .fm-grid, .paa-grid, .foot, .ci-intro, .fm-intro { padding-left: 16px; padding-right: 16px; }
+  .homepage-block, .lp-grid, .connector, .tick-row, .hint-row, .crosslink-grid, .legend-wrap, .comp-intel-grid, .analysis-table-wrap, .pricing-wrap, .weakness-grid, .fm-grid, .paa-grid, .roadmap-grid, .spec-grid, .foot, .ci-intro, .fm-intro { padding-left: 16px; padding-right: 16px; }
   .legend-wrap { padding-bottom: 40px; }
   .nav-inner { padding: 0 16px; }
   .tick-row { display: none; }
@@ -349,6 +380,8 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
   .weakness-grid { grid-template-columns: 1fr; }
   .fm-grid { grid-template-columns: 1fr; }
   .paa-grid { grid-template-columns: 1fr; }
+  .roadmap-grid { grid-template-columns: 1fr; }
+  .spec-grid { grid-template-columns: 1fr; }
   .intel-grid { grid-template-columns: 1fr; }
   .pricing-tier { grid-template-columns: 1fr; border-left: 1px solid var(--rule); border-right: 1px solid var(--rule); }
   .pricing-tier.delina-row { border-left: 4px solid #5a8a64; }
@@ -388,10 +421,10 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
   <div class="masthead-eyebrow">Site Architecture &amp; Keyword Strategy</div>
   <div class="masthead-title">Delina<em>.esq</em></div>
   <div class="masthead-meta">
-    <span><strong>200</strong> Keywords Mapped</span>
+    <span><strong>235</strong> Keywords Mapped</span>
     <span><strong>15</strong> Content Lands</span>
     <span><strong>17</strong> Landing Pages</span>
-    <span><strong>150+</strong> Blog Posts Planned</span>
+    <span><strong>200+</strong> Blog Posts Planned</span>
     <span>California Business &amp; Tax Attorney · $250K+ Audience</span>
   </div>
 </div>
@@ -411,6 +444,10 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
     <a class="nav-link" href="#pricing">Pricing Map</a>
     <a class="nav-link" href="#weaknesses">Weaknesses</a>
     <a class="nav-link" href="#first-mover">First Movers</a>
+    <a class="nav-link section-break" href="#roadmap">Build Roadmap</a>
+    <a class="nav-link" href="#templates">Page Template</a>
+    <a class="nav-link" href="#local-seo">Local SEO</a>
+    <a class="nav-link" href="#eeat">E-E-A-T</a>
     <div class="nav-spacer"></div>
     <a class="nav-download" href="desq-seo-bible.xlsx" download>
       <svg width="11" height="11" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1v7M3.5 5.5L6 8l2.5-2.5M2 10h8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -437,6 +474,11 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       <a class="nav-mobile-link" href="#pricing" onclick="closeNav()">Pricing Map</a>
       <a class="nav-mobile-link" href="#weaknesses" onclick="closeNav()">Weaknesses</a>
       <a class="nav-mobile-link" href="#first-mover" onclick="closeNav()">First Movers</a>
+      <div class="nav-mobile-divider"></div>
+      <a class="nav-mobile-link" href="#roadmap" onclick="closeNav()">Build Roadmap</a>
+      <a class="nav-mobile-link" href="#templates" onclick="closeNav()">Page Template</a>
+      <a class="nav-mobile-link" href="#local-seo" onclick="closeNav()">Local SEO</a>
+      <a class="nav-mobile-link" href="#eeat" onclick="closeNav()">E-E-A-T</a>
       <a class="nav-mobile-download" href="desq-seo-bible.xlsx" download onclick="closeNav()">
         <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M6 1v7M3.5 5.5L6 8l2.5-2.5M2 10h8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Download SEO Bible
@@ -515,7 +557,8 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       </div>
       <div class="body-block">
         <div class="block-title">Primary Keywords</div>
-        <div class="data-row"><span class="row-title primary">prenuptial agreement attorney</span><span class="row-meta">SV 12K · KD 3</span></div>
+        <div class="data-row"><span class="row-title primary">prenuptial agreement attorney</span><span class="row-meta">SV 12K · KD 3</span>
+        <div class="data-row"><span class="row-title primary">prenuptial agreement california<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 900 · KD 0 · TP 900 · CPC $5.00</span></div></div>
         <div class="data-row"><span class="row-title primary">prenuptial agreement lawyer</span><span class="row-meta">SV 13K</span></div>
         <div class="data-row"><span class="row-title">prenup attorneys</span><span class="row-meta">SV 700</span></div>
         <div class="data-row"><span class="row-title">prenuptial agreement attorney near me</span><span class="row-meta">SV 300</span></div>
@@ -523,7 +566,8 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       </div>
       <div class="body-block">
         <div class="block-title">Supporting Blog Posts</div>
-        <div class="data-row"><span class="row-title">What Is a Prenup?</span><span class="row-meta">SV 48K</span></div>
+        <div class="data-row"><span class="row-title">What Is a Prenup?</span><span class="row-meta">SV 48K</span>
+        <div class="data-row"><span class="row-title">do i need a prenup</span><span class="row-meta">SV 150 · KD 2 · TP 600 · CPC $0.4</span></div></div>
         <div class="data-row"><span class="row-title">Prenup Meaning Explained</span><span class="row-meta">SV 22K</span></div>
         <div class="data-row"><span class="row-title">Prenuptial Agreement Lawyer: What to Know</span><span class="row-meta">SV 13K</span></div>
         <div class="data-row"><span class="row-title">What Type of Lawyer Is Best for a Prenup?<span class="row-tag paa">PAA</span></span><span class="row-meta"></span></div>
@@ -577,7 +621,8 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       </div>
       <div class="body-block">
         <div class="block-title">Supporting Blog Posts</div>
-        <div class="data-row"><span class="row-title">Prenup vs Postnup: What's the Difference?</span><span class="row-meta">SV 1K</span></div>
+        <div class="data-row"><span class="row-title">Prenup vs Postnup: What's the Difference?</span><span class="row-meta">SV 1K</span>
+        <div class="data-row"><span class="row-title">postnuptial agreement california<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 400 · KD 0 · TP 90 · CPC $1.20</span></div></div>
         <div class="data-row"><span class="row-title">Postnup vs Prenup Explained</span><span class="row-meta">SV 350</span></div>
         <div class="data-row"><span class="row-title">Can You Do a Postnuptial Agreement Without a Lawyer?</span><span class="row-meta">SV 250</span></div>
         <div class="data-row"><span class="row-title">San Mateo Postnuptial Agreement Lawyer<span class="row-tag geo">geo</span></span><span class="row-meta">SV 150</span></div>
@@ -625,7 +670,8 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       </div>
       <div class="body-block">
         <div class="block-title">Primary Keywords</div>
-        <div class="data-row"><span class="row-title primary">nonprofit attorney</span><span class="row-meta">SV 600 · KD 18</span></div>
+        <div class="data-row"><span class="row-title primary">nonprofit attorney</span><span class="row-meta">SV 600 · KD 18</span>
+        <div class="data-row"><span class="row-title primary">how to start a nonprofit in california</span><span class="row-meta">SV 700 · KD 7 · TP 2K · CPC $1.50</span></div></div>
         <div class="data-row"><span class="row-title primary">nonprofit lawyer</span><span class="row-meta">SV 600 · KD 14</span></div>
         <div class="data-row"><span class="row-title primary">whistleblower policy</span><span class="row-meta">SV 400 · KD 22 · TP 4.5K</span></div>
         <div class="data-row"><span class="row-title">nonprofit lawyer near me</span><span class="row-meta">SV 200</span></div>
@@ -793,7 +839,30 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       </div>
       <div class="body-block">
         <div class="block-title">Supporting Blog Posts — Existing</div>
-        <div class="data-row"><span class="row-title">What Is a Partnership Agreement Attorney?</span><span class="row-meta">KD 0 · SV 200</span></div>
+        <div class="data-row"><span class="row-title">What Is a Partnership Agreement Attorney?</span><span class="row-meta">KD 0 · SV 200</span>
+        <div class="data-row"><span class="row-title">contract drafting attorney<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 250 · KD 0 · TP 150 · CPC $4</span></div>
+        <div class="data-row"><span class="row-title">mediation agreement<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 200 · KD 0 · TP 100 · CPC $4</span></div>
+        <div class="data-row"><span class="row-title">affiliate agreement</span><span class="row-meta">SV 200 · KD 3 · TP 400 · CPC $1.1</span></div>
+        <div class="data-row"><span class="row-title">reseller agreement<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 200 · KD 0 · TP 200 · CPC $1.5</span></div>
+        <div class="data-row"><span class="row-title">standstill agreement</span><span class="row-meta">SV 200 · KD 2 · TP 150</span></div>
+        <div class="data-row"><span class="row-title">supply agreement<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 200 · KD 0 · TP 300 · CPC $0.9</span></div>
+        <div class="data-row"><span class="row-title">letter agreement<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 150 · KD 0 · TP 250 · CPC $0.9</span></div>
+        <div class="data-row"><span class="row-title">data sharing agreement</span><span class="row-meta">SV 150 · KD 3 · TP 80 · CPC $2.5</span></div>
+        <div class="data-row"><span class="row-title">clean team agreement<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 150 · KD 0 · TP 60 · CPC $7</span></div>
+        <div class="data-row"><span class="row-title">manufacturing agreement<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 150 · KD 0 · TP 10 · CPC $1.8</span></div>
+        <div class="data-row"><span class="row-title">channel partner agreement<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 150 · KD 0 · TP 50 · CPC $2.5</span></div>
+        <div class="data-row"><span class="row-title">distributor agreement</span><span class="row-meta">SV 150 · KD 3 · TP 250 · CPC $1.09</span></div>
+        <div class="data-row"><span class="row-title">waiver agreement</span><span class="row-meta">SV 100 · KD 1 · TP 60</span></div>
+        <div class="data-row"><span class="row-title">service agreement attorney</span><span class="row-meta">SV 90</span></div>
+        <div class="data-row"><span class="row-title">licensing agreement attorney</span><span class="row-meta">SV 90 · CPC $4</span></div>
+        <div class="data-row"><span class="row-title">marketing services agreement</span><span class="row-meta">SV 90 · KD 1 · TP 350 · CPC $0.71</span></div>
+        <div class="data-row"><span class="row-title">procurement agreement<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 80 · KD 0</span></div>
+        <div class="data-row"><span class="row-title">master purchase agreement<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 80 · KD 0 · TP 30</span></div>
+        <div class="data-row"><span class="row-title">outsourcing agreement<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 80 · KD 0 · TP 100</span></div>
+        <div class="data-row"><span class="row-title">contract drafting lawyer</span><span class="row-meta">SV 1 · KD 1 · TP 200 · CPC $0.3</span></div>
+        <div class="data-row"><span class="row-title">business contracts lawyer</span><span class="row-meta">SV 1 · KD 1 · TP 150 · CPC $6</span></div>
+        <div class="data-row"><span class="row-title">terms and conditions lawyer</span><span class="row-meta">KD 1 · TP 40 · CPC $3</span></div>
+        <div class="data-row"><span class="row-title">partnership dispute attorney</span><span class="row-meta">KD 1 · TP 1.1K · CPC $3</span></div></div>
         <div class="data-row"><span class="row-title">Do You Need a Lawyer for a Partnership Agreement?</span></div>
         <div class="data-row"><span class="row-title">What Does a Licensing Agreement Lawyer Do?</span><span class="row-meta">KD 0 · SV 90</span></div>
         <div class="data-row"><span class="row-title">Retainer Agreement Attorney: What to Expect</span><span class="row-meta">SV 20 · CPC $1.10</span></div>
@@ -839,7 +908,10 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       </div>
       <div class="body-block">
         <div class="block-title">Primary Keywords</div>
-        <div class="data-row"><span class="row-title primary">tax attorney for small business</span><span class="row-meta">SV 30 · KD 5 · CPC $7</span></div>
+        <div class="data-row"><span class="row-title primary">tax attorney for small business</span><span class="row-meta">SV 30 · KD 5 · CPC $7</span>
+        <div class="data-row"><span class="row-title primary">business tax attorney<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 800 · KD 0 · TP 900 · CPC $0.45</span></div>
+        <div class="data-row"><span class="row-title primary">section 199a deduction</span><span class="row-meta">SV 600 · KD 34 · TP 29K · CPC $0.01</span></div>
+        <div class="data-row"><span class="row-title primary">business tax lawyer<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 500 · KD 0 · TP 3.0K · CPC $0.45</span></div></div>
         <div class="data-row"><span class="row-title primary">business and tax attorney</span><span class="row-meta">SV 80 · KD 0</span></div>
         <div class="data-row"><span class="row-title">tax attorney — also rank for</span><span class="row-meta">SV 9.6K</span></div>
         <div class="data-row"><span class="row-title">tax lawyer — also rank for</span><span class="row-meta">SV 8K</span></div>
@@ -847,7 +919,11 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       </div>
       <div class="body-block">
         <div class="block-title">Supporting Blog Posts</div>
-        <div class="data-row"><span class="row-title">Content Creator Tax Write-Offs: The Complete List<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 150</span></div>
+        <div class="data-row"><span class="row-title">Content Creator Tax Write-Offs: The Complete List<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 150</span>
+        <div class="data-row"><span class="row-title">california tax lawyer</span><span class="row-meta">SV 150 · KD 30 · TP 60 · CPC $15</span></div>
+        <div class="data-row"><span class="row-title">1099 vs w2 taxes</span><span class="row-meta">SV 150 · KD 13 · TP 1.2K · CPC $0.3</span></div>
+        <div class="data-row"><span class="row-title">augusta rule tax strategy</span><span class="row-meta">SV 100 · KD 3 · TP 1.2K · CPC $0.9</span></div>
+        <div class="data-row"><span class="row-title">small business tax attorney<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 90 · KD 0 · TP 400</span></div></div>
         <div class="data-row"><span class="row-title">Tax Attorney vs CPA: Which Does Your Business Need?</span></div>
         <div class="data-row"><span class="row-title">What Do Tax Lawyers Cost?<span class="row-tag paa">PAA</span></span></div>
         <div class="data-row"><span class="row-title">What Kind of Lawyer Do I Need for My Small Business?<span class="row-tag paa">PAA</span></span></div>
@@ -893,12 +969,30 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       </div>
       <div class="body-block">
         <div class="block-title">Primary Keywords</div>
-        <div class="data-row"><span class="row-title primary">best state to form llc</span><span class="row-meta">SV 1K · KD 2 · TP 2.3K · CPC $2.50</span></div>
+        <div class="data-row"><span class="row-title primary">best state to form llc</span><span class="row-meta">SV 1K · KD 2 · TP 2.3K · CPC $2.50</span>
+        <div class="data-row"><span class="row-title primary">llc operating agreement</span><span class="row-meta">SV 7K · KD 29 · TP 13K · CPC $2.5</span></div>
+        <div class="data-row"><span class="row-title primary">how to form an llc in california</span><span class="row-meta">SV 1K · KD 38 · TP 33K · CPC $4</span></div>
+        <div class="data-row"><span class="row-title primary">single member llc taxes</span><span class="row-meta">SV 700 · KD 16 · TP 25K · CPC $0.5</span></div></div>
         <div class="data-row"><span class="row-title primary">membership interest purchase agreement<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 250 · CPC $1.20</span></div>
       </div>
       <div class="body-block">
         <div class="block-title">Supporting Blog Posts</div>
-        <div class="data-row"><span class="row-title">Do I Need a Lawyer to Form an LLC?<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 200</span></div>
+        <div class="data-row"><span class="row-title">Do I Need a Lawyer to Form an LLC?<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 200</span>
+        <div class="data-row"><span class="row-title">california llc fees</span><span class="row-meta">SV 350 · KD 7 · TP 16K · CPC $3.00</span></div>
+        <div class="data-row"><span class="row-title">sole proprietorship or llc</span><span class="row-meta">SV 350 · KD 24 · TP 19K · CPC $0.20</span></div>
+        <div class="data-row"><span class="row-title">operating agreement lawyer</span><span class="row-meta">SV 300 · KD 9 · TP 2.5K · CPC $0.25</span></div>
+        <div class="data-row"><span class="row-title">redemption agreement<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 200 · KD 0 · TP 40 · CPC $3.5</span></div>
+        <div class="data-row"><span class="row-title">attorney for llc formation</span><span class="row-meta">SV 150 · KD 2 · TP 400 · CPC $7</span></div>
+        <div class="data-row"><span class="row-title">converting sole proprietorship to llc</span><span class="row-meta">SV 150 · KD 1 · TP 3.4K · CPC $4.5</span></div>
+        <div class="data-row"><span class="row-title">silent partner agreement</span><span class="row-meta">SV 150 · KD 1 · TP 350 · CPC $0.7</span></div>
+        <div class="data-row"><span class="row-title">attorney for llc formation</span><span class="row-meta">SV 150 · KD 6 · TP 100</span></div>
+        <div class="data-row"><span class="row-title">llc formation online</span><span class="row-meta">SV 150 · KD 55 · TP 35K</span></div>
+        <div class="data-row"><span class="row-title">operating agreement attorney<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 100 · KD 0 · TP 10</span></div>
+        <div class="data-row"><span class="row-title">how to form a delaware llc</span><span class="row-meta">SV 100 · KD 4 · TP 5K</span></div>
+        <div class="data-row"><span class="row-title">professional llc california</span><span class="row-meta">SV 1 · KD 1 · TP 70 · CPC $6</span></div>
+        <div class="data-row"><span class="row-title">wyoming vs delaware llc</span><span class="row-meta">KD 1 · TP 60 · CPC $1.3</span></div>
+        <div class="data-row"><span class="row-title">dba vs llc california</span><span class="row-meta">KD 1 · TP 200 · CPC $1.9</span></div>
+        <div class="data-row"><span class="row-title">llc formation attorney</span><span class="row-meta">KD 1 · CPC $7</span></div></div>
         <div class="data-row"><span class="row-title">LLC for Online Store: Do You Really Need One?<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 100</span></div>
         <div class="data-row"><span class="row-title">Do Influencers Need an LLC?<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 10</span></div>
         <div class="data-row"><span class="row-title">Influencer LLC: How to Structure Your Creator Business</span><span class="row-meta">SV 10 · CPC $1.90</span></div>
@@ -938,7 +1032,9 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       </div>
       <div class="body-block">
         <div class="block-title">Primary Keywords</div>
-        <div class="data-row"><span class="row-title primary">intellectual property lawyer</span><span class="row-meta">SV 2.9K · KD 6 · TP 700 · CPC $2.50</span></div>
+        <div class="data-row"><span class="row-title primary">intellectual property lawyer</span><span class="row-meta">SV 2.9K · KD 6 · TP 700 · CPC $2.50</span>
+        <div class="data-row"><span class="row-title primary">trademark vs copyright</span><span class="row-meta">SV 6.6K · KD 8 · TP 15K · CPC $0.3</span></div>
+        <div class="data-row"><span class="row-title primary">trademark law firm</span><span class="row-meta">SV 900 · KD 3 · TP 350 · CPC $3.5</span></div></div>
         <div class="data-row"><span class="row-title primary">trademark assignment agreement<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 300 · TP 150</span></div>
         <div class="data-row"><span class="row-title primary">trademark license agreement</span><span class="row-meta">SV 200 · KD 3 · TP 200</span></div>
         <div class="data-row"><span class="row-title primary">brand protection attorney<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 70</span></div>
@@ -948,7 +1044,22 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       </div>
       <div class="body-block">
         <div class="block-title">Supporting Blog Posts</div>
-        <div class="data-row"><span class="row-title">What Is an Intellectual Property Lawyer?<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 200</span></div>
+        <div class="data-row"><span class="row-title">What Is an Intellectual Property Lawyer?<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 200</span>
+        <div class="data-row"><span class="row-title">trademark registration lawyer</span><span class="row-meta">SV 300 · KD 23 · TP 1.7K · CPC $0.25</span></div>
+        <div class="data-row"><span class="row-title">ip assignment agreement</span><span class="row-meta">SV 200 · KD 2 · TP 250 · CPC $1</span></div>
+        <div class="data-row"><span class="row-title">patent license agreement<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 150 · KD 0 · TP 20 · CPC $2</span></div>
+        <div class="data-row"><span class="row-title">royalty agreement<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 150 · KD 0 · TP 150 · CPC $1.08</span></div>
+        <div class="data-row"><span class="row-title">copyright license agreement</span><span class="row-meta">SV 150 · KD 1 · TP 100 · CPC $1.08</span></div>
+        <div class="data-row"><span class="row-title">music license agreement</span><span class="row-meta">SV 100 · KD 1 · TP 200 · CPC $1.34</span></div>
+        <div class="data-row"><span class="row-title">copyright assignment agreement<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 100 · KD 0 · TP 250 · CPC $1.09</span></div>
+        <div class="data-row"><span class="row-title">patent assignment agreement<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 80 · KD 0 · TP 10</span></div>
+        <div class="data-row"><span class="row-title">trademark attorney california</span><span class="row-meta">SV 60 · KD 1 · TP 150 · CPC $7</span></div>
+        <div class="data-row"><span class="row-title">trademark filing attorney</span><span class="row-meta">SV 38 · KD 1 · TP 1.1K · CPC $12</span></div>
+        <div class="data-row"><span class="row-title">us trademark attorney</span><span class="row-meta">SV 14 · KD 1 · TP 1.1K · CPC $8</span></div>
+        <div class="data-row"><span class="row-title">trademark copyright attorney</span><span class="row-meta">SV 12 · KD 1 · TP 600 · CPC $9</span></div>
+        <div class="data-row"><span class="row-title">lawyer for trademark</span><span class="row-meta">SV 4 · KD 1 · TP 1.7K · CPC $8</span></div>
+        <div class="data-row"><span class="row-title">trademark lawyer california</span><span class="row-meta">KD 1 · TP 150 · CPC $7</span></div>
+        <div class="data-row"><span class="row-title">trademark attorney los angeles</span><span class="row-meta">KD 1 · TP 150 · CPC $4.5</span></div></div>
         <div class="data-row"><span class="row-title">What Does an Intellectual Property Lawyer Do?<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 150</span></div>
         <div class="data-row"><span class="row-title">How to Become an Intellectual Property Lawyer<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 150</span></div>
         <div class="data-row"><span class="row-title">California IP Lawyer: When You Need One vs. a Trademark Attorney<span class="row-tag geo">geo</span></span></div>
@@ -999,7 +1110,8 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       </div>
       <div class="body-block">
         <div class="block-title">Primary Keywords</div>
-        <div class="data-row"><span class="row-title primary">s corp election</span><span class="row-meta">SV 2.2K · KD 57 · TP 41K · Value $44K</span></div>
+        <div class="data-row"><span class="row-title primary">s corp election</span><span class="row-meta">SV 2.2K · KD 57 · TP 41K · Value $44K</span>
+        <div class="data-row"><span class="row-title primary">llc taxed as s corp</span><span class="row-meta">SV 2.1K · KD 54 · TP 17K · CPC $1</span></div></div>
         <div class="data-row"><span class="row-title primary">s corp taxes</span><span class="row-meta">SV 1.3K · KD 56 · TP 35K · Value $86K</span></div>
         <div class="data-row"><span class="row-title primary">llc to s corp</span><span class="row-meta">SV 500 · KD 50 · TP 1.5K · CPC $2.50</span></div>
         <div class="data-row"><span class="row-title primary">difference between s corp and sole proprietorship</span><span class="row-meta">KD 1 · SV 70</span></div>
@@ -1009,7 +1121,11 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       </div>
       <div class="body-block">
         <div class="block-title">Supporting Blog Posts</div>
-        <div class="data-row"><span class="row-title">How to Make an S Corp Election for Your LLC<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 80</span></div>
+        <div class="data-row"><span class="row-title">How to Make an S Corp Election for Your LLC<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 80</span>
+        <div class="data-row"><span class="row-title">s corp reasonable salary</span><span class="row-meta">SV 250 · KD 10 · TP 200 · CPC $2.00</span></div>
+        <div class="data-row"><span class="row-title">llc sole proprietorship vs s corp</span><span class="row-meta">SV 150 · KD 36 · TP 68K · CPC $0.8</span></div>
+        <div class="data-row"><span class="row-title">s corp tax savings</span><span class="row-meta">SV 100 · KD 5 · TP 800 · CPC $1.60</span></div>
+        <div class="data-row"><span class="row-title">is s corporation a sole proprietorship</span><span class="row-meta">SV 80 · KD 5 · TP 58K · CPC $0.5</span></div></div>
         <div class="data-row"><span class="row-title">Form 2553 Walkthrough: California S-Corp Election Step-by-Step<span class="row-tag pillar">Pillar</span></span></div>
         <div class="data-row"><span class="row-title">When Are S Corp Taxes Due in 2026?<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 600</span></div>
         <div class="data-row"><span class="row-title">When Are S Corp Taxes Due With Extension?<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 350</span></div>
@@ -1056,13 +1172,18 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       </div>
       <div class="body-block">
         <div class="block-title">Primary Keywords</div>
-        <div class="data-row"><span class="row-title primary">business structure attorney<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 70</span></div>
+        <div class="data-row"><span class="row-title primary">business structure attorney<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 70</span>
+        <div class="data-row"><span class="row-title primary">business license california</span><span class="row-meta">SV 4.4K · KD 4 · TP 9.9K · CPC $3</span></div>
+        <div class="data-row"><span class="row-title primary">business formation attorney<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 1.7K · KD 0 · TP 900 · CPC $0.60</span></div></div>
         <div class="data-row"><span class="row-title">legal counsel for small business</span><span class="row-meta">SV 10 · CPC $3</span></div>
         <div class="data-row"><span class="row-title">how to form an s-corp</span><span class="row-meta">SV 10</span></div>
       </div>
       <div class="body-block">
         <div class="block-title">Supporting Blog Posts</div>
-        <div class="data-row"><span class="row-title">LLC vs S-Corp vs Sole Proprietorship: Which Is Right?<span class="row-tag pillar">Pillar</span></span></div>
+        <div class="data-row"><span class="row-title">LLC vs S-Corp vs Sole Proprietorship: Which Is Right?<span class="row-tag pillar">Pillar</span></span>
+        <div class="data-row"><span class="row-title">legal consultation online</span><span class="row-meta">SV 150 · KD 74 · TP 20K</span></div>
+        <div class="data-row"><span class="row-title">commercial lease review<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 80 · KD 0 · TP 40</span></div>
+        <div class="data-row"><span class="row-title">corporation formation attorney</span><span class="row-meta">KD 1 · TP 1.7K · CPC $3.5</span></div></div>
         <div class="data-row"><span class="row-title">What Does a Business Structure Attorney Do?</span></div>
         <div class="data-row"><span class="row-title">Do You Need a Lawyer to Choose a Business Structure?</span></div>
         <div class="data-row"><span class="row-title">Legal Counsel for Small Business: When to Hire</span><span class="row-meta">CPC $3</span></div>
@@ -1115,7 +1236,18 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       </div>
       <div class="body-block">
         <div class="block-title">Supporting Blog Posts</div>
-        <div class="data-row"><span class="row-title">What Is a Convertible Note?<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 1.1K</span></div>
+        <div class="data-row"><span class="row-title">What Is a Convertible Note?<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 1.1K</span>
+        <div class="data-row"><span class="row-title">partnership dispute attorney<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 350 · KD 0 · TP 1.1K · CPC $3</span></div>
+        <div class="data-row"><span class="row-title">business startup attorney</span><span class="row-meta">SV 250 · KD 11 · TP 450 · CPC $0.15</span></div>
+        <div class="data-row"><span class="row-title">startup business attorney</span><span class="row-meta">SV 150 · KD 3 · TP 300 · CPC $3.5</span></div>
+        <div class="data-row"><span class="row-title">lawyer for startups</span><span class="row-meta">SV 150 · KD 4 · TP 30</span></div>
+        <div class="data-row"><span class="row-title">investor rights agreement<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 150 · KD 0 · TP 60</span></div>
+        <div class="data-row"><span class="row-title">note purchase agreement<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 100 · KD 0 · TP 10 · CPC $1.00</span></div>
+        <div class="data-row"><span class="row-title">contribution agreement<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 100 · KD 0 · TP 50</span></div>
+        <div class="data-row"><span class="row-title">phantom equity agreement</span><span class="row-meta">SV 100 · KD 2 · TP 1.2K</span></div>
+        <div class="data-row"><span class="row-title">strategic alliance agreement</span><span class="row-meta">SV 80 · KD 1 · TP 40 · CPC $1.38</span></div>
+        <div class="data-row"><span class="row-title">llc vs c corp startup</span><span class="row-meta">SV 70 · KD 2 · TP 300 · CPC $3</span></div>
+        <div class="data-row"><span class="row-title">stock option agreement</span><span class="row-meta">SV 70 · KD 1 · TP 50 · CPC $1.36</span></div></div>
         <div class="data-row"><span class="row-title">How Does a Convertible Note Work?<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 200</span></div>
         <div class="data-row"><span class="row-title">Convertible Note vs SAFE: California Founder's Guide<span class="row-tag pillar">Pillar</span></span></div>
         <div class="data-row"><span class="row-title">What Is an Equity Incentive Plan?<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 100</span></div>
@@ -1163,7 +1295,19 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       </div>
       <div class="body-block">
         <div class="block-title">Supporting Blog Posts</div>
-        <div class="data-row"><span class="row-title">Content Creator Tax Write-Offs: The Complete List<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 150</span></div>
+        <div class="data-row"><span class="row-title">Content Creator Tax Write-Offs: The Complete List<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 150</span>
+        <div class="data-row"><span class="row-title">onlyfans taxes</span><span class="row-meta">SV 300 · KD 2 · TP 900 · CPC $1.90</span></div>
+        <div class="data-row"><span class="row-title">do influencers pay taxes</span><span class="row-meta">SV 150 · KD 1 · TP 300 · CPC $3.5</span></div>
+        <div class="data-row"><span class="row-title">do influencers pay taxes on gifts</span><span class="row-meta">SV 150 · KD 6 · TP 100</span></div>
+        <div class="data-row"><span class="row-title">influencer tax deductions</span><span class="row-meta">SV 100 · KD 2 · TP 200 · CPC $2.5</span></div>
+        <div class="data-row"><span class="row-title">how do influencers pay taxes</span><span class="row-meta">SV 100 · KD 6 · TP 450</span></div>
+        <div class="data-row"><span class="row-title">do you have to pay taxes on tiktok gifts<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 100 · KD 0 · TP 20</span></div>
+        <div class="data-row"><span class="row-title">llc for content creators<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 90 · KD 0 · TP 10 · CPC $4.5</span></div>
+        <div class="data-row"><span class="row-title">influencer taxes</span><span class="row-meta">SV 90 · KD 3 · TP 350 · CPC $2.5</span></div>
+        <div class="data-row"><span class="row-title">tax deductions for content creators</span><span class="row-meta">SV 80 · KD 2 · TP 250 · CPC $1.3</span></div>
+        <div class="data-row"><span class="row-title">content creator business</span><span class="row-meta">SV 80 · KD 15 · TP 100 · CPC $1.9</span></div>
+        <div class="data-row"><span class="row-title">how to file taxes as a content creator</span><span class="row-meta">SV 60 · KD 3 · TP 350 · CPC $2.5</span></div>
+        <div class="data-row"><span class="row-title">social media lawyer</span><span class="row-meta">SV 1 · KD 1 · TP 1K · CPC $4</span></div></div>
         <div class="data-row"><span class="row-title">Do Influencers Need an LLC?<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 10</span></div>
         <div class="data-row"><span class="row-title">Influencer LLC: How to Structure Your Creator Business</span><span class="row-meta">SV 10</span></div>
         <div class="data-row"><span class="row-title">Brand Deal Contract: What Every Creator Needs to Know<span class="row-tag kd0">KD 0</span></span></div>
@@ -1207,7 +1351,9 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       </div>
       <div class="body-block">
         <div class="block-title">Supporting Blog Posts</div>
-        <div class="data-row"><span class="row-title">What Is CCPA Compliance?<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 500</span></div>
+        <div class="data-row"><span class="row-title">What Is CCPA Compliance?<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 500</span>
+        <div class="data-row"><span class="row-title">shopify taxes</span><span class="row-meta">SV 300 · KD 5 · TP 1K · CPC $6.00</span></div>
+        <div class="data-row"><span class="row-title">dropshipping taxes</span><span class="row-meta">SV 90 · KD 2 · TP 40 · CPC $1</span></div></div>
         <div class="data-row"><span class="row-title">CCPA Compliance Checklist for California E-Commerce Brands<span class="row-tag pillar">Pillar</span><span class="row-tag geo">geo</span></span></div>
         <div class="data-row"><span class="row-title">CCPA vs CPRA: What Changed for Online Sellers in 2026</span></div>
         <div class="data-row"><span class="row-title">What Is a Privacy Policy for a Website?<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 400</span></div>
@@ -1268,7 +1414,9 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       </div>
       <div class="body-block">
         <div class="block-title">Supporting Blog Posts</div>
-        <div class="data-row"><span class="row-title">What Is an Exit Strategy in Business?<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 150</span></div>
+        <div class="data-row"><span class="row-title">What Is an Exit Strategy in Business?<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 150</span>
+        <div class="data-row"><span class="row-title">merger agreement</span><span class="row-meta">SV 150 · KD 1 · TP 150 · CPC $1.19</span></div>
+        <div class="data-row"><span class="row-title">change in control agreement<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 100 · KD 0 · TP 70</span></div></div>
         <div class="data-row"><span class="row-title">How Do You Make an Exit Strategy for a Business?<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 150</span></div>
         <div class="data-row"><span class="row-title">How to Plan a Business Exit Strategy<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 60</span></div>
         <div class="data-row"><span class="row-title">5 Business Exit Strategies for California Founders<span class="row-tag pillar">Pillar</span><span class="row-tag geo">geo</span></span></div>
@@ -1331,7 +1479,10 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       </div>
       <div class="body-block">
         <div class="block-title">Supporting Blog Posts</div>
-        <div class="data-row"><span class="row-title">What Is a Code of Conduct?<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 800</span></div>
+        <div class="data-row"><span class="row-title">What Is a Code of Conduct?<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 800</span>
+        <div class="data-row"><span class="row-title">non-disparagement agreement</span><span class="row-meta">SV 200 · KD 4 · TP 400 · CPC $1.6</span></div>
+        <div class="data-row"><span class="row-title">remote work agreement<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 150 · KD 0 · TP 200 · CPC $1.3</span></div>
+        <div class="data-row"><span class="row-title">executive employment agreement<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 90 · KD 0 · TP 10</span></div></div>
         <div class="data-row"><span class="row-title">Employee Code of Conduct: Free California Template &amp; Drafting Guide<span class="row-tag pillar">Pillar</span><span class="row-tag geo">geo</span></span></div>
         <div class="data-row"><span class="row-title">How to Create an Employee Handbook<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 350</span></div>
         <div class="data-row"><span class="row-title">What Is an Employee Handbook?<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 250</span></div>
@@ -1391,7 +1542,8 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       </div>
       <div class="body-block">
         <div class="block-title">Supporting Blog Posts</div>
-        <div class="data-row"><span class="row-title">What Is an APC? (Accountancy / Professional Corp / Healthcare Disambig)<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 500</span></div>
+        <div class="data-row"><span class="row-title">What Is an APC? (Accountancy / Professional Corp / Healthcare Disambig)<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 500</span>
+        <div class="data-row"><span class="row-title">what does apc stand for in law<span class="row-tag kd0">KD 0</span></span><span class="row-meta">SV 100 · KD 0 · TP 80</span></div></div>
         <div class="data-row"><span class="row-title">California APC vs PC vs PLLC: Which Does Your Practice Need?<span class="row-tag pillar">Pillar</span><span class="row-tag geo">geo</span></span></div>
         <div class="data-row"><span class="row-title">What Is a Professional Corporation?<span class="row-tag paa">PAA</span></span><span class="row-meta">SV 350</span></div>
         <div class="data-row"><span class="row-title">Forming a California Professional Corporation: Moscone-Knox Walkthrough<span class="row-tag geo">geo</span></span></div>
@@ -1509,7 +1661,7 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
       <div class="legend-row"><span class="legend-term">Beatable Comp</span><span class="legend-def">The lowest-DR site currently ranking in the top 10. This is your first target — build a better page than theirs and earn more links.</span></div>
       <div class="legend-row"><span class="legend-term">Avg Competitor DR</span><span class="legend-def">Mean DR of all non-outlier results in the top 10. Gives a realistic read on how competitive the SERP is overall. Outliers (gov, mega-brands) are excluded.</span></div>
       <div class="legend-row"><span class="legend-term">Outlier</span><span class="legend-def">A result ranking due to brand authority (irs.gov, legalzoom, reddit) rather than content quality. They are essentially impossible to outrank — build around them, not against them.</span></div>
-      <div class="legend-row"><span class="legend-term">Word Count Target</span><span class="legend-def">Recommended content length based on what is currently ranking for each keyword. Match or exceed the beatable competitor's word count. <strong style="color:var(--ink);">Reality check:</strong> across 1,110 ranking pages tracked in the SERP Detail data, the average is <strong style="color:var(--ink);">2,677 words</strong>. Per-card targets show the lower bound for parity on Tier-A KD-0 pages; high-DR head terms need to clear the 2,677 average to compete.</span></div>
+      <div class="legend-row"><span class="legend-term">Word Count Target</span><span class="legend-def">Recommended content length based on what is currently ranking for each keyword. Match or exceed the beatable competitor's word count. <strong style="color:var(--ink);">Reality check:</strong> across 1,213 ranking pages tracked in the SERP Detail data, the average is <strong style="color:var(--ink);">2,637 words</strong>. Per-card targets show the lower bound for parity on Tier-A KD-0 pages; high-DR head terms need to clear the 2,637 average to compete.</span></div>
     </div>
 
     <div class="legend-card">
@@ -2021,7 +2173,7 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
 
 <!-- RECURRING COMPETITOR MAP -->
 <div id="recurring-competitors" class="section-label" style="margin-top:60px;">Recurring Competitor Map — Cross-Land SERP Authorities</div>
-<div class="ci-intro">Across 200 keywords and 1,865 ranked URLs, twenty domains appear repeatedly in the top-10 across multiple Lands. These are the authorities that follow Delina everywhere — knowing which to outrank, which to skip, and which to build around shapes the entire content strategy. <strong style="color:var(--ink);">One reality check:</strong> the average ranking page in this dataset is <strong style="color:var(--ink);">2,677 words</strong> (n=1,110) — well above the 1,000–1,500 word targets shown on most landing-page cards. Pages targeting high-DR head terms need to clear that bar; Tier-A KD 0 pages can stay tight.</div>
+<div class="ci-intro">Across 235 keywords and 2,179 ranked URLs, twenty domains appear repeatedly in the top-10 across multiple Lands. These are the authorities that follow Delina everywhere — knowing which to outrank, which to skip, and which to build around shapes the entire content strategy. <strong style="color:var(--ink);">One reality check:</strong> the average ranking page in this dataset is <strong style="color:var(--ink);">2,637 words</strong> (n=1,213) — well above the 1,000–1,500 word targets shown on most landing-page cards. Pages targeting high-DR head terms need to clear that bar; Tier-A KD 0 pages can stay tight.</div>
 <div class="analysis-table-wrap">
   <table class="analysis-table">
     <thead>
@@ -2225,208 +2377,210 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
 
 <!-- PAA INDEX -->
 <div id="paa-index" class="section-label" style="margin-top:60px;">PAA Question Bank — Unsurfaced Blog-Post Inventory</div>
-<div class="ci-intro">The dedicated PAA Questions sheet in the bible captures <strong style="color:var(--ink);">581 unique People-Also-Ask questions</strong> across 200 keywords. The land cards above surface roughly 105 of these as supporting blog posts; the rest is a queued backlog. Each card below shows total / surfaced / queued counts plus a representative slice of the queued questions worth writing next. <em>Browse the full bank in</em> <a href="desq-seo-bible.xlsx" download style="color:var(--ink);text-decoration:underline;">desq-seo-bible 2.0.xlsx</a> &raquo; PAA Questions sheet.</div>
+<div class="ci-intro">The dedicated PAA Questions sheet in the bible captures <strong style="color:var(--ink);">637 unique People-Also-Ask questions</strong> across 235 keywords. The land cards above surface 104 of these as supporting blog posts; the rest is a queued backlog of 533+. Each card below shows total / surfaced / queued counts plus a representative slice of the queued questions worth writing next. <em>Browse the full bank in</em> <a href="desq-seo-bible.xlsx" download style="color:var(--ink);text-decoration:underline;">desq-seo-bible 2.0.xlsx</a> &raquo; PAA Questions sheet.</div>
 <div class="paa-grid">
 
   <div class="paa-card" style="--accent:#b8706a">
     <div class="paa-land">Prenup Land</div>
     <div class="paa-stats">
       <div class="paa-stat"><span class="paa-stat-num">11</span><span class="paa-stat-label">Total</span></div>
-      <div class="paa-stat"><span class="paa-stat-num muted">7</span><span class="paa-stat-label">Surfaced</span></div>
-      <div class="paa-stat"><span class="paa-stat-num">4</span><span class="paa-stat-label">Queued</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">5</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">5</span><span class="paa-stat-label">Queued</span></div>
     </div>
+    <div class="paa-q">What are the requirements for a prenup in California?</div>
+    <div class="paa-q">What is the 7 day rule for prenups in California?</div>
+    <div class="paa-q">What are five things that cannot be included in a prenuptial agreement?</div>
+    <div class="paa-q">What makes a prenup invalid in California?</div>
     <div class="paa-q">What happens if I don&#x27;t do a prenup?</div>
-    <div class="paa-q">How do you determine if you need a prenup?</div>
-    <div class="paa-q">How soon before marriage do you need a prenup?</div>
-    <div class="paa-q">What is the downside of a prenup?</div>
-    <div class="paa-foot">Most surfaced — small remaining queue</div>
+    <div class="paa-foot">CA-specific angle dominates queue</div>
   </div>
   <div class="paa-card" style="--accent:#9a4f4f">
     <div class="paa-land">Postnup Land</div>
     <div class="paa-stats">
       <div class="paa-stat"><span class="paa-stat-num">12</span><span class="paa-stat-label">Total</span></div>
-      <div class="paa-stat"><span class="paa-stat-num muted">12</span><span class="paa-stat-label">Surfaced</span></div>
-      <div class="paa-stat"><span class="paa-stat-num">0</span><span class="paa-stat-label">Queued</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">6</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">4</span><span class="paa-stat-label">Queued</span></div>
     </div>
-    <div class="paa-q" style="color:var(--light);font-style:italic;">All PAAs already surfaced as supporting blog posts above.</div>
-    <div class="paa-foot">Fully surfaced — no remaining queue</div>
+    <div class="paa-q">Does California recognize postnuptial agreements?</div>
+    <div class="paa-q">How much does a postnuptial agreement cost in California?</div>
+    <div class="paa-q">What is the 6 month rule in California?</div>
+    <div class="paa-q">Are post nups enforceable in NY?</div>
+    <div class="paa-foot">Mostly surfaced — small remaining queue</div>
   </div>
   <div class="paa-card" style="--accent:#5e9472">
     <div class="paa-land">Nonprofit Land</div>
     <div class="paa-stats">
       <div class="paa-stat"><span class="paa-stat-num">16</span><span class="paa-stat-label">Total</span></div>
-      <div class="paa-stat"><span class="paa-stat-num muted">5</span><span class="paa-stat-label">Surfaced</span></div>
-      <div class="paa-stat"><span class="paa-stat-num">11</span><span class="paa-stat-label">Queued</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">6</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">10</span><span class="paa-stat-label">Queued</span></div>
     </div>
-    <div class="paa-q">How much does a 501c3 application cost?</div>
-    <div class="paa-q">How hard is it to set up a 501c3?</div>
+    <div class="paa-q">How do I apply for a 501c3?</div>
+    <div class="paa-q">What is the difference between a 501c and a 501c3?</div>
+    <div class="paa-q">Is it better to have an LLC or a nonprofit?</div>
     <div class="paa-q">What is the 5% rule for nonprofits?</div>
-    <div class="paa-q">Can I pay myself if I run a nonprofit?</div>
-    <div class="paa-q">How hard is it to start a non-profit in California?</div>
     <div class="paa-q">What does non-profit lawyer mean?</div>
     <div class="paa-q">What is the 80/20 rule for nonprofits?</div>
-    <div class="paa-q">What is the highest paying job in a non-profit?</div>
     <div class="paa-q">Can someone sue a non-profit?</div>
     <div class="paa-q">What are non-profits not allowed to do?</div>
+    <div class="paa-q">What are the different types of whistleblowing?</div>
+    <div class="paa-q">What are the 5 conditions of whistleblowing?</div>
     <div class="paa-foot">501(c)(3) procedural + creator-nonprofit angles</div>
   </div>
   <div class="paa-card" style="--accent:#b08858">
     <div class="paa-land">Contract Land</div>
     <div class="paa-stats">
-      <div class="paa-stat"><span class="paa-stat-num">227</span><span class="paa-stat-label">Total</span></div>
-      <div class="paa-stat"><span class="paa-stat-num muted">36</span><span class="paa-stat-label">Surfaced</span></div>
-      <div class="paa-stat"><span class="paa-stat-num">191</span><span class="paa-stat-label">Queued</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">250</span><span class="paa-stat-label">Total</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">39</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">221</span><span class="paa-stat-label">Queued</span></div>
     </div>
-    <div class="paa-q">How to write an independent contractor agreement?</div>
+    <div class="paa-q">What is an independent contractor agreement?</div>
+    <div class="paa-q">What are the 7 requirements of a valid contract?</div>
+    <div class="paa-q">How do I protect myself as a 1099 employee?</div>
+    <div class="paa-q">What is the purpose of a master service agreement?</div>
     <div class="paa-q">What&#x27;s the difference between MSA and SLA?</div>
-    <div class="paa-q">How does an MSA work?</div>
-    <div class="paa-q">Is an MSA the same as an NDA?</div>
-    <div class="paa-q">What is the NDA agreement for?</div>
-    <div class="paa-q">How serious is signing an NDA?</div>
-    <div class="paa-q">What happens if I break an NDA?</div>
-    <div class="paa-q">Can you make an NDA yourself?</div>
-    <div class="paa-q">Does a partnership agreement need to be signed by a lawyer?</div>
-    <div class="paa-q">Can I write my own partnership agreement?</div>
-    <div class="paa-q">Who writes a partnership agreement?</div>
-    <div class="paa-q">How much does it cost for a lawyer to write a contract?</div>
-    <div class="paa-q">What type of lawyer drafts contracts?</div>
-    <div class="paa-q">How much is drafting a contract?</div>
-    <div class="paa-q">Are terms and conditions actually legally binding?</div>
-    <div class="paa-q">What kind of lawyer writes terms and conditions?</div>
+    <div class="paa-q">How does a MSA work?</div>
+    <div class="paa-q">Can you make a NDA yourself?</div>
+    <div class="paa-q">How much does it cost to hire a lawyer to write a contract?</div>
+    <div class="paa-q">What is the difference between a business lawyer and a contract lawyer?</div>
+    <div class="paa-q">What does a contracts lawyer do?</div>
+    <div class="paa-q">How much does it cost to have an attorney on retainer?</div>
+    <div class="paa-q">How does a retainer agreement work?</div>
+    <div class="paa-q">Is it worth having a lawyer on retainer?</div>
+    <div class="paa-q">What are common mistakes in retainer agreements?</div>
+    <div class="paa-q">Is $400 an hour a lot for a lawyer?</div>
+    <div class="paa-q">Are licensing agreements legal?</div>
     <div class="paa-foot">Largest queue in the bible — multi-year content runway</div>
   </div>
   <div class="paa-card" style="--accent:#7a60a0">
     <div class="paa-land">Tax Strategy Land</div>
     <div class="paa-stats">
-      <div class="paa-stat"><span class="paa-stat-num">34</span><span class="paa-stat-label">Total</span></div>
-      <div class="paa-stat"><span class="paa-stat-num muted">11</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">37</span><span class="paa-stat-label">Total</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">5</span><span class="paa-stat-label">Surfaced</span></div>
       <div class="paa-stat"><span class="paa-stat-num">23</span><span class="paa-stat-label">Queued</span></div>
     </div>
-    <div class="paa-q">What are the 4 smart moves to cut your 2025 tax bill?</div>
-    <div class="paa-q">Can you use the Augusta rule if you have a home office?</div>
-    <div class="paa-q">Is there a difference between a tax attorney and a CPA?</div>
-    <div class="paa-q">Are tax lawyers worth the cost?</div>
-    <div class="paa-q">Can a tax attorney negotiate with the IRS?</div>
-    <div class="paa-q">Should I hire a CPA or tax attorney?</div>
-    <div class="paa-q">Is hiring a tax advocate worth the cost?</div>
-    <div class="paa-q">Is it worth it to get a tax attorney?</div>
-    <div class="paa-q">How much do corporate and tax lawyers cost?</div>
+    <div class="paa-q">How to properly use the Augusta rule?</div>
+    <div class="paa-q">What are the disadvantages of the Augusta Rule?</div>
+    <div class="paa-q">What does a tax attorney do?</div>
+    <div class="paa-q">Is it worth getting a tax attorney?</div>
+    <div class="paa-q">How much does it cost to hire a lawyer to start a business?</div>
+    <div class="paa-q">What is the difference between a tax attorney and a tax lawyer?</div>
+    <div class="paa-q">(No PAA questions found)</div>
+    <div class="paa-q">How much is a tax attorney in California?</div>
+    <div class="paa-q">Is it worth it to hire a tax attorney?</div>
+    <div class="paa-q">Who qualifies for section 199A deduction?</div>
     <div class="paa-foot">Augusta rule + tax-attorney-vs-CPA cluster</div>
   </div>
   <div class="paa-card" style="--accent:#5a8a64">
     <div class="paa-land">LLC Land</div>
     <div class="paa-stats">
-      <div class="paa-stat"><span class="paa-stat-num">64</span><span class="paa-stat-label">Total</span></div>
-      <div class="paa-stat"><span class="paa-stat-num muted">9</span><span class="paa-stat-label">Surfaced</span></div>
-      <div class="paa-stat"><span class="paa-stat-num">55</span><span class="paa-stat-label">Queued</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">68</span><span class="paa-stat-label">Total</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">2</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">54</span><span class="paa-stat-label">Queued</span></div>
     </div>
-    <div class="paa-q">Do I need a business license in GA to sell online?</div>
-    <div class="paa-q">How do I start an LLC in California myself?</div>
-    <div class="paa-q">Is it worth having an LLC in California?</div>
-    <div class="paa-q">Can I write my own operating agreement for my LLC?</div>
-    <div class="paa-q">Can an LLC exist without an operating agreement?</div>
-    <div class="paa-q">What is the operating agreement of an LLC?</div>
-    <div class="paa-q">What are common mistakes in LLC agreements?</div>
-    <div class="paa-q">Do single members of an LLC file federal taxes?</div>
+    <div class="paa-q">Do I need an LLC to start an online store?</div>
+    <div class="paa-q">Can I create an LLC for an online business?</div>
+    <div class="paa-q">How much does it cost to start an LLC in California?</div>
+    <div class="paa-q">Do you have to pay the $800 California LLC fee every year?</div>
+    <div class="paa-q">Do single members of LLC file federal taxes?</div>
     <div class="paa-q">How can a single-member LLC avoid taxes?</div>
-    <div class="paa-q">Do you file your LLC business and personal taxes together?</div>
-    <div class="paa-q">What percentage tax does an LLC pay the IRS?</div>
-    <div class="paa-q">How much does an LLC cost in NM?</div>
+    <div class="paa-q">Can I make my own LLC without a lawyer?</div>
+    <div class="paa-q">Should I get a lawyer to set up my LLC?</div>
+    <div class="paa-q">Should I hire a lawyer to form an LLC?</div>
+    <div class="paa-q">How much does it cost to start an LLC with an attorney?</div>
+    <div class="paa-q">How much does LLC cost in TN?</div>
+    <div class="paa-q">Do I need a new EIN if I change from sole proprietor to single member LLC?</div>
     <div class="paa-foot">CA $800 fee + operating-agreement clusters dominate</div>
   </div>
   <div class="paa-card" style="--accent:#c08840">
     <div class="paa-land">Trademark Land</div>
     <div class="paa-stats">
-      <div class="paa-stat"><span class="paa-stat-num">35</span><span class="paa-stat-label">Total</span></div>
-      <div class="paa-stat"><span class="paa-stat-num muted">8</span><span class="paa-stat-label">Surfaced</span></div>
-      <div class="paa-stat"><span class="paa-stat-num">27</span><span class="paa-stat-label">Queued</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">42</span><span class="paa-stat-label">Total</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">4</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">31</span><span class="paa-stat-label">Queued</span></div>
     </div>
+    <div class="paa-q">Is it better to have a copyright or trademark?</div>
     <div class="paa-q">Is Taylor Swift&#x27;s name trademarked?</div>
-    <div class="paa-q">How do I copyright a company name or logo?</div>
-    <div class="paa-q">What is an example of trademark infringement?</div>
-    <div class="paa-q">How serious is trademark infringement?</div>
-    <div class="paa-q">What to do if someone is infringing your trademark?</div>
-    <div class="paa-q">Is it necessary to get an attorney for a trademark?</div>
-    <div class="paa-q">Is a trademark lawyer worth it?</div>
-    <div class="paa-q">What is the average cost to trademark a name?</div>
-    <div class="paa-q">Do you need a lawyer to file a trademark?</div>
-    <div class="paa-q">Can you trademark a name that already exists?</div>
+    <div class="paa-q">What cannot be trademarked?</div>
+    <div class="paa-q">Do I copyright or trademark my name? / How do I copyright a company name or logo?</div>
+    <div class="paa-q">Can you go to jail for trademark infringement?</div>
+    <div class="paa-q">(PAA at position #10 — questions not captured in screenshot)</div>
+    <div class="paa-q">(PAA at position #9 — questions not captured in screenshot)</div>
+    <div class="paa-q">How much does a trademark litigation cost?</div>
+    <div class="paa-q">Should I use a lawyer to file a trademark?</div>
+    <div class="paa-q">How much does a trademark lawsuit cost?</div>
     <div class="paa-foot">Copyright-vs-trademark + infringement clusters</div>
   </div>
   <div class="paa-card" style="--accent:#888040">
     <div class="paa-land">S-Corp Land</div>
     <div class="paa-stats">
       <div class="paa-stat"><span class="paa-stat-num">35</span><span class="paa-stat-label">Total</span></div>
-      <div class="paa-stat"><span class="paa-stat-num muted">7</span><span class="paa-stat-label">Surfaced</span></div>
-      <div class="paa-stat"><span class="paa-stat-num">28</span><span class="paa-stat-label">Queued</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">11</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">24</span><span class="paa-stat-label">Queued</span></div>
     </div>
     <div class="paa-q">What is the 2% rule for S corp?</div>
-    <div class="paa-q">Is S corp and sole proprietor the same thing?</div>
-    <div class="paa-q">Is owning an S Corp considered self-employed?</div>
-    <div class="paa-q">Is an S Corp still considered an LLC?</div>
-    <div class="paa-q">Should your LLC be taxed as an S corp?</div>
-    <div class="paa-q">What are the benefits of taxing an LLC as an S corp?</div>
-    <div class="paa-q">How to avoid taxes with S corp?</div>
-    <div class="paa-q">When should you turn your LLC into an S corp?</div>
-    <div class="paa-q">What is reasonable compensation for an S-corp owner?</div>
-    <div class="paa-q">How does the S-corp 60/40 rule work?</div>
-    <div class="paa-foot">2% rule, reasonable comp, S-corp election angle</div>
+    <div class="paa-q">Why would someone choose an S corp over an LLC?</div>
+    <div class="paa-q">What tax structure is best for LLC?</div>
+    <div class="paa-q">Is S Corp the same as sole proprietorship?</div>
+    <div class="paa-q">What type of business is an S Corp?</div>
+    <div class="paa-q">How to avoid 40% tax?</div>
+    <div class="paa-q">How can I legally reduce my income with a S corporation?</div>
+    <div class="paa-q">What is the 5 year rule for S Corp?</div>
+    <div class="paa-q">What are the two main disadvantages of an S corporation?</div>
+    <div class="paa-q">What is the 50 50 rule for S corp?</div>
+    <div class="paa-foot">2% rule + reasonable comp = founder-grade content</div>
   </div>
   <div class="paa-card" style="--accent:#449090">
     <div class="paa-land">New Business Owner Land</div>
     <div class="paa-stats">
       <div class="paa-stat"><span class="paa-stat-num">12</span><span class="paa-stat-label">Total</span></div>
-      <div class="paa-stat"><span class="paa-stat-num muted">4</span><span class="paa-stat-label">Surfaced</span></div>
-      <div class="paa-stat"><span class="paa-stat-num">8</span><span class="paa-stat-label">Queued</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">0</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">5</span><span class="paa-stat-label">Queued</span></div>
     </div>
     <div class="paa-q">Do I need to pay $800 for an LLC in California?</div>
-    <div class="paa-q">Can you look up a business license in California?</div>
-    <div class="paa-q">What business does not need a license?</div>
-    <div class="paa-q">What are common LLC mistakes to avoid?</div>
-    <div class="paa-q">How much does a corporate attorney cost?</div>
-    <div class="paa-q">What does a corporate attorney do?</div>
-    <div class="paa-q">What type of attorney handles business?</div>
-    <div class="paa-q">How much does it cost for a lawyer to write a business contract?</div>
+    <div class="paa-q">What are the different types of business licenses in California?</div>
+    <div class="paa-q">Should I hire an attorney to start a business?</div>
+    <div class="paa-q">What are the 4 types of business formations?</div>
+    <div class="paa-q">How much does it cost to talk to a business attorney?</div>
     <div class="paa-foot">$800 CA confusion + corporate-attorney pricing cluster</div>
   </div>
   <div class="paa-card" style="--accent:#9a8838">
     <div class="paa-land">Startup Founder Land</div>
     <div class="paa-stats">
       <div class="paa-stat"><span class="paa-stat-num">22</span><span class="paa-stat-label">Total</span></div>
-      <div class="paa-stat"><span class="paa-stat-num muted">7</span><span class="paa-stat-label">Surfaced</span></div>
-      <div class="paa-stat"><span class="paa-stat-num">15</span><span class="paa-stat-label">Queued</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">3</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">13</span><span class="paa-stat-label">Queued</span></div>
     </div>
-    <div class="paa-q">What kind of attorney do I need to start a business?</div>
-    <div class="paa-q">What is the 80/20 rule for lawyers?</div>
-    <div class="paa-q">What does a startup lawyer do?</div>
-    <div class="paa-q">What type of lawyer helps start a business?</div>
-    <div class="paa-q">What do lawyers do for startups?</div>
-    <div class="paa-q">When should a startup hire a lawyer?</div>
-    <div class="paa-q">How much do startups spend on legal fees?</div>
-    <div class="paa-q">What is a convertible note and how does it work?</div>
-    <div class="paa-q">Why do startups use convertible notes?</div>
-    <div class="paa-q">Is a SAFE better than a convertible note?</div>
+    <div class="paa-q">[PAA questions not captured from screenshot]</div>
+    <div class="paa-q">How to resolve a partnership dispute?</div>
+    <div class="paa-q">What type of lawyer do I need to sue my business partner?</div>
+    <div class="paa-q">How much does it cost to sue a business partner?</div>
+    <div class="paa-q">How to handle disputes in a 50/50 partnership?</div>
+    <div class="paa-q">What do startup lawyers do?</div>
+    <div class="paa-q">What is the 80 20 rule for lawyers?</div>
+    <div class="paa-q">Should I hire an attorney to start an LLC?</div>
+    <div class="paa-q">Do convertible notes always convert to equity?</div>
+    <div class="paa-q">Who buys convertible notes?</div>
     <div class="paa-foot">Convertible-note + when-to-hire-startup-lawyer cluster</div>
   </div>
   <div class="paa-card" style="--accent:#4a6898">
     <div class="paa-land">Creator Land</div>
     <div class="paa-stats">
       <div class="paa-stat"><span class="paa-stat-num">48</span><span class="paa-stat-label">Total</span></div>
-      <div class="paa-stat"><span class="paa-stat-num muted">6</span><span class="paa-stat-label">Surfaced</span></div>
-      <div class="paa-stat"><span class="paa-stat-num">42</span><span class="paa-stat-label">Queued</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">0</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">36</span><span class="paa-stat-label">Queued</span></div>
     </div>
-    <div class="paa-q">Should I start an LLC for my OnlyFans?</div>
-    <div class="paa-q">Do I need an EIN as a content creator?</div>
+    <div class="paa-q">Do influencers use LLCs?</div>
+    <div class="paa-q">Do influencers have to pay taxes?</div>
+    <div class="paa-q">How to do your taxes as an influencer?</div>
     <div class="paa-q">What is the $600 rule?</div>
-    <div class="paa-q">How much do influencers have to pay in taxes?</div>
-    <div class="paa-q">How do influencers write off taxes?</div>
-    <div class="paa-q">How do influencers pay their taxes?</div>
-    <div class="paa-q">Do TikTok creators have to pay taxes?</div>
-    <div class="paa-q">Do content creators have to pay taxes?</div>
-    <div class="paa-q">What can content creators write off on taxes?</div>
+    <div class="paa-q">Do I have to worry about the gift tax if I give my son $75000 toward a down payment?</div>
     <div class="paa-q">What is the $600 rule in the IRS?</div>
-    <div class="paa-q">Do content creators get a W2?</div>
-    <div class="paa-q">Should I start an LLC as a YouTuber?</div>
+    <div class="paa-q">Do influencers get tax write-offs?</div>
+    <div class="paa-q">What is the $2500 expense rule?</div>
+    <div class="paa-q">What expenses can an influencer claim?</div>
+    <div class="paa-q">How do taxes work for influencers?</div>
+    <div class="paa-q">Can content creators write off their house?</div>
+    <div class="paa-q">What is the $6000 tax credit?</div>
     <div class="paa-foot">Direct creator-tax cluster + $600 IRS rule confusion</div>
   </div>
   <div class="paa-card" style="--accent:#3a7098">
@@ -2434,70 +2588,62 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
     <div class="paa-stats">
       <div class="paa-stat"><span class="paa-stat-num">18</span><span class="paa-stat-label">Total</span></div>
       <div class="paa-stat"><span class="paa-stat-num muted">4</span><span class="paa-stat-label">Surfaced</span></div>
-      <div class="paa-stat"><span class="paa-stat-num">14</span><span class="paa-stat-label">Queued</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">8</span><span class="paa-stat-label">Queued</span></div>
     </div>
-    <div class="paa-q">Does Shopify report taxes to the IRS?</div>
-    <div class="paa-q">What taxes do dropshippers pay?</div>
-    <div class="paa-q">Do I need to pay tax for dropshipping?</div>
-    <div class="paa-q">Is drop shipping dead in 2026?</div>
-    <div class="paa-q">What are 5 disadvantages of LLC?</div>
-    <div class="paa-q">Is an LLC good for online business?</div>
-    <div class="paa-q">What does CCPA compliance mean?</div>
-    <div class="paa-q">What is the difference between CCPA and GDPR?</div>
-    <div class="paa-q">What are the CCPA requirements?</div>
-    <div class="paa-q">What is the CCPA compliance summary?</div>
+    <div class="paa-q">Will I get a 1099 from Shopify?</div>
+    <div class="paa-q">How much money do you need to make on Shopify to pay taxes?</div>
+    <div class="paa-q">Do you pay tax on dropshipping?</div>
+    <div class="paa-q">Is LLC good for online business?</div>
+    <div class="paa-q">What is a good privacy policy for a website?</div>
+    <div class="paa-q">How do I make a privacy policy for my website?</div>
+    <div class="paa-q">Do I legally need a privacy policy on my website?</div>
+    <div class="paa-q">What is the privacy policy for a website?</div>
     <div class="paa-foot">Shopify/dropshipping tax + CCPA cluster</div>
   </div>
   <div class="paa-card" style="--accent:#884870">
     <div class="paa-land">Business Exit Land</div>
     <div class="paa-stats">
       <div class="paa-stat"><span class="paa-stat-num">8</span><span class="paa-stat-label">Total</span></div>
-      <div class="paa-stat"><span class="paa-stat-num muted">3</span><span class="paa-stat-label">Surfaced</span></div>
-      <div class="paa-stat"><span class="paa-stat-num">5</span><span class="paa-stat-label">Queued</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">6</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">4</span><span class="paa-stat-label">Queued</span></div>
     </div>
     <div class="paa-q">What are the 5 D&#x27;s of exit planning?</div>
-    <div class="paa-q">What are the 4 exit strategies?</div>
-    <div class="paa-q">What are the four basic exit strategy possibilities?</div>
-    <div class="paa-q">Can I write my own purchase agreement?</div>
-    <div class="paa-q">Do you need a bill of sale for an asset purchase agreement?</div>
+    <div class="paa-q">What is the most common exit strategy?</div>
+    <div class="paa-q">What is in an asset purchase agreement?</div>
+    <div class="paa-q">Why would a buyer prefer an asset sale?</div>
     <div class="paa-foot">Pillar-grade questions — small but high-value queue</div>
   </div>
   <div class="paa-card" style="--accent:#a85a48">
     <div class="paa-land">Employment &amp; HR Land</div>
     <div class="paa-stats">
-      <div class="paa-stat"><span class="paa-stat-num">24</span><span class="paa-stat-label">Total</span></div>
-      <div class="paa-stat"><span class="paa-stat-num muted">6</span><span class="paa-stat-label">Surfaced</span></div>
-      <div class="paa-stat"><span class="paa-stat-num">18</span><span class="paa-stat-label">Queued</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">28</span><span class="paa-stat-label">Total</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">11</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">19</span><span class="paa-stat-label">Queued</span></div>
     </div>
-    <div class="paa-q">What is the code of conduct?</div>
-    <div class="paa-q">What are the 5 principles of the code of conduct?</div>
-    <div class="paa-q">How do I create an employee handbook?</div>
-    <div class="paa-q">Can ChatGPT write an employee handbook?</div>
-    <div class="paa-q">What is a typical severance agreement?</div>
-    <div class="paa-q">What are the red flags in a severance agreement?</div>
-    <div class="paa-q">What is the downside to severance?</div>
+    <div class="paa-q">What are the 5 codes of conduct?</div>
+    <div class="paa-q">What are the 6 codes of conduct in the workplace?</div>
+    <div class="paa-q">Is it legally required to have an employee handbook?</div>
+    <div class="paa-q">What should an employee handbook contain?</div>
+    <div class="paa-q">What is the purpose of a severance agreement?</div>
     <div class="paa-q">How enforceable is a non-solicitation agreement?</div>
-    <div class="paa-q">Can I work for a competitor if I signed a non-solicitation?</div>
-    <div class="paa-q">What is an example of a non-solicit?</div>
+    <div class="paa-q">How long can a non-solicitation agreement last?</div>
+    <div class="paa-q">What is the purpose of a retention agreement?</div>
+    <div class="paa-q">Should I accept a retention offer?</div>
+    <div class="paa-q">Is retention pay the same as severance pay?</div>
     <div class="paa-foot">Code-of-conduct, severance red flags, non-solicit enforceability</div>
   </div>
   <div class="paa-card" style="--accent:#487078">
     <div class="paa-land">Entity Structuring Land</div>
     <div class="paa-stats">
       <div class="paa-stat"><span class="paa-stat-num">15</span><span class="paa-stat-label">Total</span></div>
-      <div class="paa-stat"><span class="paa-stat-num muted">5</span><span class="paa-stat-label">Surfaced</span></div>
-      <div class="paa-stat"><span class="paa-stat-num">10</span><span class="paa-stat-label">Queued</span></div>
+      <div class="paa-stat"><span class="paa-stat-num muted">2</span><span class="paa-stat-label">Surfaced</span></div>
+      <div class="paa-stat"><span class="paa-stat-num">5</span><span class="paa-stat-label">Queued</span></div>
     </div>
-    <div class="paa-q">Is APC a felony in Oklahoma?</div>
-    <div class="paa-q">What is APC in medical terms?</div>
-    <div class="paa-q">Why would someone choose a limited partnership?</div>
-    <div class="paa-q">How does an LP make money?</div>
-    <div class="paa-q">What are the three types of licensing?</div>
-    <div class="paa-q">What does licensee mean in law?</div>
-    <div class="paa-q">What is an example of licensing?</div>
-    <div class="paa-q">What is a side letter in finance?</div>
-    <div class="paa-q">What does a side letter do?</div>
-    <div class="paa-q">Who signs a side letter?</div>
+    <div class="paa-q">What is an APC in healthcare?</div>
+    <div class="paa-q">What is an APC in tech?</div>
+    <div class="paa-q">What is the purpose of a limited partnership agreement?</div>
+    <div class="paa-q">What are the disadvantages of MLPS?</div>
+    <div class="paa-q">What is the difference between a side letter and an addendum?</div>
     <div class="paa-foot">APC disambiguation + LP/licensing fundamentals</div>
   </div>
 
@@ -2727,9 +2873,484 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink
 
 </div>
 
+<!-- BUILD ROADMAP -->
+<div id="roadmap" class="section-label" style="margin-top:60px;">Build Roadmap — Publishing Sequence</div>
+<div class="ci-intro">235 keywords → 17 landing pages → 200+ blog posts. Eight sprints, ~4 weeks each ≈ 8 months of publishing for one focused writer (or 4 months at 2× capacity). Each sprint sequences pages by speed-to-rank: KD-0 wins ship first to compound topical authority before tackling high-DR head terms. <strong style="color:var(--ink);">Read this as a sprint plan, not a calendar</strong> — adjust velocity to actual writer/dev capacity.</div>
+<div class="roadmap-grid">
+
+  <div class="sprint-card" style="--accent:#5e9472">
+    <div class="sprint-header">
+      <span class="sprint-num">01</span>
+      <span class="sprint-weeks">Weeks 1–4 · Foundation</span>
+    </div>
+    <div class="sprint-title">Tier A KD-0 Landing Pages</div>
+    <div class="sprint-rationale">Ship the 6 fastest-to-rank landing pages first. All are KD 0, all have first-mover SERPs identified in the bible. Goal: get the URL structure live, schema in place, and indexing started so blog content has somewhere to link.</div>
+    <div class="sprint-pages-label">Pages</div>
+    <div class="sprint-page"><span class="sprint-url">/postnuptial-agreement-lawyer/</span><span class="sprint-stat">KD 0 · SV 8.3K ⚡</span></div>
+    <div class="sprint-page"><span class="sprint-url">/business-structure-attorney/</span><span class="sprint-stat">KD 0 · SV 70 · 1st-mover</span></div>
+    <div class="sprint-page"><span class="sprint-url">/creator-attorney/</span><span class="sprint-stat">KD 0 · SV 150 · 1st-mover</span></div>
+    <div class="sprint-page"><span class="sprint-url">/trademark-attorney/</span><span class="sprint-stat">KD 0 · SV 70 · CPC $7</span></div>
+    <div class="sprint-page"><span class="sprint-url">/llc-attorney/</span><span class="sprint-stat">KD 0 · SV 200</span></div>
+    <div class="sprint-page"><span class="sprint-url">/business-contract-attorney/</span><span class="sprint-stat">KD 0–2 head terms</span></div>
+    <div class="sprint-kpi"><strong>KPI:</strong> All 6 pages indexed within 30 days; ranking top 20 within 60 days. Local pack appearance for at least 3.</div>
+  </div>
+
+  <div class="sprint-card" style="--accent:#b8706a">
+    <div class="sprint-header">
+      <span class="sprint-num">02</span>
+      <span class="sprint-weeks">Weeks 5–8 · Tier A Volume</span>
+    </div>
+    <div class="sprint-title">Tier A High-Volume Head Terms</div>
+    <div class="sprint-rationale">Now that foundational pages are indexed, attack the high-SV Tier A terms. Prenup (SV 12K) and the tax-strategy land bring real volume. CPC $7 on tax keywords signals strong commercial intent.</div>
+    <div class="sprint-pages-label">Pages</div>
+    <div class="sprint-page"><span class="sprint-url">/prenuptial-agreement-attorney/</span><span class="sprint-stat">KD 3 · SV 12K · TP 250</span></div>
+    <div class="sprint-page"><span class="sprint-url">/tax-attorney-small-business/</span><span class="sprint-stat">KD 5 · SV 30 · CPC $7</span></div>
+    <div class="sprint-page"><span class="sprint-url">/partnership-agreement-attorney/</span><span class="sprint-stat">KD 0 · SV 200 · sub-page</span></div>
+    <div class="sprint-page"><span class="sprint-url">/licensing-agreement-lawyer/</span><span class="sprint-stat">KD 0 · SV 90 · sub-page</span></div>
+    <div class="sprint-page"><span class="sprint-url">/contract-review-attorney/</span><span class="sprint-stat">KD 0 · SV 400 · CPC $6</span></div>
+    <div class="sprint-kpi"><strong>KPI:</strong> Tax-attorney page ranking top 10 within 90 days. Prenup top 20. Combined sprint 1+2 driving 200+ organic visits/mo.</div>
+  </div>
+
+  <div class="sprint-card" style="--accent:#888040">
+    <div class="sprint-header">
+      <span class="sprint-num">03</span>
+      <span class="sprint-weeks">Weeks 9–12 · Tier B Low-KD</span>
+    </div>
+    <div class="sprint-title">Tier B Low-KD Landing Pages</div>
+    <div class="sprint-rationale">Move into Tier B with the lowest-KD wins. Entity Structuring (KD 1–4) is brand-new whitespace. S-Corp + E-Commerce are KD 0–1. Builds the cross-land internal-link network on top of Sprint 1–2 anchors.</div>
+    <div class="sprint-pages-label">Pages</div>
+    <div class="sprint-page"><span class="sprint-url">/entity-structuring-attorney/</span><span class="sprint-stat">KD 1–4 · SV 250–500</span></div>
+    <div class="sprint-page"><span class="sprint-url">/s-corp-attorney/</span><span class="sprint-stat">KD 0–1 · SV 50–70</span></div>
+    <div class="sprint-page"><span class="sprint-url">/ecommerce-business-attorney/</span><span class="sprint-stat">KD 0 · SV 100</span></div>
+    <div class="sprint-page"><span class="sprint-url">/business-exit-attorney/</span><span class="sprint-stat">KD 5–13 · SV 600–1K</span></div>
+    <div class="sprint-page"><span class="sprint-url">/asset-purchase-agreement-attorney/</span><span class="sprint-stat">KD 5 · SV 900 · sub-page</span></div>
+    <div class="sprint-page"><span class="sprint-url">/buy-sell-agreement-attorney/</span><span class="sprint-stat">KD 10 · SV 600 · sub-page</span></div>
+    <div class="sprint-kpi"><strong>KPI:</strong> Entity Structuring + S-Corp top 10 within 60 days. Business Exit top 20. Cross-land internal-link map fully wired.</div>
+  </div>
+
+  <div class="sprint-card" style="--accent:#9a8838">
+    <div class="sprint-header">
+      <span class="sprint-num">04</span>
+      <span class="sprint-weeks">Weeks 13–16 · Tier B Mid-KD</span>
+    </div>
+    <div class="sprint-title">Tier B Mid-KD + Authority Pages</div>
+    <div class="sprint-rationale">Mid-KD pages now that 12+ pages are live and Delina has authority on the linked-from sides. Nonprofit (KD 14–18) and Employment & HR head terms (KD 8–22) need longer content and stronger linking.</div>
+    <div class="sprint-pages-label">Pages</div>
+    <div class="sprint-page"><span class="sprint-url">/nonprofit-attorney/</span><span class="sprint-stat">KD 14–18 · SV 1.2K</span></div>
+    <div class="sprint-page"><span class="sprint-url">/startup-attorney-california/</span><span class="sprint-stat">KD 12 · SV 30 · CPC $8</span></div>
+    <div class="sprint-page"><span class="sprint-url">/employment-hr-attorney/</span><span class="sprint-stat">KD 8–22 · SV up to 13K</span></div>
+    <div class="sprint-page"><span class="sprint-url">/employee-handbook-attorney/</span><span class="sprint-stat">KD 22 · SV 7.5K · sub-page</span></div>
+    <div class="sprint-page"><span class="sprint-url">/severance-agreement-attorney/</span><span class="sprint-stat">KD 10 · TP 15K · sub-page</span></div>
+    <div class="sprint-kpi"><strong>KPI:</strong> All 17 landing pages live by end of sprint. Authority-section build complete. 500+ organic visits/mo from sprints 1–4.</div>
+  </div>
+
+  <div class="sprint-card" style="--accent:#7a60a0">
+    <div class="sprint-header">
+      <span class="sprint-num">05</span>
+      <span class="sprint-weeks">Weeks 17–22 · Pillars</span>
+    </div>
+    <div class="sprint-title">Blog Pillar Content — 2,500+ words each</div>
+    <div class="sprint-rationale">Long-form cornerstone content targeting the "Pillar"-tagged keywords across each land. Each pillar links to multiple supporting blog posts and the parent landing page. Hits the 2,637-word SERP average for high-DR competition.</div>
+    <div class="sprint-pages-label">Pillars (one per land where flagged)</div>
+    <div class="sprint-page"><span class="sprint-url">/blog/creator-economy-legal-guide/</span><span class="sprint-stat">Creator pillar</span></div>
+    <div class="sprint-page"><span class="sprint-url">/blog/llc-vs-s-corp-vs-sole-prop/</span><span class="sprint-stat">Entity pillar</span></div>
+    <div class="sprint-page"><span class="sprint-url">/blog/startup-legal-checklist/</span><span class="sprint-stat">Startup pillar</span></div>
+    <div class="sprint-page"><span class="sprint-url">/blog/california-vs-de-vs-wy-llc/</span><span class="sprint-stat">LLC pillar</span></div>
+    <div class="sprint-page"><span class="sprint-url">/blog/ca-business-exit-strategies/</span><span class="sprint-stat">Exit pillar</span></div>
+    <div class="sprint-page"><span class="sprint-url">/blog/ccpa-ecommerce-checklist/</span><span class="sprint-stat">E-Comm pillar</span></div>
+    <div class="sprint-page"><span class="sprint-url">/blog/convertible-note-vs-safe/</span><span class="sprint-stat">Startup pillar</span></div>
+    <div class="sprint-page"><span class="sprint-url">/blog/ca-apc-pc-pllc/</span><span class="sprint-stat">Entity pillar</span></div>
+    <div class="sprint-kpi"><strong>KPI:</strong> Each pillar ≥2,500 words. Each pillar has ≥6 inbound links from supporting posts within 60 days of publish. Pillars drive 30% of land traffic by end of sprint.</div>
+  </div>
+
+  <div class="sprint-card" style="--accent:#449090">
+    <div class="sprint-header">
+      <span class="sprint-num">06</span>
+      <span class="sprint-weeks">Weeks 23–30 · PAA Top 40</span>
+    </div>
+    <div class="sprint-title">PAA Blog Posts — Highest-Volume Queue</div>
+    <div class="sprint-rationale">Cherry-pick the top 40 PAAs from the Queued bank — anything with parent-SV ≥1K or KD 0 with creator/founder relevance. Each post answers a single PAA, links to the parent landing page, gets FAQPage schema.</div>
+    <div class="sprint-pages-label">Sample Targets (40 total)</div>
+    <div class="sprint-page"><span class="sprint-url">/blog/what-is-hold-harmless-agreement/</span><span class="sprint-stat">SV 1.4K · PAA</span></div>
+    <div class="sprint-page"><span class="sprint-url">/blog/what-is-demand-letter/</span><span class="sprint-stat">SV 1.7K · PAA</span></div>
+    <div class="sprint-page"><span class="sprint-url">/blog/what-is-statement-of-work/</span><span class="sprint-stat">SV 1.1K · PAA</span></div>
+    <div class="sprint-page"><span class="sprint-url">/blog/what-is-convertible-note/</span><span class="sprint-stat">SV 1.1K · PAA</span></div>
+    <div class="sprint-page"><span class="sprint-url">/blog/what-is-code-of-conduct/</span><span class="sprint-stat">SV 800 · PAA</span></div>
+    <div class="sprint-page"><span class="sprint-url">/blog/ca-llc-800-fee/</span><span class="sprint-stat">CA cluster</span></div>
+    <div class="sprint-page"><span class="sprint-url">/blog/llc-operating-agreement-ca/</span><span class="sprint-stat">SV 700 · CA</span></div>
+    <div class="sprint-page"><span class="sprint-url">/blog/trademark-vs-copyright/</span><span class="sprint-stat">SV 6.6K · KD 8</span></div>
+    <div class="sprint-kpi"><strong>KPI:</strong> 40 posts published @ 1,200–1,800 words each. ≥10 ranking top 20 within 90 days. Each post drives ≥1 inbound link from outside the site naturally within 6 months.</div>
+  </div>
+
+  <div class="sprint-card" style="--accent:#b08858">
+    <div class="sprint-header">
+      <span class="sprint-num">07</span>
+      <span class="sprint-weeks">Weeks 31–38 · Contract Land Deep</span>
+    </div>
+    <div class="sprint-title">Contract Land 56-KW Backfill</div>
+    <div class="sprint-rationale">Contract Land has 191 queued PAAs — the largest queue in the bible. This sprint ships ~50 posts covering every contract definition + agreement-type primary keyword. Each post averages 1,500 words and links into the /business-contract-attorney/ pillar.</div>
+    <div class="sprint-pages-label">Coverage (~50 posts)</div>
+    <div class="sprint-page"><span class="sprint-url">/blog/[agreement-type]/</span><span class="sprint-stat">×56 head terms</span></div>
+    <div class="sprint-page"><span class="sprint-url">/blog/california-[agreement]/</span><span class="sprint-stat">CA-specific variants</span></div>
+    <div class="sprint-page"><span class="sprint-url">/blog/[paa-question]/</span><span class="sprint-stat">Top 20 unsurfaced PAAs</span></div>
+    <div class="sprint-kpi"><strong>KPI:</strong> Contract Land owns top 10 for 25+ agreement-type keywords. Total Contract Land traffic ≥1,500 visits/mo. Backlink velocity ≥5/mo from law/finance blogs.</div>
+  </div>
+
+  <div class="sprint-card" style="--accent:#4a6898">
+    <div class="sprint-header">
+      <span class="sprint-num">08</span>
+      <span class="sprint-weeks">Weeks 39–48 · Long-Tail + Refresh</span>
+    </div>
+    <div class="sprint-title">Long-Tail Backfill + Q1 Refresh</div>
+    <div class="sprint-rationale">Final 80–100 PAA posts targeting remaining queue across all lands. Simultaneous refresh pass on sprint 1–2 pages (now 9+ months old) — update word counts to match 2,637-word average, add new PAAs surfaced since, refresh "Last reviewed" dates.</div>
+    <div class="sprint-pages-label">Activities</div>
+    <div class="sprint-page"><span class="sprint-url">PAA backfill posts (~80)</span><span class="sprint-stat">All lands</span></div>
+    <div class="sprint-page"><span class="sprint-url">Sprint 1–2 pages refresh</span><span class="sprint-stat">11 pages</span></div>
+    <div class="sprint-page"><span class="sprint-url">Internal link audit</span><span class="sprint-stat">Full graph</span></div>
+    <div class="sprint-page"><span class="sprint-url">Geo sub-pages (LA, SF, SD)</span><span class="sprint-stat">If GBP live</span></div>
+    <div class="sprint-kpi"><strong>KPI:</strong> ≥150 total blog posts live. ≥30 landing-page keywords ranking top 10. ≥2,500 organic visits/mo. ≥40 paid intakes attributable to organic.</div>
+  </div>
+
+</div>
+
+<!-- PRODUCTION TEMPLATES -->
+<div id="templates" class="section-label" style="margin-top:60px;">Per-Page Production Template</div>
+<div class="ci-intro">Every landing page follows this 8-section structure. Every blog post follows the parallel blog spec. Consistency builds topical authority, makes a writer's job mechanical, and lets a developer template the React components once and reuse across all 17 landing pages.</div>
+<div class="spec-grid">
+
+  <div class="spec-card" style="--accent:#7a60a0">
+    <div class="spec-type">Landing Page Spec</div>
+    <h4>Structure (in order)</h4>
+    <ul>
+      <li><strong>H1:</strong> "{Service} Attorney for {Audience}" — e.g. "LLC Attorney for California Founders &amp; Creators"</li>
+      <li><strong>Hero:</strong> H1 + 1-sentence subhead + paid-intake CTA</li>
+      <li><strong>H2:</strong> "When You Need a {Service} Attorney" — 3–4 specific scenarios</li>
+      <li><strong>H2:</strong> "What {Service} Actually Covers" — service description</li>
+      <li><strong>H2:</strong> "California-Specific Considerations" — local statute citations</li>
+      <li><strong>H2:</strong> "Cost &amp; Process" — paid intake explanation, flat-fee transparency</li>
+      <li><strong>H2:</strong> "FAQ" — 4–8 PAAs from the bank, JSON-LD FAQPage</li>
+      <li><strong>Footer CTA:</strong> Full intake block with bio + "Book paid intake →"</li>
+    </ul>
+    <h4>Word Count Targets</h4>
+    <ul>
+      <li><strong>Tier A KD 0:</strong> 1,200–1,500 words (parity baseline)</li>
+      <li><strong>Tier B KD 5–20:</strong> 1,800–2,400 words</li>
+      <li><strong>Head terms KD 20+:</strong> 2,500–3,500 words (clear the 2,637 SERP average)</li>
+    </ul>
+    <h4>Required Schema (JSON-LD)</h4>
+    <ul>
+      <li><code>Attorney</code> — Delina, once per page</li>
+      <li><code>LegalService</code> — the specific service, name + serviceArea (CA) + provider ref</li>
+      <li><code>FAQPage</code> — 4–8 PAAs embedded</li>
+      <li><code>BreadcrumbList</code> — Home › Land › Page</li>
+      <li><code>Person</code> + <code>hasCredential</code> — Delina's bar, JD, etc.</li>
+    </ul>
+    <h4>Internal Linking Minimums</h4>
+    <ul>
+      <li>≥3 links to other pages within the same land</li>
+      <li>≥2 cross-land links (per the Cross-Land Link Map)</li>
+      <li>≥1 link to <code>/about-delina/</code></li>
+      <li>≥3 inbound links from supporting blog posts within 30 days of publish</li>
+    </ul>
+    <h4>CTA Placement</h4>
+    <ul>
+      <li><strong>Above-fold:</strong> Primary button → <code>/book/</code></li>
+      <li><strong>Mid-page:</strong> Secondary card with "Not ready? Read [related blog]" → keeps engagement</li>
+      <li><strong>Footer:</strong> Full intake CTA block — photo, credentials, "Paid intake — no free consult"</li>
+    </ul>
+    <h4>Trust Bar (every page)</h4>
+    <ul>
+      <li>"Written by Delina Yasmeh, Esq." + photo + Bar #</li>
+      <li>"Last reviewed [Month YYYY]" — refresh annually</li>
+      <li>Credentials line: JD · CA Bar · ABA member · [other]</li>
+    </ul>
+  </div>
+
+  <div class="spec-card" style="--accent:#5a8a64">
+    <div class="spec-type">Blog Post Spec</div>
+    <h4>Structure (in order)</h4>
+    <ul>
+      <li><strong>H1:</strong> The exact PAA or keyword phrase (or close paraphrase)</li>
+      <li><strong>Lede:</strong> 2–3 sentences. Answer the question in the first paragraph.</li>
+      <li><strong>H2 #1:</strong> Direct answer expanded — bullet list or short table</li>
+      <li><strong>H2 #2–4:</strong> Sub-questions / clarifications (other PAAs nearby)</li>
+      <li><strong>H2 "California-Specific":</strong> Whenever applicable, mandatory section</li>
+      <li><strong>H2 "When You Need an Attorney":</strong> Pivot from info → intake</li>
+      <li><strong>CTA box:</strong> "Need a {service} attorney? Book a paid intake →"</li>
+      <li><strong>Related Reading:</strong> 3–5 internal links (same land + parent landing)</li>
+    </ul>
+    <h4>Word Count Targets</h4>
+    <ul>
+      <li><strong>PAA answer posts:</strong> 800–1,200 words</li>
+      <li><strong>Comparison / "vs" posts:</strong> 1,400–1,800 words</li>
+      <li><strong>Pillar posts:</strong> 2,500–3,500 words</li>
+    </ul>
+    <h4>Required Schema (JSON-LD)</h4>
+    <ul>
+      <li><code>Article</code> — headline, author (Person ref), datePublished, dateModified</li>
+      <li><code>Person</code> — Delina as author</li>
+      <li><code>FAQPage</code> — if 2+ sub-questions in body</li>
+      <li><code>BreadcrumbList</code> — Home › Blog › Post</li>
+    </ul>
+    <h4>Internal Linking Minimums</h4>
+    <ul>
+      <li>≥1 link to parent landing page (the "Land")</li>
+      <li>≥2 links to sibling blog posts in same land</li>
+      <li>≥1 cross-land link if topic overlaps</li>
+      <li>≥1 outbound citation to primary source (CA Corp Code, IRS, USPTO) — boosts E-E-A-T</li>
+    </ul>
+    <h4>Required Elements</h4>
+    <ul>
+      <li>Author bio box at top + bottom (sticky byline)</li>
+      <li>"Last reviewed" date + annual refresh commitment</li>
+      <li>1 hero image with descriptive alt text containing primary keyword</li>
+      <li>At least 1 table or bulleted list (improves SERP feature eligibility)</li>
+      <li>Meta description ≤155 chars, includes primary keyword + CA</li>
+    </ul>
+    <h4>Tags &amp; Categories</h4>
+    <ul>
+      <li>Land tag (matches one of 15 lands)</li>
+      <li>Format tag: <code>PAA</code> · <code>Pillar</code> · <code>Comparison</code> · <code>How-to</code> · <code>Geo</code></li>
+      <li>Tier tag from the bible's KD rating</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- LOCAL SEO -->
+<div id="local-seo" class="section-label" style="margin-top:60px;">Local SEO &amp; Google Business Profile Strategy</div>
+<div class="ci-intro">Many SERPs in the bible show <strong style="color:var(--ink);">"Local Pack #1"</strong> — for a California attorney, the local pack often beats organic results. GBP optimization + citation building + service-area pages are not optional; they are required infrastructure that runs in parallel to the content roadmap.</div>
+<div class="spec-grid">
+
+  <div class="spec-card" style="--accent:#3a7098">
+    <div class="spec-type">Google Business Profile</div>
+    <h4>Setup Essentials</h4>
+    <ul>
+      <li><strong>NAP consistency:</strong> Delina Yasmeh, Esq. · exact same address everywhere · single business phone</li>
+      <li><strong>Primary category:</strong> "Attorney" (highest-volume umbrella)</li>
+      <li><strong>Secondary categories (up to 9):</strong> Business Attorney · Tax Attorney · Family Law Attorney · Estate Planning Attorney · Trademark Attorney · Corporate Lawyer · Contract Lawyer · Notary Public (if applicable)</li>
+      <li><strong>Service areas:</strong> All California counties (or specific top-revenue counties if differentiated)</li>
+      <li><strong>Hours:</strong> Posted; "By appointment only" if intake-driven</li>
+      <li><strong>Website link:</strong> Primary to homepage; UTM-tagged for tracking</li>
+    </ul>
+    <h4>Ongoing GBP Activity</h4>
+    <ul>
+      <li><strong>Photos:</strong> 20+ professional photos, rotated quarterly. Headshots, office, signing room.</li>
+      <li><strong>Posts:</strong> Weekly GBP posts mirroring blog content (Updates type)</li>
+      <li><strong>Q&amp;A:</strong> Pre-seed with 10+ FAQ answers from the PAA bank</li>
+      <li><strong>Services:</strong> Each landing page maps to a GBP "Service" with description + price ("paid intake")</li>
+      <li><strong>Reviews:</strong> Target 50+ in year 1. Every review responded to within 48h.</li>
+      <li><strong>Attributes:</strong> Online appointments · Wheelchair accessible · LGBTQ+ friendly · Women-owned</li>
+    </ul>
+    <h4>Review-Generation System</h4>
+    <ul>
+      <li>Automated email after intake completion: "How was your experience?"</li>
+      <li>QR code on follow-up materials linking to GBP review URL</li>
+      <li>Quarterly client survey doubling as review request</li>
+    </ul>
+  </div>
+
+  <div class="spec-card" style="--accent:#5e9472">
+    <div class="spec-type">Service-Area Pages (Geo SEO)</div>
+    <h4>URL Pattern</h4>
+    <ul>
+      <li><code>/[city]-[service]-attorney/</code></li>
+      <li>Example: <code>/los-angeles-business-attorney/</code> · <code>/san-francisco-tax-attorney/</code></li>
+      <li>Avoid spammy city-pages: only build where Delina has clients or willing to serve</li>
+    </ul>
+    <h4>Priority Cities (CA)</h4>
+    <ul>
+      <li><strong>Tier 1:</strong> Los Angeles · San Francisco · San Diego · San Jose</li>
+      <li><strong>Tier 2:</strong> Sacramento · Oakland · Long Beach · Anaheim · Orange County</li>
+      <li><strong>Tier 3 (creator-dense):</strong> Beverly Hills · Santa Monica · Venice · West Hollywood</li>
+    </ul>
+    <h4>Page Pattern (each ~800–1,200 words)</h4>
+    <ul>
+      <li>H1: "{Service} Attorney in {City}, California"</li>
+      <li>Local context: city-specific tax base, regulations, courts, business demographics</li>
+      <li>Same FAQ block, regionalized 1–2 questions</li>
+      <li>Map embed (LocalBusiness schema)</li>
+      <li>Drive Tier-1 city pages first; only build Tier 2–3 if Tier 1 ranks within 90 days</li>
+    </ul>
+    <h4>Citation / Directory Listings</h4>
+    <ul>
+      <li><strong>Legal directories:</strong> Avvo · Justia · LawyerLegion · FindLaw · Martindale · Super Lawyers</li>
+      <li><strong>Bar associations:</strong> State Bar of California · LA County Bar · SF Bar · ABA</li>
+      <li><strong>General:</strong> Yelp · Bing Places · Apple Maps · Yellow Pages · Better Business Bureau</li>
+      <li><strong>Niche:</strong> Lawyers.com · NoloHub · LawInfo · LegalMatch</li>
+      <li>All listings must use identical NAP. Audit quarterly via Moz Local or BrightLocal.</li>
+    </ul>
+  </div>
+
+  <div class="spec-card" style="--accent:#c08840">
+    <div class="spec-type">LocalBusiness Schema</div>
+    <h4>Site-Wide Implementation</h4>
+    <ul>
+      <li>JSON-LD <code>LegalService</code> in <code>layout.tsx</code> (renders on every page)</li>
+      <li>Fields: <code>name</code> · <code>address</code> · <code>geo</code> · <code>telephone</code> · <code>url</code> · <code>image</code></li>
+      <li><code>areaServed</code>: "California" (use AdministrativeArea)</li>
+      <li><code>priceRange</code>: "$$$$" (signals premium)</li>
+      <li><code>openingHoursSpecification</code>: by-appointment hours</li>
+      <li><code>aggregateRating</code>: add once 5+ GBP reviews accumulate (pulls from GBP automatically via Schema)</li>
+    </ul>
+    <h4>Service-Specific Schema</h4>
+    <ul>
+      <li>Each landing page adds a more specific <code>LegalService</code> with <code>serviceType</code>: "Trademark Attorney" / "Tax Attorney" etc.</li>
+      <li><code>provider</code> field references the site-wide org</li>
+      <li><code>areaServed</code> matches the page's geographic focus</li>
+    </ul>
+    <h4>Reviews Schema (post-launch)</h4>
+    <ul>
+      <li>Once 10+ GBP reviews exist, embed top 3–5 on homepage with <code>Review</code> schema</li>
+      <li>Use <code>aggregateRating</code> to surface star count in SERPs</li>
+      <li>Never write fake reviews — Google penalizes harshly</li>
+    </ul>
+  </div>
+
+  <div class="spec-card" style="--accent:#9a8838">
+    <div class="spec-type">Local Pack Ranking Levers</div>
+    <h4>Top 5 Factors</h4>
+    <ul>
+      <li><strong>1. GBP completeness:</strong> 100% profile fill rate</li>
+      <li><strong>2. Review quantity + recency + diversity:</strong> 50+ reviews, recent, varied keywords</li>
+      <li><strong>3. NAP consistency across all citations:</strong> identical name/address/phone everywhere</li>
+      <li><strong>4. Proximity to searcher:</strong> can't control, but local content references help</li>
+      <li><strong>5. Inbound links from local sites:</strong> CA bar associations, local press, podcasts</li>
+    </ul>
+    <h4>Tracking</h4>
+    <ul>
+      <li>Local rank tracker (BrightLocal, LocalFalcon) for top 10 keywords × top 5 cities</li>
+      <li>GBP Insights weekly: searches, calls, direction requests</li>
+      <li>UTM-tagged GBP website link to measure attributable traffic</li>
+    </ul>
+    <h4>Quarterly Audit</h4>
+    <ul>
+      <li>Citation accuracy check (any NAP drift?)</li>
+      <li>Photo refresh (Google rewards new uploads)</li>
+      <li>Q&amp;A bank refresh — add 2–3 new questions</li>
+      <li>Review response coverage 100%</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- E-E-A-T -->
+<div id="eeat" class="section-label" style="margin-top:60px;">E-E-A-T &amp; Author Signals</div>
+<div class="ci-intro">Legal content is <strong style="color:var(--ink);">"Your Money or Your Life"</strong> (YMYL) — Google ranks it almost entirely by demonstrated Experience, Expertise, Authoritativeness, and Trust. Every page surfaces Delina's credentials. Without strong E-E-A-T patterns, even perfectly-optimized content underperforms.</div>
+<div class="spec-grid">
+
+  <div class="spec-card" style="--accent:#b8706a">
+    <div class="spec-type">Author Bio Block</div>
+    <h4>Required Elements (every page)</h4>
+    <ul>
+      <li>Professional headshot (consistent across all pages)</li>
+      <li>"Delina Yasmeh, Esq." — full credential</li>
+      <li>Bar #: <code>CA SBN [number]</code></li>
+      <li>One-line title: "California Business &amp; Tax Attorney"</li>
+      <li>Years practicing: "Practicing since [year]"</li>
+      <li>Areas of practice: 3–4 tags matching the page's land</li>
+      <li>"Read full bio →" link to <code>/about-delina/</code></li>
+    </ul>
+    <h4>Placement Pattern</h4>
+    <ul>
+      <li><strong>Landing pages:</strong> Sticky author bar in footer; expanded bio block above the final CTA</li>
+      <li><strong>Blog posts:</strong> Compact byline at top; expanded bio at bottom; sidebar widget on desktop</li>
+      <li><strong>Homepage:</strong> Full "Meet Delina" section with credentials timeline</li>
+    </ul>
+    <h4>Visual Trust Signals</h4>
+    <ul>
+      <li>Logo lozenges: CA State Bar · ABA · [other associations]</li>
+      <li>Award badges if applicable (Super Lawyers, Best Lawyers, etc.)</li>
+      <li>Press logos if Delina has been quoted: "As featured in…"</li>
+    </ul>
+  </div>
+
+  <div class="spec-card" style="--accent:#4a6898">
+    <div class="spec-type">Person + Attorney Schema</div>
+    <h4>Required JSON-LD (site-wide, in <code>layout.tsx</code>)</h4>
+    <ul>
+      <li><code>@type</code>: <code>Attorney</code> + <code>Person</code> (multi-type)</li>
+      <li><code>name</code>: "Delina Yasmeh"</li>
+      <li><code>honorificSuffix</code>: "Esq."</li>
+      <li><code>jobTitle</code>: "California Business &amp; Tax Attorney"</li>
+      <li><code>worksFor</code>: organization ref (LegalService)</li>
+      <li><code>alumniOf</code>: law school + undergrad (with hasCredential)</li>
+      <li><code>hasCredential</code>: JD, LLM (if applicable), CPA (if applicable) — each as CredentialDocument with credentialCategory</li>
+      <li><code>memberOf</code>: CA State Bar (Organization with identifier = SBN)</li>
+      <li><code>sameAs</code>: LinkedIn URL · Avvo profile · Justia profile · State Bar profile</li>
+    </ul>
+    <h4>Author Page Schema (<code>/about-delina/</code>)</h4>
+    <ul>
+      <li>Same Person/Attorney block as canonical author identity</li>
+      <li>Embed <code>WebPage</code> with <code>about</code> referencing the Person</li>
+      <li>If publications exist: <code>creativeWork</code> array with each piece</li>
+    </ul>
+    <h4>Per-Page Author Reference</h4>
+    <ul>
+      <li>Every page's <code>Article</code> or <code>LegalService</code> schema references the canonical Delina Person via <code>@id</code></li>
+      <li>Single source of truth — update Delina's credentials in one place, propagates everywhere</li>
+    </ul>
+  </div>
+
+  <div class="spec-card" style="--accent:#7a60a0">
+    <div class="spec-type">Author Hub Page · /about-delina/</div>
+    <h4>Required Sections</h4>
+    <ul>
+      <li><strong>Hero:</strong> Headshot + name + credentials + 2-sentence elevator pitch</li>
+      <li><strong>Credentials timeline:</strong> Education → admission → years of practice — visual timeline</li>
+      <li><strong>Practice areas:</strong> All 15 lands with brief descriptions linking back to each landing page</li>
+      <li><strong>Notable cases / matters:</strong> Anonymized representative work (M&amp;A volume, audit defenses, complex prenups)</li>
+      <li><strong>Publications &amp; speaking:</strong> Articles authored, conferences spoken at, podcast appearances</li>
+      <li><strong>Media mentions:</strong> Quotes in WSJ / Forbes / Bloomberg / podcasts</li>
+      <li><strong>Affiliations &amp; awards:</strong> Bar memberships, Super Lawyers, ACTEC fellow, etc.</li>
+      <li><strong>Press kit:</strong> High-res headshot + bio + topic list — for journalists</li>
+      <li><strong>Contact:</strong> Booking link + media inquiries email</li>
+    </ul>
+    <h4>SEO Treatment</h4>
+    <ul>
+      <li>Target keyword: "Delina Yasmeh attorney" + "California business attorney"</li>
+      <li>Internal link from every page footer ("About Delina")</li>
+      <li>Every blog post byline links here</li>
+      <li>External profiles (Avvo, Justia, LinkedIn) all link back here</li>
+    </ul>
+  </div>
+
+  <div class="spec-card" style="--accent:#884870">
+    <div class="spec-type">Content E-E-A-T Patterns</div>
+    <h4>Per-Article Trust Signals</h4>
+    <ul>
+      <li>"Written by Delina Yasmeh, Esq." on every page (linked to bio)</li>
+      <li>"Last reviewed [Month YYYY]" — refreshed at least annually</li>
+      <li>"Reviewed by" line if a guest contributor or paralegal authors (Delina reviews)</li>
+      <li>References section linking to primary sources (CA Corp Code, IRS pubs, USPTO TMEP, statutes)</li>
+    </ul>
+    <h4>Experience Signals</h4>
+    <ul>
+      <li>"In my practice, I see…" first-person framing where appropriate</li>
+      <li>Case-anonymized real-world examples (not generic hypotheticals)</li>
+      <li>"What clients miss…" sections drawing from intake patterns</li>
+      <li>Disclosure of when content is informational vs legal advice</li>
+    </ul>
+    <h4>Authoritativeness Boosters</h4>
+    <ul>
+      <li>Cite specific statutes: "Cal. Corp. Code § 17707" not "California law"</li>
+      <li>Cite IRS forms by number: "Form 2553" not "the S-corp election form"</li>
+      <li>Link out generously to primary government sources — increases trust signals</li>
+      <li>Quote court cases where relevant: <em>Edwards v. Arthur Andersen</em> for non-compete content</li>
+    </ul>
+    <h4>Disclosures</h4>
+    <ul>
+      <li>Every page: "This is informational, not legal advice" footer disclaimer</li>
+      <li>"No attorney-client relationship until intake agreement signed"</li>
+      <li>State-bar-required disclosures (advertising material rules)</li>
+    </ul>
+  </div>
+
+</div>
+
 <!-- FOOTER -->
 <div class="foot">
-  <div class="foot-note">Delina.ESQ · 200 Keywords · 15 Content Lands · May 2026</div>
+  <div class="foot-note">Delina.ESQ · 235 Keywords · 15 Content Lands · May 2026</div>
   <div class="foot-note">All SV, KD, CPC, DR data sourced from Ahrefs · desq-seo-bible 2.0.xlsx</div>
 </div>
 
