@@ -12,7 +12,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Tax Attorney for Small Business Owners in California | Delina Yasmeh, Esq.',
   description: 'California tax attorney for small business owners, creators, and founders. Tax strategy, S-Corp elections, and entity structuring to reduce what you owe legally. Paid intake.',
-  alternates: { canonical: 'https://delina.esq/tax-attorney-small-business/' },
+  alternates: { canonical: 'https://delina.esq/tax-attorney-small-business' },
 }
 
 const schema = {

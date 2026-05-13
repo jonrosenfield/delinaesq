@@ -7,7 +7,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'About Delina Yasmeh, Esq. | California Attorney & Tax Strategist',
   description: 'Delina Yasmeh holds a JD, LL.M. in Taxation, and a degree in accounting. Former SingerLewak, Deloitte M&A, and PwC. Boutique practice for founders and entrepreneurs.',
-  alternates: { canonical: 'https://delina.esq/about/' },
+  alternates: { canonical: 'https://delina.esq/about' },
 }
 
 const schema = {

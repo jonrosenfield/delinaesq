@@ -12,7 +12,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Nonprofit Attorney & Nonprofit Lawyer in California | Delina Yasmeh, Esq.',
   description: 'California nonprofit attorney for 501(c)(3) formation, governance, and compliance. Paid intake. Built for founders who want their nonprofit to last.',
-  alternates: { canonical: 'https://delina.esq/nonprofit-attorney/' },
+  alternates: { canonical: 'https://delina.esq/nonprofit-attorney' },
 }
 
 const schema = {

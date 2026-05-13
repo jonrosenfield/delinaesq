@@ -9,7 +9,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Law Library | Delina Yasmeh, Esq.',
   description: 'Legal strategy articles for California entrepreneurs, creators, and founders.',
-  alternates: { canonical: 'https://delina.esq/business-law-library/' },
+  alternates: { canonical: 'https://delina.esq/business-law-library' },
 }
 
 export default function LawLibrary() {

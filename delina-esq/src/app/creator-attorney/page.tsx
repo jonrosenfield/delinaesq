@@ -12,7 +12,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Attorney for Content Creators, Influencers & Digital Entrepreneurs | Delina Yasmeh, Esq.',
   description: 'California attorney for content creators and influencers. Brand deals, LLC formation, tax write-offs, and IP protection for creators who make real money. Paid intake.',
-  alternates: { canonical: 'https://delina.esq/creator-attorney/' },
+  alternates: { canonical: 'https://delina.esq/creator-attorney' },
 }
 
 const schema = {

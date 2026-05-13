@@ -12,7 +12,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Business Structure Attorney in California | Delina Yasmeh, Esq.',
   description: 'California business structure attorney for new business owners. LLC vs S-Corp vs sole proprietorship, modeled for your income and risk. Paid intake only.',
-  alternates: { canonical: 'https://delina.esq/business-structure-attorney/' },
+  alternates: { canonical: 'https://delina.esq/business-structure-attorney' },
 }
 
 const schema = {

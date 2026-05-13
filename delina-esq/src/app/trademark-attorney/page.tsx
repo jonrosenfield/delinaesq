@@ -12,7 +12,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Trademark Attorney & Brand Protection Lawyer in California | Delina Yasmeh, Esq.',
   description: 'California trademark attorney for entrepreneurs, creators, and brands. Federal trademark registration, brand protection strategy, and IP counsel. Paid intake.',
-  alternates: { canonical: 'https://delina.esq/trademark-attorney/' },
+  alternates: { canonical: 'https://delina.esq/trademark-attorney' },
 }
 
 const schema = {

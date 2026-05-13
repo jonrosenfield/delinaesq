@@ -6,7 +6,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Privacy Policy | Delina Yasmeh, Esq.',
   description: 'Privacy policy governing how Delina Yasmeh, Esq. collects, uses, and protects your information.',
-  alternates: { canonical: 'https://delina.esq/privacy/' },
+  alternates: { canonical: 'https://delina.esq/privacy' },
   robots: 'noindex',
 }
 

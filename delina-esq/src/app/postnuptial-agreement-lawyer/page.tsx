@@ -12,7 +12,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Postnuptial Agreement Lawyer in California | Delina Yasmeh, Esq.',
   description: 'Postnuptial agreement lawyer in California for married entrepreneurs and high earners. Protect business equity and assets built during marriage. Paid intake.',
-  alternates: { canonical: 'https://delina.esq/postnuptial-agreement-lawyer/' },
+  alternates: { canonical: 'https://delina.esq/postnuptial-agreement-lawyer' },
 }
 
 const schema = {

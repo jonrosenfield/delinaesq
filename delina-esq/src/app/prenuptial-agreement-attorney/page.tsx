@@ -12,7 +12,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Prenuptial Agreement Attorney in California | Delina Yasmeh, Esq.',
   description: 'California prenuptial agreement attorney for entrepreneurs and high earners. Strategic agreements built to hold under Family Code § 1615. Paid intake only.',
-  alternates: { canonical: 'https://delina.esq/prenuptial-agreement-attorney/' },
+  alternates: { canonical: 'https://delina.esq/prenuptial-agreement-attorney' },
 }
 
 const schema = {

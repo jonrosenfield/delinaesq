@@ -66,7 +66,7 @@ export async function generateMetadata({
 }: {
   params: { slug: string }
 }): Promise<Metadata> {
-  const url = `https://delina.esq/business-law-library/${params.slug}/`
+  const url = `https://delina.esq/business-law-library/${params.slug}`
   const mdxPost = getMdxPost(params.slug)
   if (mdxPost) {
     return {
@@ -151,15 +151,15 @@ export default async function BlogPost({ params }: { params: { slug: string } })
       publisher: { '@type': 'Organization', name: 'Delina Yasmeh, Esq.', url: 'https://delina.esq' },
       datePublished: mdxPost.date,
       description: mdxPost.description,
-      mainEntityOfPage: `https://delina.esq/business-law-library/${params.slug}/`,
+      mainEntityOfPage: `https://delina.esq/business-law-library/${params.slug}`,
     }
     const breadcrumbSchema = {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://delina.esq/' },
-        { '@type': 'ListItem', position: 2, name: 'Law Library', item: 'https://delina.esq/business-law-library/' },
-        { '@type': 'ListItem', position: 3, name: mdxPost.title, item: `https://delina.esq/business-law-library/${params.slug}/` },
+        { '@type': 'ListItem', position: 2, name: 'Law Library', item: 'https://delina.esq/business-law-library' },
+        { '@type': 'ListItem', position: 3, name: mdxPost.title, item: `https://delina.esq/business-law-library/${params.slug}` },
       ],
     }
     return (
@@ -315,15 +315,15 @@ export default async function BlogPost({ params }: { params: { slug: string } })
     publisher: { '@type': 'Organization', name: 'Delina Yasmeh, Esq.', url: 'https://delina.esq' },
     datePublished: post.date,
     description: post.description,
-    mainEntityOfPage: `https://delina.esq/business-law-library/${params.slug}/`,
+    mainEntityOfPage: `https://delina.esq/business-law-library/${params.slug}`,
   }
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://delina.esq/' },
-      { '@type': 'ListItem', position: 2, name: 'Law Library', item: 'https://delina.esq/business-law-library/' },
-      { '@type': 'ListItem', position: 3, name: post.title, item: `https://delina.esq/business-law-library/${params.slug}/` },
+      { '@type': 'ListItem', position: 2, name: 'Law Library', item: 'https://delina.esq/business-law-library' },
+      { '@type': 'ListItem', position: 3, name: post.title, item: `https://delina.esq/business-law-library/${params.slug}` },
     ],
   }
 

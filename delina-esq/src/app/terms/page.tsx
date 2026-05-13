@@ -6,7 +6,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Terms & Conditions | Delina Yasmeh, Esq.',
   description: 'Terms and conditions governing all services, disclosures, and engagements with Delina Yasmeh, Esq.',
-  alternates: { canonical: 'https://delina.esq/terms/' },
+  alternates: { canonical: 'https://delina.esq/terms' },
   robots: 'noindex',
 }
 

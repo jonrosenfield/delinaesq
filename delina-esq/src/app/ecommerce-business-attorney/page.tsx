@@ -12,7 +12,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'E-Commerce Business Attorney in California | Delina Yasmeh, Esq.',
   description: 'California e-commerce business attorney for online store owners. LLC formation, sales tax compliance, supplier contracts, and ecommerce tax strategy. Paid intake.',
-  alternates: { canonical: 'https://delina.esq/ecommerce-business-attorney/' },
+  alternates: { canonical: 'https://delina.esq/ecommerce-business-attorney' },
 }
 
 const schema = {

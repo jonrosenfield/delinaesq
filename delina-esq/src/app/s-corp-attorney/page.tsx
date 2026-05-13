@@ -12,7 +12,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'S-Corp Attorney in California, Election, Structuring & Tax Strategy | Delina Yasmeh, Esq.',
   description: 'California S-Corp attorney for election timing, salary structuring, and tax strategy. Understand the 1.5% California franchise tax before you elect. Paid intake.',
-  alternates: { canonical: 'https://delina.esq/s-corp-attorney/' },
+  alternates: { canonical: 'https://delina.esq/s-corp-attorney' },
 }
 
 const schema = {

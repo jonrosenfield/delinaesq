@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: 'Startup Lawyer & Business Tax Lawyer | Delina Yasmeh, Esq.',
   description:
     "Startup lawyer and business tax lawyer for entrepreneurs who've outgrown generic legal advice. Entity structuring, tax strategy, and contracts. Paid intake.",
-  alternates: { canonical: 'https://delina.esq/' },
+  alternates: { canonical: 'https://delina.esq' },
   keywords: [
     'startup lawyer',
     'business tax lawyer',

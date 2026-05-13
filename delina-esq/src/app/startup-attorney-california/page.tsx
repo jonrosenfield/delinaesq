@@ -12,7 +12,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Startup Lawyer in California, Legal Strategy for Founders | Delina Yasmeh, Esq.',
   description: 'California startup lawyer for early-stage founders. Entity formation, co-founder agreements, IP assignment, and startup legal documents. Paid intake only.',
-  alternates: { canonical: 'https://delina.esq/startup-attorney-california/' },
+  alternates: { canonical: 'https://delina.esq/startup-attorney-california' },
 }
 
 const schema = {

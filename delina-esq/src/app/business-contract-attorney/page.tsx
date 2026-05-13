@@ -12,7 +12,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Business Contract Attorney in California | Delina Yasmeh, Esq.',
   description: 'California business contract attorney for entrepreneurs, creators, and founders. Custom agreements drafted to hold, not templates. Paid intake only.',
-  alternates: { canonical: 'https://delina.esq/business-contract-attorney/' },
+  alternates: { canonical: 'https://delina.esq/business-contract-attorney' },
 }
 
 const schema = {

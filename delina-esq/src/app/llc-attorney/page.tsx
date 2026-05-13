@@ -12,7 +12,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'LLC Attorney in California, Formation, Structuring & Strategy | Delina Yasmeh, Esq.',
   description: 'California LLC attorney for formation, operating agreements, and entity strategy. Not just paperwork, the right structure for how you make money. Paid intake.',
-  alternates: { canonical: 'https://delina.esq/llc-attorney/' },
+  alternates: { canonical: 'https://delina.esq/llc-attorney' },
 }
 
 const schema = {

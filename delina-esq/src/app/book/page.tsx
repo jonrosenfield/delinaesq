@@ -6,7 +6,7 @@ import { IntakeForm } from './IntakeForm'
 export const metadata: Metadata = {
   title: 'Contact Us | Delina Yasmeh, Esq.',
   description: 'Three ways to reach us: call 818-888-6060, email info@delina.esq, or share your situation through the form below. Every situation is different.',
-  alternates: { canonical: 'https://delina.esq/book/' },
+  alternates: { canonical: 'https://delina.esq/book' },
 }
 
 const EXPECT = [
