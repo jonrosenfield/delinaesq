@@ -50,7 +50,29 @@ export function RelatedArticles({ category, tags = [], currentSlug }: RelatedArt
         )
       : []
 
-  const results = [...byCategory, ...byTags].slice(0, 4)
+  // SEO: rotate the category window by a stable per-page offset so every
+  // article surfaces a *different* slice of its category. Without this,
+  // .slice(0, N) links every article to the same first N posts, starving
+  // the long tail of inbound internal links (it gets indexed via the hub
+  // but never accumulates enough link equity to rank). A deterministic
+  // hash of currentSlug spreads the link graph evenly across the category.
+  const RELATED_LIMIT = 7 // 1 featured + 6 grid cards (two clean rows of 3)
+  let hash = 7
+  if (currentSlug) {
+    for (let i = 0; i < currentSlug.length; i++) {
+      hash = (hash * 31 + currentSlug.charCodeAt(i)) | 0
+    }
+  }
+  const start =
+    currentSlug && byCategory.length > 0
+      ? Math.abs(hash) % byCategory.length
+      : 0
+  const rotatedCategory = [
+    ...byCategory.slice(start),
+    ...byCategory.slice(0, start),
+  ]
+
+  const results = [...rotatedCategory, ...byTags].slice(0, RELATED_LIMIT)
 
   if (results.length === 0) return null
 

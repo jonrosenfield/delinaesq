@@ -417,7 +417,11 @@ Every Land has a landing page. The template must be reusable.
 export const metadata: Metadata = {
   title: '[Primary Keyword] | Delina Yasmeh, Esq.',
   description: '[Under 155 chars, action signal, primary keyword]',
-  alternates: { canonical: 'https://delina.esq/[slug]/' },
+  // NO trailing slash — the site standardized on slash-less canonical
+  // URLs (see commit "remove trailing slashes from all site URLs").
+  // Netlify 301s the trailing-slash variant to this form; the canonical
+  // MUST match the served URL or you reintroduce duplicate-canonical issues.
+  alternates: { canonical: 'https://delina.esq/[slug]' },
   openGraph: { ... },
 }
 ```
@@ -433,7 +437,7 @@ export const metadata: Metadata = {
     "@type": "State",
     "name": "California"
   },
-  "url": "https://delina.esq/[slug]/"
+  "url": "https://delina.esq/[slug]"
 }
 ```
 

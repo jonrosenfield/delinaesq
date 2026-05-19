@@ -61,7 +61,11 @@
       "Bash(dig +short NS delina.esq)",
       "Bash(dig +short delina.esq)",
       "Bash(curl -sI https://delina.esq/sitemap.xml)",
-      "Bash(curl -s https://delina.esq/sitemap.xml)"
+      "Bash(curl -s https://delina.esq/sitemap.xml)",
+      "Bash(ls -la netlify.toml vercel.json _redirects)",
+      "Bash(find . -maxdepth 2 \\\\\\( -name \"netlify.toml\" -o -name \"vercel.json\" -o -name \"_redirects\" -o -name \"_headers\" \\\\\\) -not -path \"./node_modules/*\")",
+      "Bash(cat src/app/robots.ts public/robots.txt)",
+      "Bash(sed -n '60,105p' src/app/business-law-library/[slug]/page.tsx)"
     ]
   }
 }
